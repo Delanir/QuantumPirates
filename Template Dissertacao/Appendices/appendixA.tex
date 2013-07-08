@@ -1,0 +1,81 @@
+\fancychapter{Matlab Simulation: Discrete Quantum Walk on a Line}
+\label{ap:a}
+
+
+\begin{lstlisting}
+
+
+%-- number of steps in the simulation 
+steps= 30;
+
+%-- hadamard matrix
+H = [1/sqrt(2) 1/sqrt(2); 1/sqrt(2) -1/sqrt(2) ];
+%-- symetric matrix
+M = [1/sqrt(2) 1i/sqrt(2); 1i/sqrt(2) 1/sqrt(2) ];
+%-- coin flip unitary operator
+C = H;
+C=M;
+
+%-- coin flip matrix
+CM= zeros((steps*2+1),2);
+%-- shift matrix
+SM= zeros(steps*2+1,2);
+
+%-- middle index
+i0= steps+1;
+
+%-- initialize flip probability amplitudes (coin has 1/2 chance of going +1 or -1)
+CM(i0,1)=1/sqrt(2);
+CM(i0,2)=1/sqrt(2);
+
+for i=1:steps
+   %-- clean SM
+   SM= zeros(steps*2+1,2);
+   
+   for j=1:(steps*2+1)
+       if CM(j, 1)~=0
+           SM(j-1,1)=CM(j, 1);
+       end
+       if CM(j, 2)~=0
+           SM(j+1,2)=CM(j, 2);
+       end
+   end
+   SM;
+   %disp('------');
+   %-- clean CM
+   CM= zeros(steps*2+1,2);
+   for j=1:(steps*2+1)
+       if SM(j, 1)~=0
+           CM(j, 1)= CM(j, 1)+C(1,1)*SM(j, 1);
+           CM(j, 2)= CM(j, 2)+C(1,2)*SM(j, 1);
+       end
+       if SM(j, 2)~=0
+           CM(j, 1)= CM(j, 1)+C(2,1)*SM(j, 2);
+           CM(j, 2)= CM(j, 2)+C(2,2)*SM(j, 2);
+       end
+   end
+   CM;
+   
+   %Display
+   
+   figure
+   
+   probability=zeros(steps*2+1);
+
+   for j=1:steps*2+1
+      probability(j)=abs(SM(j,1)).^2+ abs(SM(j,2)).^2;
+   end
+   axisP = -steps : steps;
+   plot(axisP,probability)
+   title(strcat('Step: ' ,num2str(i)))
+   axis([-steps-1 , steps+1, 0, 1]);
+   grid on
+   ylabel(strcat('Probability(State|Step=',num2str(i), ')'));
+   xlabel('States');
+   
+   %Display
+end
+
+
+
+\end{lstlisting}

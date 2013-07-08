@@ -1,0 +1,153 @@
+#LyX 2.0 created this file. For more info see http://www.lyx.org/
+\lyxformat 413
+\begin_document
+\begin_header
+\textclass article
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_amsmath 1
+\use_esint 1
+\use_mhchem 1
+\use_mathdots 1
+\cite_engine basic
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+C=H=\frac{1}{\sqrt{2}}\left[\begin{array}{cc}
+1 & 1\\
+1 & -1
+\end{array}\right]
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+%-- number of steps in the simulation steps= 30;
+\end_layout
+
+\begin_layout Plain Layout
+%-- hadamard matrix H = [1/sqrt(2) 1/sqrt(2); 1/sqrt(2) -1/sqrt(2) ]; %--
+ symetric matrix M = [1/sqrt(2) 1i/sqrt(2); 1i/sqrt(2) 1/sqrt(2) ]; %--
+ coin flip unitary operator C = H; C=M;
+\end_layout
+
+\begin_layout Plain Layout
+%-- coin flip matrix CM= zeros((steps*2+1),2); %-- shift matrix SM= zeros(steps*
+2+1,2);
+\end_layout
+
+\begin_layout Plain Layout
+%-- middle index i0= steps+1;
+\end_layout
+
+\begin_layout Plain Layout
+%-- initialize flip probability amplitudes (coin has 1/2 chance of going
+ +1 or -1) CM(i0,1)=1/sqrt(2); CM(i0,2)=1/sqrt(2);
+\end_layout
+
+\begin_layout Plain Layout
+for i=1:steps %-- clean SM SM= zeros(steps*2+1,2); for j=1:(steps*2+1) if
+ CM(j, 1)~=0 SM(j-1,1)=CM(j, 1); end if CM(j, 2)~=0 SM(j+1,2)=CM(j, 2);
+ end end SM; %disp('------'); %-- clean CM CM= zeros(steps*2+1,2); for j=1:(step
+s*2+1) if SM(j, 1)~=0 CM(j, 1)= CM(j, 1)+C(1,1)*SM(j, 1); CM(j, 2)= CM(j,
+ 2)+C(1,2)*SM(j, 1); end if SM(j, 2)~=0 CM(j, 1)= CM(j, 1)+C(2,1)*SM(j,
+ 2); CM(j, 2)= CM(j, 2)+C(2,2)*SM(j, 2); end end CM; %Display figure probability
+=zeros(steps*2+1);
+\end_layout
+
+\begin_layout Plain Layout
+for j=1:steps*2+1 probability(j)=abs(SM(j,1)).^2+ abs(SM(j,2)).^2; end axisP
+ = -steps : steps; plot(axisP,probability) title(strcat('Step: ' ,num2str(i)))
+ axis([-steps-1 , steps+1, 0, 1]); grid on ylabel(strcat('Probability(State|Step
+=',num2str(i), ')')); xlabel('States'); %Display end
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Discrete Quantum Walk on a Line
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{equation}
+|n
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document
