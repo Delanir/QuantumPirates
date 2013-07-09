@@ -30,6 +30,18 @@
 % chooses T1-fonts and allows correct automatic hyphenation.
 %\usepackage[T1]{fontenc}
 \usepackage[latin1]{inputenc}
+%\usepackage[utf8]{inPUTenc}									% UTF 8, Caracteres ocidentais
+
+% PACKAGE eurosym:
+% -----------------
+% allows the use of the european currency sign
+\usepackage{eurosym}
+
+% PACKAGE lettrine:
+% -----------------
+% allows the use of drop cap lettering
+\usepackage{type1cm}
+\usepackage{lettrine}
 
 % Package ulem.
 \usepackage{ulem} % Allows the use of other text emphatizer commands
@@ -58,8 +70,8 @@
 
 % PACKAGE multirow, colortbl, longtable:
 % ---------------------------------------
-% These packages are most usefull for advanced tables. The first allows to join rows 
-% throuhg the command \multirow which works similarly with the command \multicolumn
+% These packages are most useful for advanced tables. The first allows to join rows 
+% through the command \multirow which works similarly with the command \multicolumn
 % The second package allows to color the table (both foreground and background)
 % The third package is only required when tables extend beyond the length of one page;
 % with compatibilities with the tabular environment. The last allow the definitions of landscape pages, allowing the use of a different orientation for wider graphics or tables. See package documentation to see the implementation.
@@ -101,10 +113,10 @@
 % The two packages are not compatible, and you should use one of the two. Notice however that the
 % IEEE BiBTeX stylesheet is imcompatible with the natbib package. If using the IEEE format, use the 
 % cite package instead
-\usepackage[square,numbers,sort&compress]{natbib}
-%\usepackage{cite}
+%\usepackage[square,numbers,sort&compress]{natbib}
+\usepackage{cite}
 
-% PACKAGE acronyum
+% PACKAGE acronym
 % -----------------
 % This package is most useful for acronyms. The package guarantees that all acronyms definitions are 
 % given at the first usage. IMPORTANT: do not use acronyms in titles/captions; otherwise the definition 
@@ -113,7 +125,7 @@
 \usepackage[titletoc,title,header]{appendix}
 \usepackage[noauto]{chappg}
 
-% PACKAGE extra_functions VER COMO DEVE SER
+% PACKAGE extra_functions
 % -----------------
 % My Personal package: defines the following commands:
 % \fancychapter{chaptername) -> Prints a fancier chapter (you can also use the fancychapter package for this)
@@ -151,15 +163,3 @@
 \newcommand{\tableref}[1]{Table (\ref{#1})}
 
 \newcommand{\textreg}{$\textsuperscript{\textregistered}$}
-
-
-
-% load package with ``framed'' and ``numbered'' option.
-\usepackage[framed,numbered,autolinebreaks,useliterate]{mcode}
-
-% something NOT relevant to the usage of the package.
-\setlength{\parindent}{0pt}
-\setlength{\parskip}{18pt}
-\title{\texttt{mcode.sty} Demo}
-\author{Florian Knorn, \texttt{florian@knorn.org}}
-% //////////////////////////////////////////////////
