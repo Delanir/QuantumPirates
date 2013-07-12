@@ -1,0 +1,79 @@
+\section{Quantum Models}
+\label{sec:quantum_models}
+
+The rationale behind building a quantum version of a Game Theory and/or Statistics problem lays in bringing phenomena like quantum superposition, and entanglement into known frameworks allowing different results, that seemingly perform at least as good as their classical versions.
+
+SAUCES
+
+The effort put in converting known classical problems also enables the familiarization with the potential differences these models bring.
+
+\subsection{Monty Hall Problem}
+\label{subsec:monty_hall}
+
+%%Proffed
+The Monty Hall problem became popularized in 1990 in a column, in the magazine Parade\cite{Savant1990}. It is loosely based on a television game show hosted by Monty Hall, but it was first attributed to a statistician, named Selvin. The problem is posed as it follows:
+\begin{quotation}
+Suppose you're on a game show, and you're given the choice of three doors: Behind one door is a car; behind the others, goats. You pick a door, say No. 1, and the host, who knows what's behind the doors, opens another door, say No. 3, which has a goat. He then says to you, "Do you want to pick door No. 2?" Is it to your advantage to switch your choice?
+\end{quotation}
+
+Most people, when faced with this problem, will be indifferent about whether to switch or to stay with the initially picked door.
+ 
+It is also verified that they will tend to stick with their first choice. According to Granberg and Brow\cite{Granberg1995}, only 13\% of 228 subjects decided to switch their initial choice. However, by using probability theory, one can arrive at the conclusion that, in fact, it is advantageous to switch given the previous formulation.
+ 
+The action of the Host implies a belief update on the probabilities of the variables in the system. This poses a violation of rational decision making; subjects do not seem to follow the best strategy which would maximize their chances of winning the prize. 
+
+To understand this exercise, one can look at the decision tree in Figure \ref{fig:monty_hall_tree}. We assumed indifferently that the player chose the door No. 1. The situation is symmetric whichever door she chooses. 
+
+%%Proffed 
+
+Assuming we call $C_{1}$ to the variable that describes whether or not the car in behind door No. 1. The variables $C_{2}$ and $C_{3}$ will respectively describe the probability associated with the car being (or not), behind doors 2 and 3 ($P(C_{2})=1$ or $P(C_{2})=0$, for example).
+
+\begin{figure}[h]
+\centering 
+\includegraphics[scale=0.35]{Figures/monty_hall_decision_tree.png}
+\caption{Decision tree modelling the Monty Hall problem. }
+\label{fig:monty_hall_tree}
+\end{figure}
+
+After the player has had her choice, the host will perform an operation on the remaining two doors. The host of the show has complete information of the game, unlike the player.
+
+\begin{equation}
+\label{eq:monty_h1}
+P(C_{1})=P(C_{1}|\text{\textlnot}C_{2})+P(C_{1}|\text{\textlnot}C_{3})
+\end{equation}
+
+
+\begin{equation}
+\label{eq:monty_h2}
+P(C_{1})=(\frac{1}{3}\text{\texttimes}\frac{1}{2})+(\frac{1}{3}\text{\texttimes}\frac{1}{2})=1
+\end{equation}
+
+
+\begin{equation}
+\label{eq:monty_h3}
+P(\text{\textlnot}C_{1})=P(C_{2}|\text{\textlnot}C_{3})+P(C_{3}|\text{\textlnot}C_{2})=(\frac{1}{3}\text{\texttimes}1)+(\frac{1}{3}\text{\texttimes}1)=2/3
+\end{equation}
+
+The probability of switching and getting the car is twice \ref{eq:monty_h3} as likely of staying with the first choice and getting the prize\ref{eq:monty_h2}. 
+
+
+\subsubsection{Quantum Model}
+
+Various Models have been proposed to describe a quantum version of the Monty Hall problem.
+
+SAUCES
+
+
+
+
+
+
+The Monty Hall problem has an interesting property; the host reveals information on the system. Despite being a counter-intuitive problem, a quantum approach to this problem allows a in-depth comparison between the classical measurement and the quantum measurement. The classic Monty Hall problem is modelled using conditional probability and Baye's rule. In a quantum game the result is determined measuring the outcome of the final state, rather than the intermediate of players \cite{Fra2011}.
+
+
+
+
+
+
+
+
