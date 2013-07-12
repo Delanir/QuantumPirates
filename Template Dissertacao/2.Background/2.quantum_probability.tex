@@ -153,9 +153,9 @@ P_{v}(\lambda_{i}) =\langle v\vert\psi_{i}\rangle\langle\psi_{i}\vert v\rangle=\
 So the determination of the probability of an event ($P(A)$ ),
 is made by projecting the quantum state on the eigenvectors corresponding to the operator $A$ of the
 Hilbert Space and measuring the squared length of the projection.\cite{Trueblood}
-
-$P(A)=\left(Proj_{A}\vert z\rangle\right)^{2}$ 
-
+\begin{equation}
+P(A)=\left(Proj_{A}\vert z\rangle\right)^{2}
+\end{equation}
 Applying an operator can be seen as applying a rotation matrix on the system ($\vert v \rangle$) and measuring the projection of $\vert v \rangle$ onto the imaginary axis and the real axis (Figure \ref{fig:circle}), or considering that we have a determined state vector and rotating the orthogonal basis of the Hilbert Space according to an operator and then to do a projection on the new chosen orthogonal basis.
 
 According to Leiffer\cite{Leifer2008} ``quantum theory can be thought of as a non-commutative, operator-valued, generalization of classical probability theory". 
@@ -181,13 +181,15 @@ tr( \rho ) = 1
 \label{subsubsec:ludersrule}
 L\"{u}ders Rule defines the state of a quantum system after a partial measurement. We can establish a parallel between this selective measurement and conditional probability\ref{subsubsec:conditionalprobability}\cite{Busch2009}.
 
-To measure the state of a system we first use a projection operator on the quantum state. This is also the first stage of applying L"\{u}ders Rule\ref{eq:luders1}.
+To measure the state of a system we first use a projection operator on the quantum state. This is also the first stage of applying L\"{u}ders Rule\ref{eq:luders1}.
+
 \begin{equation}
 \label{eq:luders1}
 A=Proj_{A}\vert s\rangle
 \end{equation}
 
 After the measurement the resulting state is normalized\ref{eq:luders2}.
+
 \begin{equation}
 \label{eq:luders2}
 \vert s_{A}\rangle=\frac{A}{\vert A\vert}
