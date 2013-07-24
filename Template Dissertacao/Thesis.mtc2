@@ -1,10 +1,13 @@
-{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {2.1}Bayesian Probability}{\reset@font\mtcSfont xxv}{section.2.1}}
-{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode \numberline {2.1.0.A}Kolmogorov axioms}{\reset@font\mtcSSSfont xxv}{subsubsection.2.1.0.1}}
-{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode \numberline {2.1.0.B}Conditional Probability}{\reset@font\mtcSSSfont xxv}{subsubsection.2.1.0.2}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {2.1.1}Markov Chains}{\reset@font\mtcSSfont xxvi}{subsection.2.1.1}}
-{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {2.2}Von Neumann Probability}{\reset@font\mtcSfont xxvii}{section.2.2}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {2.2.1}Mathematical Foundations of Quantum Probability}{\reset@font\mtcSSfont xxviii}{subsection.2.2.1}}
-{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode \numberline {2.2.1.A}Born rule}{\reset@font\mtcSSSfont xxix}{subsubsection.2.2.1.1}}
-{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode \numberline {2.2.1.B}L\"{u}ders Rule}{\reset@font\mtcSSSfont xxxi}{subsubsection.2.2.1.2}}
-{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode \numberline {2.2.1.C}Example of the double-slit experiment with electrons}{\reset@font\mtcSSSfont xxxii}{subsubsection.2.2.1.3}}
-{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode \numberline {2.2.1.D}Example of the Polarization of Light}{\reset@font\mtcSSSfont xxxiii}{subsubsection.2.2.1.4}}
+{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {2.1}Bayesian Probability}{\reset@font\mtcSfont xxvii}{section.2.1}}
+{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode \numberline {2.1.0.A}Kolmogorov axioms}{\reset@font\mtcSSSfont xxvii}{subsubsection.2.1.0.1}}
+{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode \numberline {2.1.0.B}Conditional Probability}{\reset@font\mtcSSSfont xxvii}{subsubsection.2.1.0.2}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {2.1.1}Markov Chains}{\reset@font\mtcSSfont xxviii}{subsection.2.1.1}}
+{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {2.2}Von Neumann Probability}{\reset@font\mtcSfont xxix}{section.2.2}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {2.2.1}Mathematical Foundations of Quantum Probability}{\reset@font\mtcSSfont xxx}{subsection.2.2.1}}
+{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode \numberline {2.2.1.A}Born rule}{\reset@font\mtcSSSfont xxxi}{subsubsection.2.2.1.1}}
+{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode \numberline {2.2.1.B}L\"{u}ders Rule}{\reset@font\mtcSSSfont xxxiii}{subsubsection.2.2.1.2}}
+{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode \numberline {2.2.1.C}Example of the double-slit experiment with electrons}{\reset@font\mtcSSSfont xxxiv}{subsubsection.2.2.1.3}}
+{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode \numberline {2.2.1.D}Example of the Polarization of Light}{\reset@font\mtcSSSfont xxxv}{subsubsection.2.2.1.4}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {2.2.2}Quantum Computing}{\reset@font\mtcSSfont xxxvii}{subsection.2.2.2}}
+{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode \numberline {2.2.2.A}Compound Systems}{\reset@font\mtcSSSfont xxxvii}{subsubsection.2.2.2.1}}
+{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode \numberline {2.2.2.B}Entanglement}{\reset@font\mtcSSSfont xxxviii}{subsubsection.2.2.2.2}}
