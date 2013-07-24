@@ -7,6 +7,130 @@ The rationale behind building a quantum version of a Game Theory and/or Statisti
 
 The effort put in converting known classical problems also enables the familiarization with the potential differences these models bring.
 
+\subsection{Quantum Roulette}
+\label{subsec:quantum_roulette}
+
+In the arbitrary $N$-State quantum roulette, \cite{} presented a $N$-State roulette model using permutation matrices.
+To verify this model with two players we developed a Matlab simulation \ref{simulaMalab}, as proposed by the authors.
+
+The game in represented in a $N$-Dimensional Hilbert Space. There is a basis in the space that represents each of the equally probable entries as shown in \ref{eq:roulette_1}. In a sense this is a generalization of a quantum coin flip that is also used in \ref{subsec:quantum_walk_line}.
+\begin{equation}
+\label{eq:roulette_1}
+\vert1\rangle=\left[\begin{array}{c}
+1\\
+0\\
+0\\
+\vdots\\
+0
+\end{array}\right],\:\vert2\rangle=\left[\begin{array}{c}
+0\\
+1\\
+0\\
+\vdots\\
+0
+\end{array}\right],\:\ldots,\:\vert N\rangle=\left[\begin{array}{c}
+0\\
+0\\
+0\\
+\vdots\\
+1
+\end{array}\right]
+\end{equation}
+
+Each state transition is obtained using a permutation matrix denoted by $P^{i}$. There are $N!$ permutation matrices, so in the particular case of having a $3$-State roulette, there are $6$ possible transition choices. The classical strategy considered will rely on choosing an arbitrary probability distribution, that verifies\ref{eq:roulette_2}, and that maps the usage of the permutation matrices. This step will not affect the density matrix ($\rho$) of the roulette\ref{eq:roulette_3}.
+
+\begin{equation}
+\label{eq:roulette_3}
+\rho=\frac{1}{N!}\sum_{i=0}^{N!-1}P^{i}
+\end{equation}
+
+\begin{equation}
+\label{eq:roulette_2}
+\sum_{i=0}^{N!-1}p_{i}=1
+\end{equation}
+
+The density matrix is diagonalizable by a Discrete Fourier Transform because it is a kind of circulant matrix\cite{Davis1994}, as we can see in \ref{eq:roulette_4}. In \ref{eq:roulette_4} $\lambda_{k}$ are eigenvalues of $\rho$. $\lambda_{1}=1$
+while $\lambda_{2}=\lambda_{3}=\lambda_{k}=\lambda_{N-1}=0$. Each column
+$i$ of the Fourier matrix will represent a eigenvector $\vert\lambda_{i}\rangle$.
+If we construct the diagonilizing matrix by rotating the columns of
+the Fourier Matrix we can obtain the projection states as in \ref{eq:roulette_5}.
+
+\begin{equation}
+\label{eq:roulette_4}
+F^{\dagger}\rho F=\left[\begin{array}{c}
+\lambda_{1}\\
+0\\
+0\\
+\vdots\\
+0
+\end{array}\begin{array}{c}
+0\\
+\lambda_{2}\\
+0\\
+\vdots\\
+0
+\end{array}\begin{array}{c}
+\ldots\\
+\ldots\\
+\ldots\\
+\ddots\\
+\ldots
+\end{array}\begin{array}{c}
+0\\
+0\\
+0\\
+\vdots\\
+\lambda_{N-1}
+\end{array}\right]
+\end{equation}
+
+
+
+\begin{equation}
+\label{eq:roulette_5}
+\vert1\rangle\langle1\vert=\left[\begin{array}{c}
+1\\
+0\\
+0\\
+\vdots\\
+0
+\end{array}\begin{array}{c}
+0\\
+0\\
+0\\
+\vdots\\
+0
+\end{array}\begin{array}{c}
+\ldots\\
+\ldots\\
+\ldots\\
+\ddots\\
+\ldots
+\end{array}\begin{array}{c}
+0\\
+0\\
+0\\
+\vdots\\
+0
+\end{array}\right]=F^{\dagger}\rho F
+\end{equation}
+
+
+The quantum strategy advantage in this case is that the first player
+will not alter the density matrix\ref{eq:roulette_6}.
+
+\begin{equation}
+\label{eq:roulette_6}
+\rho=\sum_{i=0}^{N!-1}p_{i}P^{i}\rho P^{i\dagger},\;\sum_{i=0}^{N!-1}p_{i}=1
+\end{equation}
+
+This means that if the second player knows the initial state and the first player plays with a classical strategy, never modifing the density matrix, the first player will be able to manipulade the game under optimal conditions.
+
+
+
+We extended this work for three players in order to answer if adding a third player with access to a quantum strategy would affect the strategy of player two. We introduced a third character that will try to manipulate the game independently from the previous characters using also quantum strategies. 
+
+
 \subsection{Monty Hall Problem}
 \label{subsec:monty_hall}
 
