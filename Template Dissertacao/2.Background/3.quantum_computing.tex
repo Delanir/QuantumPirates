@@ -1,0 +1,141 @@
+
+
+
+\section{Quantum Computing}
+\label{sec:int_quantum_computing}
+
+
+%\subsection{Introduction}
+%\label{subsec:int_int_quantum_computing}
+
+
+
+The quantum equivalent of a bit (the basic unit of information in computers), is a qubit (or quantum bit). A qubit is a two-state quantum system that can be interpreted as normalized vectors in a two-dimensional Hilbert space. This Hilbert Space($H^2$), has two basis (also known as pure states). In quantum computing, the basis used are ${ \vert 0 \rangle , \vert 1 \rangle }$ or $\left[\begin{array}{c}
+1\\
+0
+\end{array}\right]$
+ and 
+$\left[\begin{array}{c}
+0\\
+1
+\end{array}\right]$ 
+
+The qubit can be described in terms of linear transformations of pure states as in \ref{qubit}, $\omega_{0}$ and $\omega_{1}$ are complex numbers called probability amplitudes. When a system is in a mixture of this pure states (as the general representation in \ref{qubit} might point), it is in a phenomenon known as superposition. Measuring forces the system to collapse and assume one of the pure states with a certain probability. 
+
+\begin{equation}
+\label{qubit}
+\vert \psi \rangle = \omega_{0}\vert0\rangle+\omega_{1}\vert1\rangle = \left[\begin{array}{c}
+\omega_{0}\\
+\omega_{1}
+\end{array}\right]
+\end{equation}
+
+In the example stated in the representation \ref{qubit} the probability of the system falling into the state $\vert 0 \rangle $ would be $\vert\omega_{0}\vert^{2}$ . The probability of the system falling into $\vert 1 \rangle $ would be $\vert\omega_{1}\vert^{2}$ . The second axiom of Kolmogorov (law of total probability) is verified (\ref{2nd_axyom}).
+
+\begin{equation}
+\label{2nd_axyom}
+\vert\omega_{0}\vert^{2}+\vert\omega_{1}\vert^{2}=1
+\end{equation}
+
+%So considering again the inner product  ($\langle \phi \vert \psi \rangle$) we can verify that it holds a physical interpretation: the probability amplitude of the state %$\psi$ collapsing into $\phi$ .
+ 
+$\omega_{0}$ and $\omega_{1}$ (\ref{qubit}) are complex numbers, the so-called probability amplitudes. When squared, the probability amplitude represents a probability. 
+
+\begin{comment}
+We can define linear operators in the Hilbert space, one of the most important classes of operators being the self-adjoint operators,  $A = A^{*}$, that have the property stated in \ref{eq_adjoint}. The Hermitian operator is one that satisfies the property of being equal to its conjugate transposed, $A = A^{*T} =A^\dagger$ .  In a finite-dimensional Hilbert space defined by a set of orthonormal basis every self-adjoint operator is Hermitian.
+
+\begin{equation}
+\label{eq_adjoint}
+\langle A^{*}z\vert x\rangle=\langle z\vert Ax\rangle
+\end{equation}
+
+Observables are deemed as the physical properties that can be measured. One way to think of them is to consider the 20 question game, where a two player game where one person thinks of an object and then the second person has a set of 20 "Yes" or "No" to discover the object, one observable could be "Is it red?". With each question the space comprising the possible answers will not increase, this means that asking two times in a row if the object is red in the game will always yield the same answer.
+ 
+Hermitian operators are suitable for being used as observables, as their eigenvalues are real numbers.
+The eigenvectors associated with the eigenvalues of the observable will correspond to the state in which the system will be after applying the Hermitian operator. Thus applying an observable to the system can be viewed as doing a projection of the system in the basis formed by the eigenvectors.  
+\end{comment}
+
+\subsection{Compound Systems}
+\label{subsec:compound_systems}
+
+The representation of a system comprising multiple qubits grows exponentially. If to represent a single qubit system there is a two-dimensional Hilbert space, to represent a system with m qubits a $2^m$-dimension space would be required. 
+To represent a higher dimension multiple-qubit system one can perform a tensor product of single-qubit and/or lower dimension systems.
+
+%Tensor product
+The tensor product is an operation denoted by the symbol $\otimes$. 
+Given two vector spaces V and W with basis 
+\ref{eq:qc_cs_vspace} and \ref{eq:qc_cs_wspace}
+respectively, their tensor product would be the $mn$-dimensional vector space with a basis with elements of the form \ref{eq:qc_cs_vwspace} \cite{Rieffel2011}.
+
+
+\begin{equation}
+\label{eq:qc_cs_vspace}
+A = \left\{ \vert \alpha_{1} \rangle, \vert \alpha_{2} \rangle , ..., \vert \alpha_{m} \rangle \right\}
+\end{equation} 
+
+\begin{equation} 
+\label{eq:qc_cs_wspace}
+B = \left\{ \vert \beta_{1} \rangle, \vert \beta_{2} \rangle , ..., \vert \beta_{n} \rangle \right\}
+\end{equation} 
+
+\begin{equation} 
+\label{eq:qc_cs_vwspace} 
+\vert \alpha_{i} \rangle \otimes \vert \beta_{j} \rangle
+\end{equation}
+
+
+For example, if we consider two Hilbert spaces $H^2$ with basis
+$ A=\left\{ \vert 0 \rangle , \vert 1 \rangle \right\}$ and 
+$B =\left\{ \vert - \rangle, \vert + \rangle \right\}$
+, their tensor product would be a $H^4$ with basis \ref{eq:qc_cs_vwsupahspace}.
+\begin{equation}
+\label{eq:qc_cs_vwsupahspace}
+AB = \left\{ \vert 0  - \rangle, \vert 0 + \rangle, \vert 1 - \rangle,  \vert 1 + \rangle \right\}
+\end{equation}
+
+Now taking the former Hilbert spaces, supposing we have the qubits \ref{eq:qc_cs_vqubit} and \ref{eq:qc_cs_wqubit}.
+
+\begin{equation}
+\label{eq:qc_cs_vqubit}
+\vert v \rangle = a_{0}\vert 0\rangle + a_{1}\vert 1 \rangle
+\end{equation}
+
+\begin{equation}
+\label{eq:qc_cs_wqubit}
+\vert w \rangle = b_{0}\vert -\rangle + b_{1}\vert + \rangle
+\end{equation}
+
+\begin{equation}
+\label{eq:qc_cs_vwsupahspace2}
+\vert v \rangle \otimes \vert w \rangle = a_{0}b_{0}\vert 0  - \rangle + a_{0}b_{1}\vert 0 + \rangle + a_{1}b_{0}\vert 1 - \rangle +  a_{1}b_{1}\vert 1 + \rangle 
+\end{equation}
+
+The Bra-ket notation provides a way to prevent the escalation of the basis notation. When specified the vector space the basis can be specified in base 10 for simplicity sake. According to this the basis of the last example would be $AB = \left\{ \vert 0 \rangle, \vert 1 \rangle, \vert 2 \rangle,  \vert 3 \rangle \right\}$ and a system with $3$-qubit could be represented in a Hilbert space with basis $H= \left\{ \vert 0 \rangle, \vert 1 \rangle, \vert 2 \rangle,  \vert 3 \rangle,  \vert 4 \rangle,  \vert 5 \rangle,  \vert 6 \rangle,  \vert 7 \rangle \right\}$.
+
+
+
+\subsection{Entanglement}
+\label{subsec:entanglement}
+
+In multiple qubit systems, qubits can interfere with each other, thus making impossible to determine the state of part of the system without ``disturbing" the whole. In other words, there are states in a multi-qubit system that can't be described as a tensor product of single-qubit systems; this superposition is called quantum entanglement. This property is not local as transformations that act separately in different parts of an entangled system cannot break the entanglement. Quantum entanglement is one of the core aspects when we are trying to explore the full potential of quantum systems \cite{Rieffel2011}.
+
+For example, supposing we consider the following quantum states, known as Bell states:
+\begin{equation}
+\vert\Phi^{+}\rangle=\frac{1}{\sqrt{2}}(\vert0\rangle_{A} \otimes\vert0\rangle_{B} +\vert1\rangle_{A} \otimes\vert1\rangle_{B})=\frac{1}{\sqrt{2}}(\vert00\rangle+\vert11\rangle)
+\end{equation}
+
+\begin{equation}
+\vert\Phi^{-}\rangle=\frac{1}{\sqrt{2}}(\vert0\rangle_{A} \otimes\vert0\rangle_{B} -\vert1\rangle_{A} \otimes\vert1\rangle_{B})=\frac{1}{\sqrt{2}}(\vert00\rangle-\vert11\rangle)
+\end{equation}
+
+\begin{equation}
+\vert\Psi^{+}\rangle=\frac{1}{\sqrt{2}}(\vert0\rangle_{A} \otimes\vert1\rangle_{B} +\vert1\rangle_{A}\otimes\vert0\rangle_{B})=\frac{1}{\sqrt{2}}(\vert01\rangle+\vert10\rangle)
+\end{equation}
+
+\begin{equation}
+\vert\Psi^{-}\rangle=\frac{1}{\sqrt{2}}(\vert0\rangle_{A} \otimes\vert1\rangle_{B} -\vert1\rangle_{A} \otimes\vert0\rangle_{B})=\frac{1}{\sqrt{2}}(\vert01\rangle-\vert10\rangle)
+\end{equation}
+
+These states form a particular basis in $H^4$ as they are all entangled states and they are maximally entangled. If we have a system of two qubits in a Hilbert space in the mixed state $\vert\Phi^{+}\rangle$ and we measure the qubit A (by deciding the outcome $0$ or $1$ with a probability of $0.5$ for each),we are automatically uncovering the value of the qubit B. In this state we know the second qubit will always yield the same value of the first measured qubit. Se second value is correlated with the first one.
+
+
