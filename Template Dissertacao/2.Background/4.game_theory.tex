@@ -5,3 +5,43 @@
 \label{subsec:background:game_theory_zero_sum_game}
 
 A zero-sum game is a mathematical representation of a system where the gains are completely evened out by the losses; this means that the sum of the utilities of all players will always be zero.
+
+
+\section{Quantum Game Theory}
+\label{sec:background_quantum_game_theory}
+
+[Intro SAUCEs]
+
+The definition of Piotr Frackiewicz in Quantum information approach
+to normal representation of extensive games proposes a representation
+for finite extensive form games. The representation assumes that there
+are only two available actions, which can be represented by a qubit.
+Those actions could be a yes/no decision or a cooperate/defeat as
+those found in many classical game theory problems. A game in this
+form is represented by a six-tuple\ref{eq:quantum_game_six_tuple},
+where:
+
+\begin{equation}
+\Gamma=(\mathcal{H}^{a},\: N,\:\vert\psi_{in}\rangle,\:\xi,\:\{\mathcal{U}_{j}\},\:\{E_{i}\})\label{eq:quantum_game_six_tuple}
+\end{equation}
+
+\begin{itemize}
+\item $a$ is the number of actions (qubits), in the game; 
+\item $\mathcal{H}^{a}$ is a $a$-dimensional Hilbert space constructed
+as $\otimes_{j=1}^{a}\mathbb{C}^{2}$;
+\item $\vert\psi_{in}\rangle$ is the initial state of the compound-system
+composed by $a$ qubits: $\vert\varphi_{1}\rangle,\:\vert\varphi_{2}\rangle, ..., \vert\varphi_{j}\rangle, ..., \vert\varphi_{a}\rangle$;
+\item $\xi$ is a mapping function that assigns each action to a player;
+\item For each qubit $j$ $\mathcal{U}_{j}$ is a subset of unitary operators
+that can be used by the player to manipulate her qubit;
+\item Finally, for each player $i$ $E_{i}$ is a utility functional that
+specifies her payoff.\end{itemize}
+
+The strategy of a player $i$ is a map $\tau_{i}$ which assigns a
+unitary operator $U_{j}$ to every qubit $j$ that is manipulated
+by the player (\inputencoding{latin1}{$j$$\in\xi^{-1}(i)$}\inputencoding{latin9}).
+The simultaneous move of the players is represented in \ref{eq:quantum_game_definition_move}.
+
+\begin{equation}
+\vert\psi_{fin}\rangle=\otimes_{i=1}^{N}\otimes_{j\in\xi^{-1}(i)}U_{j}\vert\psi_{in}\rangle\label{eq:quantum_game_definition_move}
+\end{equation}
