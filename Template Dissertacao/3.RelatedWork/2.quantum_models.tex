@@ -130,6 +130,58 @@ This means that if the second player knows the initial state and the first playe
 We extended this work for three players in order to answer if adding a third player with access to a quantum strategy would affect the strategy of player two. We introduced a third character that will try to manipulate the game independently from the previous characters using also quantum strategies. 
 
 
+\subsection{Prisioner's Dillema}
+\label{sebsec:related_work_prisioners_dillama}
+
+The Prisioner's Dillema is one example of a game that can be represented
+in normal form. This problem has received a great deal of attention
+because, in its simple form, rational individuals will seem to deviate
+from solutions that would represent the best interest overall solution,
+the Pareto Optinal solution. In this game the pareto optimal solution
+is not a Nash Equilibrium. The Prisioneers Dillema can be formulated
+as it follows:
+
+\begin{quotation}
+
+Two suspects of being partners in a crime are arrested. The police
+needs more evidence in order to prossecute the prisioners. So each
+prisioner is locked in solitary confinement and has no means of communicating
+with the other suspect. The police will then try to extort a confession
+from the prisioners. A bargain will be proposed to the suspects:
+\begin{itemize}
+\item If the suspect testifies against the other suspect (Defeats), he will
+go free and the second will get three years sentence.
+\item If they both testify against one another (both Defeat), both will
+be convicted and they will get two years.
+\item In case both suspects deny the involvement (both Cooperate) of the
+other, they will be set free because there's no conclusive evidence.
+\end{itemize}
+\end{quotation}
+
+The matrix representation of the problem above is \ref{tab:prisionersdillema_tab1}.
+
+\begin{center}
+\begin{table}
+\caption{One possible normal form representation of Prisioner's Dillema.}
+\begin{center}
+\begin{tabular}{c|c|c|c|}
+\multicolumn{2}{c}{} & \multicolumn{2}{c}{player 2}\tabularnewline
+\cline{3-4} 
+\multicolumn{2}{c|}{} & C & D\tabularnewline
+\cline{2-4} 
+\multirow{2}{*}{\begin{sideways}
+player1
+\end{sideways}} & C & (1,1) & (0,2)\tabularnewline
+\cline{2-4} 
+ & D & (2,0) & (0,0)\tabularnewline
+\cline{2-4} 
+\end{tabular}
+\par\end{center}
+\label{tab:prisionersdillema_tab1}
+\end{table}
+\par\end{center}
+
+
 \subsection{Monty Hall Problem}
 \label{subsec:monty_hall}
 
