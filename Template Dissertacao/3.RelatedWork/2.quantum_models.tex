@@ -158,28 +158,79 @@ other, they will be set free because there's no conclusive evidence.
 \end{itemize}
 \end{quotation}
 
-The matrix representation of the problem above is \ref{tab:prisionersdillema_tab1}.
+A matrix representation of the problem is in Table \ref{tab:prisionersdillema_tab1}.
 
 \begin{center}
 \begin{table}
-\caption{One possible normal form representation of Prisioner's Dillema.}
-\begin{center}
-\begin{tabular}{c|c|c|c|}
-\multicolumn{2}{c}{} & \multicolumn{2}{c}{player 2}\tabularnewline
-\cline{3-4} 
-\multicolumn{2}{c|}{} & C & D\tabularnewline
-\cline{2-4} 
-\multirow{2}{*}{\begin{sideways}
-player1
-\end{sideways}} & C & (1,1) & (0,2)\tabularnewline
-\cline{2-4} 
- & D & (2,0) & (0,0)\tabularnewline
-\cline{2-4} 
+\begin{centering}
+\begin{tabular}{ccc}
+\hline 
+ & Player 2: C & Player 2: D\tabularnewline
+\hline 
+Player 1: C & (1,1) & (0,2)\tabularnewline
+Player 1: D & (2,0) & (0,0)\tabularnewline
+\hline 
 \end{tabular}
-\par\end{center}
+\par\end{centering}
+
+\caption{One possible normal form representation of Prisioner's Dillema.}
 \label{tab:prisionersdillema_tab1}
 \end{table}
 \par\end{center}
+
+
+
+\subsubsection{Quantum Prisioner's Dillema}
+\label{subsubsec:quantum_prisioners_dillema}
+
+This game has been modelled several times. However in order to exemplify the use of the definition described in Section \ref{sec:background_quantum_game_theory}, it poses a good consolidation exercise.
+
+Each player in the quantum version of Prisioner's Dillema will be able to manipulate one qubit ($\varphi_{1}$ and $\varphi_{2}$)\ref{eq:quantum_prisioner_m1}\ref{eq:quantum_prisioner_m2}, with two possíble operators corresponding to the classical actions: Cooperate (C), and Defeat (D). 
+
+\begin{equation}
+\label{eq:quantum_prisioner_m1}
+\varphi_{1}=a_{0}\vert0\rangle+a_{1}\vert1\rangle,\sum_{i=0}^{1}\vert a_{i}\vert^{2}=1
+\end{equation}
+
+
+\begin{equation}
+\label{eq:quantum_prisioner_m2}
+\varphi_{2}=b_{0}\vert0\rangle+b_{1}\vert1\rangle,\sum_{j=0}^{1}\vert b_{j}\vert^{2}=1
+\end{equation}
+
+The system that holds the game is represented in a $\mathcal{H}^{4}$. Each basis ($\vert 1\rangle, \vert 2\rangle, \vert 3\rangle, \vert 4\rangle$), represents a final outcome as Table \ref{tab:prisioners_m} suggests.
+
+\begin{table}
+\begin{centering}
+\begin{tabular}{ccc}
+\hline 
+$\bigotimes$ & C-$\vert 0\rangle$ & D-$\vert 1\rangle$\tabularnewline
+\hline 
+C-$\vert 0\rangle$ & $\vert 0,0\rangle$ & $\vert 0,1\rangle$\tabularnewline
+D-$\vert 1\rangle$ & $\vert 1,0\rangle$ & $\vert 1,1\rangle$\tabularnewline
+\hline 
+\end{tabular}
+\par\end{centering}
+
+\caption{Construction of the basis for the game space; $\mathcal{H}^{4}$.}
+\label{tab:prisioners_m}
+\end{table}
+
+The utility functions for each player is calculated by projecting the final state in each base and atributing a real number to each measurement, as in equation.
+In order to compare a classical version with this quantum model, the real numbers assigned are those in the classical example in Table \ref{tab:prisionersdillema_tab1}, and the basis are presented in Table \ref{tab:prisioners_m}.
+
+\begin{equation}
+E_{0}=1\times\vert\langle00\vert\psi_{fin}\rangle\vert^{2}+2\times\vert\langle10\vert\psi_{fin}\rangle\vert^{2}
+\end{equation}
+
+
+\begin{equation}
+E_{1}=1\times\vert\langle00\vert\psi_{fin}\rangle\vert^{2}+2\times\vert\langle01\vert\psi_{fin}\rangle\vert^{2}
+\end{equation}
+
+The fundamental difference from the classical version lies in the way the initial state is formulated. The way this state is constructed will alow to entangle the moves made by the players. The entanglement in quantum game theory can be viewed as an intrinsic unbreakable contract.[sources]
+
+
 
 
 \subsection{Monty Hall Problem}
