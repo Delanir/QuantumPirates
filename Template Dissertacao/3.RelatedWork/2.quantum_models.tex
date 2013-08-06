@@ -185,7 +185,7 @@ Player 1: D & (2,0) & (0,0)\tabularnewline
 
 This game has been modelled several times. However in order to exemplify the use of the definition described in Section \ref{sec:background_quantum_game_theory}, it poses a good consolidation exercise.
 
-Each player in the quantum version of Prisioner's Dillema will be able to manipulate one qubit ($\varphi_{1}$ and $\varphi_{2}$)\ref{eq:quantum_prisioner_m1}\ref{eq:quantum_prisioner_m2}, with two possíble operators corresponding to the classical actions: Cooperate (C), and Defeat (D). 
+Each player $i$ in the quantum version of Prisioner's Dillema will be able to manipulate one qubit ($\varphi_{1}$ and $\varphi_{2}$)\ref{eq:quantum_prisioner_m1}\ref{eq:quantum_prisioner_m2}, with two possible operators (shown in \ref{eq:operators_prisioneiros_quanticos}) corresponding to the classical actions: Cooperate (C), and Defeat (D). 
 
 \begin{equation}
 \label{eq:quantum_prisioner_m1}
@@ -197,6 +197,21 @@ Each player in the quantum version of Prisioner's Dillema will be able to manipu
 \label{eq:quantum_prisioner_m2}
 \varphi_{2}=b_{0}\vert0\rangle+b_{1}\vert1\rangle,\sum_{j=0}^{1}\vert b_{j}\vert^{2}=1
 \end{equation}
+
+\begin{equation}
+\label{eq:operators_prisioneiros_quanticos}
+\begin{cases}
+O_{i0}=\left[\begin{array}{cc}
+1 & 0\\
+0 & 1
+\end{array}\right]\\
+O_{i1}=\left[\begin{array}{cc}
+0 & 1\\
+1 & 0
+\end{array}\right]
+\end{cases} , i \in \{ 1, 2 \}
+\end{equation}
+
 
 The system that holds the game is represented in a $\mathcal{H}^{4}$. Each basis ($\vert 1\rangle, \vert 2\rangle, \vert 3\rangle, \vert 4\rangle$), represents a final outcome as Table \ref{tab:prisioners_m} suggests.
 
@@ -228,7 +243,12 @@ E_{0}=1\times\vert\langle00\vert\psi_{fin}\rangle\vert^{2}+2\times\vert\langle10
 E_{1}=1\times\vert\langle00\vert\psi_{fin}\rangle\vert^{2}+2\times\vert\langle01\vert\psi_{fin}\rangle\vert^{2}
 \end{equation}
 
-The fundamental difference from the classical version lies in the way the initial state is formulated. The way this state is constructed will alow to entangle the moves made by the players. The entanglement in quantum game theory can be viewed as an intrinsic unbreakable contract.[sources]
+The fundamental difference from the classical version lies in the way the initial state is formulated\ref{eq:estado_inicial_prisioneiro}. The way this state is constructed will alow to entangle the moves made by the players. The entanglement in quantum game theory can be viewed as an intrinsic unbreakable contract.[sources]
+
+\begin{equation}
+\label{eq:estado_inicial_prisioneiro}
+\vert \psi_{in}(\gamma) \rangle= cos( \gamma)\vert 00\rangle+ isen(\gamma)\vert 11 \rangle, \gamma \in (0,\pi)
+\end{equation}
 
 
 
