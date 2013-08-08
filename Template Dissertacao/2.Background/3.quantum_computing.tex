@@ -10,7 +10,7 @@
 
 
 
-The quantum equivalent of a bit (the basic unit of information in computers), is a qubit (or quantum bit). A qubit is a two-state quantum system that can be interpreted as normalized vectors in a two-dimensional Hilbert space. This Hilbert Space($H^2$), has two basis (also known as pure states). In quantum computing, the basis used are ${ \vert 0 \rangle , \vert 1 \rangle }$ or $\left[\begin{array}{c}
+The quantum equivalent of a bit (the basic unit of information in computers), is a qubit (or quantum bit). A qubit is a two-state quantum system that can be interpreted as normalized vectors in a two-dimensional Hilbert space. This Hilbert Space($\mathcal{H}^2$), has two basis (also known as pure states). In quantum computing, the basis used are ${ \vert 0 \rangle , \vert 1 \rangle }$ or $\left[\begin{array}{c}
 1\\
 0
 \end{array}\right]$
@@ -84,10 +84,10 @@ B = \left\{ \vert \beta_{1} \rangle, \vert \beta_{2} \rangle , ..., \vert \beta_
 \end{equation}
 
 
-For example, if we consider two Hilbert spaces $H^2$ with basis
+For example, if we consider two Hilbert spaces $\mathcal{H}^2$ with basis
 $ A=\left\{ \vert 0 \rangle , \vert 1 \rangle \right\}$ and 
 $B =\left\{ \vert - \rangle, \vert + \rangle \right\}$
-, their tensor product would be a $H^4$ with basis \ref{eq:qc_cs_vwsupahspace}.
+, their tensor product would be a $\mathcal{H}^4$ with basis \ref{eq:qc_cs_vwsupahspace}.
 \begin{equation}
 \label{eq:qc_cs_vwsupahspace}
 AB = \left\{ \vert 0  - \rangle, \vert 0 + \rangle, \vert 1 - \rangle,  \vert 1 + \rangle \right\}
@@ -136,6 +136,6 @@ For example, supposing we consider the following quantum states, known as Bell s
 \vert\Psi^{-}\rangle=\frac{1}{\sqrt{2}}(\vert0\rangle_{A} \otimes\vert1\rangle_{B} -\vert1\rangle_{A} \otimes\vert0\rangle_{B})=\frac{1}{\sqrt{2}}(\vert01\rangle-\vert10\rangle)
 \end{equation}
 
-These states form a particular basis in $H^4$ as they are all entangled states and they are maximally entangled. If we have a system of two qubits in a Hilbert space in the mixed state $\vert\Phi^{+}\rangle$ and we measure the qubit A (by deciding the outcome $0$ or $1$ with a probability of $0.5$ for each),we are automatically uncovering the value of the qubit B. In this state we know the second qubit will always yield the same value of the first measured qubit. Se second value is correlated with the first one.
+These states form a particular basis in $\mathcal{H}^4$ as they are all entangled states and they are maximally entangled. If we have a system of two qubits in a Hilbert space in the mixed state $\vert\Phi^{+}\rangle$ and we measure the qubit A (by deciding the outcome $0$ or $1$ with a probability of $0.5$ for each),we are automatically uncovering the value of the qubit B. In this state we know the second qubit will always yield the same value of the first measured qubit. Se second value is correlated with the first one.
 
 
