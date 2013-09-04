@@ -1,3 +1,6 @@
+
+
+
 \section{Pirate Game}
 \label{sec:pirate}
 
@@ -9,10 +12,10 @@ On selecting the problem...
 \subsection{Problem Description}
 \label{subsec:description}
 
-The Pirate Game is a multiplayer version of the Ultimatum game that is usually stated as follows:
+The original Pirate Game is a multiplayer version of the Ultimatum game that is usually stated as follows:
 
 \begin{quotation}
-Suppose there are 5 rational pirates: A; B; C; D; E. The pirates have a  loot of 100 gold coins to divide among themselves.
+Suppose there are 5 rational pirates: A; B; C; D; E. The pirates have a  loot of 100 indivisible gold coins to divide among themselves.
 
 
 As the pirates have a strict hierarchy, in which pirate A is the captain and E has the lowest rank, the highest ranking pirate alive will propose a division. Then each pirate will cast a vote on whether or not to accept the proposal. 
@@ -22,13 +25,20 @@ If a majority or a tie is reached the goods will be allocated according to the p
 We consider that each pirate privileges her survival, and then will want to maximize the number of coins received. When the result is indifferent the pirates prefer to throw another pirate overboard and thus climbing in the hierarchy. 
 \end{quotation}
 
-We can arrive at an equilibrium in this problem by using backward induction. 
+We can arrive at an equilibrium in this problem by using backward induction. At the end of the problem, supposing there are two pirates left, the decisions are very straight forward. As the highest ranking pirate can pass the proposal without the remaining friend, her self-interest dictates that she will get the 100 gold coins. Knowing this, pirate E knows that any bribe other higher ranking pirate offers her will leave her better than if the game arrives to the last proposal. 
+
+When applying this reasoning to the three pirate move, as pirate C knows she needs one more vote to pass her proposal and avoiding death, she will offer the minimum amount of coins that will make pirate E better off than if it comes to the last stage with two pirates. This means that pirate C will offer 1 gold coin to pirate E, and keep the remaining 99 coins. 
+
+With 4 pirates, B would rather bribe pirate D with 1 gold coin, because E would rather like climb on the hierarchy and getting the same payoff. Finaly, with 5 pirates the captain (A), will keep 98 gold coins and rely on pirate C and E to vote in favor of the proposal, by giving 1 gold coin each.
+ 
+
+
 
 
 \subsection{Quantum considerations}
 \label{subsec:description_2}
 
-In order to model the mencioned problem it's necessary to captura its essence.
+In order to model the mencioned problem it's necessary to capture its essence.
 In terms or mechanics and steps, this problem could be described using 3 players and later extended to any number $N$ of players. The highest ranking pirate in the hierachy will be responsible to make a proposal. This proposal can be modelled as describing the payoff functionals for every pirate, according to some rules. This goods allocation proposal will be executed if there is a majority (or a tie), in the voting step. In the voting step, each pirate will cast a vote by choosing simultaneously a operator (that can mean either accep or reject the proposal).
 ''''''Depending on the measurement outcome that occurs with probability x, the players will act on the second round. The Luders rule is applied here. The highest ranking player will no longer have access to the YES or NO operatos, instead he will only be able to manipulate de system using a symetric matrix like a coin operator, in order to not affect the voting.
 
