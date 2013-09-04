@@ -27,10 +27,24 @@ We consider that each pirate privileges her survival, and then will want to maxi
 
 We can arrive at an equilibrium in this problem by using backward induction. At the end of the problem, supposing there are two pirates left, the decisions are very straight forward. As the highest ranking pirate can pass the proposal without the remaining friend, her self-interest dictates that she will get the 100 gold coins. Knowing this, pirate E knows that any bribe other higher ranking pirate offers her will leave her better than if the game arrives to the last proposal. 
 
+\begin{table}
+\begin{center}
+\begin{tabular}{cc}
+  \num\putindeepbox[7pt]{\includegraphics[scale=0.20]{Pirates1/Slide1.PNG}}
+    & \num\putindeepbox[7pt]{\includegraphics[scale=0.20]{Pirates1/Slide2.PNG}} \\
+  \num\putindeepbox[7pt]{\includegraphics[scale=0.20]{Pirates1/Slide3.PNG}}
+    & \num\putindeepbox[7pt]{\includegraphics[scale=0.20]{Pirates1/Slide4.PNG}} \\
+\end{tabular}
+\caption{The equilibrium for the Pitrate Game can be found through backward induction. From a), where there's only two pirates left, to d), that corresponds to the initial problem we define the best response.}
+\label{tab:prisioners_m}
+\end{center}
+ \end{table}
+
 When applying this reasoning to the three pirate move, as pirate C knows she needs one more vote to pass her proposal and avoiding death, she will offer the minimum amount of coins that will make pirate E better off than if it comes to the last stage with two pirates. This means that pirate C will offer 1 gold coin to pirate E, and keep the remaining 99 coins. 
 
 With 4 pirates, B would rather bribe pirate D with 1 gold coin, because E would rather like climb on the hierarchy and getting the same payoff. Finaly, with 5 pirates the captain (A), will keep 98 gold coins and rely on pirate C and E to vote in favor of the proposal, by giving 1 gold coin each.
- 
+
+We can generalize this problem for $N$ pirate. If we assign a number to each pirate, where the captain is number 1 and the lower the number the higher the rank. If the number of coins is superior to the number of pirates, the equilibrium will have the captain (highest ranking pirate), giving a gold coin to each odd pirate, in case the number of players alive is odd, while keeping the rest to herself. When we have a even number of players the captain will assign a gold peice to each pirate with a even number, and the the remaining coins to herself.
 
 
 
