@@ -149,16 +149,16 @@ prisioner is locked in solitary confinement and has no means of communicating
 with the other suspect. The police will then try to extort a confession
 from the prisioners. A bargain will be proposed to the suspects:
 \begin{itemize}
-\item If the suspect testifies against the other suspect (Defeats), he will
+\item If the suspect testifies against the other suspect (Defects) and the other denies, he will
 go free and the second will get three years sentence.
-\item If they both testify against one another (both Defeat), both will
+\item If they both testify against one another (both Defect), both will
 be convicted and they will get two years.
 \item In case both suspects deny the involvement (both Cooperate) of the
-other, they will be set free because there's no conclusive evidence.
+other, they will get a one year sentence.
 \end{itemize}
 \end{quotation}
 
-A matrix representation of the problem is in Table \ref{tab:prisionersdillema_tab1}.
+A matrix representation of the problem is in Table \ref{tab:prisionersdillema_tab1}, a particular case for this problem is represented in Table \ref{tab:prisionersdillema_tab2}. In each cell of the matrix we have a pair of the expected utility for the players for every outcome. A higher utility represents a more desirable state. 
 
 \begin{center}
 \begin{table}
@@ -167,14 +167,32 @@ A matrix representation of the problem is in Table \ref{tab:prisionersdillema_ta
 \hline 
  & Player 2: C & Player 2: D\tabularnewline
 \hline 
-Player 1: C & (1,1) & (0,2)\tabularnewline
-Player 1: D & (2,0) & (0,0)\tabularnewline
+Player 1: C & (R,R) & (S,T)\tabularnewline
+Player 1: D & (T,S) & (P,P)\tabularnewline
+\hline 
+\end{tabular}
+\par\end{centering}
+
+\caption{The canonical normal form representation for the Prisioner's Dillema must respect T>R>P>S.}
+\label{tab:prisionersdillema_tab1}
+\end{table}
+\par\end{center}
+
+\begin{center}
+\begin{table}
+\begin{centering}
+\begin{tabular}{ccc}
+\hline 
+ & Player 2: C & Player 2: D\tabularnewline
+\hline 
+Player 1: C & (2,2) & (0,3)\tabularnewline
+Player 1: D & (3,0) & (1,1)\tabularnewline
 \hline 
 \end{tabular}
 \par\end{centering}
 
 \caption{One possible normal form representation of Prisioner's Dillema.}
-\label{tab:prisionersdillema_tab1}
+\label{tab:prisionersdillema_tab2}
 \end{table}
 \par\end{center}
 
@@ -185,7 +203,7 @@ Player 1: D & (2,0) & (0,0)\tabularnewline
 
 The importance of the Prisioner's Dillema for the study of Game Theory made it a prime target for investigation in Quantum Game Theory. The problem has been modelled several times [SOURCES]. Therefore we will use it iin order to exemplify and consolidate the definition described in Section \ref{sec:background_quantum_game_theory}. 
 
-Each player $i$ in the quantum version of Prisioner's Dillema will be able to manipulate one qubit ($\varphi_{1}$ and $\varphi_{2}$)\ref{eq:quantum_prisioner_m1}\ref{eq:quantum_prisioner_m2}, with two possible operators (shown in \ref{eq:operators_prisioneiros_quanticos}) corresponding to the classical actions: Cooperate (C), and Defeat (D). 
+Each player $i$ in the quantum version of Prisioner's Dillema will be able to manipulate one qubit ($\varphi_{1}$ and $\varphi_{2}$)\ref{eq:quantum_prisioner_m1}\ref{eq:quantum_prisioner_m2}, with two possible operators (shown in \ref{eq:operators_prisioneiros_quanticos}) corresponding to the classical actions: Cooperate (C), and Defect (D). 
 
 \begin{equation}
 \label{eq:quantum_prisioner_m1}
@@ -235,12 +253,12 @@ The utility functions for each player is calculated by projecting the final stat
 In order to compare a classical version with this quantum model, the real numbers assigned are those in the classical example in Table \ref{tab:prisionersdillema_tab1}, and the basis are presented in Table \ref{tab:prisioners_m}.
 
 \begin{equation}
-E_{0}=1\times\vert\langle00\vert\psi_{fin}\rangle\vert^{2}+2\times\vert\langle10\vert\psi_{fin}\rangle\vert^{2}
+E_{0}=2\times\vert\langle00\vert\psi_{fin}\rangle\vert^{2}+3\times\vert\langle10\vert\psi_{fin}\rangle\vert^{2}+1\times\vert\langle11\vert\psi_{fin}\rangle\vert^{2}
 \end{equation}
 
 
 \begin{equation}
-E_{1}=1\times\vert\langle00\vert\psi_{fin}\rangle\vert^{2}+2\times\vert\langle01\vert\psi_{fin}\rangle\vert^{2}
+E_{1}=2\times\vert\langle00\vert\psi_{fin}\rangle\vert^{2}+3\times\vert\langle01\vert\psi_{fin}\rangle\vert^{2}+1\times\vert\langle11\vert\psi_{fin}\rangle\vert^{2}
 \end{equation}
 
 The fundamental difference from the classical version lies in the way the initial state is formulated\ref{eq:estado_inicial_prisioneiro}. The way this state is constructed will alow to entangle the moves made by the players. The entanglement in quantum game theory can be viewed as an intrinsic unbreakable contract. This means that the main motivation for studying quantum versions of games is to exploit the entanglement. [sources]
@@ -250,7 +268,7 @@ The fundamental difference from the classical version lies in the way the initia
 \vert \psi_{in}(\gamma) \rangle= cos( \gamma)\vert 00\rangle+ isen(\gamma)\vert 11 \rangle, \gamma \in (0,\pi)
 \end{equation}
 
-By varying the parameter $\gamma$, we can observe that the expected utility changes as we set up the initial state. Furthermore for $\gamma= \frac{\pi}{4}+k \frac{\pi}{2}, k \in {0, 1, 2, 3}$ we can se a hdnd 
+By varying the parameter $\gamma$, we can observe that the expected utility changes as we set up the initial state. Furthermore for $\gamma= \frac{\pi}{4}+k \frac{\pi}{2}, k \in {0, 1, 2, 3}$ the expected utility for each player is $1.5$ in spite of the chosen actions. When the entanglement coeficient is $\gamma= 0+k \frac{\pi}, k \in {0, 1, 2}$ we are left with the classical problem, where there isn't entanglement.
 
 \begin{table}
 \begin{center}
