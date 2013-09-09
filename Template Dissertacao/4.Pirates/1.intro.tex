@@ -52,16 +52,30 @@ We can generalize this problem for $N$ pirate. If we assign a number to each pir
 \subsection{Quantum considerations}
 \label{subsec:description_2}
 
-In order to model the mencioned problem it's helpful to define it using the definition \ref{eq:quantum_game_six_tuple} in Section \refl{sec:background_quantum_game_theory}.
-In terms of mechanics and steps, this problem could be described using 3 players and later extended to any number $N$ of players. We will assign an offset to each pirate in order to identify it, as in the Section \label{subsec:description}. So the captain is number 1 and the lower the number the higher the rank. 
+In order to model the mencioned problem it's helpful to define it using the definition of quantun game ($\Gamma$), referred in \ref{eq:quantum_game_six_tuple}, Section \ref{sec:background_quantum_game_theory}.
+In terms of mechanics and steps, this problem could be described using 3 players and later extended to any number $N$ of players. 
 
-Each player will be able to manipulate a qubit.
+We begin by assigning an offset to each pirate in order to identify it, as in the Section \label{subsec:description}. So the captain is number 1 and the lower the number the higher the rank. 
 
+Each player will be able to manipulate a qubit in the system, in this case $\vert\varphi_{1}\rangle,\:\vert\varphi_{2}\rangle,$ and $\vert\varphi_{3}\rangle$, with one of two operators \ref{eq:operators_piratas_quanticos}. The two operators will correspond to the action of voting ``Yes'' or to Cooperate, and voting ``No'', meaning that they won't accept the proposal. For the defection operator ($D$), we chose one of Pauli's Operators - the Bit-flip operator. The cooperation operator will be represented by the Identity operator. 
 
+\begin{equation}
+\label{eq:operators_piratas_quanticos}
+\mathcal{U}_{i} = \begin{cases}
+C = o_{i0}=\left[\begin{array}{cc}
+1 & 0\\
+0 & 1
+\end{array}\right]\\
+D = o_{i1}=\left[\begin{array}{cc}
+0 & 1\\
+1 & 0
+\end{array}\right]
+\end{cases} , i \in \{ 1, 2, 3 \}
+\end{equation}
 
+ The highest ranking pirate in the hierachy will be responsible to make a proposal. This proposal can be modelled as describing the payoff functionals for every pirate, according to some rules. This goods allocation proposal will be executed if there is a majority (or a tie), in the voting step. In the voting step, each pirate will cast a vote by choosing simultaneously a operator (that can mean either accept or reject the proposal).
 
- The highest ranking pirate in the hierachy will be responsible to make a proposal. This proposal can be modelled as describing the payoff functionals for every pirate, according to some rules. This goods allocation proposal will be executed if there is a majority (or a tie), in the voting step. In the voting step, each pirate will cast a vote by choosing simultaneously a operator (that can mean either accep or reject the proposal).
-''''''Depending on the measurement outcome that occurs with probability x, the players will act on the second round. The Luders rule is applied here. The highest ranking player will no longer have access to the YES or NO operatos, instead he will only be able to manipulate de system using a symetric matrix like a coin operator, in order to not affect the voting.
+''''''Depending on the measurement outcome that occurs with probability x, the players will act on the second round. The Luders rule is applied here. The highest ranking player will no longer have access to the voting operators, instead he will only be able to manipulate de system using a symetric matrix like a coin operator, in order to not affect the voting.
 
 Keeping the system in a higher dimension is considered because of the following reasons: We don't have proof that the states are separable. There are various mappings that fit the system composition. 
 

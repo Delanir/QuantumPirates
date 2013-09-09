@@ -127,9 +127,6 @@ will not alter the density matrix\ref{eq:roulette_6}.
 This means that if the second player knows the initial state and the first player plays with a classical strategy, thus never modifing the system density matrix, the first player will be able to manipulade the game under optimal conditions.
 
 
-We extended this work for three players in order to answer if adding a third player with access to a quantum strategy would affect the strategy of player two. We introduced a third character that will try to manipulate the game independently from the previous characters using also quantum strategies. 
-
-
 \subsection{Prisioner's Dillema}
 \label{sebsec:related_work_prisioners_dillama}
 
@@ -158,7 +155,9 @@ other, they will get a one year sentence.
 \end{itemize}
 \end{quotation}
 
-A matrix representation of the problem is in Table \ref{tab:prisionersdillema_tab1}, a particular case for this problem is represented in Table \ref{tab:prisionersdillema_tab2}. In each cell of the matrix we have a pair of the expected utility for the players for every outcome. A higher utility represents a more desirable state. 
+A matrix representation of the problem is in Table \ref{tab:prisionersdillema_tab1}, a particular case for this problem is represented in Table \ref{tab:prisionersdillema_tab2}. In each cell of the matrix we have a pair of the expected utility for the players for every outcome. A higher utility represents a more desirable state.
+
+In this game the Pareto Optimal solution happens when both players chose to Cooperate (the pair (2,2) in Table \ref{tab:prisionersdillema_tab2}). However both players have the incentive to Defect, because regardless what the opponent choses they will have always a strictly higher payoff. Defecting becomes a dominant strategy in the Prisioner's Dillema and the outcome (Defect, Defect) is a Nash Equilibrium to the game. 
 
 \begin{center}
 \begin{table}
@@ -218,7 +217,7 @@ Each player $i$ in the quantum version of Prisioner's Dillema will be able to ma
 
 \begin{equation}
 \label{eq:operators_prisioneiros_quanticos}
-\begin{cases}
+\mathcal{U}_{i}=\begin{cases}
 O_{i0}=\left[\begin{array}{cc}
 1 & 0\\
 0 & 1
@@ -273,12 +272,13 @@ By varying the parameter $\gamma$, we can observe that the expected utility chan
 \begin{table}
 \begin{center}
 \begin{tabular}{cc}
-  \num\putindeepbox[7pt]{\includegraphics[scale=0.40]{prisionersdillema/II.PNG}}
-    & \num\putindeepbox[7pt]{\includegraphics[scale=0.40]{prisionersdillema/InotI.PNG}} \\
-  \num\putindeepbox[7pt]{\includegraphics[scale=0.40]{prisionersdillema/notII.PNG}}
-    & \num\putindeepbox[7pt]{\includegraphics[scale=0.40]{prisionersdillema/notInotI.PNG}} \\
+  \num\putindeepbox[7pt]{\includegraphics[scale=0.46]{prisionersdillema/II.PNG}}
+    & \num\putindeepbox[7pt]{\includegraphics[scale=0.46]{prisionersdillema/InotI.PNG}} \\
+  \num\putindeepbox[7pt]{\includegraphics[scale=0.46]{prisionersdillema/notII.PNG}}
+    & \num\putindeepbox[7pt]{\includegraphics[scale=0.46]{prisionersdillema/notInotI.PNG}} \\
 \end{tabular}
-\caption{dde.}
+\caption{Expected utility for players 1 and 2 giving the entanglement coeficient $\gamma$ used in preparing the inicial state. a) Player 1: Cooperates, Player 2: Cooperates;
+b) Player 1: Cooperates, Player 2: Defects; c) Player 1: Defects, Player 2: Cooperates; d) Player 1: Defects, Player 2: Defects. }
 \label{tab:prisiones_m_4}
 \end{center}
  \end{table}

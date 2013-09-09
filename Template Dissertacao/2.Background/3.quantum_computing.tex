@@ -41,14 +41,64 @@ In the example stated in the representation \ref{qubit} the probability of the s
  
 $\omega_{0}$ and $\omega_{1}$ (\ref{qubit}) are complex numbers, the so-called probability amplitudes. When squared, the probability amplitude represents a probability. 
 
-\begin{comment}
-We can define linear operators in the Hilbert space, one of the most important classes of operators being the self-adjoint operators,  $A = A^{*}$, that have the property stated in \ref{eq_adjoint}. The Hermitian operator is one that satisfies the property of being equal to its conjugate transposed, $A = A^{*T} =A^\dagger$ .  In a finite-dimensional Hilbert space defined by a set of orthonormal basis every self-adjoint operator is Hermitian.
+
+In order to perform transformations in the qubit systems, we can define linear operators in the Hilbert space. One of the most important classes of operators being the self-adjoint operators,  $A = A^{*}$, that have the property stated in \ref{eq_adjoint}. The Hermitian operator is one that satisfies the property of being equal to its conjugate transposed, $A = A^{*T} =A^\dagger$ .  In a finite-dimensional Hilbert space defined by a set of orthonormal basis every self-adjoint operator is Hermitian. Unitary and Hermitian operators are used in the majority of quantum algothims because they can be reversible. 
+
+When presented with $q$ qubits, a $q$-dimensional square matrix is called a Quantum Gate.
 
 \begin{equation}
 \label{eq_adjoint}
 \langle A^{*}z\vert x\rangle=\langle z\vert Ax\rangle
 \end{equation}
 
+Some important Quantum Gates that operate on a single qubit are:
+
+\begin{itemize}
+\item The Identity Matrix \ref{eq:idims}.
+\begin{equation}
+\label{eq:idims}
+I=\left[\begin{array}{cc}
+1 & 0\\
+0 & 1
+\end{array}\right]
+\end{equation}
+
+\item The Pauli Operators. This operators are used to perform the NOT operation. 
+	\begin{itemize}
+		\item The Bit-Flip Operator\begin{equation}
+\label{eq:idims_1}
+X=\left[\begin{array}{cc}
+0 & 1\\
+1 & 0
+\end{array}\right]
+\end{equation}
+		\item The Phase-Flip Operator\begin{equation}
+\label{eq:idims_2}
+Z=\left[\begin{array}{cc}
+1 & 0\\
+0 & -1
+\end{array}\right]
+\end{equation}
+\item The Bit and Phase-Flip Operator\begin{equation}
+\label{eq:idims_3}
+Y=\left[\begin{array}{cc}
+0 & -i\\
+i & 0
+\end{array}\right]
+\end{equation}
+	\end{itemize}
+\item The Haddamard Gate, belongs to a general class of Fourier Transforms. This $2\times 2$ particular case is a Discrete Fourier Transform matrix.
+\begin{equation}
+\label{eq:idimssd_3}
+H=\frac{1}{\sqrt{2}}\left[\begin{array}{cc}
+1 & 1\\
+1 & -1
+\end{array}\right]
+\end{equation}
+\end{itemize}
+
+
+\begin{comment}
 Observables are deemed as the physical properties that can be measured. One way to think of them is to consider the 20 question game, where a two player game where one person thinks of an object and then the second person has a set of 20 "Yes" or "No" to discover the object, one observable could be "Is it red?". With each question the space comprising the possible answers will not increase, this means that asking two times in a row if the object is red in the game will always yield the same answer.
  
 Hermitian operators are suitable for being used as observables, as their eigenvalues are real numbers.
