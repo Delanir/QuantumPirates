@@ -44,7 +44,7 @@ When applying this reasoning to the three pirate move, as pirate C knows she nee
 
 With 4 pirates, B would rather bribe pirate D with 1 gold coin, because E would rather like climb on the hierarchy and getting the same payoff. Finaly, with 5 pirates the captain (A), will keep 98 gold coins and rely on pirate C and E to vote in favor of the proposal, by giving 1 gold coin each.
 
-We can generalize this problem for $N$ pirate. If we assign a number to each pirate, where the captain is number 1 and the lower the number the higher the rank. If the number of coins is superior to the number of pirates, the equilibrium will have the captain (highest ranking pirate), giving a gold coin to each odd pirate, in case the number of players alive is odd, while keeping the rest to herself. When we have a even number of players the captain will assign a gold peice to each pirate with a even number, and the the remaining coins to herself.
+We can generalize this problem for $N$ pirates. If we assign a number to each pirate, where the captain is number 1 and the lower the number the higher the rank. If the number of coins is superior to the number of pirates, the equilibrium will have the captain (highest ranking pirate), giving a gold coin to each odd pirate, in case the number of players alive is odd, while keeping the rest to herself. When we have a even number of players the captain will assign a gold peice to each pirate with a even number, and the the remaining coins to herself.
 
 \subsection{Hipothesys}
 \label{subsec:qhipothesis}
@@ -111,10 +111,6 @@ Each step will be identified by the offset $k$, which will be equal to the offse
 
 By hipothesys, the way we set up our system may originate different results, so when we have a $3$ player system, we will try to analyse the subgame with $2$ players taking into account the original system. In the classical version of the Pirate Game, the problem with $2$ players is equivalent to a subproblem with $2$ players of a problem with more players where previous captains are killed. 
 
-We set up a system with $3$ players and in the step $1$ the three players chose the operators $o_{10},o_{21},o_{31}$ producing the outcome $CDD$. 
-To analyse the step $2$,  the system will be kept in the initial dimension ($\mathcal{H}^{3}$), because of the following reasons: if we have entangled states, they won't be are separable; There may be various mappings in a lower dimension that fit the higher dimension composition. This means that the previous highest ranking player will no longer have access to the voting operators, instead she will use invariabily a symetric coin operator. 
-
-In one situation we will use the L\"{u}der's Rule, after the voting. This is the equivalent of performing a measurement to see the state of the system. In the other situation the two players will act on step $2$. The results for this experiment (Table \ref{tab:luderscomp}) allow us to conclude that not measuring the system affects the expected utilities for the players in two of the four possible analysed outcomes. In this case the act of measuring leaves us with the same payoffs one would get in a classic sittuation with $2$ players.
 
 
 \begin{table}
@@ -130,10 +126,84 @@ In one situation we will use the L\"{u}der's Rule, after the voting. This is the
   g)\putindeepbox[7pt]{\includegraphics[scale=0.46]{compareluders/DD1.PNG}}
     & h)\putindeepbox[7pt]{\includegraphics[scale=0.46]{compareluders/DD2.PNG}} \\
 \end{tabular}
-\caption{Comparrison of the expected utilities when measuring and not measuring between steps 1 and 2 of a 3 player game.}
+\caption{Comparrison of the expected utilities when measuring and not measuring between steps 1 and 2 of a 3 player game (the player 1 will be the player 2 in the 3 player game, and the player 2 will be the player 3 in the 3 game situation).}
 \label{tab:luderscomp}
 \end{center}
  \end{table}
+
+We set up a system with $3$ players and in the step $1$ the three players chose the operators $o_{10},o_{21},o_{31}$ producing the outcome $CDD$. 
+To analyse the step $2$,  the system will be kept in the initial dimension ($\mathcal{H}^{3}$), because of the following reasons: if we have entangled states, they won't be are separable; There may be various mappings in a lower dimension that fit the higher dimension composition. This means that the previous highest ranking player will no longer have access to the voting operators, instead she will use invariabily a symetric coin operator. 
+
+In one situation we will use the L\"{u}der's Rule, after the voting. This is the equivalent of performing a measurement on the system. In the other situation the two players will act on step $2$. The results for this experiment (Table \ref{tab:luderscomp}), allow us to conclude that not measuring the system affects the expected utilities for the players in two of the four possible analysed outcomes. In this case the act of measuring leaves us with the same payoffs one would get in a classic situation with $2$ players game, the equilibrium here is $CD$ outcome. Without the intermediate measuring step the outcome will depend on the $\gamma$ - the initial coeficient used to set up the system. For example:
+
+\begin{itemize}
+\item $\gamma = 0$, we have the same results as in the original problem. The Nash equilibrium is unique and it is $CD$.
+\item $\gamma = \frac{\pi}{2}$, the equlibrium is $DC$, as the payoffs for the $CC$ outcome are $(-200, 0.5)$, and the outcome $DD$ will present $(100, 0)$ for the expected utilities of the players.
+\item $\gamma = \frac{\pi}{4}$, all possible outcomes will be Nash equlibria. As we can see in Table \ref{tab:hate_myself}, no player can improve her payoff by unilateraly changing her strategy.
+
+
+
+\end{itemize}
+
+\begin{center}
+\begin{table}
+\begin{centering}
+\begin{tabular}{ccc}
+\hline 
+ $\gamma = \frac{\pi}{4}$ & Player 2: C & Player 2: D\tabularnewline
+\hline 
+Player 1: C & (-50, 0.25) & (100, 0)\tabularnewline
+Player 1: D & (100, 0) & (-50, 0.25)\tabularnewline
+\hline 
+\end{tabular}
+\par\end{centering}
+
+\caption{Normal form representation of the second step in a 3 player game with an entanglement coeficient of $\frac{\pi}{4}$, where there isn't an intermediate measuring. }
+\label{tab:hate_myself}
+\end{table}
+\end{center}
+
+
+If we adopt the version where we measure the system in between states, we can formulate the payoff functionals as:
+ \begin{equation}
+\begin{split}
+E_{1}(\vert\psi_{fin}\rangle, \alpha_{1})=\alpha_{1}\times(\vert\langle000\vert\psi_{fin}\rangle\vert^{2} + \vert\langle100\vert\psi_{fin}\rangle\vert^{2}
++ \vert\langle010\vert\psi_{fin}\rangle\vert^{2}
++ \vert\langle001\vert\psi_{fin}\rangle\vert^{2}
+ ) - \\
+ - 200\times(\vert\langle111\vert\psi_{fin}\rangle\vert^{2} + \vert\langle110\vert\psi_{fin}\rangle\vert^{2}
++ \vert\langle101\vert\psi_{fin}\rangle\vert^{2}
++ \vert\langle011\vert\psi_{fin}\rangle\vert^{2}
+ )
+\end{split}
+\end{equation}
+
+ \begin{equation}
+\begin{split}
+E_{2}(\vert\psi_{fin}\rangle, \alpha_{2})=\alpha_{2}\times(\vert\langle000\vert\psi_{fin}\rangle\vert^{2} + \vert\langle100\vert\psi_{fin}\rangle\vert^{2}
++ \vert\langle010\vert\psi_{fin}\rangle\vert^{2}
++ \vert\langle001\vert\psi_{fin}\rangle\vert^{2}
+ ) - \\
+ + 0.5\times(\vert\langle111\vert\psi_{fin}\rangle\vert^{2} + \vert\langle110\vert\psi_{fin}\rangle\vert^{2}
++ \vert\langle101\vert\psi_{fin}\rangle\vert^{2}
++ \vert\langle011\vert\psi_{fin}\rangle\vert^{2}
+ )
+\end{split}
+\end{equation}
+
+ \begin{equation}
+\begin{split}
+E_{3}(\vert\psi_{fin}\rangle, \alpha_{3})=\alpha_{3}\times(\vert\langle000\vert\psi_{fin}\rangle\vert^{2} + \vert\langle100\vert\psi_{fin}\rangle\vert^{2}
++ \vert\langle010\vert\psi_{fin}\rangle\vert^{2}
++ \vert\langle001\vert\psi_{fin}\rangle\vert^{2}
+ ) - \\
+ + 0.5\times(\vert\langle111\vert\psi_{fin}\rangle\vert^{2} + \vert\langle110\vert\psi_{fin}\rangle\vert^{2}
++ \vert\langle101\vert\psi_{fin}\rangle\vert^{2}
++ \vert\langle011\vert\psi_{fin}\rangle\vert^{2}
+ )
+\end{split}
+\end{equation}
+
 
 
 \begin{comment}
