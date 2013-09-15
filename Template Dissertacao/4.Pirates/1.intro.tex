@@ -109,7 +109,31 @@ We will account for this preference by assigning an expected value of half a coi
 
 Each step will be identified by the offset $k$, which will be equal to the offset $i$ for the highest ranking pirate. So with $3$ pirates we start with step $1$, if the voting is rejected we will get to step $2$, where 1 vote is enough to pass a proposal.
 
-After the voting, we will use the L\"{u}der's Rule to prepare the system for the next step. In the original problem the problem with $2$ players is a subproblem of a problem with $3$ players where the first captain is killed. Our hipothesys states that the way we set up our system may originate different results, so we will try to analyse the subgame with $2$ players giving the fact that in a system with $3$ players the proposition failed. To analyse the step $2$,  the system will be kept in the initial dimension ($\mathcal{H}^{3}$), because of the following reasons: if we have entangled states, they won't be are separable; There may be various mappings in a lower dimension that fit the higher dimension composition. This means that the previous highest ranking player will no longer have access to the voting operators, instead she will use invariabily a symetric coin operator.
+By hipothesys, the way we set up our system may originate different results, so when we have a $3$ player system, we will try to analyse the subgame with $2$ players taking into account the original system. In the classical version of the Pirate Game, the problem with $2$ players is equivalent to a subproblem with $2$ players of a problem with more players where previous captains are killed. 
+
+We set up a system with $3$ players and in the step $1$ the three players chose the operators $o_{10},o_{21},o_{31}$ producing the outcome $CDD$. 
+To analyse the step $2$,  the system will be kept in the initial dimension ($\mathcal{H}^{3}$), because of the following reasons: if we have entangled states, they won't be are separable; There may be various mappings in a lower dimension that fit the higher dimension composition. This means that the previous highest ranking player will no longer have access to the voting operators, instead she will use invariabily a symetric coin operator. 
+
+In one situation we will use the L\"{u}der's Rule, after the voting. This is the equivalent of performing a measurement to see the state of the system. In the other situation the two players will act on step $2$. The results for this experiment (Table \ref{tab:luderscomp}) allow us to conclude that not measuring the system affects the expected utilities for the players in two of the four possible analysed outcomes. In this case the act of measuring leaves us with the same payoffs one would get in a classic sittuation with $2$ players.
+
+
+\begin{table}
+
+\begin{center}
+\begin{tabular}{cc}
+  a)\putindeepbox[7pt]{\includegraphics[scale=0.46]{compareluders/CC1.PNG}}
+    & b)\putindeepbox[7pt]{\includegraphics[scale=0.46]{compareluders/CC2.PNG}} \\
+  c)\putindeepbox[7pt]{\includegraphics[scale=0.46]{compareluders/CD1.PNG}}
+    & d)\putindeepbox[7pt]{\includegraphics[scale=0.46]{compareluders/CD2.PNG}} \\
+  e)\putindeepbox[7pt]{\includegraphics[scale=0.46]{compareluders/DC1.PNG}}
+    & f)\putindeepbox[7pt]{\includegraphics[scale=0.46]{compareluders/DC2.PNG}} \\
+  g)\putindeepbox[7pt]{\includegraphics[scale=0.46]{compareluders/DD1.PNG}}
+    & h)\putindeepbox[7pt]{\includegraphics[scale=0.46]{compareluders/DD2.PNG}} \\
+\end{tabular}
+\caption{Comparrison of the expected utilities when measuring and not measuring between steps 1 and 2 of a 3 player game.}
+\label{tab:luderscomp}
+\end{center}
+ \end{table}
 
 
 \begin{comment}
