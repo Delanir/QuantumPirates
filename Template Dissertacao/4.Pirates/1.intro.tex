@@ -96,7 +96,7 @@ The highest ranking pirate in the hierarchy will be responsible to make a propos
 
 \begin{equation}
 \label{eq:goodss}
-\sum_{i=1}^{3}\alpha_{i}=100\wedge\alpha_{i}\in\mathbb{N}_{0}
+\sum_{i=1}^{3}\alpha_{i}=100, \forall i :\alpha_{i}\in\mathbb{N}_{0}
 \end{equation}
 
 The proposed goods allocation will be executed if there is a majority (or a tie), in the voting step. A step in the game consists on the highest ranking pirate defining a proposal and the subsequent vote, where all players choose simultaneously an operator. If the proposal is rejected the captain will be thrown off board, to account for the fact that this situation is very undesirable for the captain he will receive a negative payoff of $-200$.
@@ -107,7 +107,7 @@ The proposed goods allocation will be executed if there is a majority (or a tie)
 
 We will account for this preference by assigning an expected value of half a coin ($0.5$), to the payoff of the players that will climb on the hierarchy if the voting fails.
 
-Each step will be identified by the offset of the highest ranking pirate. So with $3$ pirates we start with step $1$, if the voting is rejected we will get to step $2$, where 1 vote is enough to pass a proposal.
+Each step will be identified by the offset $k$, which will be equal to the offset $i$ for the highest ranking pirate. So with $3$ pirates we start with step $1$, if the voting is rejected we will get to step $2$, where 1 vote is enough to pass a proposal.
 
 After the voting, we will use the L\"{u}der's Rule to prepare the system for the next step. In the original problem the problem with $2$ players is a subproblem of a problem with $3$ players where the first captain is killed. Our hipothesys states that the way we set up our system may provide different results, so we will try to analyse the subgame with $2$ players giving the fact that in a system with $3$ players the proposition failed. 
 
