@@ -106,11 +106,11 @@ D = o_{i1}=\left[\begin{array}{cc}
 \subsubsection{Initial State}
 \label{subsec:pirates_initialstate}
 
-A game $\Gamma$ can be viewed as a system composed by players. The initial system will be set up by defining an entanglement coefficient $\gamma$, that affect the way the three qubits (belonging to the three pirate players), are related \ref{eq:estado_inicial_pg}. The concept of entanglement is crucial to explain some phenomena in Quantum Mechanics (Section \ref{subsec:entanglement}). Analysing the role of entanglement in the system is also considered to be a major source of different results from the traditional Game Theory approach\cite{Fra2011a}\cite{Fra2011}\cite{Letters2002}\cite{Khan2011}\cite{Ricketts2006}. 
+A game $\Gamma$ can be viewed as a system composed by qubits manipulated by players. In a $3$ player game there will be $3$ qubits, each manipulated by a different player. The initial system will be set up by defining an entanglement coefficient $\gamma$, that affect the way the three qubits (belonging to the three pirate players), are related \ref{eq:estado_inicial_pg}. The concept of entanglement is crucial to explain some phenomena in Quantum Mechanics (Section \ref{subsec:entanglement}). Analysing the role of entanglement in the system is also considered to be a major source of different results from the traditional Game Theory approach\cite{Fra2011a}\cite{Fra2011}\cite{Letters2002}\cite{Khan2011}\cite{Ricketts2006}. 
  
 \begin{equation}
 \label{eq:estado_inicial_pg}
-\vert \psi_{in}(\gamma) \rangle= cos( \gamma)\vert 000\rangle+ isen(\gamma)\vert 111 \rangle, \gamma \in (0,\pi)
+\vert \psi_{ini1}(\gamma) \rangle= cos( \gamma)\vert 000\rangle+ isen(\gamma)\vert 111 \rangle, \gamma \in (0,\pi)
 \end{equation}
 
 
@@ -118,7 +118,7 @@ A game $\Gamma$ can be viewed as a system composed by players. The initial syste
 \subsubsection{Final State}
 \label{subsec:pirates_finalstate}
 
-We can play the Pirate Game by considering a succession of steps. For example, with three players, the first step will correspond to the player 1 (or the captain), if the proposal fails we will proceed to the second step in the game, where the remaining two players will vote on a new proposal made by player 2 (who will be the new captain). 
+We can play the Pirate Game by considering a succession of steps or voting rounds. For example, with three players, the first step will correspond to the player 1 (or the captain), if the proposal fails we will proceed to the second step in the game, where the remaining two players will vote on a new proposal made by player 2 (who will be the new captain). 
 
 The final state in a step $k$ of the game is calculated by constructing a super-operator by performing the tensor product of each player chosen strategy\ref{eq:operators_piratas_quanticos}. The super-operator, containing each player strategy, will then be applied to the initial state, this will correspond to the players making a simoultaneous move\ref{eq:piratas_final_move}. 
 
@@ -135,14 +135,6 @@ In the Figure \ref{fig:pg_architecture3players} we have a step in the game.We st
 \label{fig:pg_architecture3players}
 \end{figure}
 
-The second stage in the game can be played in one of two ways. Either we perform an intermediate measuring step on the final state from the first round of voting as in Figure \ref{fig:pg_architecture3players_2measure}, or we ``ask'' what are the two player's strategy for this round without informing them of the results in the last round, like in the Figure \ref{fig:pg_architecture3players_2nomeasure}. In the original game the voting results are displayed in between rounds:
-
-\begin{quotation}
-If a majority or a tie is reached the goods will be allocated according to the proposal. Otherwise the proposer will be thrown overboard and the next pirate in the hierarchy assumes the place of the captain. 
-\end{quotation}
-
-When modelling this problem we want to study if withholding the results in the intermediate step will give way to new strategies.
-
 \begin{figure}[h]
 \centering 
 \includegraphics[scale=0.35]{Figures/architecture/esquema/Slide2.png}
@@ -157,8 +149,31 @@ When modelling this problem we want to study if withholding the results in the i
 \label{fig:pg_architecture3players_2nomeasure}
 \end{figure}
 
+The second stage in the game can be played in one of two ways. Either we perform an intermediate measuring step on the final state from the first round of voting as in Figure \ref{fig:pg_architecture3players_2measure}, or we ``ask'' what are the two player's strategy for this round without informing them of the results in the last round, like in the Figure \ref{fig:pg_architecture3players_2nomeasure}. In the original game the voting results are displayed in between rounds:
+
+\begin{quotation}
+If a majority or a tie is reached the goods will be allocated according to the proposal. Otherwise the proposer will be thrown overboard and the next pirate in the hierarchy assumes the place of the captain. 
+\end{quotation}
+
+When modelling this problem we want to study if withholding the results in the intermediate step will give way to new strategies.
+
+\begin{figure}[h]
+\centering 
+\includegraphics[scale=0.55]{Figures/architecture/esquema/Slide5.png}
+\caption{Overal view on the Quantum Pirate Game architecture. }
+\label{fig:pg_architecture3players_architecture}
+\end{figure}
+
 \subsubsection{Utility}
 \label{subsec:pirates_utility}
+
+Building the expected payoff functionals for the three player sittuation must take into account the subgames created when the proposal fail. These utility functions will represent the degree of satisfaction for each pirate after game by atributiong a real number to a measurement performed to the system, as in Equation \ref{eq:quantum_game_definition_payoff_func} (Section \ref{sec:background_quantum_game_theory}). 
+
+As each pirate wants to maximize her utility, the Nash equilibrium will be thourougly used to find the strategies that the pirates will adopt\cite{nash50}\cite{Nash51}.
+
+The real numbers used convey the logical relations of utlity posed by the original problem description. Those numbers will represent the utility associated with the number of coins that a pirate gets, a death penalty, and a small incentive to climb the hierarchy.
+
+The number of coins will translate directly the utility associated with getting those coins. For example if a pirate receives 5 gold coins and the proposal is accepted he will get a utility of 5. 
 
 The highest ranking pirate in the hierarchy will be responsible to make a proposal to divide the 100 gold coins. This proposal is modelled as choosing some parameters for the payoff functionals for every player, according to some rules. For the initial steo in the game with three pirates these parameters will be $\alpha_{1}, \alpha_{2}, \alpha_{3}$, and they will obey to the Equation \ref{eq:goodss}, where $k$ is the offest of the current captain, and $N$ the number of pirates in the game. 
 
@@ -167,9 +182,11 @@ The highest ranking pirate in the hierarchy will be responsible to make a propos
 \sum_{i=k}^{N}\alpha_{i}=100, \forall i :\alpha_{i}\in\mathbb{N}_{0}
 \end{equation}
 
-The most interesting values for $(\alpha_{1}, \alpha_{2}, \alpha_{3})$ will be the allocation that results in a equilibrium in the original Pirate Game $(99, 0, 1)$, and the case where the captain maximizes the number of coins he can get $(100, 0, 0)$. Will the game modelled as a quantum system allow the captain to acquire all the coins?
+The most interesting values for $(\alpha_{1}, \alpha_{2}, \alpha_{3})$ will be the allocation that results in a Nash equilibrium in the original Pirate Game $(99, 0, 1)$, and the case where the captain maximizes the number of coins he can get $(100, 0, 0)$. Will the game modelled as a quantum system allow the captain to acquire all the coins?
 
-The proposed goods allocation will be executed if there is a majority (or a tie), in the voting step. A step in the game consists on the highest ranking pirate defining a proposal and the subsequent vote, where all players choose simultaneously an operator. If the proposal is rejected the captain will be thrown off board, to account for the fact that this situation is very undesirable for the captain he will receive a negative payoff of $-200$.
+The proposed goods allocation will be executed if there is a majority (or a tie), in the voting step. A step in the game consists on the highest ranking pirate defining a proposal and the subsequent vote, where all players choose simultaneously an operator. 
+
+If the proposal is rejected the captain will be thrown off board, to account for the fact that this situation is very undesirable for the captain he will receive a negative payoff of $-200$. This value was chosen to be much less than the highest number of coins a pirate could get.
 
 \begin{quotation}
 ``When the result is indifferent the pirates prefer to throw another pirate overboard and thus climbing in the hierarchy.''
@@ -177,7 +194,81 @@ The proposed goods allocation will be executed if there is a majority (or a tie)
 
 This means that the pirates have a small incentive to climb the hierarchy. For example in the three player classical game, the third player, who has the lowest rank, will prefer to defect the initial proposal if the player 1 doesn't give her a coin, even knowing that in the second round the player 2 will be able to keep the 100 coins. We will account for this preference by assigning an expected value of half a coin ($0.5$), to the payoff of the players that will climb on the hierarchy if the voting fails.
 
-As stated in Section \ref{subsec:pirates_finalstate}, each step will be identified by the offset $k$, which will be equal to the offset $i$ for the highest ranking pirate. So with $3$ pirates we start with step $1$, if the voting is rejected we will get to step $2$, where 1 vote is enough to pass a proposal.
+As stated in Section \ref{subsec:pirates_finalstate}, each step will be identified by the offset $k$, which will be equal to the offset $i$ for the highest ranking pirate. 
+
+We can observe that in Equations \ref{eq:pirates_payoff32} and \ref{eq:pirates_payoff3} that we have two separate groups of outcomes: the one that represents outcomes where the proposal is passed and the other that agreggates the outcomes where the captain will be eleminated and the remaining players will keep playing.
+
+So with $3$ pirates we start with step $1$ (Figure \ref{fig:pg_architecture3players_architecture}), if the voting is rejected we will get to step $2$, where 1 vote is enough to pass a proposal. The final payoff function (for example Equation \ref{eq:pirates_payoff32} for a $3$ player game), will be calculated recursively, the base case being the $2$ player subgame in a $3$ player system will be Equation \ref{eq:pirates_payoff3}.
+
+ 
+
+ \begin{equation}
+ \begin{cases}
+\begin{split}
+E_{11}(\vert\psi_{fin1}\rangle, \alpha_{1})=\alpha_{1}\times(\vert\langle000\vert\psi_{fin1}\rangle\vert^{2} + \vert\langle100\vert\psi_{fin1}\rangle\vert^{2}
++ \vert\langle010\vert\psi_{fin1}\rangle\vert^{2}
++ \vert\langle001\vert\psi_{fin1}\rangle\vert^{2}
+ ) - \\
+ - 200\times(\vert\langle111\vert\psi_{fin1}\rangle\vert^{2} + \vert\langle110\vert\psi_{fin1}\rangle\vert^{2}
++ \vert\langle101\vert\psi_{fin1}\rangle\vert^{2}
++ \vert\langle011\vert\psi_{fin1}\rangle\vert^{2}
+ )
+\end{split}
+\\
+\begin{split}
+E_{12}(\vert\psi_{fin1}\rangle, \alpha_{2})=\alpha_{2}\times(\vert\langle000\vert\psi_{fin1}\rangle\vert^{2} + \vert\langle100\vert\psi_{fin1}\rangle\vert^{2}
++ \vert\langle010\vert\psi_{fin1}\rangle\vert^{2}
++ \vert\langle001\vert\psi_{fin1}\rangle\vert^{2}
+ ) - \\
+ + (0.5 + E_{22})\times(\vert\langle111\vert\psi_{fin1}\rangle\vert^{2} + \vert\langle110\vert\psi_{fin1}\rangle\vert^{2}
++ \vert\langle101\vert\psi_{fin1}\rangle\vert^{2}
++ \vert\langle011\vert\psi_{fin1}\rangle\vert^{2}
+ )
+\end{split}
+\\
+\begin{split}
+E_{13}(\vert\psi_{fin1}\rangle, \alpha_{3})=\alpha_{3}\times(\vert\langle000\vert\psi_{fin1}\rangle\vert^{2} + \vert\langle100\vert\psi_{fin1}\rangle\vert^{2}
++ \vert\langle010\vert\psi_{fin1}\rangle\vert^{2}
++ \vert\langle001\vert\psi_{fin1}\rangle\vert^{2}
+ ) - \\
+ + (0.5 + E_{23})\times(\vert\langle111\vert\psi_{fin1}\rangle\vert^{2} + \vert\langle110\vert\psi_{fin1}\rangle\vert^{2}
++ \vert\langle101\vert\psi_{fin1}\rangle\vert^{2}
++ \vert\langle011\vert\psi_{fin1}\rangle\vert^{2}
+ )
+\end{split}
+\end{cases}
+\label{eq:pirates_payoff32}
+%\caption{Payoff funcionals for the $3$ player pirate game. The payoff function for the non-captain players is recursive because their decision to approve or reject the initial proposal will depend on how much they expect to gain in the next round ($E_{22}$ and $E_{23}$).}
+\end{equation}
+
+ \begin{equation}
+\begin{cases}
+\begin{split}
+E_{22}(\vert\psi_{fin2}\rangle, \alpha_{2})=\alpha_{2}\times(\vert\langle000\vert\psi_{fin1}\rangle\vert^{2} + \vert\langle100\vert\psi_{fin1}\rangle\vert^{2}
++ \vert\langle010\vert\psi_{fin1}\rangle\vert^{2}
++ \vert\langle001\vert\psi_{fin1}\rangle\vert^{2}
+ ) - \\
+ + 0.5\times(\vert\langle111\vert\psi_{fin1}\rangle\vert^{2} + \vert\langle110\vert\psi_{fin1}\rangle\vert^{2}
++ \vert\langle101\vert\psi_{fin1}\rangle\vert^{2}
++ \vert\langle011\vert\psi_{fin1}\rangle\vert^{2}
+ )
+\end{split}
+\\
+\begin{split}
+E_{23}(\vert\psi_{fin2}\rangle, \alpha_{3})=\alpha_{3}\times(\vert\langle000\vert\psi_{fin1}\rangle\vert^{2} + \vert\langle100\vert\psi_{fin1}\rangle\vert^{2}
++ \vert\langle010\vert\psi_{fin1}\rangle\vert^{2}
++ \vert\langle001\vert\psi_{fin1}\rangle\vert^{2}
+ ) - \\
+ + 0.5 \times(\vert\langle111\vert\psi_{fin1}\rangle\vert^{2} + \vert\langle110\vert\psi_{fin1}\rangle\vert^{2}
++ \vert\langle101\vert\psi_{fin1}\rangle\vert^{2}
++ \vert\langle011\vert\psi_{fin1}\rangle\vert^{2}
+ )
+\end{split}
+\end{cases}
+\label{eq:pirates_payoff3}
+%\caption{Second round of a $3$ player game.The $2$ player subgame is the base case for this problem because one vote is enough to pass the proposal.}
+\end{equation}
+
 
 \subsection{Analysing the $2$-Player subgame}
 \label{subsec:2_player_subgame_piratas_doidos}
@@ -207,7 +298,7 @@ We set up a system with $3$ players and in the step $1$ the three players chose 
 
 To analyse the step $2$,  the system will be kept in the initial dimension ($\mathcal{H}^{3}$), because of the following reasons: if we have entangled states, they won't be are separable; There may be various mappings in a lower dimension that fit the higher dimension composition. This means that the previous highest ranking player will no longer have access to the voting operators, instead she will use invariably a symmetric coin operator. 
 
-In one situation we will use the L\"{u}der's Rule, after the voting. This is the equivalent of performing a measurement on the system. In the other situation the two players will act on step $2$. The results for this experiment (Table \ref{tab:luderscomp}), allow us to conclude that not measuring the system affects the expected utilities for the players in two of the four possible analysed outcomes. In this case the act of measuring leaves us with the same utility results one would get in a classic situation with $2$ players game, the equilibrium here is $CD$ outcome. Without the intermediate measuring step the outcome will depend on the $\gamma$ - the initial coefficient used to set up the system. For example:
+In one situation we will use the L\"{u}der's Rule, after the voting. This is the equivalent of performing a measurement on the system after the first round \ref{fig:pg_architecture3players_2measure}. In the other situation the two players will act on step $2$, as in Figure \ref{fig:pg_architecture3players_2nomeasure}. The results for this experiment (Table \ref{tab:luderscomp}), allow us to conclude that not measuring the system affects the expected utilities for the players in two of the four possible analysed outcomes. In this case the act of measuring leaves us with the same utility results one would get in a classic situation with $2$ players game, the equilibrium here is $CD$ outcome. Without the intermediate measuring step the outcome will depend on the $\gamma$ - the initial coefficient used to set up the system. For example:
 
 \begin{itemize}
 \item $\gamma = 0$, we have the same results as in the original problem. The Nash equilibrium is unique and it is $CD$.
