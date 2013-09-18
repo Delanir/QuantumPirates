@@ -67,7 +67,7 @@ We propose to study this problem for the $2$ and $3$ player games and trying to 
 \subsection{Quantum Model}
 \label{subsec:description_2}
 
-In order to model the problem we will start by defining it using the definition of quantum game ($\Gamma$), referred in \ref{eq:quantum_game_six_tuple}, Section \ref{sec:background_quantum_game_theory}\cite{Fra2011a}. 
+In order to model the problem we will start by defining it using the definition of quantum game ($\Gamma$), referred in \ref{eq:quantum_game_six_tuple}, Section \ref{sec:background_quantum_game_theory}\cite{Fra2011a}.
 
 We want to keep the problem as close to the original as possible in order to better compare the results. Thus we will analyse the game from the point of view of the captain. Will her best response change?
 
@@ -118,7 +118,9 @@ A game $\Gamma$ can be viewed as a system composed by qubits manipulated by play
 \subsubsection{Final State}
 \label{subsec:pirates_finalstate}
 
-We can play the Pirate Game by considering a succession of steps or voting rounds. For example, with three players, the first step will correspond to the player 1 (or the captain), if the proposal fails we will proceed to the second step in the game, where the remaining two players will vote on a new proposal made by player 2 (who will be the new captain). 
+We can play the Pirate Game by considering a succession of steps or voting rounds. In each step we have a simoultaneous move, however considering the potential rounds the game has we have a sequencial game. 
+
+With three players, the first step will correspond to the player 1 (or the captain), if the proposal fails we will proceed to the second step in the game, where the remaining two players will vote on a new proposal made by player 2 (who will be the new captain). 
 
 The final state in a step $k$ of the game is calculated by constructing a super-operator by performing the tensor product of each player chosen strategy\ref{eq:operators_piratas_quanticos}. The super-operator, containing each player strategy, will then be applied to the initial state, this will correspond to the players making a simoultaneous move\ref{eq:piratas_final_move}. 
 
@@ -145,7 +147,7 @@ In the Figure \ref{fig:pg_architecture3players} we have a step in the game.We st
 \begin{figure}[h]
 \centering 
 \includegraphics[scale=0.35]{Figures/architecture/esquema/Slide3.png}
-\caption{Playing the second round of the Pirate Game with 3 players without performing an intermediate measuring. }
+\caption{Playing the second round of the Pirate Game with 3 players without performing an intermediate measurement. }
 \label{fig:pg_architecture3players_2nomeasure}
 \end{figure}
 
@@ -167,7 +169,17 @@ When modelling this problem we want to study if withholding the results in the i
 \subsubsection{Utility}
 \label{subsec:pirates_utility}
 
-Building the expected payoff functionals for the three player sittuation must take into account the subgames created when the proposal fail. These utility functions will represent the degree of satisfaction for each pirate after game by atributiong a real number to a measurement performed to the system, as in Equation \ref{eq:quantum_game_definition_payoff_func} (Section \ref{sec:background_quantum_game_theory}). 
+To build the expected payoff functionals for the three player sittuation we must take into account the subgames created when the proposal fail. In Figure \ref{fig:pg_architecturegametree} we can see an extensive form representation of the game.
+
+\begin{figure}[h]
+\centering 
+\includegraphics[scale=0.55]{Figures/architecture/GameTree/Slide1.png}
+\caption{Extensive form representation of the game ($3$ player). Red circles represent failed proposals, green represent accepted proposals. }
+\label{fig:pg_architecturegametree}
+\end{figure}
+
+
+These utility functions will represent the degree of satisfaction for each pirate after game by atributiong a real number to a measurement performed to the system, as in Equation \ref{eq:quantum_game_definition_payoff_func} (Section \ref{sec:background_quantum_game_theory}). 
 
 As each pirate wants to maximize her utility, the Nash equilibrium will be thourougly used to find the strategies that the pirates will adopt\cite{nash50}\cite{Nash51}.
 
@@ -259,7 +271,7 @@ E_{23}(\vert\psi_{fin2}\rangle, \alpha_{3})=\alpha_{3}\times(\vert\langle000\ver
 + \vert\langle010\vert\psi_{fin1}\rangle\vert^{2}
 + \vert\langle001\vert\psi_{fin1}\rangle\vert^{2}
  ) - \\
- + 0.5 \times(\vert\langle111\vert\psi_{fin1}\rangle\vert^{2} + \vert\langle110\vert\psi_{fin1}\rangle\vert^{2}
+ + 100.5 \times(\vert\langle111\vert\psi_{fin1}\rangle\vert^{2} + \vert\langle110\vert\psi_{fin1}\rangle\vert^{2}
 + \vert\langle101\vert\psi_{fin1}\rangle\vert^{2}
 + \vert\langle011\vert\psi_{fin1}\rangle\vert^{2}
  )
@@ -316,8 +328,8 @@ In one situation we will use the L\"{u}der's Rule, after the voting. This is the
 \hline 
  $\gamma = \frac{\pi}{4}$ & Player 2: C & Player 2: D\tabularnewline
 \hline 
-Player 1: C & (-50, 0.25) & (100, 0)\tabularnewline
-Player 1: D & (100, 0) & (-50, 0.25)\tabularnewline
+Player 1: C & (-50, 50.25) & (100, 0)\tabularnewline
+Player 1: D & (100, 0) & (-50, 50.25)\tabularnewline
 \hline 
 \end{tabular}
 \par\end{centering}
