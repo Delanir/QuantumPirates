@@ -115,12 +115,14 @@ A game $\Gamma$ can be viewed as a system composed by players. The initial syste
 
 
 
-\subsubsection{Finall State}
+\subsubsection{Final State}
 \label{subsec:pirates_finalstate}
 
-We van play the Pirate Game by considering a succession of steps. For example, with three players, the first step will correspond to the player 1 (or the captain), if the proposal fails we will proceed to the second step in the game, where the remaining two players will vote on a new proposal made by player 2 (who will be the new captain). 
+We can play the Pirate Game by considering a succession of steps. For example, with three players, the first step will correspond to the player 1 (or the captain), if the proposal fails we will proceed to the second step in the game, where the remaining two players will vote on a new proposal made by player 2 (who will be the new captain). 
 
-The final state in a step $k$ of the game is calculated by constructing a super-operator by performing the tensor product of each player chosen strategy\ref{eq:operators_piratas_quanticos}. The super-operator, containing each player strategy, will then be applied to the initial state, this will correspond to the players making a simoultaneous move\ref{eq:piratas_final_move}\ref{fig:pg_architecture3players}.
+The final state in a step $k$ of the game is calculated by constructing a super-operator by performing the tensor product of each player chosen strategy\ref{eq:operators_piratas_quanticos}. The super-operator, containing each player strategy, will then be applied to the initial state, this will correspond to the players making a simoultaneous move\ref{eq:piratas_final_move}. 
+
+In the Figure \ref{fig:pg_architecture3players} we have a step in the game.We start by building our initial state, then the players will select their strategy, a super operator is constructed by performing a tensor product of the selected operators.
 
 \begin{equation}
 \vert\psi_{fink}\rangle=\otimes_{i=1}^{N} \mathcal{U}_{i}\vert\psi_{inik}\rangle\label{eq:piratas_final_move}
@@ -128,19 +130,41 @@ The final state in a step $k$ of the game is calculated by constructing a super-
 
 \begin{figure}[h]
 \centering 
-\includegraphics[scale=0.35]{Figures/architecture/Slide1.png}
+\includegraphics[scale=0.35]{Figures/architecture/esquema/Slide1.png}
 \caption{Playing the first round of the Pirate Game with 3 players. }
 \label{fig:pg_architecture3players}
+\end{figure}
+
+The second stage in the game can be played in one of two ways. Either we perform an intermediate measuring step on the final state from the first round of voting as in Figure \ref{fig:pg_architecture3players_2measure}, or we ``ask'' what are the two player's strategy for this round without informing them of the results in the last round, like in the Figure \ref{fig:pg_architecture3players_2nomeasure}. In the original game the voting results are displayed in between rounds:
+
+\begin{quotation}
+If a majority or a tie is reached the goods will be allocated according to the proposal. Otherwise the proposer will be thrown overboard and the next pirate in the hierarchy assumes the place of the captain. 
+\end{quotation}
+
+When modelling this problem we want to study if withholding the results in the intermediate step will give way to new strategies.
+
+\begin{figure}[h]
+\centering 
+\includegraphics[scale=0.35]{Figures/architecture/esquema/Slide2.png}
+\caption{Playing the second round of the Pirate Game with 3 players by performing an intermediate measuring. }
+\label{fig:pg_architecture3players_2measure}
+\end{figure}
+
+\begin{figure}[h]
+\centering 
+\includegraphics[scale=0.35]{Figures/architecture/esquema/Slide3.png}
+\caption{Playing the second round of the Pirate Game with 3 players without performing an intermediate measuring. }
+\label{fig:pg_architecture3players_2nomeasure}
 \end{figure}
 
 \subsubsection{Utility}
 \label{subsec:pirates_utility}
 
-The highest ranking pirate in the hierarchy will be responsible to make a proposal to divide the 100 gold coins. This proposal is modelled as choosing some parameters for the payoff functionals for every player, according to some rules. These parameters will be $\alpha_{1}, \alpha_{2}, \alpha_{3}$, and they will obey to the Equation \ref{eq:goodss}. 
+The highest ranking pirate in the hierarchy will be responsible to make a proposal to divide the 100 gold coins. This proposal is modelled as choosing some parameters for the payoff functionals for every player, according to some rules. For the initial steo in the game with three pirates these parameters will be $\alpha_{1}, \alpha_{2}, \alpha_{3}$, and they will obey to the Equation \ref{eq:goodss}, where $k$ is the offest of the current captain, and $N$ the number of pirates in the game. 
 
 \begin{equation}
 \label{eq:goodss}
-\sum_{i=1}^{3}\alpha_{i}=100, \forall i :\alpha_{i}\in\mathbb{N}_{0}
+\sum_{i=k}^{N}\alpha_{i}=100, \forall i :\alpha_{i}\in\mathbb{N}_{0}
 \end{equation}
 
 The most interesting values for $(\alpha_{1}, \alpha_{2}, \alpha_{3})$ will be the allocation that results in a equilibrium in the original Pirate Game $(99, 0, 1)$, and the case where the captain maximizes the number of coins he can get $(100, 0, 0)$. Will the game modelled as a quantum system allow the captain to acquire all the coins?
