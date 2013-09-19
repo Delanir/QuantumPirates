@@ -6,11 +6,18 @@ Game Theory did not exist in its own right before von Neumann published the arti
 \subsection{Definition of a Game}
 \label{subsec:background:game_theory_definition}
 
-The concept of utility, expected utility, or payoff derives from the theory that we can use real numbers to represent the wants and needs of the players. This allows to compare different states and rank preferred outcomes\cite{Neumann1944}.
+A game ($\Gamma$), is a model of conflict between players characterized by\cite{Osborne2004}\cite{OsbRub94}\cite{Fra2011}:
+\begin{itemize}
+\item A set of Players: $P=\{1, 2, .., N \}$.
+\item For each player there is set of Actions.
+\item There are preferences , for each player, over the set of Actions.
+\end{itemize}
+
+The preferences in th previous definitions are defined with resort to concept of utility, expected utility, or payoff derives from the theory that we can use real numbers (Equation \ref{gt:utilidadesreais}), to model and represent the wants and needs of the players. This simplified mathematical model allows to compare different states and rank preferred outcomes. For example if $u(x)$ is a utility function for a player, and $u(A)>u(B)$, that would mean that the player would strictly prefer $A$ over $B$. The concept of expected utily is fundamental to analyse games, as a rational player would try to maximize her expected utility\cite{Neumann1944}\cite{Osborne2004}.
 
 There are two standard representations of games:
 \begin{itemize}
-\item Normal Form - lists what payoffs the players get as a function of their actions as if they all make their moves simultaneously. 
+\item Normal Form - lists what payoffs the players get as a function of their actions as if they all make their moves simultaneously. This games are usualy represented by a matrix.
 \item Extensive Form - extensive form games can be represented by a tree and represent timed actions.
 \end{itemize}
 
@@ -20,10 +27,15 @@ A zero-sum game is a mathematical representation of a system where the gains are
 
 
 
+\begin{equation}
+u:X\rightarrow\mathbb{R}
+\label{gt:utilidadesreais}
+\end{equation}
+
 \subsection{Nash Equilibrium}
 \label{subsec:background:game_theory_nash_equilibrium}
 
-When all players cannot improve their utility by changing their strategy unilateraly, we have an equilibrium point. This equilibrium point is named after John Nash, who proved that it exists at least one mixed strategy Nash equiibrium in a finite game\cite{nash50}\cite{Nash51}. This concept is used to analise game where several decision makers interact simultaneously and the final outcome depends on the players strategy.
+When all players cannot improve their utility by changing their strategy unilateraly, we have an equilibrium point. This equilibrium point is named after John Nash, who proved that it exists at least one mixed strategy Nash equiibrium in a finite game\cite{nash50}\cite{Nash51}. This concept is used to analise game where several decision makers interact simultaneously and the final outcome depends on the players strategy\cite{Osborne2004}.
 
 In a sequential game 
 

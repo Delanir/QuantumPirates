@@ -1,3 +1,7 @@
 Relevant Bibliography
 
 An Introduction to Game Theory, Osborne, M.J., Oxford University Press, USA, 2004.
+
+\cite{Osborne2004}
+
+Pôr definitions lindas.
