@@ -262,9 +262,13 @@ By hypothesis, the way we set up our system may originate different results, so 
 
 We set up a system with $3$ players and in the step $1$ the three players chose the operators $o_{10},o_{21},o_{31}$ producing the outcome $CDD$, the initial proposal for the gold coin division will be $(100, 0, 0)$. 
 
-To analyse the step $2$,  the system will be kept in the initial dimension ($\mathcal{H}^{3}$), because of the following reasons: if we have entangled states, they won't be are separable; There may be various mappings in a lower dimension that fit the higher dimension composition. This means that the previous highest ranking player will no longer have access to the voting operators, instead she will use invariably a symmetric coin operator. 
+To analyse the step $2$, or the sub-game with $2$ pirates,  the system will be kept in the initial dimension ($\mathcal{H}^{3}$), because of the following reasons: if we have entangled states, they won't be are separable; There may be various mappings in a lower dimension that fit the higher dimension composition. This means that the previous highest ranking player will no longer have access to the voting operators, instead she will use invariably a symmetric coin operator $H$.
 
-In one situation we will use the L\"{u}der's Rule, after the voting. This is the equivalent of performing a measurement on the system after the first round \ref{fig:pg_architecture3players_2measure}. In the other situation the two players will act on step $2$, as in Figure \ref{fig:pg_architecture3players_2nomeasure}. The results for this experiment (Table \ref{tab:luderscomp}), allow us to conclude that not measuring the system affects the expected utilities for the players in two of the four possible analysed outcomes. In this case the act of measuring leaves us with the same utility results one would get in a classic situation with $2$ players game, the equilibrium here is $CD$ outcome. Without the intermediate measuring step the outcome will depend on the $\gamma$ - the initial coefficient used to set up the system. For example:
+In one situation we will use the L\"{u}der's Rule, after the voting. This is the equivalent of performing a measurement on the system after the first round \ref{fig:pg_architecture3players_2measure}. In the other situation the two players will act on step $2$, as in Figure \ref{fig:pg_architecture3players_2nomeasure}. The results for this experiment (Table \ref{tab:luderscomp}), allow us to conclude that not measuring the system affects the expected utilities for the players in two of the four possible analysed outcomes. 
+
+In this case the act of measuring leaves us with the same utility results one would get in a classic situation with $2$ players game, the equilibrium here is $CD$ outcome. 
+
+Without the intermediate measuring step the outcome will depend on the $\gamma$ - the initial coefficient used to set up the system. For example:
 
 \begin{itemize}
 \item $\gamma = 0$, we have the same results as in the original problem. The Nash equilibrium is unique and it is $CD$.
@@ -298,7 +302,7 @@ Player 1: D & (100, 0) & (-50, 50.25)\tabularnewline
 \label{subsec:description_3}
 
 
-If we measure in between steps where we measure the system in between states, we can fix the payoff functionals for $3$ players in the step 1. In order to do so we will take into account the Nash equilibrium for the $2$ player subgame in \ref{eq:pirates_payoff2} and \label{eq:pirates_payoff3}. The constants $(e_{22}, e_{23})$ will be the pair of utilities for player 2 and 3 in an equilibrium situation, $(e_{22}, e_{23})=(100, 0)$.  
+If we measure in between steps where we measure the system in between states (as in Figure \ref{fig:pg_architecture3players_2measure}), we can replace the expected value for the subgame with $2$ players with the subgame perfect equilibrium in that case. The constants $(e_{22}, e_{23})$ will be the pair of utilities for player 2 and 3 in the subgame equilibrium will be $(e_{22}, e_{23})=(100, 0)$, in Equations \ref{eq:pirates_payoff2} and \ref{eq:pirates_payoff3}.  
  \begin{equation}
 \begin{split}
 E_{11}(\vert\psi_{fin1}\rangle, \alpha_{1})=\alpha_{1}\times(\vert\langle000\vert\psi_{fin1}\rangle\vert^{2} + \vert\langle100\vert\psi_{fin1}\rangle\vert^{2}
@@ -352,34 +356,31 @@ E_{13}(\vert\psi_{fin1}\rangle, \alpha_{3})=\alpha_{3}\times(\vert\langle000\ver
 \end{center}
  \end{table}
 
+In the Figure \ref{tab:3playerCCD99l}, the outcome $CDC$ with a proposal of $(\alpha_{1}, \alpha_{2}, \alpha_{3}) =(99, 0, 1)$ would represent the Nash Equilibrium of the classic Pirate Game (for $3$ players). 
+%However depending on the angle $\gamma$ used to build the initial state .
+
+\begin{table}
+\begin{center}
+\begin{tabular}{cc}
+  a)\putindeepbox[7pt]{\includegraphics[scale=0.46]{3Players/CDC99_0_1_1.PNG}}
+    & a1)\putindeepbox[7pt]{\includegraphics[scale=0.46]{3Players/CDC99_0_1_2.PNG}} \\
+\end{tabular}
+\caption{Expected utility for $3$ players with intermediate measure step, where the players will use the $(Cooperate, Defect, Cooperate)$ operators. The initial proposal is $(\alpha_{1}, \alpha_{2}, \alpha_{3}) =(99, 0, 1)$.}
+\label{tab:3playerCCD99l}
+\end{center}
+ \end{table}
+
+
+
+
+
+
+
+
+
+
+
 \begin{comment}
-
-\begin{table}
-\begin{center}
-\begin{tabular}{c}
-  a)\putindeepbox[7pt]{\includegraphics[scale=0.80]{compareluders/CC1.PNG}}\\
-  b)\putindeepbox[7pt]{\includegraphics[scale=0.80]{compareluders/CD1.PNG}}\\
-  c)\putindeepbox[7pt]{\includegraphics[scale=0.46]{compareluders/DC1.PNG}}\\
-  d)\putindeepbox[7pt]{\includegraphics[scale=0.46]{compareluders/DD1.PNG}}\\
-\end{tabular}
-\caption{Comparison of the expected utilities when measuring and not measuring between steps 1 and 2 of a 3 player game, for the captain (player 2 in the first round). }
-\label{tab:luderscomp}
-\end{center}
- \end{table}
-
-\begin{table}
-\begin{center}
-\begin{tabular}{c}
-   a)\putindeepbox[7pt]{\includegraphics[scale=0.80]{compareluders/CC2.PNG}} \\
-   b)\putindeepbox[7pt]{\includegraphics[scale=0.80]{compareluders/CD2.PNG}} \\
-   c)\putindeepbox[7pt]{\includegraphics[scale=0.80]{compareluders/DC2.PNG}} \\
-   d)\putindeepbox[7pt]{\includegraphics[scale=0.80]{compareluders/DD2.PNG}} \\
-\end{tabular}
-\caption{Comparison of the expected utilities when measuring and not measuring between steps 1 and 2 of a 3 player game, for the player with the lower ranking (player 3 in the first round). }
-\label{tab:luderscomp1}
-\end{center}
- \end{table}
-
 
 ''''''Depending on the measurement outcome that occurs with probability x, the players will act on the second round. The L\"{u}der's rule is applied here. The highest ranking player will no longer have access to the voting operators, instead he will only be able to manipulate de system using a symmetric coin operator.
 
