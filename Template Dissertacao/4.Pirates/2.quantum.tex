@@ -28,6 +28,8 @@ We begin by assigning an offset to each pirate (in order to identify her), as in
 \subsubsection{Strategic Space}
 \label{subsec:strategic_space}
 
+In Equation \ref{eq:quantum_game_six_tuple} there is the notion of a subset of unitary operators that the players can use to manipulate their assigned qubits. 
+
 Each player will be able to manipulate a qubit in the system, in this case $\vert\varphi_{1}\rangle,\:\vert\varphi_{2}\rangle,$ and $\vert\varphi_{3}\rangle$, with one of two operators shown in Equation \ref{eq:operators_piratas_quanticos}. 
 
 An operator is an unitary $2\times2$ matrix that is used to manipulate a qubit in the system.
@@ -36,6 +38,8 @@ This restriction of the strategic space is relevant to keep the problem as close
 The cooperation operator will be represented by the Identity operator ($o_{i0}$, where i identifies the qubit upon which player i will act). When assigned to a qubit this operator will leave it unchanged. 
 
 The defection operator ($D$), will be represented by one of Pauli's Operators - the Bit-flip operator. This operator was chosen because it performs the classical operation NOT on a qubit.
+
+These operators are also permutation matrices, so our players are in fact permutating the state of their qubit as in the roullete quantum model (Section \ref{subsec:quantum_roulette}).
 
 \begin{equation}
 \label{eq:operators_piratas_quanticos}
@@ -57,14 +61,17 @@ D = o_{i1}=\left[\begin{array}{cc}
 
 A game $\Gamma$ can be viewed as a system composed by qubits manipulated by players. In a $3$ player game there will be $3$ qubits, each manipulated by a different player. 
 
-With $3$ players our system with be represented in a $\mathcal{H}^{3}$, this means that to represent our system we will need vectors $2^{3}\times 1$ vectors, our system grows exponentialy with the number of players/qubits. This makes que a game for 200 players (for example), impractical to analise in a classical computer. In this regard a quantum computer may enhance our power to simulate this kinds of experiments \ref{Rieffel2011}.
+With $3$ players our system with be represented in a $\mathcal{H}^{3}$ using a state $\psi$. This means that to represent our system we will need vectors $2^{3}\times 1$ vectors, our system grows exponentialy with the number of players/qubits. This makes que a game for 200 players (for example), impractical to simulate in a classical computer. In this regard a quantum computer may enhance our power to simulate this kinds of experiments \ref{Rieffel2011}.
 
 
-The initial system will be set up by defining an entanglement coefficient $\gamma$, that affect the way the three qubits (belonging to the three pirate players), are related \ref{eq:estado_inicial_pg}. The concept of entanglement is crucial to explain some phenomena in Quantum Mechanics (Section \ref{subsec:entanglement}). Analysing the role of entanglement in the system is also considered to be a major source of different results from the traditional Game Theory approach\cite{Fra2011a}\cite{Fra2011}\cite{Letters2002}\cite{Khan2011}\cite{Ricketts2006}. 
+The initial system ($\vert \psi_{0}(\gamma) \rangle$), will be set up by defining an entanglement coefficient $\gamma$, that affect the way the three qubits (belonging to the three pirate players), are related \ref{eq:estado_inicial_pg}. The index $0$ represents the depth of the game tree which can be examined in Figure \ref{fig:pg_architecturegametree}.
+
+
+The concept of entanglement is crucial to explain some phenomena in Quantum Mechanics (Section \ref{subsec:entanglement}). Analysing the role of entanglement in the system is also considered to be a major source of different results from the traditional Game Theory approach\cite{Fra2011a}\cite{Fra2011}\cite{Letters2002}\cite{Khan2011}\cite{Ricketts2006}. 
  
 \begin{equation}
 \label{eq:estado_inicial_pg}
-\vert \psi_{ini1}(\gamma) \rangle= cos( \gamma)\vert 000\rangle+ isen(\gamma)\vert 111 \rangle, \gamma \in (0,\pi)
+\vert \psi_{0}(\gamma) \rangle= cos( \gamma)\vert 000\rangle+ isen(\gamma)\vert 111 \rangle, \gamma \in (0,\pi)
 \end{equation}
 
 
@@ -74,14 +81,14 @@ The initial system will be set up by defining an entanglement coefficient $\gamm
 
 We can play the Pirate Game by considering a succession of steps or voting rounds. In each step we have a simultaneous move, however considering the potential rounds the game has we have a sequential game. 
 
-With three players, the first step will correspond to the player 1 (or the captain), if the proposal fails we will proceed to the second step in the game, where the remaining two players will vote on a new proposal made by player 2 (who will be the new captain). 
+With three players, the first move will correspond to the player 1 (or the captain), if the proposal fails we will proceed to the second step in the game, where the remaining two players will vote on a new proposal made by player 2 (who will be the new captain). 
 
-The final state in a step $k$ of the game is calculated by constructing a super-operator by performing the tensor product of each player chosen strategy\ref{eq:operators_piratas_quanticos}. The super-operator, containing each player strategy, will then be applied to the initial state, this will correspond to the players making a simultaneous move\ref{eq:piratas_final_move}. 
+After a move we have a ``final state'' that can be identified by an index which points to the depth $k$ of the game ( Figure \ref{fig:pg_architecturegametree}). This state is calculated by constructing a super-operator, by performing the tensor product of each player chosen strategy\ref{eq:operators_piratas_quanticos}. The super-operator, containing each player strategy, will then be applied to the initial state, this will correspond to the players making a simultaneous move\ref{eq:piratas_final_move}.
 
 In the Figure \ref{fig:pg_architecture3players} we have a step in the game.We start by building our initial state, then the players will select their strategy, a super operator is constructed by performing a tensor product of the selected operators.
 
 \begin{equation}
-\vert\psi_{fink}\rangle=\otimes_{i=1}^{N} \mathcal{U}_{i}\vert\psi_{inik}\rangle\label{eq:piratas_final_move}
+\vert\psi_{k}\rangle=\otimes_{i=1}^{N} \mathcal{U}_{i}\vert\psi_{k-1}\rangle\label{eq:piratas_final_move}
 \end{equation}
 
 \begin{figure}[h]
@@ -131,6 +138,8 @@ To build the expected payoff functionals for the three player situation we must 
 \caption{Extensive form representation of the game ($3$ player). Red circles represent failed proposals, green represent accepted proposals. }
 \label{fig:pg_architecturegametree}
 \end{figure}
+
+As defined on Equation \ref{eq:quantum_game_definition_payoff_func},for each player we must specify a utility functional that attributed a real number to the measurement of the projection of a basis in the quantum state that we get after the game. This measurement can be understood as a probability of the system collapsing into that state (that derives from the Born Rule, Section \ref{subsubsec:bornrule}).
 
 
 These utility functions will represent the degree of satisfaction for each pirate after game by atributiong a real number to a measurement performed to the system, as in Equation \ref{eq:quantum_game_definition_payoff_func} (Section \ref{sec:background_quantum_game_theory}). 

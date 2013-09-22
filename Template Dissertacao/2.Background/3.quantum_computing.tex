@@ -10,7 +10,7 @@
 
 
 
-The quantum equivalent of a bit (the basic unit of information in computers), is a qubit (or quantum bit). A qubit is a two-state quantum system that can be interpreted as normalized vectors in a two-dimensional Hilbert space. This Hilbert Space($\mathcal{H}^2$), has two basis (also known as pure states). In quantum computing, the basis used are ${ \vert 0 \rangle , \vert 1 \rangle }$ or $\left[\begin{array}{c}
+The quantum equivalent of a bit (the basic unit of information in computers), is a qubit (or quantum bit). A qubit is a two-state quantum system that can be interpreted as normalized vectors in a two-dimensional Hilbert space. This Hilbert Space($\mathcal{H}^2$), an element in that space can be uniquely specified by resorting to two orthonormal basis (also known as pure states). In quantum computing, the basis used are ${ \vert 0 \rangle , \vert 1 \rangle }$ or $\left[\begin{array}{c}
 1\\
 0
 \end{array}\right]$
@@ -19,6 +19,9 @@ $\left[\begin{array}{c}
 0\\
 1
 \end{array}\right]$ 
+
+\subsection{Superposition}
+\label{subsec:superposition}
 
 The qubit can be described in terms of linear transformations of pure states as in \ref{qubit}, $\omega_{0}$ and $\omega_{1}$ are complex numbers called probability amplitudes. When a system is in a mixture of this pure states (as the general representation in \ref{qubit} might point), it is in a phenomenon known as superposition. Measuring forces the system to collapse and assume one of the pure states with a certain probability. 
 
@@ -41,6 +44,8 @@ In the example stated in the representation \ref{qubit} the probability of the s
  
 $\omega_{0}$ and $\omega_{1}$ (\ref{qubit}) are complex numbers, the so-called probability amplitudes. When squared, the probability amplitude represents a probability. 
 
+\subsection{Operators}
+\label{subsec:QCoperators}
 
 In order to perform transformations in the qubit systems, we can define linear operators in the Hilbert space. One of the most important classes of operators being the self-adjoint operators,  $A = A^{*}$, that have the property stated in \ref{eq_adjoint}. The Hermitian operator is one that satisfies the property of being equal to its conjugate transposed, $A = A^{*T} =A^\dagger$ .  In a finite-dimensional Hilbert space defined by a set of orthonormal basis every self-adjoint operator is Hermitian. Unitary and Hermitian operators are used in the majority of quantum algothims because they can be reversible. 
 
@@ -167,7 +172,13 @@ The Bra-ket notation provides a way to prevent the escalation of the basis notat
 \subsection{Entanglement}
 \label{subsec:entanglement}
 
-In multiple qubit systems, qubits can interfere with each other, thus making impossible to determine the state of part of the system without ``disturbing" the whole. In other words, there are states in a multi-qubit system that can't be described as a tensor product of single-qubit systems; this superposition is called quantum entanglement. This property is not local as transformations that act separately in different parts of an entangled system cannot break the entanglement. Quantum entanglement is one of the core aspects when we are trying to explore the full potential of quantum systems \cite{Rieffel2011}.
+In multiple qubit systems, qubits can interfere with each other, thus making impossible to determine the state of part of the system without ``disturbing" the whole. In other words, there are states in a multi-qubit system that cannot be described as a probabilistic mixture of the tensor product of single-qubit systems; when this happens this state is not separable (with respect to the tensor product decomposition), this phenomenon is called quantum entanglement\cite{Rieffel2011}. If a mixed quantum state $\psi$ in a quantum system constructed by the tensor product of $n$ qubits is sepparable it can be written as:
+
+\begin{equation}
+\vert\psi\rangle= \sum^m_{j=1}{p_{j}\vert\varphi_{j}^{1}\rangle\langle\varphi_{j}^{1}\vert \otimes ... \otimes \vert\varphi_{j}^{n}\rangle\langle\varphi_{j}^{n}\vert}, \sum_{i}{p_{i}}=1
+\end{equation}
+
+This property is not local as transformations that act separately in different parts of an entangled system cannot break the entanglement. Quantum entanglement is one of the main differences from the classical theory\cite{Rieffel2011}.
 
 For example, supposing we consider the following quantum states, known as Bell states:
 \begin{equation}

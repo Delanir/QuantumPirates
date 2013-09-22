@@ -10,10 +10,13 @@ The effort put in converting known classical problems also enables the familiari
 \subsection{Quantum Roulette}
 \label{subsec:quantum_roulette}
 
-In the arbitrary $N$-State quantum roulette, \cite{} presented a $N$-State roulette model using permutation matrices.
-To verify this model with two players we developed a Matlab simulation \ref{simulaMalab}, as proposed by the authors.
+In the arbitrary $N$-State quantum roulette,\cite{Salimi2009} presented a $N$-State roulette model using permutation matrices. 
 
-The game in represented in a $N$-Dimensional Hilbert Space. There is a basis in the space that represents each of the equally probable entries as shown in \ref{eq:roulette_1}. In a sense this is a generalization of a quantum coin flip that is also used in \ref{subsec:quantum_walk_line}.
+This model is interesting because in captures the usage of permutation matrices to manipulate and change the state of the system.
+
+To verify this model with two players we developed a Matlab simulation \ref{ap:c}, that fellowed the steps taken in \cite{Salimi2009}.
+
+The game in represented in a $N$-Dimensional Hilbert Space. There is a basis in the space that represents each of the equally probable entries as shown in \ref{eq:roulette_1}. In a sense this is a generalization of a quantum coin flip that is also used in Section \ref{sec:quantum_walk_line}.
 \begin{equation}
 \label{eq:roulette_1}
 \vert1\rangle=\left[\begin{array}{c}
@@ -124,7 +127,7 @@ will not alter the density matrix\ref{eq:roulette_6}.
 \rho=\sum_{i=0}^{N!-1}p_{i}P^{i}\rho P^{i\dagger},\;\sum_{i=0}^{N!-1}p_{i}=1
 \end{equation}
 
-This means that if the second player knows the initial state and the first player plays with a classical strategy, thus never modifing the system density matrix, the first player will be able to manipulade the game under optimal conditions.
+This means that if the second player knows the initial state and the first player plays with a classical strategy, thus never modifing the system density matrix, the second player will be able to manipulade the game under optimal conditions. This result is confirms the demonstration done in \cite{Meyer1999}, on Quantum Strategies, where in a classical $2$ player zero-sum game, if one player adopts a quantum strategy, she increases her chances of winning the game.
 
 
 \subsection{Prisioner's Dillema}
@@ -200,7 +203,7 @@ Player 1: D & (3,0) & (1,1)\tabularnewline
 \subsubsection{Quantum Prisioner's Dillema}
 \label{subsubsec:quantum_prisioners_dillema}
 
-The importance of the Prisioner's Dillema for the study of Game Theory made it a prime target for investigation in Quantum Game Theory. The problem has been modelled several times [SOURCES]. Therefore we will use it iin order to exemplify and consolidate the definition described in Section \ref{sec:background_quantum_game_theory}\cite{Fra2011a}. 
+The importance of the Prisioner's Dillema for the study of Game Theory made it a prime target for investigation in Quantum Game Theory. The problem has been modelled several times \cite{Eisert2008}\cite{Fra2011a}. Therefore we will use it iin order to exemplify and consolidate the definition described in Section \ref{sec:background_quantum_game_theory}\cite{Fra2011a}. 
 
 Each player $i$ in the quantum version of Prisioner's Dillema will be able to manipulate one qubit ($\varphi_{1}$ and $\varphi_{2}$)\ref{eq:quantum_prisioner_m1}\ref{eq:quantum_prisioner_m2}, with two possible operators (shown in \ref{eq:operators_prisioneiros_quanticos}) corresponding to the classical actions: Cooperate (C), and Defect (D). 
 
