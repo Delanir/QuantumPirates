@@ -251,6 +251,45 @@ D-$\vert 1\rangle$ & $\vert 1,0\rangle$ & $\vert 1,1\rangle$\tabularnewline
 \label{tab:prisioners_m}
 \end{table}
 
+
+
+The fundamental difference from the classical version lies in the way the initial state is formulated\ref{eq:estado_inicial_prisioneiro}. We will entangle our state by applying the gate $\mathcal{J}$ \cite{Letters2002}. The parameter $\gamma$ becomes a way to measure the entanglement in the system\cite{Eisert2008}.
+
+\begin{equation}
+\label{eq:matrix_exponencial_esoterica}
+\mathcal{J}=exp\left\{ i\frac{\gamma}{2}\left[\begin{array}{cc}
+0 & 1\\
+1 & 0
+\end{array}\right]\otimes\left[\begin{array}{cc}
+0 & 1\\
+1 & 0
+\end{array}\right]\right\}
+\end{equation} 
+
+\begin{equation}
+\label{eq:estado_inicial_prisioneiro}
+%\vert \psi_{in}(\gamma) \rangle= cos( \frac{\gamma}{2})\vert 00\rangle+ isin(\frac{\gamma}{2})\vert 11 \rangle, \gamma \in (0,\pi)
+\begin{split}
+\vert\psi_{in}(\gamma)\rangle=exp\left\{ i\frac{\gamma}{2}\left[\begin{array}{cc}
+0 & 1\\
+1 & 0
+\end{array}\right]\otimes\left[\begin{array}{cc}
+0 & 1\\
+1 & 0
+\end{array}\right]\right\} \vert00\rangle \\
+=cos(\frac{\gamma}{2})\vert00\rangle+isin(\frac{\gamma}{2})\vert11\rangle,\gamma\in(0,\pi)
+\end{split}
+\end{equation}
+
+\begin{equation}
+\vert\psi_{fin}\rangle= \mathcal{J}^{\dagger} \otimes_{i=1}^{2}\mathcal{U}_{i}\vert\psi_{in}\rangle
+\label{eq:finalstate_prisioneersdilemma}
+\end{equation}
+
+The entanglement in quantum game theory can be viewed as an intrinsic unbreakable contract. Furthermore measuring an entangled state will cause the wave function that describes the state to collapse. Before measuring the final result we will deentangle the system by applying the operator $\mathcal{J}^{\dagger}$, as shown in Equation \ref{eq:finalstate_prisioneersdilemma}.
+
+
+
 The utility functions for each player is calculated by projecting the final state in each base and atributing a real number to each measurement, as in equation.
 In order to compare a classical version with this quantum model, the real numbers assigned are those in the classical example in Table \ref{tab:prisionersdillema_tab1}, and the basis are presented in Table \ref{tab:prisioners_m}.
 
@@ -263,14 +302,7 @@ E_{0}(\vert\psi_{fin}\rangle)=2\times\vert\langle00\vert\psi_{fin}\rangle\vert^{
 E_{1}(\vert\psi_{fin}\rangle)=2\times\vert\langle00\vert\psi_{fin}\rangle\vert^{2}+3\times\vert\langle01\vert\psi_{fin}\rangle\vert^{2}+1\times\vert\langle11\vert\psi_{fin}\rangle\vert^{2}
 \end{equation}
 
-The fundamental difference from the classical version lies in the way the initial state is formulated\ref{eq:estado_inicial_prisioneiro}. The way this state is constructed will alow to entangle the moves made by the players. The entanglement in quantum game theory can be viewed as an intrinsic unbreakable contract. This means that the main motivation for studying quantum versions of games is to exploit the entanglement. [sources]
-
-\begin{equation}
-\label{eq:estado_inicial_prisioneiro}
-\vert \psi_{in}(\gamma) \rangle= cos( \gamma)\vert 00\rangle+ isen(\gamma)\vert 11 \rangle, \gamma \in (0,\pi)
-\end{equation}
-
-By varying the parameter $\gamma$, we can observe that the expected utility changes as we set up the initial state. Furthermore for $\gamma= \frac{\pi}{4}+k \frac{\pi}{2}, k \in {0, 1, 2, 3}$ the expected utility for each player is $1.5$ in spite of the chosen actions. When the entanglement coeficient is $\gamma= 0+k \frac{\pi}, k \in {0, 1, 2}$ we are left with the classical problem, where there isn't entanglement.
+By varying the parameter $\gamma$, we can observe that the expected utility changes as we set up the initial state. Furthermore for $\gamma= \frac{\pi}{4}+k \frac{\pi}{2}, k \in {0, 1, 2, 3}$ the expected utility for each player is $2$ if both players Cooperate, thus removing the dilemma. When the entanglement coeficient is $\gamma= 0+k \frac{\pi}, k \in {0, 1, 2}$ we are left with the classical problem, where there isn't entanglement.
 
 \begin{table}
 \begin{center}
