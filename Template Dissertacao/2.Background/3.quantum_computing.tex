@@ -47,7 +47,9 @@ $\omega_{0}$ and $\omega_{1}$ (\ref{qubit}) are complex numbers, the so-called p
 \subsection{Operators}
 \label{subsec:QCoperators}
 
-In order to perform transformations in the qubit systems, we can define linear operators in the Hilbert space. One of the most important classes of operators being the self-adjoint operators,  $A = A^{*}$, that have the property stated in \ref{eq_adjoint}. The Hermitian operator is one that satisfies the property of being equal to its conjugate transposed, $A = A^{*T} =A^\dagger$ .  In a finite-dimensional Hilbert space defined by a set of orthonormal basis every self-adjoint operator is Hermitian. Unitary and Hermitian operators are used in the majority of quantum algothims because they can be reversible. 
+In order to perform transformations in the qubit systems, we can define linear operators in the Hilbert space. One of the most important classes of operators being the self-adjoint operators,  $A = A^{*}$, that have the property stated in \ref{eq_adjoint}. The Hermitian operator is one that satisfies the property of being equal to its conjugate transposed, $A = A^{*T} =A^\dagger$ .  In a finite-dimensional Hilbert space defined by a set of orthonormal basis every self-adjoint operator is Hermitian. 
+
+Unitary and Hermitian operators are used in the majority of quantum algothims because they can be reversible, and because they insure that no rule of quantum mechanics is violated while applying the transformations. For that matter we arrive at an interesting difference between classical computing and quantum computing: it is impossible to copy or clone unknown quantum states\ref{Rieffel2011}. This is known as ``The No-Cloning Principle''.
 
 When presented with $q$ qubits, a $q$-dimensional square matrix is called a Quantum Gate.
 
