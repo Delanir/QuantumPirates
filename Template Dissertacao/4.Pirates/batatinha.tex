@@ -190,13 +190,12 @@ To build the expected payoff functionals for the three player situation we must 
 
 
 
-As defined on Equation \ref{eq:quantum_game_definition_payoff_func},for each player we must specify a utility functional that attributed a real number to the measurement of the projection of a basis in the quantum state that we get after the game. 
-
-
-This measurement can be understood as a probability of the system collapsing into that state (that derives from the Born Rule, Section \ref{subsubsec:bornrule}).
+As defined on Equation \ref{eq:quantum_game_definition_payoff_func},for each player we must specify a utility functional that attributed a real number to the measurement of the projection of a basis in the quantum state that we get after the game. This measurement can be understood as a probability of the system collapsing into that state (that derives from the Born Rule, Section \ref{subsubsec:bornrule}).
 
 
 These utility functions will represent the degree of satisfaction for each pirate after game by atributiong a real number to a measurement performed to the system (as in Equation \ref{eq:quantum_game_definition_payoff_func}, Section \ref{sec:background_quantum_game_theory}). 
+
+
 The real numbers used convey the logical relations of utility posed by the original problem description. Those numbers will represent the utility associated with the number of coins that a pirate gets, a death penalty, and a small incentive to climb the hierarchy. As each pirate wants to maximize her utility, the Nash equilibrium will be thoroughly used to find the strategies that the pirates will adopt\cite{nash50}\cite{Nash51}.
 
 The number of coins will translate directly the utility associated with getting those coins. For example if a pirate receives 5 gold coins and the proposal is accepted he will get a utility of 5. 
@@ -220,26 +219,9 @@ If the proposal is rejected the captain will be thrown off board, to account for
 
 This means that the pirates have a small incentive to climb the hierarchy. For example in the three player classical game, the third player, who has the lowest rank, will prefer to defect the initial proposal if the player 1 doesn't give her a coin, even knowing that in the second round the player 2 will be able to keep the 100 coins. We will account for this preference by assigning an expected value of half a coin ($0.5$), to the payoff of the players that will climb on the hierarchy if the voting fails.
 
+As stated in Section \ref{subsec:pirates_finalstate}, each step will be identified by the offset $k$, which will be equal to the offset $i$ for the highest ranking pirate. 
 
-We can observe that in Equations \ref{eq:pirates_payoff32} and \ref{eq:pirates_payoff3} that we have two separate groups of outcomes: 
-\begin{itemize}
-\item Outcomes where the proposal is passed:
-\begin{itemize}
-\item $\vert CCC\rangle$ or $\vert000\rangle$ (which we measure with $\vert\langle000\vert\psi_{fin}\rangle\vert^{2}$ );
-\item $\vert DCC\rangle$ or $\vert100\rangle$;
-\item $\vert CDC\rangle$ or $\vert010\rangle$;
-\item $\vert CCD\rangle$ or $\vert001\rangle$.
-\end{itemize}
-\item outcomes where the captain will be eliminated and the remaining players will keep playing:
-\begin{itemize}
-\item $\vert DDD\rangle$ or $\vert111\rangle$;
-\item $\vert DDC\rangle$ or $\vert110\rangle$;
-\item $\vert CDD\rangle$ or $\vert011\rangle$;
-\item $\vert DCD\rangle$ or $\vert101\rangle$.
-\end{itemize}
-\end{itemize}
-
-
+We can observe that in Equations \ref{eq:pirates_payoff32} and \ref{eq:pirates_payoff3} that we have two separate groups of outcomes: the one that represents outcomes where the proposal is passed and the other that aggregates the outcomes where the captain will be eliminated and the remaining players will keep playing.
 
 So with $3$ pirates we start with step $1$ (Figure \ref{fig:pg_architecture3players_architecture}), if the voting is rejected we will get to step $2$, where 1 vote is enough to pass a proposal. The final payoff function (for example Equation \ref{eq:pirates_payoff32} for a $3$ player game), will be calculated recursively, the base case being the $2$ player sub-game in a $3$ player system will be Equation \ref{eq:pirates_payoff3}.
 
@@ -248,35 +230,35 @@ So with $3$ pirates we start with step $1$ (Figure \ref{fig:pg_architecture3play
  \begin{equation}
  \begin{cases}
 \begin{split}
-E_{11}(\vert\psi_{fin}\rangle, \alpha_{1})=\alpha_{1}\times(\vert\langle000\vert\psi_{fin}\rangle\vert^{2} + \vert\langle100\vert\psi_{fin}\rangle\vert^{2}
-+ \vert\langle010\vert\psi_{fin}\rangle\vert^{2}
-+ \vert\langle001\vert\psi_{fin}\rangle\vert^{2}
+E_{11}(\vert\psi_{fin1}\rangle, \alpha_{1})=\alpha_{1}\times(\vert\langle000\vert\psi_{fin1}\rangle\vert^{2} + \vert\langle100\vert\psi_{fin1}\rangle\vert^{2}
++ \vert\langle010\vert\psi_{fin1}\rangle\vert^{2}
++ \vert\langle001\vert\psi_{fin1}\rangle\vert^{2}
  ) - \\
- - 200\times(\vert\langle111\vert\psi_{fin}\rangle\vert^{2} + \vert\langle110\vert\psi_{fin}\rangle\vert^{2}
-+ \vert\langle101\vert\psi_{fin}\rangle\vert^{2}
-+ \vert\langle011\vert\psi_{fin}\rangle\vert^{2}
+ - 200\times(\vert\langle111\vert\psi_{fin1}\rangle\vert^{2} + \vert\langle110\vert\psi_{fin1}\rangle\vert^{2}
++ \vert\langle101\vert\psi_{fin1}\rangle\vert^{2}
++ \vert\langle011\vert\psi_{fin1}\rangle\vert^{2}
  )
 \end{split}
 \\
 \begin{split}
-E_{12}(\vert\psi_{fin}\rangle, \alpha_{2})=\alpha_{2}\times(\vert\langle000\vert\psi_{fin}\rangle\vert^{2} + \vert\langle100\vert\psi_{fin}\rangle\vert^{2}
-+ \vert\langle010\vert\psi_{fin}\rangle\vert^{2}
-+ \vert\langle001\vert\psi_{fin}\rangle\vert^{2}
+E_{12}(\vert\psi_{fin1}\rangle, \alpha_{2})=\alpha_{2}\times(\vert\langle000\vert\psi_{fin1}\rangle\vert^{2} + \vert\langle100\vert\psi_{fin1}\rangle\vert^{2}
++ \vert\langle010\vert\psi_{fin1}\rangle\vert^{2}
++ \vert\langle001\vert\psi_{fin1}\rangle\vert^{2}
  ) - \\
- + (0.5 + E_{22})\times(\vert\langle111\vert\psi_{fin}\rangle\vert^{2} + \vert\langle110\vert\psi_{fin}\rangle\vert^{2}
-+ \vert\langle101\vert\psi_{fin}\rangle\vert^{2}
-+ \vert\langle011\vert\psi_{fin}\rangle\vert^{2}
+ + (0.5 + E_{22})\times(\vert\langle111\vert\psi_{fin1}\rangle\vert^{2} + \vert\langle110\vert\psi_{fin1}\rangle\vert^{2}
++ \vert\langle101\vert\psi_{fin1}\rangle\vert^{2}
++ \vert\langle011\vert\psi_{fin1}\rangle\vert^{2}
  )
 \end{split}
 \\
 \begin{split}
-E_{13}(\vert\psi_{fin}\rangle, \alpha_{3})=\alpha_{3}\times(\vert\langle000\vert\psi_{fin}\rangle\vert^{2} + \vert\langle100\vert\psi_{fin}\rangle\vert^{2}
-+ \vert\langle010\vert\psi_{fin}\rangle\vert^{2}
-+ \vert\langle001\vert\psi_{fin}\rangle\vert^{2}
+E_{13}(\vert\psi_{fin1}\rangle, \alpha_{3})=\alpha_{3}\times(\vert\langle000\vert\psi_{fin1}\rangle\vert^{2} + \vert\langle100\vert\psi_{fin1}\rangle\vert^{2}
++ \vert\langle010\vert\psi_{fin1}\rangle\vert^{2}
++ \vert\langle001\vert\psi_{fin1}\rangle\vert^{2}
  ) - \\
- + (0.5 + E_{23})\times(\vert\langle111\vert\psi_{fin}\rangle\vert^{2} + \vert\langle110\vert\psi_{fin}\rangle\vert^{2}
-+ \vert\langle101\vert\psi_{fin}\rangle\vert^{2}
-+ \vert\langle011\vert\psi_{fin}\rangle\vert^{2}
+ + (0.5 + E_{23})\times(\vert\langle111\vert\psi_{fin1}\rangle\vert^{2} + \vert\langle110\vert\psi_{fin1}\rangle\vert^{2}
++ \vert\langle101\vert\psi_{fin1}\rangle\vert^{2}
++ \vert\langle011\vert\psi_{fin1}\rangle\vert^{2}
  )
 \end{split}
 \end{cases}
@@ -313,87 +295,183 @@ E_{23}(\vert\psi_{fin2}\rangle, \alpha_{3})=\alpha_{3}\times(\vert\langle000\ver
 \end{equation}
 
 
+\subsection{Analysing the $2$-Player sub-game}
+\label{subsec:2_player_subgame_piratas_doidos}
+
+By hypothesis, the way we set up our system may originate different results, so when we have a $3$ player system, we will try to analyse the sub-game with $2$ players taking into account the original system. In the classical version of the Pirate Game, the problem with $2$ players is equivalent to a sub-problem with $2$ players of a problem with more players where previous captains are killed. 
+
+\begin{table}
+\begin{center}
+\begin{tabular}{cc}
+  a)\putindeepbox[7pt]{\includegraphics[scale=0.48]{compareluders/CC1.PNG}}
+    & b)\putindeepbox[7pt]{\includegraphics[scale=0.48]{compareluders/CC2.PNG}} \\
+  c)\putindeepbox[7pt]{\includegraphics[scale=0.48]{compareluders/CD1.PNG}}
+    & d)\putindeepbox[7pt]{\includegraphics[scale=0.48]{compareluders/CD2.PNG}} \\
+  e)\putindeepbox[7pt]{\includegraphics[scale=0.46]{compareluders/DC1.PNG}}
+    & f)\putindeepbox[7pt]{\includegraphics[scale=0.48]{compareluders/DC2.PNG}} \\
+  g)\putindeepbox[7pt]{\includegraphics[scale=0.46]{compareluders/DD1.PNG}}
+    & h)\putindeepbox[7pt]{\includegraphics[scale=0.48]{compareluders/DD2.PNG}} \\
+\end{tabular}
+\caption{Comparison of the expected utilities when measuring and not measuring between steps 1 and 2 of a 3 player game (the player 1 will be the player 2 in the 3 player game, and the player 2 will be the player 3 in the 3 game situation).}
+\label{tab:luderscomp}
+\end{center}
+ \end{table}
+
+
+
+We set up a system with $3$ players and in the step $1$ the three players chose the operators $o_{10},o_{21},o_{31}$ producing the outcome $CDD$, the initial proposal for the gold coin division will be $(100, 0, 0)$. 
+
+To analyse the step $2$, or the sub-game with $2$ pirates,  the system will be kept in the initial dimension ($\mathcal{H}^{3}$), because of the following reasons: if we have entangled states, they won't be are separable; There may be various mappings in a lower dimension that fit the higher dimension composition. This means that the previous highest ranking player will no longer have access to the voting operators, instead she will use invariably a symmetric coin operator $H$.
+
+In one situation we will use the L\"{u}der's Rule, after the voting. This is the equivalent of performing a measurement on the system after the first round \ref{fig:pg_architecture3players_2measure}. In the other situation the two players will act on step $2$, as in Figure \ref{fig:pg_architecture3players_2nomeasure}. The results for this experiment (Table \ref{tab:luderscomp}), allow us to conclude that not measuring the system affects the expected utilities for the players in two of the four possible analysed outcomes. 
+
+In this case the act of measuring leaves us with the same utility results one would get in a classic situation with $2$ players game, the equilibrium here is $CD$ outcome. 
+
+Without the intermediate measuring step the outcome will depend on the $\gamma$ - the initial coefficient used to set up the system. For example:
+
+\begin{itemize}
+\item $\gamma = 0$, we have the same results as in the original problem. The Nash equilibrium is unique and it is $CD$.
+\item $\gamma = \frac{\pi}{2}$, the equilibrium is $DC$, as the payoffs for the $CC$ outcome are $(-200, 0.5)$, and the outcome $DD$ will present $(100, 0)$ for the expected utilities of the players.
+\item $\gamma = \frac{\pi}{4}$, all possible outcomes will be Nash equilibria. As we can see in Table \ref{tab:hate_myself}, no player can improve her payoff by unilaterally changing her strategy.
+
+
+
+\end{itemize}
+
+\begin{center}
+\begin{table}
+\begin{centering}
+\begin{tabular}{ccc}
+\hline 
+ $\gamma = \frac{\pi}{4}$ & Player 2: C & Player 2: D\tabularnewline
+\hline 
+Player 1: C & (-50, 50.25) & (100, 0)\tabularnewline
+Player 1: D & (100, 0) & (-50, 50.25)\tabularnewline
+\hline 
+\end{tabular}
+\par\end{centering}
+
+\caption{Normal form representation of the second step in a 3 player game with an entanglement coefficient of $\frac{\pi}{4}$, where there isn't an intermediate measuring. }
+\label{tab:hate_myself}
+\end{table}
+\end{center}
+
+
 \section{Analysis and Results}
 \label{sec:description_3}
 
-%\subsection{$2$ Player Game}
-%\label{subsec:2playergame}
+\subsection{$2$ Player Game}
+\label{subsec:2playergame}
+
+
+
 
 \subsection{$3$ Player Game}
 \label{subsec:3playergame}
 
-\subsubsection{The captain proposes: $(99, 0, 1)$}
+\subsubsection{The captain is proposes $(99, 0, 1)$}
 \label{subsubsec:3playergame99}
 
-The outcome $CDC$ with a proposal of $(\alpha_{1}, \alpha_{2}, \alpha_{3}) =(99, 0, 1)$ would represent the Nash Equilibrium of the classic Pirate Game (for $3$ players). 
-
-When the players chose at least $2$ operators $Cooperate$ on the initial proposal the game ends right away, the disentangle operator $\mathcal{J}^{\dagger}$ is applied, and the payoff functionals are calculated given the final state. The final state will be calculated as in Equation \ref{eq:piratas_final_move2_99anal}. 
-
-Tables \ref{tab:3playerCCC99}, \ref{tab:3playerCCD99}, \ref{tab:3playerCDC99}, and \ref{tab:3playerDCC99}present the results for the sittuation described above.
-
-When the first proposal is rejected (more than $1$ player chooses to $Defect$), the second round ensues. We calculate the final state for these states with Equation \refl{eq:piratas_final_move2_99anal1}.
-
-\begin{equation}
-\label{eq:piratas_final_move2_99anal}
-\vert\psi_{fin}\rangle= \mathcal{J}^{\dagger}\vert\psi_{1}\rangle
-\end{equation}
-
-\begin{equation}
-\label{eq:piratas_final_move2_99anal1}
-\vert\psi_{fin}\rangle= \mathcal{J}^{\dagger}\vert\psi_{2}\rangle
-\end{equation}
-
- 
-\begin{table}
-\begin{center}
-\begin{tabular}{cc}
-  b)\putindeepbox[7pt]{\includegraphics[scale=0.46]{3Accepted99/CCC.PNG}}
-    & b1)\putindeepbox[7pt]{\includegraphics[scale=0.46]{3Accepted99/CCC_1.PNG}} \\
-\end{tabular}
-\caption{a) Expected utility for $3$ players with intermediate measure step, where the players will use the $(Cooperate, Cooperate, Cooperate)$ operators. The initial proposal is $(\alpha_{1}, \alpha_{2}, \alpha_{3}) =(99, 0, 1)$. a1) Probability distribution of the final state depending on the entanglement coefitient $\gamma$. }
-\label{tab:3playerCCC99}
-\end{center}
- \end{table}
-
-\begin{table}
-\begin{center}
-\begin{tabular}{cc}
-  c)\putindeepbox[7pt]{\includegraphics[scale=0.46]{3Accepted99/CCD.PNG}}
-    & c1)\putindeepbox[7pt]{\includegraphics[scale=0.46]{3Accepted99/CCD_1.PNG}} \\
-\end{tabular}
-\caption{b) Expected utility for $3$ players with intermediate measure step, where the players will use the $(Cooperate, Cooperate, Defect)$ operators. b1) Probability distruibution of the final state depending on the entanglement coefitient $\gamma$. }
-\label{tab:3playerCCD99}
-\end{center}
- \end{table}
-
-\begin{table}
-\begin{center}
-\begin{tabular}{cc}
-  a)\putindeepbox[7pt]{\includegraphics[scale=0.46]{3Accepted99/CDC.PNG}}
-    & a1)\putindeepbox[7pt]{\includegraphics[scale=0.46]{3Accepted99/CDC_1.PNG}} \\
-\end{tabular}
-\caption{c) Expected utility for $3$ players with intermediate measure step, where the players will use the $(Cooperate, Defect, Cooperate)$ operators. c1) Probability distribution of the final state depending on the entanglement coefitient $\gamma$. }
-\label{tab:3playerCDC99}
-\end{center}
- \end{table}
-
-\begin{table}
-\begin{center}
-\begin{tabular}{cc}
-  a)\putindeepbox[7pt]{\includegraphics[scale=0.46]{3Accepted99/DCC.PNG}}
-    & a1)\putindeepbox[7pt]{\includegraphics[scale=0.46]{3Accepted99/DCC_1.PNG}} \\
-\end{tabular}
-\caption{b) Expected utility for $3$ players with intermediate measure step, where the players will use the $(Defect, Cooperate, Cooperate)$ operators. b1) Probability distrubution of the final state depending on the entanglement coefitient $\gamma$. }
-\label{tab:3playerDCC99}
-\end{center}
- \end{table}
+The initial proposal of $(99, 0, 1)$ is a Nash equillibrium for the $3$-player game in the classical game.
 
 
-\subsubsection{The captain proposes: $(100, 0, 0)$}
+\subsubsection{The captain is proposes $(100, 0, 0)$}
 \label{subsubsec:3playergame100}
 
 Suppose captain is greedy and proposes to get the 100 coins. In the classical Pirate Game this would pose a conflict with his self-preserving needs.
 
-Her initial proposal will be accepted if there is at least $2$ players play $\mathcal{U}_{i}=C$ in a round. Our final state will be calculated as in Equation \ref{eq:piratas_final_move2_99anal}.
 
 
+If we measure in between steps where we measure the system in between states (as in Figure \ref{fig:pg_architecture3players_2measure}), we can replace the expected value for the subgame with $2$ players with the subgame perfect equilibrium in that case. The constants $(e_{22}, e_{23})$ will be the pair of utilities for player 2 and 3 in the subgame equilibrium will be $(e_{22}, e_{23})=(100, 0)$, in Equations \ref{eq:pirates_payoff2} and \ref{eq:pirates_payoff3}.  
+ \begin{equation}
+\begin{split}
+E_{11}(\vert\psi_{fin1}\rangle, \alpha_{1})=\alpha_{1}\times(\vert\langle000\vert\psi_{fin1}\rangle\vert^{2} + \vert\langle100\vert\psi_{fin1}\rangle\vert^{2}
++ \vert\langle010\vert\psi_{fin1}\rangle\vert^{2}
++ \vert\langle001\vert\psi_{fin1}\rangle\vert^{2}
+ ) - \\
+ - 200\times(\vert\langle111\vert\psi_{fin1}\rangle\vert^{2} + \vert\langle110\vert\psi_{fin1}\rangle\vert^{2}
++ \vert\langle101\vert\psi_{fin1}\rangle\vert^{2}
++ \vert\langle011\vert\psi_{fin1}\rangle\vert^{2}
+ )
+\end{split}
+\end{equation}
+
+ \begin{equation}
+\begin{split}
+E_{12}(\vert\psi_{fin1}\rangle, \alpha_{2})=\alpha_{2}\times(\vert\langle000\vert\psi_{fin1}\rangle\vert^{2} + \vert\langle100\vert\psi_{fin1}\rangle\vert^{2}
++ \vert\langle010\vert\psi_{fin1}\rangle\vert^{2}
++ \vert\langle001\vert\psi_{fin1}\rangle\vert^{2}
+ ) - \\
+ + (0.5 + e_{22})\times(\vert\langle111\vert\psi_{fin1}\rangle\vert^{2} + \vert\langle110\vert\psi_{fin1}\rangle\vert^{2}
++ \vert\langle101\vert\psi_{fin1}\rangle\vert^{2}
++ \vert\langle011\vert\psi_{fin1}\rangle\vert^{2}
+ )
+\end{split}
+\label{eq:pirates_payoff2}
+\end{equation}
+
+ \begin{equation}
+\begin{split}
+E_{13}(\vert\psi_{fin1}\rangle, \alpha_{3})=\alpha_{3}\times(\vert\langle000\vert\psi_{fin1}\rangle\vert^{2} + \vert\langle100\vert\psi_{fin1}\rangle\vert^{2}
++ \vert\langle010\vert\psi_{fin1}\rangle\vert^{2}
++ \vert\langle001\vert\psi_{fin1}\rangle\vert^{2}
+ ) - \\
+ + (0.5 + e_{23})\times(\vert\langle111\vert\psi_{fin1}\rangle\vert^{2} + \vert\langle110\vert\psi_{fin1}\rangle\vert^{2}
++ \vert\langle101\vert\psi_{fin1}\rangle\vert^{2}
++ \vert\langle011\vert\psi_{fin1}\rangle\vert^{2}
+ )
+\end{split}
+\label{eq:pirates_payoff3}
+\end{equation}
+
+\begin{table}
+
+\begin{center}
+\begin{tabular}{cc}
+  a)\putindeepbox[7pt]{\includegraphics[scale=0.46]{3Players/CDC100_0_0_1.PNG}}
+    & a1)\putindeepbox[7pt]{\includegraphics[scale=0.46]{3Players/CDC100_0_0_2.PNG}} \\
+\end{tabular}
+\caption{Expected utility in a three player situation with intermediate measure step, where the players will use the $(Cooperate, Defect, Cooperate)$ operators. The initial proposal is $(\alpha_{1}, \alpha_{2}, \alpha_{3}) =(100, 0, 0)$.}
+\label{tab:3player}
+\end{center}
+ \end{table}
+
+In the Figure \ref{tab:3playerCCD99l}, the outcome $CDC$ with a proposal of $(\alpha_{1}, \alpha_{2}, \alpha_{3}) =(99, 0, 1)$ would represent the Nash Equilibrium of the classic Pirate Game (for $3$ players). 
+%However depending on the angle $\gamma$ used to build the initial state .
+
+\begin{table}
+\begin{center}
+\begin{tabular}{cc}
+  a)\putindeepbox[7pt]{\includegraphics[scale=0.46]{3Players/CDC99_0_1_1.PNG}}
+    & a1)\putindeepbox[7pt]{\includegraphics[scale=0.46]{3Players/CDC99_0_1_2.PNG}} \\
+\end{tabular}
+\caption{Expected utility for $3$ players with intermediate measure step, where the players will use the $(Cooperate, Defect, Cooperate)$ operators. The initial proposal is $(\alpha_{1}, \alpha_{2}, \alpha_{3}) =(99, 0, 1)$.}
+\label{tab:3playerCCD99l}
+\end{center}
+ \end{table}
+
+
+
+
+
+
+
+
+
+
+
+\begin{comment}
+
+''''''Depending on the measurement outcome that occurs with probability x, the players will act on the second round. The L\"{u}der's rule is applied here. The highest ranking player will no longer have access to the voting operators, instead he will only be able to manipulate de system using a symmetric coin operator.
+
+Keeping the system in a higher dimension is considered because of the following reasons: if we have entangled states, they won't be are separable, and there are various mappings to a lower dimension that fit the system composition. 
+
+
+\begin{emph}
+One important aspect is that the payoff functional changes
+
+Initial state: variable to study.
+Payoff functions: variable to study.
+\end{emph}
+
+\end{comment}
