@@ -18,7 +18,7 @@ The quantum equivalent of a bit (the basic unit of information in computers), is
 $\left[\begin{array}{c}
 0\\
 1
-\end{array}\right]$ 
+\end{array}\right]$ .
 
 \subsection{Superposition}
 \label{subsec:superposition}
@@ -47,16 +47,24 @@ $\omega_{0}$ and $\omega_{1}$ (\ref{qubit}) are complex numbers, the so-called p
 \subsection{Operators}
 \label{subsec:QCoperators}
 
-In order to perform transformations in the qubit systems, we can define linear operators in the Hilbert space. One of the most important classes of operators being the self-adjoint operators,  $A = A^{*}$, that have the property stated in \ref{eq_adjoint}. The Hermitian operator is one that satisfies the property of being equal to its conjugate transposed, $A = A^{*T} =A^\dagger$ .  In a finite-dimensional Hilbert space defined by a set of orthonormal basis every self-adjoint operator is Hermitian. 
-
-Unitary and Hermitian operators are used in the majority of quantum algothims because they can be reversible, and because they insure that no rule of quantum mechanics is violated while applying the transformations. For that matter we arrive at an interesting difference between classical computing and quantum computing: it is impossible to copy or clone unknown quantum states\ref{Rieffel2011}. This is known as ``The No-Cloning Principle''.
-
-When presented with $q$ qubits, a $q$-dimensional square matrix is called a Quantum Gate.
+In order to perform transformations in the qubit systems, we can define linear operators in the Hilbert space. One of the most important classes of operators being the self-adjoint operators,  $A = A^{*}$, that have the property stated in Equation \ref{eq_adjoint}. The Hermitian operator is one that satisfies the property of being equal to its conjugate transposed, $A = A^{*T} =A^\dagger$ .  In a finite-dimensional Hilbert space defined by a set of orthonormal basis every self-adjoint operator is Hermitian. 
 
 \begin{equation}
 \label{eq_adjoint}
 \langle A^{*}z\vert x\rangle=\langle z\vert Ax\rangle
 \end{equation}
+
+Unitary and Hermitian operators are used in the majority of quantum algothims because they can be reversible, and because they insure that no rule of quantum mechanics is violated while applying the transformations. For that matter we arrive at an interesting difference between classical computing and quantum computing: it is impossible to copy or clone unknown quantum states\cite{Rieffel2011}. This is known as: The No-Cloning Principle.
+
+We can prove the ``The No-Cloning Principle'' by Reduction to Absurd. Suppose we have an operator $U$ which is unitary and clones quantum states, and two unknown quantum states $\vert a \rangle$ and $\vert  b \rangle$. The transformation $U$ means that if we apply it to $\vert a \rangle$ we have $U(\vert a \rangle\vert 0 \rangle)=\vert a \rangle\vert a \rangle$. The result when applying to $\vert b \rangle$ is  $U(\vert b \rangle\vert 0 \rangle)=\vert b \rangle\vert b \rangle$. 
+
+If we consider a state  $\vert c \rangle = \frac{1}{\sqrt{2}}( \vert a \rangle + \vert b \rangle)$, by the principle of linearity $U(\vert c \rangle\vert 0 \rangle)=\frac{1}{\sqrt{2}}( U(\vert a \rangle\vert 0 \rangle) +U(\vert b \rangle\vert 0 \rangle))$, giving the final result $U(\vert c \rangle\vert 0 \rangle)=\frac{1}{\sqrt{2}}( \vert a \rangle\vert a \rangle + \vert b \rangle\vert b \rangle)$. However if $U$ is a cloning operator then $U(\vert c \rangle\vert 0 \rangle)=\vert c \rangle\vert c \rangle$. 
+
+$\vert c \rangle\vert c \rangle = \frac{1}{\sqrt{2}}( \vert a \rangle\vert a \rangle + \vert a \rangle\vert b \rangle+ \vert b \rangle\vert a \rangle+ \vert b \rangle\vert b \rangle)$ is different from $\frac{1}{\sqrt{2}}( \vert a \rangle\vert a \rangle + \vert b \rangle\vert b \rangle)$, thus we can afirm there is no unitary operator $U$ that can clone unknown quantum states\cite{Rieffel2011}.
+
+When presented with $q$ qubits, a $q$-dimensional square matrix is called a Quantum Gate.
+
+
 
 Some important Quantum Gates that operate on a single qubit are:
 
@@ -94,7 +102,7 @@ i & 0
 \end{array}\right]
 \end{equation}
 	\end{itemize}
-\item The Haddamard Gate, belongs to a general class of Fourier Transforms. This $2\times 2$ particular case is a Discrete Fourier Transform matrix.
+\item The Haddamard Gate, belongs to a general class of Fourier Transforms. This $2\times 2$ particular case is also a Discrete Fourier Transform matrix.
 \begin{equation}
 \label{eq:idimssd_3}
 H=\frac{1}{\sqrt{2}}\left[\begin{array}{cc}
@@ -115,14 +123,14 @@ The eigenvectors associated with the eigenvalues of the observable will correspo
 \subsection{Compound Systems}
 \label{subsec:compound_systems}
 
-The representation of a system comprising multiple qubits grows exponentially. If to represent a single qubit system there is a two-dimensional Hilbert space, to represent a system with m qubits a $2^m$-dimension space would be required. 
-To represent a higher dimension multiple-qubit system one can perform a tensor product of single-qubit and/or lower dimension systems.
+The representation of a system comprising multiple qubits grows exponentially. If to represent a single qubit system there is a $2$-dimensional Hilbert space($\mathcal{H}^{2}$), to represent a system with m qubits a $2^m$-dimension space would be required. 
+To represent a higher dimension multiple-qubit system composed by single-qubits, one can perform a tensor product of single-qubit systems.
 
 %Tensor product
 The tensor product is an operation denoted by the symbol $\otimes$. 
 Given two vector spaces V and W with basis 
 \ref{eq:qc_cs_vspace} and \ref{eq:qc_cs_wspace}
-respectively, their tensor product would be the $mn$-dimensional vector space with a basis with elements of the form \ref{eq:qc_cs_vwspace} \cite{Rieffel2011}.
+respectively, their tensor product would be the $mn$-dimensional vector space with a basis with elements from the set \ref{eq:qc_cs_vwspace} \cite{Rieffel2011}.
 
 
 \begin{equation}
@@ -137,9 +145,8 @@ B = \left\{ \vert \beta_{1} \rangle, \vert \beta_{2} \rangle , ..., \vert \beta_
 
 \begin{equation} 
 \label{eq:qc_cs_vwspace} 
-\vert \alpha_{i} \rangle \otimes \vert \beta_{j} \rangle
+C =\left\{  \vert \alpha_{i} \rangle \otimes \vert \beta_{j} \rangle \right\}
 \end{equation}
-
 
 For example, if we consider two Hilbert spaces $\mathcal{H}^2$ with basis
 $ A=\left\{ \vert 0 \rangle , \vert 1 \rangle \right\}$ and 
@@ -150,7 +157,7 @@ $B =\left\{ \vert - \rangle, \vert + \rangle \right\}$
 AB = \left\{ \vert 0  - \rangle, \vert 0 + \rangle, \vert 1 - \rangle,  \vert 1 + \rangle \right\}
 \end{equation}
 
-Now taking the former Hilbert spaces, supposing we have the qubits \ref{eq:qc_cs_vqubit} and \ref{eq:qc_cs_wqubit}.
+Now taking the former Hilbert space, supposing we have the qubits \ref{eq:qc_cs_vqubit} and \ref{eq:qc_cs_wqubit}.
 
 \begin{equation}
 \label{eq:qc_cs_vqubit}
@@ -174,10 +181,11 @@ The Bra-ket notation provides a way to prevent the escalation of the basis notat
 \subsection{Entanglement}
 \label{subsec:entanglement}
 
-In multiple qubit systems, qubits can interfere with each other, thus making impossible to determine the state of part of the system without ``disturbing" the whole. In other words, there are states in a multi-qubit system that cannot be described as a probabilistic mixture of the tensor product of single-qubit systems; when this happens this state is not separable (with respect to the tensor product decomposition), this phenomenon is called quantum entanglement\cite{Rieffel2011}. If a mixed quantum state $\psi$ in a quantum system constructed by the tensor product of $n$ qubits is sepparable it can be written as:
+In multiple qubit systems, qubits can interfere with each other, thus making impossible to determine the state of part of the system without ``disturbing" the whole. In other words, there are states in a multi-qubit system that cannot be described as a probabilistic mixture of the tensor product of single-qubit systems; when this happens this state is not separable (with respect to the tensor product decomposition), this phenomenon is called quantum entanglement\cite{Rieffel2011}. If a mixed quantum state $\psi$ in a quantum system constructed by $V_{1}, V_{2}, ..., V_{n}$ is sepparable it can be written as:
+
 
 \begin{equation}
-\vert\psi\rangle= \sum^m_{j=1}{p_{j}\vert\varphi_{j}^{1}\rangle\langle\varphi_{j}^{1}\vert \otimes ... \otimes \vert\varphi_{j}^{n}\rangle\langle\varphi_{j}^{n}\vert}, \sum_{i}{p_{i}}=1
+\vert\psi\rangle= \sum^m_{j=1}{p_{j}\vert\varphi_{j}^{1}\rangle\langle\varphi_{j}^{1}\vert \otimes ... \otimes \vert\varphi_{j}^{n}\rangle\langle\varphi_{j}^{n}\vert}, \sum_{i}{p_{i}}=1, \vert \varphi_{j}^{i} \rangle \in V_{i}
 \end{equation}
 
 Quantum entanglement is one of the main differences from the classical theory\cite{Rieffel2011}. In an entangled pair each member is desbribed with relation to the other members. This property is not local as transformations that act separately in different parts of an entangled system cannot break the entanglement. However if we measure a part of an entangled system  the system colapses, and if we measure the other part in any point of time from that momment we will find a correlation with the outcome of the first measurement.

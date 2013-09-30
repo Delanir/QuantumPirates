@@ -133,10 +133,10 @@ This means that if the second player knows the initial state and the first playe
 \subsection{Prisioner's Dillema}
 \label{sebsec:related_work_prisioners_dillama}
 
-The Prisioner's Dillema is one example of a game that can be represented
+The Prisioner's Dillema is a classic example of a game that can be represented
 in normal form\cite{Osborne2004}. This problem has received a great deal of attention
 because, in its simple form, rational individuals will seem to deviate
-from solutions that would represent the best interest overall solution,
+from solutions that would represent the best social interest,
 the Pareto Optinal solution. In this game the pareto optimal solution
 is not a Nash Equilibrium. The Prisioneers Dillema can be formulated
 as it follows:
@@ -158,9 +158,9 @@ other, they will get a one year sentence.
 \end{itemize}
 \end{quotation}
 
-A matrix representation of the problem is in Table \ref{tab:prisionersdillema_tab1}, a particular case for this problem is represented in Table \ref{tab:prisionersdillema_tab2}. In each cell of the matrix we have a pair of the expected utility for the players for every outcome. A higher utility represents a more desirable state.
+A matrix representation of the problem is in Table \ref{tab:prisionersdillema_tab1}, here the payoff represented by the letter $R$ would be the standard reward for the game, $T$ would be the temptation to deviate from a cooperation profile, $P$ represents the punishment when both entities do not cooperate, and finaly $S$ would be a sucker's payoff. A particular case for this problem is represented in Table \ref{tab:prisionersdillema_tab2}. In each cell of the matrix we have a pair of the expected utility for the players for every outcome. A higher utility represents a more desirable state.
 
-In this game the Pareto Optimal solution happens when both players chose to Cooperate (the pair (2,2) in Table \ref{tab:prisionersdillema_tab2}). However both players have the incentive to Defect, because regardless what the opponent choses they will have always a strictly higher payoff. Defecting becomes a dominant strategy in the Prisioner's Dillema and the outcome (Defect, Defect) is a Nash Equilibrium to the game. 
+In this game the Pareto Optimal solution happens when both players chose to Cooperate (the pair (2,2) in Table \ref{tab:prisionersdillema_tab2}). However both players have the incentive to Defect, because regardless what the opponent choses they will have always a strictly higher payoff. Defecting becomes a dominant strategy in the Prisioner's Dillema and the outcome $(Defect, Defect)$ is a Nash Equilibrium to the game. 
 
 \begin{center}
 \begin{table}
@@ -220,12 +220,12 @@ Each player $i$ in the quantum version of Prisioner's Dillema will be able to ma
 
 \begin{equation}
 \label{eq:operators_prisioneiros_quanticos}
-\mathcal{U}_{i}=\begin{cases}
+\mathcal{U}_{i}=\begin{cases}C= 
 O_{i0}=\left[\begin{array}{cc}
 1 & 0\\
 0 & 1
 \end{array}\right]\\
-O_{i1}=\left[\begin{array}{cc}
+D= O_{i1}=\left[\begin{array}{cc}
 0 & 1\\
 1 & 0
 \end{array}\right]
@@ -253,7 +253,9 @@ D-$\vert 1\rangle$ & $\vert 1,0\rangle$ & $\vert 1,1\rangle$\tabularnewline
 
 
 
-The fundamental difference from the classical version lies in the way the initial state is formulated in Equation \ref{eq:estado_inicial_prisioneiro}. We will entangle our state by applying the gate $\mathcal{J}$ \cite{Letters2002}. The parameter $\gamma$ becomes a way to measure the entanglement in the system\cite{Eisert2008}.
+The fundamental difference from the classical version lies in the way the initial state is formulated in Equation \ref{eq:estado_inicial_prisioneiro}. We will entangle our state by applying the gate $\mathcal{J}$ \cite{Letters2002}\cite{Eisert2008}. The gate $\mathcal{J}$ is choosen to be commutative with the super-operators 
+
+The parameter $\gamma$ becomes a way to measure the entanglement in the system\cite{Eisert2008}.
 
 \begin{equation}
 \label{eq:matrix_exponencial_esoterica}

@@ -10,7 +10,7 @@ Uncertainty raises us fear and doubt, so the games of chance provide a controlle
 \end{comment}
 
 
-\subsubsection{Kolmogorov axioms}
+\subsection{Kolmogorov axioms}
 
 In spite of the fact that the problem of games of chance kept attracting numerous mathematicians (with some of the most influential ones being Fermat, Pascal and Laplace), it was not until the $20^{th}$ century that the Russian mathematician Kolmogorov laid the foundations of the modern probability theory (first published in 1933) introducing three axioms\cite{sep-probability-interpret}:
 
@@ -38,7 +38,7 @@ The Bayesian approach to the interpretation of probability is to consider the pr
 \end{comment}
 
 %prooffed
-\subsubsection{Conditional Probability}
+\subsection{Conditional Probability}
 \label{subsubsec:conditionalprobability}
 When some evidence is presented we have what we can conditional probability (or posterior probability). Conditional probability  is represented as $P(A|B)$, that could be read as: the probability of A after evidence B is presented. 
 
@@ -52,7 +52,7 @@ P(A|B)=\frac{P(A\wedge B)}{P(B)}
 
 \begin{comment}
 
-\subsubsection{Bayes' Rule}
+\subsection{Bayes' Rule}
 From $P(A|B)$ and $P(B|A)$ Thomas Bayes derived the Bayes' Law:
 
 \begin{equation}
@@ -125,7 +125,7 @@ This leaves us with a way to calculate $P(h|E)$ :
 P(h|E)= \frac{P(E|h).P(h)}{P(E|h).P(h) + P(E|\lnot h).P(\lnot h)}
 \end{equation}
 
-\subsubsection{Joint Distribution}
+\subsection{Joint Distribution}
 
 When we need to deal with more than a one variable, the joint distribution is used to define events in terms of those variables. 
 This distribution grows exponentialy (for $n$ variables, there are $2^{n}$ combinations), with the probability space of the various variables considered. If we consider the joint probability distribution between all the variables in a given domain we call this full joint probability.
@@ -146,7 +146,7 @@ P(x,y,w)= P(x \vert y, w) . P(y \vert w) . P(w)
 To calculate P(x) from a joint distribution we need the marginal distribution $P_{X} : x \rightarrow \sum_{w \in W} \sum_{y \in Y}P(x , y, w)$. This would require $2^{n-1}$ sums. 
 
 
-\subsubsection{Conditional Independence}
+\subsection{Conditional Independence}
 
 When variables are independent they are uncorrelated and their marginal distributions are equal to the prior probability distribution which is attributed to each variable in cause\cite{Pearl2000}. For example: 
 \begin{equation}
