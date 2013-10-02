@@ -25,10 +25,17 @@ This number represents the likelihood of that event happening, the greater the p
 0\leq P(A)\leq1
 \end{equation}
 \item The probability of a sequence of pairwise disjoint events is the sum these events. A corolary of this axiom is:
+\item Any countable sequence of muttualy exclusive events satisfies:
+\begin{equation}
+P(A_{1}\vee A_{2} \vee ... \vee A_{n})=P(A_{1})+P(A_{2}) + ... + P(A_{n})
+\end{equation}
+
+\end{enumerate}
+
+Another important corolary dericed from the axioms is the addition law of probability:
 \begin{equation}
 P(A\vee B)=P(A)+P(B) - P(A\wedge B)
 \end{equation}
-\end{enumerate}
 
 \begin{comment}
 The philosophical concept of probability has attracted some interpretations. Laplace was the first to provide a rigorous definition of probability (classical interpretation), that stated that the probability of an event could be obtained through the sum of elementary events divided by the sum of all possible events. Another approach to probabilities is the frequencist approach where the probability is considered an intrinsic part of a physical system that can be revealed through repeated probation. 

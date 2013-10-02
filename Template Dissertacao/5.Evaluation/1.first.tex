@@ -16,12 +16,20 @@ When the players chose at least $2$ operators $Cooperate$ on the initial proposa
 
 Tables \ref{tab:3playerCCC99}, \ref{tab:3playerCCD99}, \ref{tab:3playerCDC99}, and \ref{tab:3playerDCC99}present the results for the sittuation described above.
 
-When the first proposal is rejected (more than $1$ player chooses to $Defect$), the second round ensues. We calculate the final state for these states with Equation \ref{eq:piratas_final_move2_99anal1}.
+In the Table \ref{tab:3playerCCC99} we can see that the parameter $\gamma$ has no effect on the final result. This happens because no player choose to change her qubit. 
+
+In Tables \ref{tab:3playerCCD99}, \ref{tab:3playerCDC99}, and \ref{tab:3playerDCC99} we can see a partten on the probability distributions of measuring a determined state. The state corresponding to the operators choosen by the players and the state where all qubits are flipped (for example $CDC$ and $DCD$), vary with $\gamma$, such that $P(CDC)= 1 - P(DCD)$. The state where the qubits are flipped ($DCD$ for example), approximates a normal distribution (when we vary $\gamma$). The peak for this distribution happens when the initial system is maximaly entangled.
+
+For $\gamma = 0 + k \pi, k \in \{0,1\}$ we are rendered with the classical sittuation, this means the proposal suggested by the captain will be enforced exactely as she stated. When $\gamma = \frac{\pi}{2}$ we are presented with a symmetric sittuation where player 1 would die and player 2 would aprove her proposal and get the $100$ coins.
+
 
 \begin{equation}
 \label{eq:piratas_final_move2_99anal}
 \vert\psi_{fin}\rangle= \mathcal{J}^{\dagger}\vert\psi_{1}\rangle
 \end{equation}
+
+When the first proposal is rejected (more than $1$ player chooses to $Defect$), the second round ensues. We calculate the final state for these states with Equation \ref{eq:piratas_final_move2_99anal1}.
+
 
 \begin{equation}
 \label{eq:piratas_final_move2_99anal1}
@@ -32,8 +40,8 @@ When the first proposal is rejected (more than $1$ player chooses to $Defect$), 
 \begin{table}
 \begin{center}
 \begin{tabular}{cc}
-  b)\putindeepbox[7pt]{\includegraphics[scale=0.46]{3Accepted99/CCC.PNG}}
-    & b1)\putindeepbox[7pt]{\includegraphics[scale=0.46]{3Accepted99/CCC_1.PNG}} \\
+  a)\putindeepbox[7pt]{\includegraphics[scale=0.46]{3Accepted99/CCC.PNG}}
+    & a1)\putindeepbox[7pt]{\includegraphics[scale=0.46]{3Accepted99/CCC_1.PNG}} \\
 \end{tabular}
 \caption{a) Expected utility for $3$ players, where the players will use the $(Cooperate, Cooperate, Cooperate)$ operators. The initial proposal is $(\alpha_{1}, \alpha_{2}, \alpha_{3}) =(99, 0, 1)$. a1) Probability distribution of the final state depending on the entanglement coefitient $\gamma$. }
 \label{tab:3playerCCC99}
@@ -43,8 +51,8 @@ When the first proposal is rejected (more than $1$ player chooses to $Defect$), 
 \begin{table}
 \begin{center}
 \begin{tabular}{cc}
-  c)\putindeepbox[7pt]{\includegraphics[scale=0.46]{3Accepted99/CCD.PNG}}
-    & c1)\putindeepbox[7pt]{\includegraphics[scale=0.46]{3Accepted99/CCD_1.PNG}} \\
+  b)\putindeepbox[7pt]{\includegraphics[scale=0.46]{3Accepted99/CCD.PNG}}
+    & b1)\putindeepbox[7pt]{\includegraphics[scale=0.46]{3Accepted99/CCD_1.PNG}} \\
 \end{tabular}
 \caption{b) Expected utility for $3$ players, where the players will use the $(Cooperate, Cooperate, Defect)$ operators. b1) Probability distruibution of the final state depending on the entanglement coefitient $\gamma$. }
 \label{tab:3playerCCD99}
@@ -54,8 +62,8 @@ When the first proposal is rejected (more than $1$ player chooses to $Defect$), 
 \begin{table}
 \begin{center}
 \begin{tabular}{cc}
-  a)\putindeepbox[7pt]{\includegraphics[scale=0.46]{3Accepted99/CDC.PNG}}
-    & a1)\putindeepbox[7pt]{\includegraphics[scale=0.46]{3Accepted99/CDC_1.PNG}} \\
+  c)\putindeepbox[7pt]{\includegraphics[scale=0.46]{3Accepted99/CDC.PNG}}
+    & c1)\putindeepbox[7pt]{\includegraphics[scale=0.46]{3Accepted99/CDC_1.PNG}} \\
 \end{tabular}
 \caption{c) Expected utility for $3$ players, where the players will use the $(Cooperate, Defect, Cooperate)$ operators. c1) Probability distribution of the final state depending on the entanglement coefitient $\gamma$. }
 \label{tab:3playerCDC99}
@@ -65,8 +73,8 @@ When the first proposal is rejected (more than $1$ player chooses to $Defect$), 
 \begin{table}
 \begin{center}
 \begin{tabular}{cc}
-  a)\putindeepbox[7pt]{\includegraphics[scale=0.46]{3Accepted99/DCC.PNG}}
-    & a1)\putindeepbox[7pt]{\includegraphics[scale=0.46]{3Accepted99/DCC_1.PNG}} \\
+  d)\putindeepbox[7pt]{\includegraphics[scale=0.46]{3Accepted99/DCC.PNG}}
+    & d1)\putindeepbox[7pt]{\includegraphics[scale=0.46]{3Accepted99/DCC_1.PNG}} \\
 \end{tabular}
 \caption{b) Expected utility for $3$ players, where the players will use the $(Defect, Cooperate, Cooperate)$ operators. b1) Probability distrubution of the final state depending on the entanglement coefitient $\gamma$. }
 \label{tab:3playerDCC99}

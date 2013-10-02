@@ -56,23 +56,25 @@ In the beginning of the 20\textsuperscript{th} century Dirac and von Neumann  he
 
 Von Neumann's contributions were focused in the mathematical rigor, as is framework is strongly based in Hilbert's theory of operators. Dirac's concerns were more of a practical nature. Their combined contributions were invaluable to establish this area. 
 
-From Dirac it is important to point the Dirac's notation (also known as Bra-ket notation or  $\langle Bra\vert c\vert ket\rangle$ ) (introduced in 1939 \cite{sep-qt-nvd}), that is widely used in literature based on quantum theory. This notation uses angle brackets and vertical bars to represent quantum states (or abstract vectors) as it can be seen in the formulas \eqref{langle_dirac} and \eqref{rangle_dirac}. 
-
-\begin{equation}
-\label{langle_dirac}
-\langle z\vert=\left[\begin{array}{cccc}
-z_{1}^{*} & z_{2}^{*} & ... & z_{n}^{*}\end{array}\right]
-\end{equation}
+From Dirac it is important to point the Dirac's notation (also known as Bra-ket notation or  $\langle Bra\vert c\vert ket\rangle$ ) (introduced in 1939 \cite{sep-qt-nvd}), that is widely used in literature based on quantum theory. This notation uses angle brackets and vertical bars to represent quantum states (or abstract vectors) as it can be seen in the formulas \eqref{rangle_dirac} and \eqref{langle_dirac}. 
 
 \begin{equation}
 \label{rangle_dirac}
-\vert z\rangle = ( \langle z\vert )^*  =\left[\begin{array}{c}
+\vert z\rangle = \left[\begin{array}{c}
 z_{1}\\
 z_{2}\\
 ...\\
 z_{n}
 \end{array}\right]
 \end{equation}
+
+\begin{equation}
+\label{langle_dirac}
+\langle z\vert= ( \vert z\rangle )^*  =\left[\begin{array}{cccc}
+z_{1}^{*} & z_{2}^{*} & ... & z_{n}^{*}\end{array}\right]
+\end{equation}
+
+
 
 
 %of two quantum states ($\langle \phi \vert \psi \rangle$)
@@ -93,7 +95,7 @@ where $\bar{z_{i}}$ is the complex conjugate of $z_{i}$.
 \end{equation}
 
 
-\subsubsection{Born rule}
+\subsection{Born rule}
 \label{subsubsec:bornrule}
 
 The Born rule was formulated by Born in 1926. This law allows to predict the probability that a measurement on a quantum system will yield a certain result. This law provides a link between the mathematical foundation of Quantum Mechanics and the experimental evidence\cite{VanRijsbergen2004}\cite{Landsman2009}. 
@@ -197,7 +199,7 @@ After the measurement the resulting state is normalized\ref{eq:luders2}.
 \end{equation}
 
 %proofed
-\subsubsection{Example of the double-slit experiment with electrons}
+\subsection{Example of the double-slit experiment with electrons}
 \label{subsubsec:double_slit}
  Like the Young's Experiment with light created an interference pattern similar to a wave, firing electrons one at the time produces a similar pattern. The unobserved fired electron behaved like a wave and after passing the slits the wavelets interfered with one another to create a interference pattern. However if a measuring device was active while the electron was fired the interference pattern wasn't registered. 
 
@@ -251,7 +253,7 @@ The latter equation will be dependent on a interference coefficient that will be
 
 
 
-\subsubsection{Example of the Polarization of Light}
+\subsection{Example of the Polarization of Light}
 The photons in a beam of light don't vibrate all the same direction in most of the natural sources of light. To filter the light polaroids are used. A polaroid only allows the passage of light in a well-defined direction and thus reducing the intensity of the light. In the Figure \ref{fig:polaroids} we can observe that the introduction of the oblique polaroid in the third situation led to a passage of light. Although there is a classical explanation to this phenomenon if we consider waves when we are considering a beam of light, if our light source emits one photon at the time a quantum mechanical explanation is needed\cite{Rieffel2011}.
 
 \begin{figure}[h]
