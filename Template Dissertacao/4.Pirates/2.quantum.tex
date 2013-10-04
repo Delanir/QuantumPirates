@@ -45,13 +45,13 @@ For 200 players (for example), this game would be impractical to simulate in a c
 The initial system ($\vert \psi_{0}(\gamma) \rangle$), will be set up by defining an entanglement coefficient $\gamma$, that affect the way the three qubits (belonging to the three pirate players), are related \ref{eq:estado_inicial_pg}. 
 We will entangle our state by applying the gate $\mathcal{J}$ \cite{Letters2002}. The parameter $\gamma$ becomes a way to measure the entanglement in the system\cite{Eisert2008}. 
 
-We can interpret the existance (or non existance), of entanglement or superposition in the initial system as an unbreakable contract between the players\cite{Piotrowski}. The initial state starts by revealing a group of pirates that cooperate by default. We chose this initial setup because it is prevalent in the literature, and we want to test if there is any equilibrium sittuation where the first captain can pass her proposal. 
+We can interpret the existence (or non-existence), of entanglement or superposition in the initial system as an unbreakable contract between the players\cite{Piotrowski}. The initial state starts by revealing a group of pirates that cooperate by default. We chose this initial set-up because it is prevalent in the literature, and we want to test if there is any equilibrium situation where the first captain can pass her proposal. 
 
 The gate $\mathcal{J}$ in this case 
 
 The index $0$ represents the depth of the game tree which can be examined in Figure \ref{fig:pg_architecturegametree}.
 
-Due to the nature of quantum mechanics we have to pay attention to some details whe setting up our architecture. For example we cannot copy or clone unkown quantum states\cite{Rieffel2011}. 
+Due to the nature of quantum mechanics we have to pay attention to some details when setting up our architecture. For example we cannot copy or clone unknown quantum states\cite{Rieffel2011}. 
 
 The concept of entanglement is crucial to explain some phenomena in Quantum Mechanics (Section \ref{subsec:entanglement}). Analysing the role of entanglement in the system is also considered to be a major source of different results from the traditional Game Theory approach\cite{Fra2011a}\cite{Fra2011}\cite{Letters2002}\cite{Khan2011}\cite{Ricketts2006}. 
 
@@ -106,7 +106,7 @@ The cooperation operator will be represented by the Identity operator ($o_{i0}$,
 
 The defection operator ($D$), will be represented by one of Pauli's Operators - the Bit-flip operator. This operator was chosen because it performs the classical operation NOT on a qubit.
 
-These operators are also permutation matrices, so our players are in fact permutating the state of their qubit as in the roullete quantum model (Section \ref{subsec:quantum_roulette}). It is also notewhorty that this operators correspond to pure-strategies.
+These operators are also permutation matrices, so our players are in fact permuting the state of their qubit as in the roulette quantum model (Section \ref{subsec:quantum_roulette}). It is also noteworthy that this operators correspond to pure-strategies.
 
 \begin{equation}
 \label{eq:operators_piratas_quanticos}
@@ -137,7 +137,7 @@ In the Figure \ref{fig:pg_architecture3players} we have a step in the game.We st
 
 In order to calculate the expected payoff functions we need to disentangle the system, before measuring. The act of measuring, in quantum computing, gives an expected value that can be understood as the probability of the system collapsing into that state. 
 
-We can disentagle the our $\mathcal{H}^{8}$ system by applying $\mathcal{J}^{\dagger}$ (Equation \ref{eq:piratas_final_move2}), this will produce a final state that we will be able to measure. 
+We can de-entangle the our $\mathcal{H}^{8}$ system by applying $\mathcal{J}^{\dagger}$ (Equation \ref{eq:piratas_final_move2}), this will produce a final state that we will be able to measure. 
 
 \begin{equation}
 \vert\psi_{k}\rangle=\otimes_{i=1}^{N} \mathcal{U}_{i}\vert\psi_{k-1}\rangle
@@ -198,12 +198,12 @@ As defined on Equation \ref{eq:quantum_game_definition_payoff_func},for each pla
 This measurement can be understood as a probability of the system collapsing into that state (that derives from the Born Rule, Section \ref{subsubsec:bornrule}).
 
 
-These utility functions will represent the degree of satisfaction for each pirate after game by atributiong a real number to a measurement performed to the system (as in Equation \ref{eq:quantum_game_definition_payoff_func}, Section \ref{sec:background_quantum_game_theory}). 
+These utility functions will represent the degree of satisfaction for each pirate after game by attributing a real number to a measurement performed to the system (as in Equation \ref{eq:quantum_game_definition_payoff_func}, Section \ref{sec:background_quantum_game_theory}). 
 The real numbers used convey the logical relations of utility posed by the original problem description. Those numbers will represent the utility associated with the number of coins that a pirate gets, a death penalty, and a small incentive to climb the hierarchy. As each pirate wants to maximize her utility, the Nash equilibrium will be thoroughly used to find the strategies that the pirates will adopt\cite{nash50}\cite{Nash51}.
 
 The number of coins will translate directly the utility associated with getting those coins. For example if a pirate receives 5 gold coins and the proposal is accepted he will get a utility of 5. 
 
-The highest ranking pirate in the hierarchy will be responsible to make a proposal to divide the 100 gold coins. This proposal is modelled as choosing some parameters for the payoff functionals for every player, according to some rules. For the initial step in the game with three pirates these parameters will be $\alpha_{1}, \alpha_{2}, \alpha_{3}$, and they will obey to the Equation \ref{eq:goodss}, where $k$ is the offest of the current captain, and $N$ the number of pirates in the game. 
+The highest ranking pirate in the hierarchy will be responsible to make a proposal to divide the 100 gold coins. This proposal is modelled as choosing some parameters for the payoff functionals for every player, according to some rules. For the initial step in the game with three pirates these parameters will be $\alpha_{1}, \alpha_{2}, \alpha_{3}$, and they will obey to the Equation \ref{eq:goodss}, where $k$ is the offset of the current captain, and $N$ the number of pirates in the game. 
 
 \begin{equation}
 \label{eq:goodss}

@@ -1,7 +1,7 @@
 \section{Game Theory}
 \label{sec:background:game_theory}
 
-Game Theory did not exist as a field of own right before von Neumann published the article " On the Theory of Games of Strategy''. This field deals mainly with the study of interactions between racional decision-makers\cite{Neumann1944}. Game Theory knows numerous applications in areas such as Economics, Political Science, Biology, and Artificial Inteligence. 
+Game Theory did not exist as a field of own right before von Neumann published the article " On the Theory of Games of Strategy''. This field deals mainly with the study of interactions between rational decision-makers\cite{Neumann1944}. Game Theory knows numerous applications in areas such as Economics, Political Science, Biology, and Artificial Intelligence. 
 
 \subsection{Definition of a Game}
 \label{subsec:background:game_theory_definition}
@@ -17,7 +17,7 @@ The preferences in th previous definitions are defined with resort to concept of
 
 There are two standard representations of games:
 \begin{itemize}
-\item Normal Form - lists what payoffs the players get as a function of their actions as if they all make their moves simultaneously. This games are usualy represented by a matrix.
+\item Normal Form - lists what payoffs the players get as a function of their actions as if they all make their moves simultaneously. This games are usually represented by a matrix.
 \item Extensive Form - extensive form games can be represented by a tree and represent timed actions.
 \end{itemize}
 
@@ -35,7 +35,7 @@ u:X\rightarrow\mathbb{R}
 \subsection{Nash Equilibrium}
 \label{subsec:background:game_theory_nash_equilibrium}
 
-When all players cannot improve their utility by changing their strategy unilateraly, we have an equilibrium point. This equilibrium point is named after John Nash, who proved that it exists at least one mixed strategy Nash equiibrium in a finite game\cite{nash50}\cite{Nash51}. This concept is used to analise game where several decision makers interact simultaneously and the final outcome depends on the players strategy\cite{Osborne2004}.
+When all players cannot improve their utility by changing their strategy unilaterally, we have an equilibrium point. This equilibrium point is named after John Nash, who proved that it exists at least one mixed strategy Nash equilibrium in a finite game\cite{nash50}\cite{Nash51}. This concept is used to analyse game where several decision makers interact simultaneously and the final outcome depends on the players strategy\cite{Osborne2004}.
 
 In a sequential game 
 
@@ -62,12 +62,12 @@ form is represented by a six-tuple\ref{eq:quantum_game_six_tuple},
 where:
 
 \begin{equation}
-\Gamma=(\mathcal{H}^{a},\: N,\:\vert\psi_{in}\rangle,\:\xi,\:\{\mathcal{U}_{j}\},\:\{E_{i}\})\label{eq:quantum_game_six_tuple}
+\Gamma=(\mathcal{H}^{2^{a}},\: N,\:\vert\psi_{in}\rangle,\:\xi,\:\{\mathcal{U}_{j}\},\:\{E_{i}\})\label{eq:quantum_game_six_tuple}
 \end{equation}
 
 \begin{itemize}
 \item $a$ is the number of actions (qubits), in the game; 
-\item $\mathcal{H}^{a}$ is a $a$-dimensional Hilbert space constructed
+\item $\mathcal{H}^{2^{a}}$ is a $2^{a}$-dimensional Hilbert space constructed
 as $\otimes_{j=1}^{a}\mathbb{C}^{2}$, with basis $\mathcal{B}$;
 \item $\vert\psi_{in}\rangle$ is the initial state of the compound-system
 composed by $a$ qubits: $\vert\varphi_{1}\rangle,\:\vert\varphi_{2}\rangle, ..., \vert\varphi_{j}\rangle, ..., \vert\varphi_{a}\rangle$;
@@ -75,7 +75,7 @@ composed by $a$ qubits: $\vert\varphi_{1}\rangle,\:\vert\varphi_{2}\rangle, ...,
 \item For each qubit $j$ $\mathcal{U}_{j}$ is a subset of unitary operators
 that can be used by the player to manipulate her qubit;
 \item Finally, for each player $i$ $E_{i}$ is a utility functional that
-specifies her payoff. This is done by attributing a real numbered utility to the measurent of the projection of a basis in the final state\ref{eq:quantum_game_definition_payoff_func}.\end{itemize}
+specifies her payoff. This is done by attributing a real numbered utility to the measurement of the projection of a basis in the final state\ref{eq:quantum_game_definition_payoff_func}.\end{itemize}
 
 \begin{equation}
 E_{i}=\sum_{b \in \mathcal{B}} u_{i}(b)\vert \langle b\vert \psi_{fin}\rangle\vert^{2}, u_{i}(b) \in \mathbb{R}

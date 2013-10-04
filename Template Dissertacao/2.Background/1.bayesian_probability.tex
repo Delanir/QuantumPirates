@@ -3,7 +3,7 @@
 
 \label{subsec:int_int_bayesian_probability}
 
-The probability theory has its roots in the $16^{th}$ century with attempts to analyze games of chance by Cardano. It is not hard to understand why games of chance are in the foundations of the probability theory. Throughout History the concept of probability has fascinated the Human being. Luck, fate were words that reflect things we feel we have no control upon and are associated with those games, and almost paradoxically we evolved in a way that we do not feel comfortable around them. 
+The probability theory has its roots in the $16^{th}$ century with attempts to analyse games of chance by Cardano. It is not hard to understand why games of chance are in the foundations of the probability theory. Throughout History the concept of probability has fascinated the Human being. Luck, fate were words that reflect things we feel we have no control upon and are associated with those games, and almost paradoxically we evolved in a way that we do not feel comfortable around them. 
 
 \begin{comment}
 Uncertainty raises us fear and doubt, so the games of chance provide a controlled environment in which we can make our experiments with uncertainty. Also by studying these games we seek to minimize the uncertainty associated with them.
@@ -24,15 +24,15 @@ This number represents the likelihood of that event happening, the greater the p
  \begin{equation}
 0\leq P(A)\leq1
 \end{equation}
-\item The probability of a sequence of pairwise disjoint events is the sum these events. A corolary of this axiom is:
-\item Any countable sequence of muttualy exclusive events satisfies:
+\item The probability of a sequence of pairwise disjoint events is the sum these events. A corollary of this axiom is:
+\item Any countable sequence of mutually exclusive events satisfies:
 \begin{equation}
 P(A_{1}\vee A_{2} \vee ... \vee A_{n})=P(A_{1})+P(A_{2}) + ... + P(A_{n})
 \end{equation}
 
 \end{enumerate}
 
-Another important corolary dericed from the axioms is the addition law of probability:
+Another important corollary derived from the axioms is the addition law of probability:
 \begin{equation}
 P(A\vee B)=P(A)+P(B) - P(A\wedge B)
 \end{equation}
@@ -99,7 +99,7 @@ As we are maximizing, we can dispose of the common denominator.
 h_{MAP}= argmax_{h_{i}}P(E|h_{i}).P(h_{i})
 \end{equation}
 
-This alows for the definition of the scores 
+This allows for the definition of the scores 
 
 \begin{equation}
 P(E|h_{MAP}).P(h_{MAP}) 
@@ -135,7 +135,7 @@ P(h|E)= \frac{P(E|h).P(h)}{P(E|h).P(h) + P(E|\lnot h).P(\lnot h)}
 \subsection{Joint Distribution}
 
 When we need to deal with more than a one variable, the joint distribution is used to define events in terms of those variables. 
-This distribution grows exponentialy (for $n$ variables, there are $2^{n}$ combinations), with the probability space of the various variables considered. If we consider the joint probability distribution between all the variables in a given domain we call this full joint probability.
+This distribution grows exponentially (for $n$ variables, there are $2^{n}$ combinations), with the probability space of the various variables considered. If we consider the joint probability distribution between all the variables in a given domain we call this full joint probability.
 %, and the tensor product is an inherent part of the definition of the joint probability space
 
 Assuming that have three random  variables X, Y and W representing medical inferences. X represents if a person has fever, $x$ being the answer 1 (true) or 0 (false). Y represents if a person has been in a tropical region. W stands for if a person has headaches. Their joint distribution can be considered a vector with length 8 accounting for the multiple combinations of X, Y, and W. For example P(101) represents the probability of having fever and seizures without having been in a tropical region.
@@ -209,7 +209,7 @@ In this simplification of the Roulette we have $3$ states:
 \item Zero (0).
 \end{itemize}
 
-We indifferently assign an index to each state, in order to construct the mixed state vector as in \ref{eq:prob_mixed_vector}. Having the mixed state vectors defined the next step is to use them to create the stochactic matrix that has specified every transition \ref{eq:prob_markov_matrix}.
+We indifferently assign an index to each state, in order to construct the mixed state vector as in \ref{eq:prob_mixed_vector}. Having the mixed state vectors defined the next step is to use them to create the stochastic matrix that has specified every transition \ref{eq:prob_markov_matrix}.
 
 \begin{equation}
 \label{eq:prob_markov_matrix}

@@ -14,7 +14,7 @@ In the arbitrary $N$-State quantum roulette,\cite{Salimi2009} presented a $N$-St
 
 This model is interesting because in captures the usage of permutation matrices to manipulate and change the state of the system.
 
-To verify this model with two players we developed a Matlab simulation \ref{ap:c}, that fellowed the steps taken in \cite{Salimi2009}.
+To verify this model with two players we developed a Matlab simulation \ref{ap:c}, that followed the steps taken in \cite{Salimi2009}.
 
 The game in represented in a $N$-Dimensional Hilbert Space. There is a basis in the space that represents each of the equally probable entries as shown in \ref{eq:roulette_1}. In a sense this is a generalization of a quantum coin flip that is also used in Section \ref{sec:quantum_walk_line}.
 \begin{equation}
@@ -55,7 +55,7 @@ Each state transition is obtained using a permutation matrix denoted by $P^{i}$.
 The density matrix is diagonalizable by a Discrete Fourier Transform because it is a kind of circulant matrix\cite{Davis1994}, as we can see in \ref{eq:roulette_4}. In \ref{eq:roulette_4} $\lambda_{k}$ are eigenvalues of $\rho$. $\lambda_{1}=1$
 while $\lambda_{2}=\lambda_{3}=\lambda_{k}=\lambda_{N-1}=0$. Each column
 $i$ of the Fourier matrix will represent a eigenvector $\vert\lambda_{i}\rangle$.
-If we construct the diagonilizing matrix by rotating the columns of
+If we construct the diagonalizing matrix by rotating the columns of
 the Fourier Matrix we can obtain the projection states as in \ref{eq:roulette_5}.
 
 \begin{equation}
@@ -127,27 +127,27 @@ will not alter the density matrix\ref{eq:roulette_6}.
 \rho=\sum_{i=0}^{N!-1}p_{i}P^{i}\rho P^{i\dagger},\;\sum_{i=0}^{N!-1}p_{i}=1
 \end{equation}
 
-This means that if the second player knows the initial state and the first player plays with a classical strategy, thus never modifing the system density matrix, the second player will be able to manipulade the game under optimal conditions. This result is confirms the demonstration done in \cite{Meyer1999}, on Quantum Strategies, where in a classical $2$ player zero-sum game, if one player adopts a quantum strategy, she increases her chances of winning the game.
+This means that if the second player knows the initial state and the first player plays with a classical strategy, thus never modifying the system density matrix, the second player will be able to manipulate the game under optimal conditions. This result is confirms the demonstration done in \cite{Meyer1999}, on Quantum Strategies, where in a classical $2$ player zero-sum game, if one player adopts a quantum strategy, she increases her chances of winning the game.
 
 
-\subsection{Prisioner's Dillema}
+\subsection{Prisoner's Dilemma}
 \label{sebsec:related_work_prisioners_dillama}
 
-The Prisioner's Dillema is a classic example of a game that can be represented
+The Prisoner's Dilemma is a classic example of a game that can be represented
 in normal form\cite{Osborne2004}. This problem has received a great deal of attention
 because, in its simple form, rational individuals will seem to deviate
 from solutions that would represent the best social interest,
-the Pareto Optinal solution. In this game the pareto optimal solution
-is not a Nash Equilibrium. The Prisioneers Dillema can be formulated
+the Pareto Optinal solution. In this game the Pareto Optimal solution
+is not a Nash Equilibrium. The Prisoner's Dilemma can be formulated
 as it follows:
 
 \begin{quotation}
 
 Two suspects of being partners in a crime are arrested. The police
-needs more evidence in order to prossecute the prisioners. So each
-prisioner is locked in solitary confinement and has no means of communicating
+needs more evidence in order to prosecute the prisoners. So each
+prisoner is locked in solitary confinement and has no means of communicating
 with the other suspect. The police will then try to extort a confession
-from the prisioners. A bargain will be proposed to the suspects:
+from the prisoners. A bargain will be proposed to the suspects:
 \begin{itemize}
 \item If the suspect testifies against the other suspect (Defects) and the other denies, he will
 go free and the second will get three years sentence.
@@ -158,7 +158,7 @@ other, they will get a one year sentence.
 \end{itemize}
 \end{quotation}
 
-A matrix representation of the problem is in Table \ref{tab:prisionersdillema_tab1}, here the payoff represented by the letter $R$ would be the standard reward for the game, $T$ would be the temptation to deviate from a cooperation profile, $P$ represents the punishment when both entities do not cooperate, and finaly $S$ would be a sucker's payoff. A particular case for this problem is represented in Table \ref{tab:prisionersdillema_tab2}. In each cell of the matrix we have a pair of the expected utility for the players for every outcome. A higher utility represents a more desirable state.
+A matrix representation of the problem is in Table \ref{tab:prisionersdillema_tab1}, here the payoff represented by the letter $R$ would be the standard reward for the game, $T$ would be the temptation to deviate from a cooperation profile, $P$ represents the punishment when both entities do not cooperate, and finally $S$ would be a sucker's payoff. A particular case for this problem is represented in Table \ref{tab:prisionersdillema_tab2}. In each cell of the matrix we have a pair of the expected utility for the players for every outcome. A higher utility represents a more desirable state.
 
 In this game the Pareto Optimal solution happens when both players chose to Cooperate (the pair (2,2) in Table \ref{tab:prisionersdillema_tab2}). However both players have the incentive to Defect, because regardless what the opponent choses they will have always a strictly higher payoff. Defecting becomes a dominant strategy in the Prisioner's Dillema and the outcome $(Defect, Defect)$ is a Nash Equilibrium to the game. 
 
@@ -175,7 +175,7 @@ Player 1: D & (T,S) & (P,P)\tabularnewline
 \end{tabular}
 \par\end{centering}
 
-\caption{The canonical normal form representation for the Prisioner's Dillema must respect $T>R>P>S$.}
+\caption{The canonical normal form representation for the Prisoner's Dilemma must respect $T>R>P>S$.}
 \label{tab:prisionersdillema_tab1}
 \end{table}
 \par\end{center}
@@ -193,19 +193,19 @@ Player 1: D & (3,0) & (1,1)\tabularnewline
 \end{tabular}
 \par\end{centering}
 
-\caption{One possible normal form representation of Prisioner's Dillema.}
+\caption{One possible normal form representation of Prisoner's Dilemma.}
 \label{tab:prisionersdillema_tab2}
 \end{table}
 \par\end{center}
 
 
 
-\subsubsection{Quantum Prisioner's Dillema}
+\subsubsection{Quantum Prisoner's Dilemma}
 \label{subsubsec:quantum_prisioners_dillema}
 
-The importance of the Prisioner's Dillema for the study of Game Theory made it a prime target for investigation in Quantum Game Theory. The problem has been modelled several times \cite{Eisert2008}\cite{Fra2011a}. Therefore we will use it iin order to exemplify and consolidate the definition described in Section \ref{sec:background_quantum_game_theory}\cite{Fra2011a}. 
+The importance of the Prisoner's Dilemma for the study of Game Theory made it a prime target for investigation in Quantum Game Theory. The problem has been modelled several times \cite{Eisert2008}\cite{Fra2011a}. Therefore we will use it in order to exemplify and consolidate the definition described in Section \ref{sec:background_quantum_game_theory}\cite{Fra2011a}. 
 
-Each player $i$ in the quantum version of Prisioner's Dillema will be able to manipulate one qubit ($\varphi_{1}$ and $\varphi_{2}$) in Equations \ref{eq:quantum_prisioner_m1} and \ref{eq:quantum_prisioner_m2}, with two possible operators (shown in Equation \ref{eq:operators_prisioneiros_quanticos}) corresponding to the classical actions: Cooperate (C), and Defect (D). 
+Each player $i$ in the quantum version of Prisoner's Dilemma will be able to manipulate one qubit ($\varphi_{1}$ and $\varphi_{2}$) in Equations \ref{eq:quantum_prisioner_m1} and \ref{eq:quantum_prisioner_m2}, with two possible operators (shown in Equation \ref{eq:operators_prisioneiros_quanticos}) corresponding to the classical actions: Cooperate (C), and Defect (D). 
 
 \begin{equation}
 \label{eq:quantum_prisioner_m1}
@@ -253,7 +253,7 @@ D-$\vert 1\rangle$ & $\vert 1,0\rangle$ & $\vert 1,1\rangle$\tabularnewline
 
 
 
-The fundamental difference from the classical version lies in the way the initial state is formulated in Equation \ref{eq:estado_inicial_prisioneiro}. We will entangle our state by applying the gate $\mathcal{J}$ \cite{Letters2002}\cite{Eisert2008}. The gate $\mathcal{J}$ is choosen to be commutative with the super-operators 
+The fundamental difference from the classical version lies in the way the initial state is formulated in Equation \ref{eq:estado_inicial_prisioneiro}. We will entangle our state by applying the gate $\mathcal{J}$ \cite{Letters2002}\cite{Eisert2008}. The gate $\mathcal{J}$ is chosen to be commutative with the super-operators 
 
 The parameter $\gamma$ becomes a way to measure the entanglement in the system\cite{Eisert2008}.
 
@@ -288,11 +288,11 @@ The parameter $\gamma$ becomes a way to measure the entanglement in the system\c
 \label{eq:finalstate_prisioneersdilemma}
 \end{equation}
 
-The entanglement in quantum game theory can be viewed as an intrinsic unbreakable contract. Furthermore measuring an entangled state will cause the wave function that describes the state to collapse. Before measuring the final result we will deentangle the system by applying the operator $\mathcal{J}^{\dagger}$, as shown in Equation \ref{eq:finalstate_prisioneersdilemma}.
+The entanglement in quantum game theory can be viewed as an intrinsic unbreakable contract. Furthermore measuring an entangled state will cause the wave function that describes the state to collapse. Before measuring the final result we will de-entangle the system by applying the operator $\mathcal{J}^{\dagger}$, as shown in Equation \ref{eq:finalstate_prisioneersdilemma}.
 
 
 
-The utility functions for each player is calculated by projecting the final state in each base and atributing a real number to each measurement, as in equation.
+The utility functions for each player is calculated by projecting the final state in each base and attributing a real number to each measurement, as in equation.
 In order to compare a classical version with this quantum model, the real numbers assigned are those in the classical example in Table \ref{tab:prisionersdillema_tab1}, and the basis are presented in Table \ref{tab:prisioners_m}.
 
 \begin{equation}
@@ -304,7 +304,7 @@ E_{0}(\vert\psi_{fin}\rangle)=2\times\vert\langle00\vert\psi_{fin}\rangle\vert^{
 E_{1}(\vert\psi_{fin}\rangle)=2\times\vert\langle00\vert\psi_{fin}\rangle\vert^{2}+3\times\vert\langle01\vert\psi_{fin}\rangle\vert^{2}+1\times\vert\langle11\vert\psi_{fin}\rangle\vert^{2}
 \end{equation}
 
-By varying the parameter $\gamma$, we can observe that the expected utility changes as we set up the initial state. Furthermore for $\gamma= \frac{\pi}{4}+k \frac{\pi}{2}, k \in {0, 1, 2, 3}$ the expected utility for each player is $2$ if both players Cooperate, thus removing the dilemma. When the entanglement coeficient is $\gamma= 0+k \frac{\pi}, k \in {0, 1, 2}$ we are left with the classical problem, where there isn't entanglement.
+By varying the parameter $\gamma$, we can observe that the expected utility changes as we set up the initial state. Furthermore for $\gamma= \frac{\pi}{4}+k \frac{\pi}{2}, k \in {0, 1, 2, 3}$ the expected utility for each player is $2$ if both players Cooperate, thus removing the dilemma. When the entanglement coefficient is $\gamma= 0+k \frac{\pi}, k \in {0, 1, 2}$ we are left with the classical problem, where there isn't entanglement.
 
 \begin{table}
 \begin{center}
@@ -314,7 +314,7 @@ By varying the parameter $\gamma$, we can observe that the expected utility chan
   \num\putindeepbox[7pt]{\includegraphics[scale=0.46]{prisionersdillema/notII.PNG}}
     & \num\putindeepbox[7pt]{\includegraphics[scale=0.46]{prisionersdillema/notInotI.PNG}} \\
 \end{tabular}
-\caption{Expected utility for players 1 and 2 giving the entanglement coeficient $\gamma$ used in preparing the inicial state. a) Player 1: Cooperates, Player 2: Cooperates;
+\caption{Expected utility for players 1 and 2 giving the entanglement coefficient $\gamma$ used in preparing the initial state. a) Player 1: Cooperates, Player 2: Cooperates;
 b) Player 1: Cooperates, Player 2: Defects; c) Player 1: Defects, Player 2: Cooperates; d) Player 1: Defects, Player 2: Defects. }
 \label{tab:prisiones_m_4}
 \end{center}
@@ -327,7 +327,7 @@ b) Player 1: Cooperates, Player 2: Defects; c) Player 1: Defects, Player 2: Coop
 \label{subsec:monty_hall}
 
 %%Proffed
-The Monty Hall problem became popularized in 1990 in a column, in the magazine Parade\cite{Savant1990}. The reason for its notoriety rests mainly in its counter-intuitive nature. Although the Monty Hall problem can be modeled as a Bayesian probability problem, human beings have difficulty in grasping the probabilities involved.
+The Monty Hall problem became popularized in 1990 in a column, in the magazine Parade\cite{Savant1990}. The reason for its notoriety rests mainly in its counter-intuitive nature. Although the Monty Hall problem can be modelled as a Bayesian probability problem, human beings have difficulty in grasping the probabilities involved.
 
 \subsubsection{Problem Description}
 \label{subsubsec:monty_hall_problem description}
@@ -382,9 +382,9 @@ The probability of switching and getting the car is twice \ref{eq:monty_h3} as l
 
 Various Models have been proposed to describe a quantum version of the Monty Hall problem\cite{Gill}\cite{Flitney2008}.
 
-As the host reveals information, the initial setup is modified. This is an interesting property. Despite being a counter-intuitive problem, a quantum approach to this problem allows an in-depth comparison between the classical measurement and the quantum measurement. The classic Monty Hall problem is modeled using conditional probability and Bayes Rule. In the quantum version, measuring the outcome of the final state yields the result, instead of taking into account the intermediate actions \cite{Fra2011}.
+As the host reveals information, the initial set-up is modified. This is an interesting property. Despite being a counter-intuitive problem, a quantum approach to this problem allows an in-depth comparison between the classical measurement and the quantum measurement. The classic Monty Hall problem is modelled using conditional probability and Bayes Rule. In the quantum version, measuring the outcome of the final state yields the result, instead of taking into account the intermediate actions \cite{Fra2011}.
 
-Moreover it is important to realize that there is not a unique way to model a classical problem\cite{Gill2002}. Therefore, when modelling a classical problem, we need to select properties that could potentially benefit from a quantum approch. In \cite{Gill2002} we can observe the attempt to stick as closely to the classical formulation as possible, the host has a system that is correlated to the game system.
+Moreover it is important to realize that there is not a unique way to model a classical problem\cite{Gill2002}. Therefore, when modelling a classical problem, we need to select properties that could potentially benefit from a quantum approach. In \cite{Gill2002} we can observe the attempt to stick as closely to the classical formulation as possible, the host has a system that is correlated to the game system.
 
 
 \section{Overview}
