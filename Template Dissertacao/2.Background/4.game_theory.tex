@@ -13,11 +13,39 @@ A game ($\Gamma$), is a model of conflict between players characterized by\cite{
 \item There are preferences , for each player, over the set of Actions.
 \end{itemize}
 
-The preferences in th previous definitions are defined with resort to concept of utility, expected utility, or payoff derives from the theory that we can use real numbers (Equation \ref{gt:utilidadesreais}), to model and represent the wants and needs of the players. This simplified mathematical model allows to compare different states and rank preferred outcomes. For example if $u(x)$ is a utility function for a player, and $u(A)>u(B)$, that would mean that the player would strictly prefer $A$ over $B$. The concept of expected utily is fundamental to analyse games, as a rational player would try to maximize her expected utility\cite{Neumann1944}\cite{Osborne2004}.
+
+The preferences in the previous definitions are defined with resort to concept of utility, expected utility, or payoff derives from the theory that we can use real numbers (Equation \ref{gt:utilidadesreais}), to model and represent the wants and needs of the players. This simplified mathematical model allows to compare different states and rank preferred outcomes. For example if $u(x)$ is a utility function for a player, and $u(A)>u(B)$, that would mean that the player would strictly prefer $A$ over $B$. The concept of expected utility is fundamental to analyse games, as a rational player would try to maximize her expected utility\cite{Neumann1944}\cite{Osborne2004}.
+
+The options the players have to choose an action, when the outcome depends not only on their choice (but also on the actions taken by the other players), is referred as strategy.
+
+When a strategy gives strictly a higher expected utility in comparrison to other strategies, we have a strategy that dominates, or a dominant strategy.
+
+A pure strategy defines deterministically how the player will play the game. In the game represented in Table\ref{tab:2prisionersdillema_tab2} , in a pure strategy, the players either they choose ``Cooperate'' ($C$), or ``Defect'' ($D$). 
+
+If there is a probability distribution associated with probabability of playing with a determined pure strategy, we have a mixed strategy. 
 
 There are two standard representations of games:
 \begin{itemize}
-\item Normal Form - lists what payoffs the players get as a function of their actions as if they all make their moves simultaneously. This games are usually represented by a matrix.
+\item Normal Form - lists what payoffs the players get as a function of their actions as if they all make their moves simultaneously. This games are usually represented by a matrix, for example \ref{tab:2prisionersdillema_tab2}.
+
+\begin{center}
+\begin{table}
+\begin{centering}
+\begin{tabular}{ccc}
+\hline 
+ & Player 2: C & Player 2: D\tabularnewline
+\hline 
+Player 1: C & (2,2) & (0,3)\tabularnewline
+Player 1: D & (3,0) & (1,1)\tabularnewline
+\hline 
+\end{tabular}
+\par\end{centering}
+
+\caption{Example of a Normal Form game. This is a possible representation of the Prisoner's Dilemma game.}
+\label{tab:2prisionersdillema_tab2}
+\end{table}
+\par\end{center}
+
 \item Extensive Form - extensive form games can be represented by a tree and represent timed actions.
 \end{itemize}
 
@@ -35,16 +63,16 @@ u:X\rightarrow\mathbb{R}
 \subsection{Nash Equilibrium}
 \label{subsec:background:game_theory_nash_equilibrium}
 
-When all players cannot improve their utility by changing their strategy unilaterally, we have an equilibrium point. This equilibrium point is named after John Nash, who proved that it exists at least one mixed strategy Nash equilibrium in a finite game\cite{nash50}\cite{Nash51}. This concept is used to analyse game where several decision makers interact simultaneously and the final outcome depends on the players strategy\cite{Osborne2004}.
+If we observe the representation of the classic game ``Prisoner's Dilemma'', we can observe that each player has two strategies; either they choose ``Cooperate'' ($C$), or ``Defect'' ($D$). The ``Defect'' strategy, for both players (the game is symmetrical), always yield a higher payoff in spite of the other player's strategy, this means that it is a dominant strategy and also constitutes a best response to the game. If both players chose their best response the final outcome $(D,D)$ becomes an equilibrium solution, more specifficaly a Nash Equilibrium. 
 
-In a sequential game 
+When all players cannot improve their utility by changing their strategy unilaterally, we have an equilibrium point. This equilibrium point is named after John Nash, who proved that it exists at least one mixed strategy Nash equilibrium in a finite game\cite{nash50}\cite{Nash51}. This concept is used to analyse game where several decision makers interact simultaneously and the final outcome depends on the players strategy\cite{Osborne2004}.
 
 \subsection{Pareto Optimal}
 \label{subsec:background:game_theory_pareto_optimal}
 
 When every player cannot improve her payoff without lowering another player's expected utility we have a Pareto Optimal solution.
 
-
+For example if we have two players and 10 units of a finite resource to distribute among the players, the pareto optimal sollution is $(5,5)$. Any other attemp to redistribute -$(6,4)$, $(1,9)$, etc...- would always leave a player worse than the pareto optimal distribution of the resource.
 
 
 
@@ -74,8 +102,8 @@ composed by $a$ qubits: $\vert\varphi_{1}\rangle,\:\vert\varphi_{2}\rangle, ...,
 \item $\xi$ is a mapping function that assigns each action to a player;
 \item For each qubit $j$ $\mathcal{U}_{j}$ is a subset of unitary operators
 that can be used by the player to manipulate her qubit;
-\item Finally, for each player $i$ $E_{i}$ is a utility functional that
-specifies her payoff. This is done by attributing a real numbered utility to the measurement of the projection of a basis in the final state\ref{eq:quantum_game_definition_payoff_func}.\end{itemize}
+\item Finally, for each player $i$, $E_{i}$ is a utility functional that
+specifies her payoff. This is done by attributing a real number (representing a expected utility $ u_{i}(b)$, in \ref{eq:quantum_game_definition_payoff_func}), to the measurement for the projection of the final state (\ref{eq:quantum_game_definition_move}), on a basis from the $\mathcal{B}$\ref{eq:quantum_game_definition_payoff_func}.\end{itemize}
 
 \begin{equation}
 E_{i}=\sum_{b \in \mathcal{B}} u_{i}(b)\vert \langle b\vert \psi_{fin}\rangle\vert^{2}, u_{i}(b) \in \mathbb{R}
