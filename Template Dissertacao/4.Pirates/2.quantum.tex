@@ -42,7 +42,7 @@ We begin by assigning an offset to each pirate (in order to identify her), as in
 
 A game $\Gamma$ can be viewed as a system composed by qubits manipulated by players. In a $3$ player game there will be $3$ qubits, each manipulated by a different player. 
 
-With $3$ players our system with be represented in a $\mathcal{H}^{8}$ using a state $\psi$. This means that to represent our system we will need vectors $2^{3}\times 1$ vectors, our system grows exponentialy with the number of players/qubits. Each pure basis $\mathcal{B}= \{ \vert 000\rangle , \vert 001\rangle , \vert 010\rangle , \vert 011\rangle , \vert 100\rangle , \vert 101\rangle , \vert 110\rangle , \vert 111\rangle \}$ of $\mathcal{H}^{8}$ will represent a possible outcome in the game. We assign a pure basis as $\vert 0\rangle = \vert C\rangle$ (``C'' from ``Cooperate''), and $\vert 1\rangle = \vert D\rangle$ (``D'' from ``Defect'').
+With $3$ players our system with be represented in a $\mathcal{H}^{8}$ using a state $\psi$. This means that to represent our system we will need vectors $2^{3}\times 1$ vectors, our system grows exponentially with the number of players/qubits. Each pure basis $\mathcal{B}= \{ \vert 000\rangle , \vert 001\rangle , \vert 010\rangle , \vert 011\rangle , \vert 100\rangle , \vert 101\rangle , \vert 110\rangle , \vert 111\rangle \}$ of $\mathcal{H}^{8}$ will represent a possible outcome in the game. We assign a pure basis as $\vert 0\rangle = \vert C\rangle$ (``C'' from ``Cooperate''), and $\vert 1\rangle = \vert D\rangle$ (``D'' from ``Defect'').
 
 For 200 players (for example), this game would be impractical to simulate in a classical computer. In this regard a quantum computer may enhance our power to simulate this kinds of experiments \cite{Rieffel2011}.
 
@@ -56,9 +56,8 @@ For 200 players (for example), this game would be impractical to simulate in a c
 The initial system ($\vert \psi_{0}(\gamma) \rangle$), will be set up by defining an entanglement coefficient $\gamma$, that affect the way the three qubits (belonging to the three pirate players), are related \ref{eq:estado_inicial_pg}. 
 We will entangle our state by applying the gate $\mathcal{J}$ \cite{Letters2002}. The parameter $\gamma$ becomes a way to measure the entanglement in the system\cite{Eisert2008}. 
 
-We can interpret the existence (or non-existence), of entanglement or superposition in the initial system as an unbreakable contract between the players\cite{Piotrowski}. The initial state starts by revealing a group of pirates that cooperate by default. We chose this initial set-up because it is prevalent in the literature, and we want to test if there is any equilibrium situation where the first captain can pass her proposal. 
+We can interpret the existence (or non-existence), of entanglement or superposition in the initial system as an unbreakable contract between the players\cite{Piotrowski}. The initial state starts by revealing a group of pirates that cooperate by default. We chose this initial set-up because it is prevalent in the literature, and we want to test if there is any equilibrium situation where the first captain can pass her proposal while taking all the 100 coins. 
 
-The gate $\mathcal{J}$ in this case 
 
 The index $0$ represents the depth of the game tree which can be examined in Figure \ref{fig:pg_architecturegametree}.
 
@@ -133,7 +132,15 @@ D = o_{i1}=\left[\begin{array}{cc}
 \end{cases} , i \in \{ 1, 2, 3 \}
 \end{equation}
 
+When a player is no longer able to cast a vote she will play a symmetric coin matrix represented in equation \ref{eq:operators_piratas_quanticos_esoterico}.
 
+\begin{equation}
+H = \left[\begin{array}{cc}
+\frac{1}{\sqrt{2}} & \frac{i}{\sqrt{2}}\\
+\frac{i}{\sqrt{2}} & \frac{1}{\sqrt{2}}
+\end{array}\right]
+\label{eq:operators_piratas_quanticos_esoterico}
+\end{equation}
 
 \subsubsection{Final State}
 \label{subsec:pirates_finalstate}
@@ -148,7 +155,7 @@ In the Figure \ref{fig:pg_architecture3players} we have a step in the game.We st
 
 In order to calculate the expected payoff functions we need to disentangle the system, before measuring. The act of measuring, in quantum computing, gives an expected value that can be understood as the probability of the system collapsing into that state. 
 
-We can de-entangle the our $\mathcal{H}^{8}$ system by applying $\mathcal{J}^{\dagger}$ (Equation \ref{eq:piratas_final_move2}), this will produce a final state that we will be able to measure. 
+We can de-entangle the our $\mathcal{H}^{8}$ system by applying $\mathcal{J}^{\dagger}$ (Equation \ref{eq:piratas_final_move2}), this will produce a final state that we will be able to measure. If we do not apply the inverse transformation $\mathcal{J}^{\dagger}$ we are introducing errors in the system (when the entanglement parameter $\gamma$ is different than $0$), because we are introducing a correlation between the qubits in the system. In the Figure \ref{fig:pg_architecture3players} we have represented the way we entangle and de-entangle the system.
 
 \begin{equation}
 \vert\psi_{k}\rangle=\otimes_{i=1}^{N} \mathcal{U}_{i}\vert\psi_{k-1}\rangle
@@ -162,46 +169,45 @@ We can de-entangle the our $\mathcal{H}^{8}$ system by applying $\mathcal{J}^{\d
 
 \begin{figure}[h]
 \centering 
-\includegraphics[scale=0.35]{Figures/architecture/esquema/Slide1.png}
-\caption{Playing the first round of the Pirate Game with 3 players. }
+\includegraphics[scale=0.35]{Figures/architecture/esquema/esquema.png}
+\caption{Scheme that represents the set-up of the $3$-player Pirate Game. Before we measure the final result we need to apply the transpose operator $\mathcal{J}^{\dagger}$. }
 \label{fig:pg_architecture3players}
 \end{figure}
 
-\begin{figure}[h]
-\centering 
-\includegraphics[scale=0.35]{Figures/architecture/esquema/Slide2.png}
-\caption{Playing the second round of the Pirate Game with 3 players by performing an intermediate measuring. }
-\label{fig:pg_architecture3players_2measure}
-\end{figure}
+%\begin{figure}[h]
+%\centering 
+%\includegraphics[scale=0.35]{Figures/architecture/esquema/Slide2.png}
+%\caption{Playing the second round of the Pirate Game with 3 players by performing an intermediate measuring. }
+%\label{fig:pg_architecture3players_2measure}
+%\end{figure}
+
+%\begin{figure}[h]
+%\centering 
+%\includegraphics[scale=0.35]{Figures/architecture/esquema/Slide3.png}
+%\caption{Playing the second round of the Pirate Game with 3 players without performing an intermediate measurement. }
+%\label{fig:pg_architecture3players_2nomeasure}
+%\end{figure}
+
+In the original game the voting results are displayed between rounds, thus being an extensive form game. In the article ``Quantum information approach to the ultimatum game''\cite{Fra2011}, the authors model an extensive form game, and claim that it is more natural measuring the system between stages of the game (from a quantum perspective), instead of observing the actions taken by the players. However with our set-up measuring between rounds will destroy the initial entanglement which means that the effects of entanglement will only be present in the first stage of the game. This leads to the decision that to quantize the stages in the game we should be observing the actions taken by the players. The actions taken by the players will indicate whether the game stops (if the proposal is accepted), or if it ensues to a new stage (Figure \ref{fig:pg_architecture3players_architecture}). 
 
 \begin{figure}[h]
 \centering 
-\includegraphics[scale=0.35]{Figures/architecture/esquema/Slide3.png}
-\caption{Playing the second round of the Pirate Game with 3 players without performing an intermediate measurement. }
-\label{fig:pg_architecture3players_2nomeasure}
-\end{figure}
-
-The second stage in the game can be played in one of two ways. Either we perform an intermediate measuring step on the final state from the first round of voting as in Figure \ref{fig:pg_architecture3players_2measure}, or we ``ask'' what are the two player's strategy for this round without informing them of the results in the last round, like in the Figure \ref{fig:pg_architecture3players_2nomeasure}. In the original game the voting results are displayed in between rounds:
-
-\begin{quotation}
-If a majority or a tie is reached the goods will be allocated according to the proposal. Otherwise the proposer will be thrown overboard and the next pirate in the hierarchy assumes the place of the captain. 
-\end{quotation}
-
-When modelling this problem we want to study if withholding the results in the intermediate step will give way to new strategies.
-
-\begin{figure}[h]
-\centering 
-\includegraphics[scale=0.55]{Figures/architecture/esquema/Slide5.png}
-\caption{Overal view on the Quantum Pirate Game architecture. }
+\includegraphics[scale=0.50]{Figures/architecture/esquema/Slide5.png}
+\caption{The diagram represents the simulation of the Quantum Pirate Game. }
 \label{fig:pg_architecture3players_architecture}
 \end{figure}
+
+The next pirate in the hierarchy will then become captain, and the previous captains will no longer be able to cast a vote (a symmetric Coin matrix will be used instead). 
+Unlike the classic version, in the quantum version, the captain destined to be killed are tossed aside, they will be only thrown off board when we measure the final state and their expected utility is negative.
+In this stage we must take into consideration that the players are pronouncing their votes taking into account their previous actions.
+
+
+
 
 \subsubsection{Utility}
 \label{subsec:pirates_utility}
 
 To build the expected payoff functionals for the three player situation we must take into account the sub-games created when the proposal fail. In Figure \ref{fig:pg_architecturegametree} we can see an extensive form representation of the game.
-
-
 
 As defined on Equation \ref{eq:quantum_game_definition_payoff_func},for each player we must specify a utility functional that attributed a real number to the measurement of the projection of a basis in the quantum state that we get after the game. 
 
@@ -238,7 +244,7 @@ We can observe that in Equations \ref{eq:pirates_payoff32} and \ref{eq:pirates_p
 \begin{itemize}
 \item Outcomes where the proposal is passed:
 \begin{itemize}
-\item $\vert CCC\rangle$ or $\vert000\rangle$ (which we measure with $\vert\langle000\vert\psi_{fin}\rangle\vert^{2}$ );
+\item $\vert CCC\rangle$ or $\vert000\rangle$ (which we measure with the operation $\vert\langle000\vert\psi_{fin}\rangle\vert^{2}$ );
 \item $\vert DCC\rangle$ or $\vert100\rangle$;
 \item $\vert CDC\rangle$ or $\vert010\rangle$;
 \item $\vert CCD\rangle$ or $\vert001\rangle$.
@@ -254,7 +260,7 @@ We can observe that in Equations \ref{eq:pirates_payoff32} and \ref{eq:pirates_p
 
 
 
-So with $3$ pirates we start with step $1$ (Figure \ref{fig:pg_architecture3players_architecture}), if the voting is rejected we will get to step $2$, where 1 vote is enough to pass a proposal. The final payoff function (for example Equation \ref{eq:pirates_payoff32} for a $3$ player game), will be calculated recursively, the base case being the $2$ player sub-game in a $3$ player system will be Equation \ref{eq:pirates_payoff3}.
+The final payoff function (for example Equation \ref{eq:pirates_payoff32} for a $3$ player game), will be calculated recursively, the base case being the $2$ player sub-game in a $3$ player system will be Equation \ref{eq:pirates_payoff3}.
 
  
 

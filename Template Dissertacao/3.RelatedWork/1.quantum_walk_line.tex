@@ -11,7 +11,7 @@ We can define the Discrete Quantum Walk on a Line as a series of Left/Right deci
  
 %spelling 4; punctuation 3 weak
 
-We followed an approach suggested by \cite{Ambainis} towards simulating n-steps of a Quantum Walk on a Line. The algorithm can be consulted on \ref{ap:a}.
+We followed an approach suggested by \cite{Ambainis} towards simulating n-steps of a Quantum Walk on a Line. The Matlab algorithm can be consulted on Appendix \ref{ap:a}.
 In a discrete quantum walk in a line we want to preserve the fact that the probability of turning left is equal to the probability of turning right.  To represent a state in this algorithm we will need the number of the node and a direction (identified as L,R) \ref{eq:3_qwl_state}.
 
 %spelling 4; punctuation 3 weak
@@ -65,7 +65,7 @@ S\vert n, L\rangle = \frac{1}{\sqrt{2}} \vert n-1, L\rangle
 S\vert n, R\rangle = \frac{1}{\sqrt{2}} \vert n+1, R\rangle
 \end{equation} 
 
-These matrices (Coin Matrix and Shift Operator) are referred conceptually ubiquitously throughout the literature \cite{SAUCES}, therefore it is important to be familiar with them. A single step of the algorithm \ref{ap:a} is illustrated in Figure \ref{fig:qwl_tree}.
+These matrices (Coin Matrix and Shift Operator) are used conceptually in various algorithms \cite{Rieffel2011}, therefore it is important to be familiar with them. A single step of the algorithm \ref{ap:a} is illustrated in Figure \ref{fig:qwl_tree}.
 
 \begin{figure}[h]
 \centering 
