@@ -1,3 +1,4 @@
+
 \section{Quantum Pirate Game}
 \label{sec:quantum_pirate}
 
@@ -9,7 +10,7 @@ When modelling this problem from a quantum theory perspective we are faced with 
 \begin{itemize}
 \item Will the initial conditions provide different equilibria? 
 
-\item Which are the similarities with the classical problem? 
+\item What are the similarities with the classical problem? 
 
 \item Is it possible for a captain, in a situation where we have more than two pirates left, to acquire all the coins?
 
@@ -31,9 +32,9 @@ In order to model the problem we will start by defining it using the definition 
 
 We want to keep the problem as close to the original as possible in order to better compare the results. Thus we will analyse the game from the point of view of the captain. Will her best response change?
 
-In terms of mechanics and steps, this problem could be described using $3$ players and later extended to any number $N$ of players. 
+For the purpose of demonstration this problem could be described using $3$ players; the lowest number of players that has an equilibrium in which the captain has to bribe another pirate. 
 
-We begin by assigning an offset to each pirate (in order to identify her), as in the Section \label{subsec:description}. The captain is number $1$ and the lower the number the higher the rank. 
+We begin by assigning an offset to each pirate (in order to identify her), as in the Section \ref{subsec:description}. The captain is number $1$ and the lower the number the higher the rank. 
 
 
 
@@ -42,7 +43,7 @@ We begin by assigning an offset to each pirate (in order to identify her), as in
 
 A game $\Gamma$ can be viewed as a system composed by qubits manipulated by players. In a $3$ player game there will be $3$ qubits, each manipulated by a different player. 
 
-With $3$ players our system with be represented in a $\mathcal{H}^{8}$ using a state $\psi$. This means that to represent our system we will need vectors $2^{3}\times 1$ vectors, our system grows exponentially with the number of players/qubits. Each pure basis $\mathcal{B}= \{ \vert 000\rangle , \vert 001\rangle , \vert 010\rangle , \vert 011\rangle , \vert 100\rangle , \vert 101\rangle , \vert 110\rangle , \vert 111\rangle \}$ of $\mathcal{H}^{8}$ will represent a possible outcome in the game. We assign a pure basis as $\vert 0\rangle = \vert C\rangle$ (``C'' from ``Cooperate''), and $\vert 1\rangle = \vert D\rangle$ (``D'' from ``Defect'').
+With $3$ players our system with be represented in a $\mathcal{H}^{8}$ using a state $\psi$. This means that to represent our system we will need $2^{3}\times 1$ vectors, our system grows exponentially with the number of players/qubits. Each pure basis $\mathcal{B}= \{ \vert 000\rangle , \vert 001\rangle , \vert 010\rangle , \vert 011\rangle , \vert 100\rangle , \vert 101\rangle , \vert 110\rangle , \vert 111\rangle \}$ of $\mathcal{H}^{8}$ will represent a possible outcome in the game. We assign a pure basis as $\vert 0\rangle = \vert C\rangle$ (``C'' from ``Cooperate''), and $\vert 1\rangle = \vert D\rangle$ (``D'' from ``Defect'').
 
 For 200 players (for example), this game would be impractical to simulate in a classical computer. In this regard a quantum computer may enhance our power to simulate this kinds of experiments \cite{Rieffel2011}.
 
@@ -53,7 +54,7 @@ For 200 players (for example), this game would be impractical to simulate in a c
 \label{fig:pg_architecturegametree}
 \end{figure}
 
-The initial system ($\vert \psi_{0}(\gamma) \rangle$), will be set up by defining an entanglement coefficient $\gamma$, that affect the way the three qubits (belonging to the three pirate players), are related \ref{eq:estado_inicial_pg}. 
+The initial system ($\vert \psi_{0}(\gamma) \rangle$), will be set up by defining an entanglement coefficient $\gamma$, that affect the way the three qubits (belonging to the three pirate players), are related; this is shown in Equation \ref{eq:estado_inicial_pg}. 
 We will entangle our state by applying the gate $\mathcal{J}$ \cite{Letters2002}. The parameter $\gamma$ becomes a way to measure the entanglement in the system\cite{Eisert2008}. 
 
 We can interpret the existence (or non-existence), of entanglement or superposition in the initial system as an unbreakable contract between the players\cite{Piotrowski}. The initial state starts by revealing a group of pirates that cooperate by default. We chose this initial set-up because it is prevalent in the literature, and we want to test if there is any equilibrium situation where the first captain can pass her proposal while taking all the 100 coins. 
@@ -61,13 +62,13 @@ We can interpret the existence (or non-existence), of entanglement or superposit
 
 The index $0$ represents the depth of the game tree which can be examined in Figure \ref{fig:pg_architecturegametree}.
 
-Due to the nature of quantum mechanics we have to pay attention to some details when setting up our architecture. For example we cannot copy or clone unknown quantum states\cite{Rieffel2011}. 
+Due to the nature of quantum mechanics we have to pay attention of how we set-up our architecture; we cannot copy or clone unknown quantum states (No-cloning Theorem)\cite{Rieffel2011}. 
 
-The concept of entanglement is crucial to explain some phenomena in Quantum Mechanics (Section \ref{subsec:entanglement}). Analysing the role of entanglement in the system is also considered to be a major source of different results from the traditional Game Theory approach\cite{Fra2011a}\cite{Fra2011}\cite{Letters2002}\cite{Khan2011}\cite{Ricketts2006}. 
+The concept of entanglement is crucial to explain some phenomena in Quantum Mechanics (Section \ref{subsec:entanglement}).We analysed the role of the entanglement of the system since other examples researched pointed to it being the proeminent factor regarding behaviour changes from the classsical perspective\cite{Fra2011a}\cite{Fra2011}\cite{Letters2002}\cite{Khan2011}\cite{Ricketts2006}. 
+
 
 
 \begin{equation}
-\label{eq:matrix_exponencial_esoterica}
 \mathcal{J}=exp\left\{ i\frac{\gamma}{2}\left[\begin{array}{cc}
 0 & 1\\
 1 & 0
@@ -80,10 +81,10 @@ The concept of entanglement is crucial to explain some phenomena in Quantum Mech
 1 & 0
 \end{array}\right]
 \right\}
+\label{eq:matrix_exponencial_esoterica}
 \end{equation} 
 
 \begin{equation}
-\label{eq:estado_inicial_pg}
 %\vert \psi_{0}(\gamma) \rangle= cos( \frac{\gamma}{2})\vert 00\rangle+ isin(\frac{\gamma}{2})\vert 11 \rangle, \gamma \in (0,\pi)
 \begin{split}
 \vert\psi_{in}(\gamma)\rangle=exp\left\{ i\frac{\gamma}{2}\left[\begin{array}{cc}
@@ -98,6 +99,7 @@ The concept of entanglement is crucial to explain some phenomena in Quantum Mech
 \end{array}\right]\right\} \vert000\rangle \\
 =cos(\frac{\gamma}{2})\vert000\rangle+isin(\frac{\gamma}{2})\vert111\rangle,\gamma\in(0,\pi)
 \end{split}
+\label{eq:estado_inicial_pg}
 \end{equation}
 
 
@@ -132,7 +134,7 @@ D = o_{i1}=\left[\begin{array}{cc}
 \end{cases} , i \in \{ 1, 2, 3 \}
 \end{equation}
 
-When a player is no longer able to cast a vote she will play a symmetric coin matrix represented in equation \ref{eq:operators_piratas_quanticos_esoterico}.
+When a player is no longer able to cast a vote she will play a symmetric coin matrix represented in Equation \ref{eq:operators_piratas_quanticos_esoterico}. Like in the example of the Quantum walk in a line, described in \ref{sec:quantum_walk_line}, the symmetric coins matrix allows to explore both choices for operators (Cooperate/Defect).
 
 \begin{equation}
 H = \left[\begin{array}{cc}
@@ -142,14 +144,26 @@ H = \left[\begin{array}{cc}
 \label{eq:operators_piratas_quanticos_esoterico}
 \end{equation}
 
+In Quantization schemas of the Prisoner's Dilemma\cite{Letters2002}\cite{Eisert2008}, and Quantum Ultimatum Game\cite{Fra2011}, the strategic space, described in Equation \ref{eq:operadoresinfinitus}, was analysed allowed a infinity of mixed quantum strategies. In the Quantum Roulette Game\cite{Salimi2009} and \cite{Meyer1999} we have a demonstration that in a classical two-person zero-sum strategic game, if one person adopts a quantum strategy, she has a better chance of winning the game. 
+
+However we claim that allowing mixed quantum strategies would degenerate the voting problem. In the original problem the stages of the game are dependent of the actions taken by the players. Also studying the strategic space in the game system (represented in a $\mathcal{H}^{8}$), would be a daunting process in terms of simulation. 
+
+\begin{equation}
+\mathcal{U}(\theta,\phi) = \left[\begin{array}{cc}
+cos(\frac{\phi}{2}) & e^{i\phi}sin(\frac{\phi}{2})\\
+-e^{-i\phi}sin(\frac{\phi}{2}) & cos(\frac{\phi}{2})
+\end{array}\right]
+\label{eq:operadoresinfinitus}
+\end{equation}
+
 \subsubsection{Final State}
 \label{subsec:pirates_finalstate}
 
-We can play the Pirate Game by considering a succession of steps or voting rounds. In each step we have a simultaneous move, however considering the potential rounds the game has we have a sequential game. 
+We can play the Pirate Game by considering a succession of steps or voting rounds. In each step we have a simultaneous move, however, considering the potential rounds the game has, we have a sequential game. 
 
 With three players, the first move will correspond to the player 1 (or the captain), if the proposal fails we will proceed to the second step in the game, where the remaining two players will vote on a new proposal made by player 2 (who will be the new captain). The first captain is indifferent to the outcome of the second game so he uses a coin matrix to vote.
 
-After a move we have a ``final state'' that can be identified by an index which points to the depth $k$ of the game ( Figure \ref{fig:pg_architecturegametree}). This state is calculated by constructing a super-operator, by performing the tensor product of each player chosen strategy\ref{eq:operators_piratas_quanticos}. The super-operator, containing each player strategy, will then be applied to the initial state, this will correspond to the players making a simultaneous move\ref{eq:piratas_final_move}.
+After a move we have a ``final state'' that can be identified by an index which points to the depth $k$ of the game ( Figure \ref{fig:pg_architecturegametree}). This state is calculated by constructing a super-operator, by performing the tensor product of each player chosen strategy, as shown in Equation \ref{eq:operators_piratas_quanticos}. The super-operator, containing each player strategy, will then be applied to the initial state, this will correspond to the players making a simultaneous move represented in Equation\ref{eq:piratas_final_move}.
 
 In the Figure \ref{fig:pg_architecture3players} we have a step in the game.We start by building our initial state $k-1$, then the players will select their strategy, a super operator is constructed by performing a tensor product of the selected operators. 
 
@@ -197,8 +211,8 @@ In the original game the voting results are displayed between rounds, thus being
 \label{fig:pg_architecture3players_architecture}
 \end{figure}
 
-The next pirate in the hierarchy will then become captain, and the previous captains will no longer be able to cast a vote (a symmetric Coin matrix will be used instead). 
-Unlike the classic version, in the quantum version, the captain destined to be killed are tossed aside, they will be only thrown off board when we measure the final state and their expected utility is negative.
+The next pirate in the hierarchy will then become the captain, and the previous captains will no longer be able to cast a vote (a symmetric Coin matrix will be used instead). 
+Unlike the classic version, where the captain destined to be killed are tossed aside, in the quantum version they will be only thrown off board when we measure the final state and their expected utility is negative.
 In this stage we must take into consideration that the players are pronouncing their votes taking into account their previous actions.
 
 
@@ -207,9 +221,9 @@ In this stage we must take into consideration that the players are pronouncing t
 \subsubsection{Utility}
 \label{subsec:pirates_utility}
 
-To build the expected payoff functionals for the three player situation we must take into account the sub-games created when the proposal fail. In Figure \ref{fig:pg_architecturegametree} we can see an extensive form representation of the game.
+To build the expected payoff functionals for the three player situation we must take into account the sub-games created when the proposal is rejected. In Figure \ref{fig:pg_architecturegametree} we can see an extensive form representation of the game.
 
-As defined on Equation \ref{eq:quantum_game_definition_payoff_func},for each player we must specify a utility functional that attributed a real number to the measurement of the projection of a basis in the quantum state that we get after the game. 
+As defined on Equation \ref{eq:quantum_game_definition_payoff_func},for each player we must specify a utility functional that attributes a real number to the measurement of the projection of a basis in the quantum state that we get after the game. 
 
 
 This measurement can be understood as a probability of the system collapsing into that state (that derives from the Born Rule, Section \ref{subsubsec:bornrule}).
@@ -231,7 +245,11 @@ The most interesting values for $(\alpha_{1}, \alpha_{2}, \alpha_{3})$ will be t
 
 The proposed goods allocation will be executed if there is a majority (or a tie), in the voting step. A step in the game consists on the highest ranking pirate defining a proposal and the subsequent vote, where all players choose simultaneously an operator. 
 
-If the proposal is rejected the captain will be thrown off board, to account for the fact that this situation is very undesirable for the captain he will receive a negative payoff of $-200$. This value was chosen to be much less than the highest number of coins a pirate could get.
+If the proposal is rejected the captain will be thrown off board, to account for the fact that this situation is very undesirable for the captain he will receive a negative payoff of $-200$. This value was derived from the fact that a pirate values her integrity more than any number of coins she might receive.
+
+%chosen to be much less than the highest number of coins a pirate could get.
+
+
 
 \begin{quotation}
 ``When the result is indifferent the pirates prefer to throw another pirate overboard and thus climbing in the hierarchy.''
