@@ -319,6 +319,93 @@ b) Player 1: Cooperates, Player 2: Defects; c) Player 1: Defects, Player 2: Coop
  \end{table}
 
 
+\subsection{Ultimatum Game}
+\label{subsec:ultimatumquantum}
+
+
+
+
+
+The ultimatum game is an example of an extensive form game where two players interact in order to divide a sum of money.
+
+A finite amount of money (or other finite resource), is given to the players, and player $1$ must propose how the money will be divided between the two players. If the second player agrees with the proposal, the resource will be slit accordingly. When the player $2$ rejects the proposal, neither player will receive the money.
+
+If we consider that we have 100 coins, the number of coins received can be considered the expected utility associated with the proposal. The first player can either present a fair division (F), where the coins are split evenly, or an unfair division (U) game tree that represents the Utilimatum Game is shown in Figure \ref{fig:ultimatum:gametree}.
+
+\begin{figure}[h]
+\centering 
+\includegraphics[scale=0.35]{Figures/ultimatum/gametree.png}
+\caption{Ultimatum Game representation in the extensive form. }
+\label{fig:ultimatum:gametree}
+\end{figure}
+
+\subsubsection{Quantum Model}
+\label{subsec:ultimatum}
+
+In a ``Quantum information approach to the ultimatum game''\cite{Fra2011} we are presented with a quantization scheme for the ultimatum game that uses the definition of quantum game in Section \ref{sec:background_quantum_game_theory}. 
+
+If we present the game in Figure \ref{fig:ultimatum:gametree} in the normal form we get the matrix represented in Table \ref{tab:tabelaultimatumestoufofida}. The player $2$ has $4$ possible strategies. The strategy $A_{F}R_{U}$ means that the player $2$ will accept a fair division proposed by player $1$ but will reject a unfair division.
+
+ The quantum game representation for this game is $
+\Gamma_{Ultimatum}=(\mathcal{H}^{2^{3}},\: 2,\:\vert\psi_{in}\rangle,\:\xi,\:\{\mathcal{U}_{i}\},\:\{E_{i}\})\label{eq:quantum_game_six_tuple}
+$. The game system will consist in $3$ qubit, which correspond tho the number of actions in the game. Player $1$ will be able to manipulate the qubit $1$, the player $2$ can manipulate the remaining qubits. 
+
+
+\begin{center}
+\begin{table}[h]
+\begin{centering}
+\begin{tabular}{ccccc}
+\hline 
+ & Player 2: $A_{F}A_{U}$ & Player 2: $A_{F}R_{U}$ & Player 2: $R_{F}A_{U}$ & Player 2: $R_{F}R_{U}$\tabularnewline
+\hline 
+Player 1: $F$ & $(50,50)$ & $(50,50)$& $(0,0)$ & $(0,0)$\tabularnewline
+Player 1: $U$ & $(\theta,100-\theta)$ & $(0,0)$& $(\theta,100-\theta)$ & $(0,0)$\tabularnewline
+\hline 
+\end{tabular}
+\par\end{centering}
+
+\caption{Normal form representation of the ultimatum game.}
+\label{tab:tabelaultimatumestoufofida}
+\end{table}
+\par\end{center}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 \subsection{Monty Hall Problem}
@@ -385,8 +472,8 @@ As the host reveals information, the initial set-up is modified. This is an inte
 Moreover it is important to realize that there is not a unique way to model a classical problem\cite{Gill2002}. Therefore, when modelling a classical problem, we need to select properties that could potentially benefit from a quantum approach. In \cite{Gill2002} we can observe the attempt to stick as closely to the classical formulation as possible, the host has a system that is correlated to the game system.
 
 
-\section{Overview}
-\label{sec:related_work_overview}
+%\section{Overview}
+%\label{sec:related_work_overview}
 
 
 

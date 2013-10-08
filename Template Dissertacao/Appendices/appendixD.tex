@@ -3,6 +3,154 @@
 
 \section{$3$ Player Game}
 
+\subsection{Simulation}
+\begin{lstlisting}
+function out = simulation3players(a_11,a_12,a_13,a_22,a_23)
+%
+%        IN:
+%-- alocation proposal a_ij -i number of the player that proposes a_ij coins 
+%   to player j
+%-- Check variables and set to defaults
+if exist('a_11','var')~=1, a_11=99; end
+if exist('a_12','var')~=1, a_12=0; end
+if exist('a_13','var')~=1, a_13=1; end
+if exist('a_22','var')~=1, a_22=100; end
+if exist('a_23','var')~=1, a_23=0; end
+
+
+
+%   cooperate= [1 0;0 1]
+C= eye(2);
+%   defect= [0 1;1 0]
+D= ones(2)-eye(2);
+% coin matrix
+H= [1/sqrt(2) 1i/sqrt(2);1i/sqrt(2) 1/sqrt(2)];
+
+
+
+step=0.1;
+t=0:step:pi;
+
+prob= zeros(size(t),8);
+
+% variation of the paremeter gamma (the entanglement in the system)
+for i=0:step:pi
+
+
+ini= cos(i/2)*kron([1 0]', kron([1 0]',[1 0]'))+1i*sin(i/2)*kron([0 1]', kron([0 1]',[0 1]'));
+% alternative: ini = J*kron([1 0]', kron([1 0]',[1 0]'));
+
+% entanglement matrix
+J= expm(1i*(i/2)*kron([0 1;1 0],kron([0 1;1 0],[0 1;1 0])));
+% conjugate transpose of the entanglement matrix
+Jd= ctranspose( expm(1i*(i/2)*kron([0 1;1 0],kron([0 1;1 0],[0 1;1 0]))));
+
+% % --- Strategies
+
+%% CCC 
+   fin = Jd*kron(C,kron(C,C))*ini;
+   payofffunc(fin, a_11,a_12,a_13,a_22,a_23)
+%% CCD 
+  fin = Jd*kron(C,kron(C,D))*ini;
+  payofffunc(fin, a_11,a_12,a_13,a_22,a_23)
+%% CDC 
+ fin = Jd*kron(C,kron(D,C))*ini;
+ payofffunc(fin, a_11,a_12,a_13,a_22,a_23)
+% 
+%% DCC 
+ fin = Jd*kron(C,kron(D,D))*ini;
+ payofffunc(fin, a_11,a_12,a_13,a_22,a_23)
+
+% %% CDD 
+  fin = kron(C,kron(D,D))*ini
+  
+      %% CC
+ fn= Jd*kron(H,kron(C,C))*fin;
+ payofffunc(fn, a_11,a_12,a_13,a_22,a_23)
+%     %% CD
+    fn= Jd*kron(H,kron(C,D))*fin 
+     payofffunc(fn, a_11,a_12,a_13,a_22,a_23)
+%     %% DC
+   fn= Jd*kron(H,kron(D,C))*fin;
+    payofffunc(fn, a_11,a_12,a_13,a_22,a_23)
+%     %% DD
+    fn= Jd*kron(H,kron(D,D))*fin; 
+    payofffunc(fn, a_11,a_12,a_13,a_22,a_23)
+  
+% %% DCD 
+  fin = kron(D,kron(C,D))*ini
+        %% CC
+ fn= Jd*kron(H,kron(C,C))*fin;
+ payofffunc(fn, a_11,a_12,a_13,a_22,a_23)
+%     %% CD
+    fn= Jd*kron(H,kron(C,D))*fin 
+     payofffunc(fn, a_11,a_12,a_13,a_22,a_23)
+%     %% DC
+   fn= Jd*kron(H,kron(D,C))*fin;
+    payofffunc(fn, a_11,a_12,a_13,a_22,a_23)
+%     %% DD
+    fn= Jd*kron(H,kron(D,D))*fin; 
+    payofffunc(fn, a_11,a_12,a_13,a_22,a_23)
+% %% DDC 
+  fin = kron(D,kron(D,C))*ini
+        %% CC
+ fn= Jd*kron(H,kron(C,C))*fin;
+ payofffunc(fn, a_11,a_12,a_13,a_22,a_23)
+%     %% CD
+    fn= Jd*kron(H,kron(C,D))*fin 
+     payofffunc(fn, a_11,a_12,a_13,a_22,a_23)
+%     %% DC
+   fn= Jd*kron(H,kron(D,C))*fin;
+    payofffunc(fn, a_11,a_12,a_13,a_22,a_23)
+%     %% DD
+    fn= Jd*kron(H,kron(D,D))*fin; 
+    payofffunc(fn, a_11,a_12,a_13,a_22,a_23)
+% %% DDD 
+ fin = kron(D,kron(D,D))*ini
+ 
+       %% CC
+ fn= Jd*kron(H,kron(C,C))*fin;
+ payofffunc(fn, a_11,a_12,a_13,a_22,a_23)
+%     %% CD
+    fn= Jd*kron(H,kron(C,D))*fin 
+     payofffunc(fn, a_11,a_12,a_13,a_22,a_23)
+%     %% DC
+   fn= Jd*kron(H,kron(D,C))*fin;
+    payofffunc(fn, a_11,a_12,a_13,a_22,a_23)
+%     %% DD
+    fn= Jd*kron(H,kron(D,D))*fin; 
+    payofffunc(fn, a_11,a_12,a_13,a_22,a_23)
+
+
+end
+end
+
+function [] = payofffunc(fin, a_11,a_12,a_13,a_22,a_23)
+%payofffunc_player1(fin)
+%   
+%                Calculates the payoff for player 1
+%              IN
+%                   fin: final state
+%  
+
+%-- Check variables and set to defaults
+if exist('a_11','var')~=1, a_11=99; end
+if exist('a_12','var')~=1, a_12=0; end
+if exist('a_13','var')~=1, a_13=1; end
+if exist('a_22','var')~=1, a_22=100; end
+if exist('a_23','var')~=1, a_23=0; end
+
+u1= a_11*(norm(conj([1 1 1 0 1 0 0 0]').*fin))^2 -200*(norm(conj([0 0 0 1 0 1 1 1]').*fin))^2
+% 
+u2=  a_12*(norm(conj([1 1 1 0 1 0 0 0]').*fin))^2 +(0.5+a_22*(norm(conj([0 1 1 1 0 1 1 1]').*fin))^2 -200*(norm(conj([1 0 0 0 1 0 0 0]').*fin))^2)*(norm(conj([0 0 0 1 0 1 1 1]').*fin))^2
+% 
+u3=  a_13*(norm(conj([1 1 1 0 1 0 0 0]').*fin))^2 +(0.5+a_23*(norm(conj([0 1 1 1 0 1 1 1]').*fin))^2 +100.5*(norm(conj([1 0 0 0 1 0 0 0]').*fin))^2)*(norm(conj([0 0 0 1 0 1 1 1]').*fin))^2
+   
+
+    
+end
+\end{lstlisting}
+
 \subsection{ Captain proposes $(99,0,1)$.}
  
 \subsubsection{ Accepted proposal after 1 round of the game.}

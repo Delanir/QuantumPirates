@@ -57,14 +57,14 @@ For 200 players (for example), this game would be impractical to simulate in a c
 The initial system ($\vert \psi_{0}(\gamma) \rangle$), will be set up by defining an entanglement coefficient $\gamma$, that affect the way the three qubits (belonging to the three pirate players), are related; this is shown in Equation \ref{eq:estado_inicial_pg}. 
 We will entangle our state by applying the gate $\mathcal{J}$ \cite{Letters2002}. The parameter $\gamma$ becomes a way to measure the entanglement in the system\cite{Eisert2008}. 
 
+The concept of entanglement is crucial to explain some phenomena in Quantum Mechanics (Section \ref{subsec:entanglement}).We analysed the role of the entanglement of the system since other examples researched pointed to it being the proeminent factor regarding behaviour changes from the classsical perspective\cite{Fra2011a}\cite{Fra2011}\cite{Letters2002}\cite{Khan2011}\cite{Ricketts2006}. 
+
 We can interpret the existence (or non-existence), of entanglement or superposition in the initial system as an unbreakable contract between the players\cite{Piotrowski}. The initial state starts by revealing a group of pirates that cooperate by default. We chose this initial set-up because it is prevalent in the literature, and we want to test if there is any equilibrium situation where the first captain can pass her proposal while taking all the 100 coins. 
 
 
 The index $0$ represents the depth of the game tree which can be examined in Figure \ref{fig:pg_architecturegametree}.
 
 Due to the nature of quantum mechanics we have to pay attention of how we set-up our architecture; we cannot copy or clone unknown quantum states (No-cloning Theorem)\cite{Rieffel2011}. 
-
-The concept of entanglement is crucial to explain some phenomena in Quantum Mechanics (Section \ref{subsec:entanglement}).We analysed the role of the entanglement of the system since other examples researched pointed to it being the proeminent factor regarding behaviour changes from the classsical perspective\cite{Fra2011a}\cite{Fra2011}\cite{Letters2002}\cite{Khan2011}\cite{Ricketts2006}. 
 
 
 
@@ -159,15 +159,13 @@ cos(\frac{\phi}{2}) & e^{i\phi}sin(\frac{\phi}{2})\\
 \subsubsection{Final State}
 \label{subsec:pirates_finalstate}
 
-We can play the Pirate Game by considering a succession of steps or voting rounds. In each step we have a simultaneous move, however, considering the potential rounds the game has, we have a sequential game. 
+We can play the Pirate Game by considering a succession of steps or voting rounds. In each step we have a simultaneous move(the players sellect their strategies at the same time), however, considering the potential rounds the game has, we have a sequential game. 
 
 With three players, the first move will correspond to the player 1 (or the captain), if the proposal fails we will proceed to the second step in the game, where the remaining two players will vote on a new proposal made by player 2 (who will be the new captain). The first captain is indifferent to the outcome of the second game so he uses a coin matrix to vote.
 
-After a move we have a ``final state'' that can be identified by an index which points to the depth $k$ of the game ( Figure \ref{fig:pg_architecturegametree}). This state is calculated by constructing a super-operator, by performing the tensor product of each player chosen strategy, as shown in Equation \ref{eq:operators_piratas_quanticos}. The super-operator, containing each player strategy, will then be applied to the initial state, this will correspond to the players making a simultaneous move represented in Equation\ref{eq:piratas_final_move}.
+After a move we have a quantum state that can be identified by an index which points to the depth $k$ of the game, $\psi_{k}$ ( Figure \ref{fig:pg_architecturegametree}). This state is calculated by constructing a super-operator, by performing the tensor product of each player chosen strategy, as shown in Equation \ref{eq:operators_piratas_quanticos}. The super-operator, containing each player's strategy, will then be applied to the initial state, this will correspond to the players making a simultaneous move represented in Equation\ref{eq:piratas_final_move}.
 
-In the Figure \ref{fig:pg_architecture3players} we have a step in the game.We start by building our initial state $k-1$, then the players will select their strategy, a super operator is constructed by performing a tensor product of the selected operators. 
-
-In order to calculate the expected payoff functions we need to disentangle the system, before measuring. The act of measuring, in quantum computing, gives an expected value that can be understood as the probability of the system collapsing into that state. 
+In the Figure \ref{fig:pg_architecture3players} we have a representation of the game.We start by building our initial state $k-1$, then the players  select their strategies, a super operator is constructed by performing a tensor product of the selected operators. In order to calculate the expected payoff functions we need to de-entangle the system, before measuring. The act of measuring, in quantum computing, gives an expected value that can be understood as the probability of the system collapsing into that state. 
 
 We can de-entangle the our $\mathcal{H}^{8}$ system by applying $\mathcal{J}^{\dagger}$ (Equation \ref{eq:piratas_final_move2}), this will produce a final state that we will be able to measure. If we do not apply the inverse transformation $\mathcal{J}^{\dagger}$ we are introducing errors in the system (when the entanglement parameter $\gamma$ is different than $0$), because we are introducing a correlation between the qubits in the system. In the Figure \ref{fig:pg_architecture3players} we have represented the way we entangle and de-entangle the system.
 
@@ -188,21 +186,13 @@ We can de-entangle the our $\mathcal{H}^{8}$ system by applying $\mathcal{J}^{\d
 \label{fig:pg_architecture3players}
 \end{figure}
 
-%\begin{figure}[h]
-%\centering 
-%\includegraphics[scale=0.35]{Figures/architecture/esquema/Slide2.png}
-%\caption{Playing the second round of the Pirate Game with 3 players by performing an intermediate measuring. }
-%\label{fig:pg_architecture3players_2measure}
-%\end{figure}
 
-%\begin{figure}[h]
-%\centering 
-%\includegraphics[scale=0.35]{Figures/architecture/esquema/Slide3.png}
-%\caption{Playing the second round of the Pirate Game with 3 players without performing an intermediate measurement. }
-%\label{fig:pg_architecture3players_2nomeasure}
-%\end{figure}
 
-In the original game the voting results are displayed between rounds, thus being an extensive form game. In the article ``Quantum information approach to the ultimatum game''\cite{Fra2011}, the authors model an extensive form game, and claim that it is more natural measuring the system between stages of the game (from a quantum perspective), instead of observing the actions taken by the players. However with our set-up measuring between rounds will destroy the initial entanglement which means that the effects of entanglement will only be present in the first stage of the game. This leads to the decision that to quantize the stages in the game we should be observing the actions taken by the players. The actions taken by the players will indicate whether the game stops (if the proposal is accepted), or if it ensues to a new stage (Figure \ref{fig:pg_architecture3players_architecture}). 
+In the original game the voting results are displayed between rounds, thus being an extensive form game. In the article ``Quantum information approach to the ultimatum game''\cite{Fra2011}, the authors model an extensive form game, and claim that it is more natural measuring the system between stages of the game (from a quantum perspective), instead of observing the actions taken by the players. However with our set-up measuring between rounds will destroy the initial entanglement which means that the effects of entanglement will only be present in the first stage of the game. 
+
+This leads to the decision that to quantize the stages in the game we should be observing the actions taken by the players. The actions taken by the players will indicate whether the game stops (if the proposal is accepted), or if it ensues to a new stage (Figure \ref{fig:pg_architecture3players_architecture}). 
+
+In order to preserve the consider the phenomenon of entanglement in the subgames, while measuring the state after a stage (applying $J^{\dagger}$), methodology suggested by \cite{Fra2011} we would need to reapply an entanglement gate ($J_{2}^{\dagger}$), with a new entanglement parameter $\gamma_{2}$. This would introduce a new parameter introducing a new layer of complexity to the simulation; for each initial entanglement coeficient $\gamma$ we would have an infinity of entanglement coeficients for each sub-game. When the two entanglement coefitients are equal the probability distributions associated with each pure-base of the system the are equal to our approach of observing the actions taken by the players.
 
 \begin{figure}[h]
 \centering 
