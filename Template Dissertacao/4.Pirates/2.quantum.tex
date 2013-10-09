@@ -318,11 +318,7 @@ We can observe in Figure \ref{fig:pg_architecturegametree:extensiveform} that in
 
 In order to calculate the probability of the final state collapsing onto a basis state $b \in \mathcal{B}$ we perform a projection of the state in the chosen basis and we measure the squared length of the projection, $\vert\langle b\vert\psi_{fin}\rangle\vert^{2}$\cite{Trueblood}.
 
-
-
-% Equations \ref{eq:pirates_payoff32} and \ref{eq:pirates_payoff3}
-
-The final payoff function (for example Equation \ref{eq:pirates_payoff32} for a $3$ player game), will be calculated recursively, the base case being the $2$ player sub-game in a $3$ player system will be Equation \ref{eq:pirates_payoff3}.
+Each player has an expected utility functionals. The expected utility for player $1$, shown in Equation \ref{eq:pirates_payoff32:1}, give a real number that represents the payoff associated with a final state. The same goes to player $2$ that has her expected utiity functional specified in Equation \ref{eq:pirates_payoff32:2}, and the player $3$ in Equation \ref{eq:pirates_payoff32:3}.
 
  
 \begin{equation}
@@ -345,9 +341,9 @@ E_{2}(\vert\psi_{fin}\rangle)=\alpha_{12}\times(\sum_{x_{4}}\sum_{x_{5}}\vert\la
 + \sum_{x_{4}}\sum_{x_{5}}\vert\langle0,1,0,x_{4},x{5}\vert\psi_{fin}\rangle\vert^{2}
 + \sum_{x_{4}}\sum_{x_{5}}\vert\langle0,0,1,x_{4},x{5}\vert\psi_{fin}\rangle\vert^{2}
  ) - \\
- + (0.5 + \alpha_{22})\times(\sum_{x_{5}}\vert\langle1,1,1,0,x{5}\vert\psi_{fin}\rangle\vert^{2} + \sum_{x_{5}}\vert\langle1,1,0,0,x{5}\vert\psi_{fin}\rangle\vert^{2} + \\ 
-+ \sum_{x_{5}}\vert\langle1,0,1,0,x{5}\vert\psi_{fin}\rangle\vert^{2}
-+ \sum_{x_{5}}\vert\langle0,1,1,0,x{5}\vert\psi_{fin}\rangle\vert^{2}
+ + (0.5 + \alpha_{22})\times(\sum_{x_{5}}\vert\langle1,1,1,0,x{5}\vert\psi_{fin}\rangle\vert^{2} + \vert\langle1,1,1,1,0\vert\psi_{fin}\rangle\vert^{2} + \\ + \sum_{x_{5}}\vert\langle1,1,0,0,x{5}\vert\psi_{fin}\rangle\vert^{2}+ \vert\langle1,1,0,1,0\vert\psi_{fin}\rangle\vert^{2} + \\ 
++ \sum_{x_{5}}\vert\langle1,0,1,0,x{5}\vert\psi_{fin}\rangle\vert^{2} + \vert\langle1,0,1,1,0\vert\psi_{fin}\rangle\vert^{2}
++ \\ + \sum_{x_{5}}\vert\langle0,1,1,0,x{5}\vert\psi_{fin}\rangle\vert^{2} + \vert\langle0,1,1,1,0\vert\psi_{fin}\rangle\vert^{2}
  ) + \\ 
 +(0.5-200)\times(\vert\langle1,1,1,1,1\vert\psi_{fin}\rangle\vert^{2} + \vert\langle1,1,0,1,1\vert\psi_{fin}\rangle\vert^{2} + \\ 
 + \vert\langle1,0,1,1,1\vert\psi_{fin}\rangle\vert^{2}
@@ -363,10 +359,10 @@ E_{3}(\vert\psi_{fin}\rangle)=\alpha_{13}\times(\sum_{x_{3}}\sum_{x_{4}}\vert\la
 + \sum_{x_{3}}\sum_{x_{4}}\vert\langle0,1,0,x_{4},x{5}\vert\psi_{fin}\rangle\vert^{2}
 + \sum_{x_{3}}\sum_{x_{4}}\vert\langle0,0,1,x_{4},x{5}\vert\psi_{fin}\rangle\vert^{2}
  ) + \\
- + (0.5 + E_{23})\times(\vert\langle111\vert\psi_{fin}\rangle\vert^{2} + \vert\langle110\vert\psi_{fin}\rangle\vert^{2} + \\ 
-+ \vert\langle101\vert\psi_{fin}\rangle\vert^{2}
-+ \vert\langle011\vert\psi_{fin}\rangle\vert^{2}
- ) + \\
+ + (0.5 + \alpha_{23})\times(\sum_{x_{5}}\vert\langle1,1,1,0,x{5}\vert\psi_{fin}\rangle\vert^{2} + \vert\langle1,1,1,1,0\vert\psi_{fin}\rangle\vert^{2} + \\ + \sum_{x_{5}}\vert\langle1,1,0,0,x{5}\vert\psi_{fin}\rangle\vert^{2}+ \vert\langle1,1,0,1,0\vert\psi_{fin}\rangle\vert^{2} + \\ 
++ \sum_{x_{5}}\vert\langle1,0,1,0,x{5}\vert\psi_{fin}\rangle\vert^{2} + \vert\langle1,0,1,1,0\vert\psi_{fin}\rangle\vert^{2}
++ \\ + \sum_{x_{5}}\vert\langle0,1,1,0,x{5}\vert\psi_{fin}\rangle\vert^{2} + \vert\langle0,1,1,1,0\vert\psi_{fin}\rangle\vert^{2}
+ )  + \\
  + (100.5)\times(\vert\langle1,1,1,1,1\vert\psi_{fin}\rangle\vert^{2} + \vert\langle1,1,0,1,1\vert\psi_{fin}\rangle\vert^{2} + \\ 
 + \vert\langle1,0,1,1,1\vert\psi_{fin}\rangle\vert^{2}
 + \vert\langle0,1,1,1,1\vert\psi_{fin}\rangle\vert^{2}
@@ -376,54 +372,9 @@ E_{3}(\vert\psi_{fin}\rangle)=\alpha_{13}\times(\sum_{x_{3}}\sum_{x_{4}}\vert\la
 \end{equation}
 
 
-\begin{comment}
-
- \begin{equation}
- \begin{cases}
-\begin{split}
-E_{1}(\vert\psi_{fin}\rangle)=\alpha_{11}\times(\sum_{x_{3}}\sum_{x_{4}}\vert\langle0,0,0,x_{4},x{5}\vert\psi_{fin}\rangle\vert^{2} + \sum_{x_{3}}\sum_{x_{4}}\vert\langle1,0,0,x_{4},x{5}\vert\psi_{fin}\rangle\vert^{2} + \\ 
-+ \sum_{x_{3}}\sum_{x_{4}}\vert\langle0,1,0,x_{4},x{5}\vert\psi_{fin}\rangle\vert^{2}
-+ \sum_{x_{3}}\sum_{x_{4}}\vert\langle0,0,1,x_{4},x{5}\vert\psi_{fin}\rangle\vert^{2}
- ) - \\
- - 200\times(\sum_{x_{3}}\sum_{x_{4}}\vert\langle1,1,1,x_{4},x{5}\vert\psi_{fin}\rangle\vert^{2} + \sum_{x_{3}}\sum_{x_{4}}\vert\langle0,1,1,x_{4},x{5}\vert\psi_{fin}\rangle\vert^{2} + \\ 
-+ \sum_{x_{3}}\sum_{x_{4}}\vert\langle1,0,1,x_{4},x{5}\vert\psi_{fin}\rangle\vert^{2}
-+ \sum_{x_{3}}\sum_{x_{4}}\vert\langle1,1,0,x_{4},x{5}\vert\psi_{fin}\rangle\vert^{2}
- )
-\end{split}
-\\
-\begin{split}
-E_{2}(\vert\psi_{fin}\rangle)=\alpha_{12}\times(\sum_{x_{4}}\sum_{x_{5}}\vert\langle0,0,0,x_{4},x{5}\vert\psi_{fin}\rangle\vert^{2} + \sum_{x_{4}}\sum_{x_{5}}\vert\langle1,0,0,x_{4},x{5}\vert\psi_{fin}\rangle\vert^{2} + \\ 
-+ \sum_{x_{4}}\sum_{x_{5}}\vert\langle0,1,0,x_{4},x{5}\vert\psi_{fin}\rangle\vert^{2}
-+ \sum_{x_{4}}\sum_{x_{5}}\vert\langle0,0,1,x_{4},x{5}\vert\psi_{fin}\rangle\vert^{2}
- ) - \\
- + (0.5 + \alpha_{22})\times(\sum_{x_{5}}\vert\langle1,1,1,0,x{5}\vert\psi_{fin}\rangle\vert^{2} + \sum_{x_{5}}\vert\langle1,1,0,0,x{5}\vert\psi_{fin}\rangle\vert^{2} + // 
-+ \sum_{x_{5}}\vert\langle1,0,1,0,x{5}\vert\psi_{fin}\rangle\vert^{2}
-+ \sum_{x_{5}}\vert\langle0,1,1,0,x{5}\vert\psi_{fin}\rangle\vert^{2}
- ) + \\ 
-+(0.5-200)\times(\vert\langle1,1,1,1,1\vert\psi_{fin}\rangle\vert^{2} + \vert\langle1,1,0,1,1\vert\psi_{fin}\rangle\vert^{2} + // 
-+ \vert\langle1,0,1,1,1\vert\psi_{fin}\rangle\vert^{2}
-+ \vert\langle0,1,1,1,1\vert\psi_{fin}\rangle\vert^{2}
- )
-\end{split}
-\\
-\begin{split}
-E_{3}(\vert\psi_{fin}\rangle)=\alpha_{13}\times(\sum_{x_{3}}\sum_{x_{4}}\vert\langle0,0,0,x_{4},x{5}\vert\psi_{fin}\rangle\vert^{2} + \sum_{x_{3}}\sum_{x_{4}}\vert\langle1,0,0,x_{4},x{5}\vert\psi_{fin}\rangle\vert^{2} + \\ 
-+ \sum_{x_{3}}\sum_{x_{4}}\vert\langle0,1,0,x_{4},x{5}\vert\psi_{fin}\rangle\vert^{2}
-+ \sum_{x_{3}}\sum_{x_{4}}\vert\langle0,0,1,x_{4},x{5}\vert\psi_{fin}\rangle\vert^{2}
- ) - \\
- + (0.5 + E_{23})\times(\vert\langle111\vert\psi_{fin}\rangle\vert^{2} + \vert\langle110\vert\psi_{fin}\rangle\vert^{2}
-+ \vert\langle101\vert\psi_{fin}\rangle\vert^{2}
-+ \vert\langle011\vert\psi_{fin}\rangle\vert^{2}
- ) + \\
- + (100.5)\times(\vert\langle1,1,1,1,1\vert\psi_{fin}\rangle\vert^{2} + \vert\langle1,1,0,1,1\vert\psi_{fin}\rangle\vert^{2} + // 
-+ \vert\langle1,0,1,1,1\vert\psi_{fin}\rangle\vert^{2}
-+ \vert\langle0,1,1,1,1\vert\psi_{fin}\rangle\vert^{2}
- )
-\end{split}
-\end{cases}
-\label{eq:pirates_payoff32}
-%\caption{Payoff funcionals for the $3$ player pirate game. The payoff function for the non-captain players is recursive because their decision to approve or reject the initial proposal will depend on how much they expect to gain in the next round ($E_{22}$ and $E_{23}$).}
-\end{equation}
 
 
-\end{comment}
+
+
+
+
