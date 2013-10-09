@@ -16,7 +16,7 @@ When modelling this problem from a quantum theory perspective we are faced with 
 
 \end{itemize} 
 
-The main difference from the original problem will rely on how the system is set up. 
+The main difference from the original problem will rely on how the system is set up and the fact that we will allow quantum strategies. 
 We propose to study this problem for a $3$ player game and trying to extrapolate for $N$ players. 
 
 We will analyse the role of entanglement and superposition in the game system. 
@@ -75,12 +75,12 @@ With $3$ players and $5$ actions our system with be represented in a $\mathcal{H
 
 
 
-\begin{figure}[h]
-\centering 
-\includegraphics[scale=0.55]{Figures/architecture/GameTree/Slide1.png}
-\caption{Game tree representation for a $3$-player game. Red circles represent failed proposals, green represent accepted proposals. }
-\label{fig:pg_architecturegametree}
-\end{figure}
+%\begin{figure}[h]
+%\centering 
+%\includegraphics[scale=0.55]{Figures/architecture/GameTree/Slide1.png}
+%\caption{Game tree representation for a $3$-player game. Red circles represent failed proposals, green represent accepted proposals. }
+%\label{fig:pg_architecturegametree}
+%\end{figure}
 
 
 \begin{comment}
@@ -109,7 +109,7 @@ The concept of entanglement is crucial to explain some phenomena in Quantum Mech
 We can interpret the existence (or non-existence), of entanglement or superposition in the initial system as an unbreakable contract between the players\cite{Piotrowski}. The initial state starts by revealing a group of pirates that cooperate by default. We chose this initial set-up because it is prevalent in the literature\cite{Eisert2008}\cite{Fra2011a}\cite{Fra2011}\cite{Letters2002}, and we want to test if there is any equilibrium situation where the first captain can pass her proposal while taking all the 100 coins. 
 
 
-The index $0$ represents the depth of the game tree which can be examined in Figure \ref{fig:pg_architecturegametree}.
+%The index $0$ represents the depth of the game tree which can be examined in Figure \ref{fig:pg_architecturegametree}.
 
 Due to the nature of quantum mechanics we have to pay attention of how we set-up our architecture; we cannot copy or clone unknown quantum states (No-cloning Theorem)\cite{Rieffel2011}. 
 
@@ -171,58 +171,48 @@ Due to the nature of quantum mechanics we have to pay attention of how we set-up
 In Equation \ref{eq:quantum_game_six_tuple} ($\Gamma=(\mathcal{H}^{2^{a}},\: N,\:\vert\psi_{in}\rangle,\:\xi,\:\{\mathcal{U}_{j}\},\:\{E_{i}\})
 $), there is the notion of a subset of unitary operators that the players can use to manipulate their assigned qubits. 
 
-Each player will be able to manipulate at least one qubit in the system. Those qubits are $\vert\varphi_{1}\rangle,\:\vert\varphi_{2}\rangle,$ and $\vert\varphi_{3}\rangle$. The Equation \ref{putadevida} assigns the qubit $\vert\varphi_{1}\rangle$ to player $1$, qubits $\vert\varphi_{2}\rangle$ and $\vert\varphi_{4}\rangle$ to player $2$, the remaing qubits are assigned to player $3$. Each player will be able to manipulate her assigned qubits $j$ with one of two operators shown in Equation \ref{eq:operators_piratas_quanticos}. 
+Each player will be able to manipulate at least one qubit in the system. Those qubits are $\vert\varphi_{1}\rangle,\:\vert\varphi_{2}\rangle,$ and $\vert\varphi_{3}\rangle$. The Equation \ref{putadevida} assigns the qubit $\vert\varphi_{1}\rangle$ to player $1$, qubits $\vert\varphi_{2}\rangle$ and $\vert\varphi_{4}\rangle$ to player $2$, the remaing qubits are assigned to player $3$. Each player will be able to manipulate her assigned qubits $j$ with an unitary operator of the form shown in Equation \ref{eq:operadoresinfinitus}. \cite{Eisert2008} notices that it is sufficient to restrict the strategic space to the $2$-parameter set of matrices in Equation \ref{eq:operadoresinfinitus}, with $ \theta \in ( 0, \pi )$, and $\phi \in ( 0, \frac{\pi}{2})$.
 
-An operator is an unitary $2\times2$ matrix that is used to manipulate a qubit in the system.
-This restriction of the strategic space is relevant to keep the problem as close to the classical version as possible. The two operators will correspond to the action of voting ``Yes'' or to Cooperate, and voting ``No'', meaning that they will not accept the proposal.  
 
-The cooperation operator will be represented by the Identity operator ($o_{j0}$, where $j$ identifies the qubit that the respective player will act upon). When assigned to a qubit this operator will leave it unchanged. 
-
-The defection operator ($D$), will be represented by one of Pauli's Operators - the Bit-flip operator. This operator was chosen because it performs the classical operation NOT on a qubit.
-
-These operators are also permutation matrices, so our players are in fact permuting the state of their qubit as in the roulette quantum model (Section \ref{subsec:quantum_roulette}). It is also noteworthy that this operators correspond to pure-strategies.
 
 \begin{equation}
-\label{eq:operators_piratas_quanticos}
-\mathcal{U}_{j} = \begin{cases}
+\mathcal{U}_{j}(\theta,\phi) = \left[\begin{array}{cc}
+cos(\frac{\phi}{2}) & e^{i\phi}sin(\frac{\phi}{2})\\
+-e^{-i\phi}sin(\frac{\phi}{2}) & cos(\frac{\phi}{2})
+\end{array}\right] , j \in \{ 1, 2, 3, 4, 5 \}, \theta \in ( 0, \pi ) , \phi \in ( 0, \frac{\pi}{2})
+\label{eq:operadoresinfinitus}
+\end{equation}
+
+
+ The two operators will correspond to the classical actions of voting ``Yes'' or to Cooperate, and voting ``No'' (Defect) are particular cases of the subset $U_{j}$, $S_{j}$ described in \ref{eq:operators_piratas_quanticos}.  
+The classical cooperation operator will be represented by the Identity operator ($o_{j0}$, where $j$ identifies the qubit that the respective player will act upon). When assigned to a qubit this operator will leave it unchanged. 
+
+The defection operator ($D$), will be represented by one of Pauli's Operators - the Bit-flip operator. This operator was chosen because it performs the classical operation NOT on a qubit and it is a particular case $\mathcal{U}_{j}(\pi, 0)$.
+
+%These operators are also permutation matrices, so our players are in fact permuting the state of their qubit as in the roulette quantum model (Section \ref{subsec:quantum_roulette}).
+
+\begin{equation}
+S_{j} = \begin{cases}
 C_{j} = o_{j0}=\left[\begin{array}{cc}
 1 & 0\\
 0 & 1
 \end{array}\right]\\
 D_{j} = o_{j1}=\left[\begin{array}{cc}
 0 & 1\\
-1 & 0
+-1 & 0
 \end{array}\right]
 \end{cases} , j \in \{ 1, 2, 3, 4, 5 \}
+\label{eq:operators_piratas_quanticos}
 \end{equation}
 
 Each player will have a strategy $\tau_{i}$  which assigns a
 unitary operator $U_{j}$ to every qubit $j$ that is manipulated
 by the player (\inputencoding{latin1}{$j$$\in\xi^{-1}(i)$}\inputencoding{latin9}). $\tau_{2}= \{D_{2},C_{4}\}$ represents the strategy where the player $2$ votes $D$ in the first stage and $C$ in the second stage.
 
-\begin{comment}
-When a player is no longer able to cast a vote she will play a symmetric coin matrix represented in Equation \ref{eq:operators_piratas_quanticos_esoterico}. Like in the example of the Quantum walk in a line, described in \ref{sec:quantum_walk_line}, the symmetric coins matrix allows to explore both choices for operators (Cooperate/Defect).
-
-\begin{equation}
-H = \left[\begin{array}{cc}
-\frac{1}{\sqrt{2}} & \frac{i}{\sqrt{2}}\\
-\frac{i}{\sqrt{2}} & \frac{1}{\sqrt{2}}
-\end{array}\right]
-\label{eq:operators_piratas_quanticos_esoterico}
-\end{equation}
-\end{comment}
 
 In Quantization schemas of the Prisoner's Dilemma\cite{Letters2002}\cite{Eisert2008}, and Quantum Ultimatum Game\cite{Fra2011}, the strategic space, described in Equation \ref{eq:operadoresinfinitus}, was analysed allowed a infinity of mixed quantum strategies. In the Quantum Roulette Game\cite{Salimi2009} and \cite{Meyer1999} we have a demonstration that in a classical two-person zero-sum strategic game, if one person adopts a quantum strategy, she has a better chance of winning the game. 
 
-However we claim that allowing mixed quantum strategies would degenerate the voting problem. In the original problem the stages of the game are dependent of the actions taken by the players. Also studying the strategic space in the game system (represented in a $\mathcal{H}^{32}$), would be a daunting process in terms of simulation. 
 
-\begin{equation}
-\mathcal{U}(\theta,\phi) = \left[\begin{array}{cc}
-cos(\frac{\phi}{2}) & e^{i\phi}sin(\frac{\phi}{2})\\
--e^{-i\phi}sin(\frac{\phi}{2}) & cos(\frac{\phi}{2})
-\end{array}\right]
-\label{eq:operadoresinfinitus}
-\end{equation}
 
 \subsubsection{Final State}
 \label{subsec:pirates_finalstate}
@@ -273,9 +263,9 @@ In this stage we must take into consideration that the players are pronouncing t
 \subsubsection{Utility}
 \label{subsec:pirates_utility}
 
-To build the expected payoff functionals for the three player situation we must take into account the sub-games created when the proposal is rejected. In Figure \ref{fig:pg_architecturegametree} we can see an extensive form representation of the game.
+To build the expected payoff functionals for the three player situation we must take into account the sub-games created when the proposal is rejected. In Figure \ref{fig:pg_architecturegametree:extensiveform} we can see an extensive form representation of the game.
 
-As defined on Equation \ref{eq:quantum_game_definition_payoff_func},for each player we must specify a utility functional that attributes a real number to the measurement of the projection of a basis in the quantum state that we get after the game. 
+As defined on Equation \ref{eq:quantum_game_definition_payoff_func} ($ E_{i}=\sum_{b \in \mathcal{B}} u_{i}(b)\vert \langle b\vert \psi_{fin}\rangle\vert^{2}, u_{i}(b) \in \mathbb{R} $),for each player we must specify a utility functional that attributes a real number to the measurement of the projection of a basis in the quantum state that we get after the game. 
 
 
 This measurement can be understood as a probability of the system collapsing into that state (that derives from the Born Rule, Section \ref{subsubsec:bornrule}).
