@@ -10,61 +10,28 @@
 \subsubsection{The captain proposes: $(99, 0, 1)$}
 \label{subsubsec:3playergame99}
 
-The outcome $CDC$ with a proposal of $(\alpha_{1}, \alpha_{2}, \alpha_{3}) =(99, 0, 1)$ would represent the Nash Equilibrium of the classic Pirate Game (for $3$ players). 
+The move $(C_1,D_2,C_3,C_4,D_5)$ with a proposal of $(\alpha_{1}, \alpha_{2}, \alpha_{3}) =(99, 0, 1)$ represents Nash Equilibrium of the classic Pirate Game (for $3$ players). In the classical version, when the players chose at least $2$ operators $Cooperate$ on the initial proposal the game ends right away, and the first proposal, made by player $1$, is accepted ($Accepted 1$).
 
-When the players chose at least $2$ operators $Cooperate$ on the initial proposal the game ends right away, the disentangle operator $\mathcal{J}^{\dagger}$ is applied, and the payoff functionals are calculated given the final state. The final state will be calculated as shown in Equation \ref{eq:piratas_final_move2_99anal}. 
-
-The Tables \ref{tab:3playerCCC99}, \ref{tab:3playerCCD99}, \ref{tab:3playerCDC99}, and \ref{tab:3playerDCC99}, in the Apendix \ref{ap:d}
-,present the results for the sittuation described above.
-
-In the Table \ref{repro:1} we find a reproduction of Table \ref{tab:3playerCCC99}, where the $3$ players choose to use the cooperate strategy. We can see that the parameter $\gamma$ has no effect on the final result. This happens because no player chooses to change her qubit. 
-
-In Tables \ref{tab:3playerCCD99}, \ref{tab:3playerCDC99}, and \ref{tab:3playerDCC99} we can see a pattern on the probability distributions 
-associated with probability of measuring a determined outcome. 
-
-The Table \ref{repro:2} reproduces the results of Table \ref{tab:3playerCDC99}. 
-The players select the operators $(CDC)$ in Table \ref{repro:2}, as there two players chose the ``Cooperate'' operator (represented by a $2 \times 2$ identity matrix), the proposal is accepted and the game ends (refer to Figure \ref{fig:pg_architecture3players_architecture}). The states $CDC$ and $DCD$ vary with $\gamma$, such that $P(CDC)= 1 - P(DCD)$. The probability distribution associated with $DCD$(the state where the qubits are flipped ), is approximated by normal distribution as vary $\gamma$. The peak for this distribution happens when the initial system is maximally entangled, for $\gamma=frac{\pi}{2}$.
-
-For $\gamma = 0 + k \pi, k \in \{0,1\}$ we are rendered with the classical situation, this means the proposal suggested by the captain will be enforced exactly as she stated. When $\gamma = \frac{\pi}{2}$ we are before a symmetric outcome where player 1 would die and player 2 would approve her proposal and get the $100$ coins.
-
+After the players make their strategic moves and the disentangle operator $\mathcal{J}^{\dagger}$ is applied, and the payoff functionals are calculated given the final state. The final state will be calculated as shown in Equation \ref{eq:piratas_final_move_23}.
 
 \begin{equation}
-\label{eq:piratas_final_move2_99anal}
-\vert\psi_{fin}\rangle= \mathcal{J}^{\dagger}\vert\psi_{1}\rangle
-\end{equation}
+\vert\psi_{fin}\rangle=\otimes_{i=1}^{3}\otimes_{j\in\xi^{-1}(i)}\mathcal{U}_{j}\vert\psi_{ini}(\gamma)\rangle
+\label{eq:piratas_final_move_23}
+\end{equation} 
+
+As expected from the problem definition when players use only classical strategies the entanglement coefitient will not affect the final expected utilities ($[ \mathcal{J} , C \otimes D \otimes C \otimes C \otimes D ] = 0 $).
+An example of this behaviour is shown in Figure \ref{fig:pg_3players_99_0_1}, where we measure the probability $A_{1}$ (first proposal is accepted), $A_{2}$, and $R_{2}$, with diffent entanglement levels ($\gamma= \{ 0 , \frac{ \pi}{4}, \frac{\pi}{2} \} $).
+
+\begin{figure}[h]
+\centering 
+\includegraphics[scale=0.80]{Figures/1.5qubit/CDCCD.png}
+\caption{When player play classical strategies the entanglement will not affect the final result. }
+\label{fig:pg_3players_99_0_1}
+\end{figure}
+
+When the players choose to play with mixed classical strategies (each player chooses an operator from the set $O = \{ \mathcal{U} ( \theta , 0) , \theta \in (0, \pi) \}$), $\gamma$ will also not interfere with the probability of of measuring a determined outcome.
 
 
-
- 
-\begin{table}
-\begin{center}
-\begin{tabular}{cc}
-  a)\putindeepbox[7pt]{\includegraphics[scale=0.46]{3Accepted99/CCC.PNG}}
-    & a1)\putindeepbox[7pt]{\includegraphics[scale=0.46]{3Accepted99/CCC_1.PNG}} \\
-\end{tabular}
-\caption{a) Expected utility for $3$ players, where the players will use the $(Cooperate, Cooperate, Cooperate)$ operators. The initial proposal is $(\alpha_{1}, \alpha_{2}, \alpha_{3}) =(99, 0, 1)$. a1) Probability distribution of the final state depending on the entanglement coefficient $\gamma$.  Reproduction from Table \ref{tab:3playerCCC99}}
-\label{repro:1}
-\end{center}
- \end{table}
-
-\begin{table}
-\begin{center}
-\begin{tabular}{cc}
-  b)\putindeepbox[7pt]{\includegraphics[scale=0.46]{3Accepted99/CDC.PNG}}
-    & b1)\putindeepbox[7pt]{\includegraphics[scale=0.46]{3Accepted99/CDC_1.PNG}} \\
-\end{tabular}
-\caption{b) Expected utility for $3$ players, where the players will use the $(Cooperate, Defect, Cooperate)$ operators. b1) Probability distribution of the final state depending on the entanglement coefficient $\gamma$.  Reproduction from Table \ref{tab:3playerCDC99}.}
-\label{repro:2}
-\end{center}
- \end{table}
-
-When the first proposal is rejected (more than $1$ player chooses to $Defect$), the second round ensues. We calculate the final state for these states with Equation \ref{eq:piratas_final_move2_99anal1}. 
-
-
-\begin{equation}
-\label{eq:piratas_final_move2_99anal1}
-\vert\psi_{fin}\rangle= \mathcal{J}^{\dagger}\vert\psi_{2}\rangle
-\end{equation}
 
 In a classical game the best response for player $1$ is to cooperate. In this quantum version depending of the parameter $\gamma$, the strategy that produces the most favourable outcome changes. However if the first proposal is rejected and player $1$ voted in favour (using the $C$ operator), we get to a final sub-game where the parameter $\gamma$ won't influence the expected utility; these results for this can be consulted on Appendix \ref{ap:d}, Section \ref{ap:d:CDD99}. Table \ref{repro:3} displays a particular outcome of the sub-game generated when the players chose the operators $CDD$ in the first stage ($CD$); it shows the expected utility when player $2$ accepts her proposal, and player $3$ rejects. 
 
@@ -90,6 +57,27 @@ In Table \ref{tab:3playerDCD_DC99}, the player $2$ has assumes the strategy $\ta
 
 When the parameter $\gamma$ influences the expected utility for the players, we verify the functions that describe the expected utility for player $1$ and $3$ tend have maxima and minima for the same values of $\gamma$. However if player $1$ decides to $Defect$ the two functions will not be synchronized.
 The function that describes the expected utility for player $2$ tends to have opposite behaviour. This happens because the captain bribed player $3$ with one gold coin.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 \subsubsection{The captain proposes: $(100, 0, 0)$}
 \label{subsubsec:3playergame100}

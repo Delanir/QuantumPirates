@@ -44,6 +44,7 @@ The Bayesian approach to the interpretation of probability is to consider the pr
 
 \end{comment}
 
+
 %prooffed
 \subsection{Conditional Probability}
 \label{subsubsec:conditionalprobability}
@@ -56,6 +57,51 @@ P(A|B)=\frac{P(A\wedge B)}{P(B)}
 \end{equation}
 
 %prooffed
+
+\subsection{Joint Distribution}
+
+When we need to deal with more than a one Boolean variable, the joint distribution is used to define events in terms of those variables. 
+This distribution grows exponentially (for $n$ variables, there are $2^{n}$ combinations), with the probability space of the various variables considered. If we consider the joint probability distribution between all the variables in a given domain we call this full joint probability.
+%, and the tensor product is an inherent part of the definition of the joint probability space
+
+Assuming that have three random  variables X, Y and W representing medical inferences. X represents if a person has fever, $x$ being the answer 1 (true) or 0 (false). Y represents if a person has been in a tropical region. W stands for if a person has headaches. Their joint distribution can be considered a vector with length 8 accounting for the multiple combinations of X, Y, and W. For example $P(101)$ represents the probability of having fever and seizures without having been in a tropical region. The notation $P(xyw)$ is equivalent to $P(x,y,w)$, and to $P(X=x \vee Y=y \vee W=w)$
+
+The joint distribution can be calculated using conditional probabilities by the chain rule\cite{Norvig2003}. Given a set of variables $x_{1},x_{2},..., x_{n}$ :
+\begin{equation}
+P(x_{1}, ..., x_{n})=P(x_{1}) \prod_{i=2}^{n}P(x_{i}\vert x_{i - 1}, ... , x_{1})
+\end{equation}
+For the last example a chain rule to calculate the joint probability would be:
+\begin{equation}
+\label{eq_chain_rule_example}
+P(x,y,w)= P(x \vert y, w) . P(y \vert w) . P(w)  
+\end{equation}
+
+To calculate P(x) from a joint distribution we need the marginal distribution $P_{X} : x \rightarrow \sum_{w \in W} \sum_{y \in Y}P(x , y, w)$. This would require $2^{n-1}$ sums. 
+
+
+\subsection{Conditional Independence}
+
+When variables are independent they are uncorrelated and their marginal distributions are equal to their prior probability distribution\cite{Pearl2000}. For example: 
+\begin{equation}
+ P_{X}(x) = \sum_{w \in W} \sum_{y \in Y}P(x , y, w) = P(x) 
+\end{equation}
+
+So, two variables are independent iif \cite{feller1}\cite{Norvig2003}:
+
+\begin{equation}
+P(X\vert W) = P(X)
+\end{equation}
+
+That means if we are presented with three variables  X, Y and W that are conditional independent relatively to each other, their joint distribution would only account their probability prior probability functions, thus simplifying the chain rule (Equation \eqref{eq_chain_rule_example}):
+\begin{equation}
+P(x, y , w) = P(x) . P(y) . P(w)
+\end{equation}
+
+Although it isn't always possible to decouple variables and assume that they are conditionally independent, doing so is a way to counter the ``curse of dimensionality". 
+
+
+
+
 
 \begin{comment}
 

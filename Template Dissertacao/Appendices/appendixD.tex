@@ -5,133 +5,74 @@
 
 \subsection{Simulation}
 \begin{lstlisting}
-function out = simulation3players(a_11,a_12,a_13,a_22,a_23)
+
+
+function out = simulationQuantumPirateGame3Players(a_11,a_12,a_13,a_22,a_23, gamma, U1,U2,U3,U4,U5)
 %
 %        IN:
-%-- alocation proposal a_ij -i number of the player that proposes a_ij coins 
+%-- alocation proposal a_ij -i number of the player that proposes a_ij coins
 %   to player j
+%-- gamma entanglemen coefitient
+%-- U1, U2, U3, U4, U5 player's strategies; default CDCCD
+%
+%       OUT:
+%-- expected utility for players 1 ,2 ,3:  [u1 u2 u3]
+
 %-- Check variables and set to defaults
 if exist('a_11','var')~=1, a_11=99; end
 if exist('a_12','var')~=1, a_12=0; end
 if exist('a_13','var')~=1, a_13=1; end
 if exist('a_22','var')~=1, a_22=100; end
 if exist('a_23','var')~=1, a_23=0; end
+if exist('gamma','var')~=1, gamma=0; end
 
-
-
+%-- Classic Pure Strategy Operators
 %   cooperate= [1 0;0 1]
 C= eye(2);
 %   defect= [0 1;1 0]
 D= ones(2)-eye(2);
-% coin matrix
-H= [1/sqrt(2) 1i/sqrt(2);1i/sqrt(2) 1/sqrt(2)];
+D(2,1)=1;
 
+if exist('U1','var')~=1, U1=C; end
+if exist('U2','var')~=1, U2=D; end
+if exist('U3','var')~=1, U3=C; end
+if exist('U4','var')~=1, U4=C; end
+if exist('U5','var')~=1, U5=D; end
 
+%-- Matrix containing all pure-states for hilbert space 32
+H32B=eye(32);
 
 step=0.1;
 t=0:step:pi;
 
-prob= zeros(size(t),8);
+i=gamma;
 
-% variation of the paremeter gamma (the entanglement in the system)
-for i=0:step:pi
+%-- varying the entanglement parameter
 
-
+%-- Building the initial state, for the entanglement parameter i
 ini= cos(i/2)*kron([1 0]', kron([1 0]',[1 0]'))+1i*sin(i/2)*kron([0 1]', kron([0 1]',[0 1]'));
-% alternative: ini = J*kron([1 0]', kron([1 0]',[1 0]'));
+%-- Entanglement Gate J
+J= expm(1i*(i/2)*kron(D,kron(D,kron(D,kron(D,D)))));
+%-- Alternative way to build the initial state
+ini= J*H32B(:,1);
+%-- Deentangles to produce a final state
+Jd = ctranspose( J);
 
-% entanglement matrix
-J= expm(1i*(i/2)*kron([0 1;1 0],kron([0 1;1 0],[0 1;1 0])));
-% conjugate transpose of the entanglement matrix
-Jd= ctranspose( expm(1i*(i/2)*kron([0 1;1 0],kron([0 1;1 0],[0 1;1 0]))));
-
-% % --- Strategies
-
-%% CCC 
-   fin = Jd*kron(C,kron(C,C))*ini;
-   payofffunc(fin, a_11,a_12,a_13,a_22,a_23)
-%% CCD 
-  fin = Jd*kron(C,kron(C,D))*ini;
-  payofffunc(fin, a_11,a_12,a_13,a_22,a_23)
-%% CDC 
- fin = Jd*kron(C,kron(D,C))*ini;
- payofffunc(fin, a_11,a_12,a_13,a_22,a_23)
-% 
-%% DCC 
- fin = Jd*kron(C,kron(D,D))*ini;
- payofffunc(fin, a_11,a_12,a_13,a_22,a_23)
-
-% %% CDD 
-  fin = kron(C,kron(D,D))*ini
-  
-      %% CC
- fn= Jd*kron(H,kron(C,C))*fin;
- payofffunc(fn, a_11,a_12,a_13,a_22,a_23)
-%     %% CD
-    fn= Jd*kron(H,kron(C,D))*fin 
-     payofffunc(fn, a_11,a_12,a_13,a_22,a_23)
-%     %% DC
-   fn= Jd*kron(H,kron(D,C))*fin;
-    payofffunc(fn, a_11,a_12,a_13,a_22,a_23)
-%     %% DD
-    fn= Jd*kron(H,kron(D,D))*fin; 
-    payofffunc(fn, a_11,a_12,a_13,a_22,a_23)
-  
-% %% DCD 
-  fin = kron(D,kron(C,D))*ini
-        %% CC
- fn= Jd*kron(H,kron(C,C))*fin;
- payofffunc(fn, a_11,a_12,a_13,a_22,a_23)
-%     %% CD
-    fn= Jd*kron(H,kron(C,D))*fin 
-     payofffunc(fn, a_11,a_12,a_13,a_22,a_23)
-%     %% DC
-   fn= Jd*kron(H,kron(D,C))*fin;
-    payofffunc(fn, a_11,a_12,a_13,a_22,a_23)
-%     %% DD
-    fn= Jd*kron(H,kron(D,D))*fin; 
-    payofffunc(fn, a_11,a_12,a_13,a_22,a_23)
-% %% DDC 
-  fin = kron(D,kron(D,C))*ini
-        %% CC
- fn= Jd*kron(H,kron(C,C))*fin;
- payofffunc(fn, a_11,a_12,a_13,a_22,a_23)
-%     %% CD
-    fn= Jd*kron(H,kron(C,D))*fin 
-     payofffunc(fn, a_11,a_12,a_13,a_22,a_23)
-%     %% DC
-   fn= Jd*kron(H,kron(D,C))*fin;
-    payofffunc(fn, a_11,a_12,a_13,a_22,a_23)
-%     %% DD
-    fn= Jd*kron(H,kron(D,D))*fin; 
-    payofffunc(fn, a_11,a_12,a_13,a_22,a_23)
-% %% DDD 
- fin = kron(D,kron(D,D))*ini
- 
-       %% CC
- fn= Jd*kron(H,kron(C,C))*fin;
- payofffunc(fn, a_11,a_12,a_13,a_22,a_23)
-%     %% CD
-    fn= Jd*kron(H,kron(C,D))*fin 
-     payofffunc(fn, a_11,a_12,a_13,a_22,a_23)
-%     %% DC
-   fn= Jd*kron(H,kron(D,C))*fin;
-    payofffunc(fn, a_11,a_12,a_13,a_22,a_23)
-%     %% DD
-    fn= Jd*kron(H,kron(D,D))*fin; 
-    payofffunc(fn, a_11,a_12,a_13,a_22,a_23)
-
+H= fft(eye(2))/sqrt(2);
+fin = kron(U1,kron(U2,kron(U3,kron(U4,U5))))*ini;
+fin= Jd*fin;
+out = expectedUtility(fin, a_11,a_12,a_13,a_22,a_23);
 
 end
-end
 
-function [] = payofffunc(fin, a_11,a_12,a_13,a_22,a_23)
+
+function out = expectedUtility(fin, a_11,a_12,a_13,a_22,a_23)
 %payofffunc_player1(fin)
-%   
+%
 %                Calculates the payoff for player 1
 %              IN
 %                   fin: final state
-%  
+%
 
 %-- Check variables and set to defaults
 if exist('a_11','var')~=1, a_11=99; end
@@ -140,14 +81,48 @@ if exist('a_13','var')~=1, a_13=1; end
 if exist('a_22','var')~=1, a_22=100; end
 if exist('a_23','var')~=1, a_23=0; end
 
-u1= a_11*(norm(conj([1 1 1 0 1 0 0 0]').*fin))^2 -200*(norm(conj([0 0 0 1 0 1 1 1]').*fin))^2
-% 
-u2=  a_12*(norm(conj([1 1 1 0 1 0 0 0]').*fin))^2 +(0.5+a_22*(norm(conj([0 1 1 1 0 1 1 1]').*fin))^2 -200*(norm(conj([1 0 0 0 1 0 0 0]').*fin))^2)*(norm(conj([0 0 0 1 0 1 1 1]').*fin))^2
-% 
-u3=  a_13*(norm(conj([1 1 1 0 1 0 0 0]').*fin))^2 +(0.5+a_23*(norm(conj([0 1 1 1 0 1 1 1]').*fin))^2 +100.5*(norm(conj([1 0 0 0 1 0 0 0]').*fin))^2)*(norm(conj([0 0 0 1 0 1 1 1]').*fin))^2
-   
+%-- Matrix containing all pure-states for hilbert space 32
+H32B=eye(32);
 
-    
+prob_proposal_1_accepted=0;
+for accepted=[1 2 3 4 5 6 7 8 9 10 11 12 17 18 19 20]
+    prob_proposal_1_accepted= prob_proposal_1_accepted + measure(H32B(:,accepted),fin);
+end
+prob_proposal_1_accepted;
+
+prob_proposal_1_rejected=0;
+for rejected=[13 14 15 16 21 22 23 24 25 26 27 28 29 30 31 32]
+    prob_proposal_1_rejected= prob_proposal_1_rejected + measure(H32B(:,rejected),fin);
+end
+prob_proposal_1_rejected;
+
+prob_proposal_2_accepted=0;
+for accepted=[13 14 15 21 22 23 25 26 27 29 30 31]
+    prob_proposal_1_accepted= prob_proposal_1_accepted + measure(H32B(:,accepted),fin);
+end
+prob_proposal_2_accepted;
+
+prob_proposal_2_rejected=0;
+for rejected=[16 24 28 32]
+    prob_proposal_1_rejected= prob_proposal_1_rejected + measure(H32B(:,rejected),fin);
+end
+prob_proposal_2_rejected;
+
+u1 = a_11*prob_proposal_1_accepted -200* prob_proposal_1_rejected;
+
+u2 = a_12*prob_proposal_1_accepted +(0.5 + a_22)*prob_proposal_2_accepted -199.5*prob_proposal_2_rejected;
+
+u3 = a_13*prob_proposal_1_accepted +(0.5 + a_23)*prob_proposal_2_accepted + 100.5*prob_proposal_2_rejected;
+out =[ u1 u2 u3];
+end
+
+function m = measure(b,fin)
+m= (norm(conj(b).*fin))^2;
+end
+
+
+function u= U_thetha_phi(theta,phi)
+u= [exp(1i*phi)cos(theta/2) *sin(theta/2);sin(theta/2) -exp(-i*phi)*cos(theta/2)];
 end
 \end{lstlisting}
 

@@ -121,10 +121,18 @@ as $\otimes_{j=1}^{a}\mathbb{C}^{2}$, with basis $\mathcal{B}$;
 \item $\vert\psi_{in}\rangle$ is the initial state of the compound-system
 composed by $a$ qubits: $\vert\varphi_{1}\rangle,\:\vert\varphi_{2}\rangle, ..., \vert\varphi_{j}\rangle, ..., \vert\varphi_{a}\rangle$;
 \item $\xi$ is a mapping function that assigns each action to a player;
-\item For each qubit $j$ $\mathcal{U}_{j}$ is a subset of unitary operators
-that can be used by the player to manipulate her qubit;
+\item For each qubit $j$ $\mathcal{U}_{j}$ is a subset of unitary operators from $\mathsf{SU}(2)$ (the general for the 2 dimensional Special Unitary Group is presented in Equation \ref{eq:general_unitary_special_one}).
+These operators can be used by the player to manipulate her qubit(s);
 \item Finally, for each player $i$, $E_{i}$ is a utility functional that
 specifies her payoff. This is done by attributing a real number (representing a expected utility $ u_{i}(b)$, in \ref{eq:quantum_game_definition_payoff_func}), to the measurement for the projection of the final state (\ref{eq:quantum_game_definition_move}), on a basis from the $\mathcal{B}$\ref{eq:quantum_game_definition_payoff_func}.\end{itemize}
+
+\begin{equation}
+\begin{split}
+\mathcal{U}_{j}(w,x,y,z)=w.I + ix\sigma_{x} + iy\sigma_{y} + iz\sigma_{z}, \\  w,x,y,z \in \mathbb{R} \wedge  
+w^2 + x^2 + y^2 + z^2 =1 
+\end{split}
+\label{eq:general_unitary_special_one}
+\end{equation}
 
 \begin{equation}
 E_{i}=\sum_{b \in \mathcal{B}} u_{i}(b)\vert \langle b\vert \psi_{fin}\rangle\vert^{2}, u_{i}(b) \in \mathbb{R}
@@ -143,7 +151,7 @@ The simultaneous move is represented in \ref{eq:quantum_game_definition_move}.
 
 The tensor product of all the operators chosen by the players is referred as a super-operator, which act upon the game system.
 
-In the article "Quantum Games and Quantum Strategies"\cite{Eisert2008}, the authors describe a quantization scheme for the Prisioner's Dilemma game. The way the initial state, $\vert\psi_{in}\rangle$, is set-up in the game system provide a way to entangle the game system, thus allowing the study of this phenomenon. For a $2$-player game, this is accomplished using Equation \ref{eq:2_4:estado_inicial_prisioneiro}. $\mathcal{J}$ is a matrix exponential that is chosen because it can commute with a super-operator, made from the subset of unitary operators $\mathcal{U}_{j}$\cite{citeulike:10961388}. According to \cite{Eisert2008}, the parameter $\gamma$ becomes a way to measure the entanglement in the system.
+In the article "Quantum Games and Quantum Strategies"\cite{Eisert2008}, the authors describe a quantization scheme for the Prisioner's Dilemma game. The way the initial state, $\vert\psi_{in}\rangle$, is set-up in the game system provide a way to entangle the game system, thus allowing the study of this phenomenon. For a $2$-player game, this is accomplished using Equation \ref{eq:2_4:estado_inicial_prisioneiro}. $\mathcal{J}$ is a matrix exponential that is chosen because it can commute with a super-operator, made from the subset of unitary operators that contains the identity matrix and the Bit-flip Pauli matrix\cite{citeulike:10961388}. According to \cite{Eisert2008}, the parameter $\gamma$ becomes a way to measure the entanglement in the system.
 
 \begin{equation}
 \label{eq:2_4:matrix_exponencial_esoterica}

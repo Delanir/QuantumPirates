@@ -204,33 +204,40 @@ Player 1: D & (3,0) & (1,1)\tabularnewline
 
 The importance of the Prisoner's Dilemma for the study of Game Theory made it a prime target for investigation in Quantum Game Theory. The problem has been modelled several times \cite{Eisert2008}\cite{Fra2011a}. Therefore we will use it in order to exemplify and consolidate the definition described in Section \ref{sec:background_quantum_game_theory}\cite{Fra2011a}. 
 
-Each player $i$ in the quantum version of Prisoner's Dilemma will be able to manipulate one qubit ($\varphi_{1}$ and $\varphi_{2}$) in Equations \ref{eq:quantum_prisioner_m1} and \ref{eq:quantum_prisioner_m2}, with two possible operators (shown in Equation \ref{eq:operators_prisioneiros_quanticos}) corresponding to the classical actions: Cooperate (C), and Defect (D). 
+Each player $i$ in the quantum version of Prisoner's Dilemma will be able to manipulate one qubit ($\varphi_{1}$ and $\varphi_{2}$) in Equations \ref{eq:quantum_prisioner_m1} and \ref{eq:quantum_prisioner_m2}, with the unitary operators (shown in Equation \ref{eq:operators_prisioneiros_quanticos}). The  classical strategies: Cooperate (C), and Defect (D) are represented in the set $U_{j}$ (Equation \ref{eq:operators_prisioneiros_quanticosmiaurons}) . 
 
 \begin{equation}
-\label{eq:quantum_prisioner_m1}
 \varphi_{1}=a_{0}\vert0\rangle+a_{1}\vert1\rangle,\sum_{i=0}^{1}\vert a_{i}\vert^{2}=1
+\label{eq:quantum_prisioner_m1}
 \end{equation}
 
 
 \begin{equation}
-\label{eq:quantum_prisioner_m2}
 \varphi_{2}=b_{0}\vert0\rangle+b_{1}\vert1\rangle,\sum_{j=0}^{1}\vert b_{j}\vert^{2}=1
+\label{eq:quantum_prisioner_m2}
 \end{equation}
 
 \begin{equation}
+\mathcal{U}_{j} ( \theta,\phi) = \left[\begin{array}{cc}
+cos(\frac{\phi}{2}) & e^{i\phi}sin(\frac{\phi}{2})\\
+-e^{-i\phi}sin(\frac{\phi}{2}) & cos(\frac{\phi}{2})
+\end{array}\right] , j \in \{ 1, 2\}, \theta \in ( 0, \pi ) , \phi \in ( 0, \frac{\pi}{2})
 \label{eq:operators_prisioneiros_quanticos}
-\mathcal{U}_{i}=\begin{cases}C= 
-O_{i0}=\left[\begin{array}{cc}
+\end{equation}
+
+\begin{equation}
+\begin{cases}C= 
+U_{j}(0, 0)=\left[\begin{array}{cc}
 1 & 0\\
 0 & 1
 \end{array}\right]\\
-D= O_{i1}=\left[\begin{array}{cc}
+D= U_{j}(\pi, 0)=\left[\begin{array}{cc}
 0 & 1\\
 1 & 0
 \end{array}\right]
 \end{cases} , i \in \{ 1, 2 \}
+\label{eq:operators_prisioneiros_quanticosmiaurons}
 \end{equation}
-
 
 The system that holds the game is represented in a $\mathcal{H}^{4}$. Each basis ($\vert 1\rangle, \vert 2\rangle, \vert 3\rangle, \vert 4\rangle$), represents a final outcome as Table \ref{tab:prisioners_m} suggests.
 
@@ -252,7 +259,7 @@ D-$\vert 1\rangle$ & $\vert 1,0\rangle$ & $\vert 1,1\rangle$\tabularnewline
 
 
 
-The fundamental difference from the classical version lies in the way the initial state is formulated in Equation \ref{eq:estado_inicial_prisioneiro}. We will entangle our state by applying the gate $\mathcal{J}$ \cite{Letters2002}\cite{Eisert2008}. The gate $\mathcal{J}$ is chosen to be commutative with the super-operators 
+The fundamental difference from the classical version lies in the way the initial state is formulated in Equation \ref{eq:estado_inicial_prisioneiro}. We will entangle our state by applying the gate $\mathcal{J}$ \cite{Letters2002}\cite{Eisert2008}. 
 
 The parameter $\gamma$ becomes a way to measure the entanglement in the system\cite{Eisert2008}.
 
@@ -289,8 +296,6 @@ The parameter $\gamma$ becomes a way to measure the entanglement in the system\c
 
 The entanglement in quantum game theory can be viewed as an intrinsic unbreakable contract. Furthermore measuring an entangled state will cause the wave function that describes the state to collapse. Before measuring the final result we will de-entangle the system by applying the operator $\mathcal{J}^{\dagger}$, as shown in Equation \ref{eq:finalstate_prisioneersdilemma}.
 
-
-
 The utility functions for each player is calculated by projecting the final state in each base and attributing a real number to each measurement, as in equation.
 In order to compare a classical version with this quantum model, the real numbers assigned are those in the classical example in Table \ref{tab:prisionersdillema_tab1}, and the basis are presented in Table \ref{tab:prisioners_m}.
 
@@ -303,7 +308,18 @@ E_{0}(\vert\psi_{fin}\rangle)=2\times\vert\langle00\vert\psi_{fin}\rangle\vert^{
 E_{1}(\vert\psi_{fin}\rangle)=2\times\vert\langle00\vert\psi_{fin}\rangle\vert^{2}+3\times\vert\langle01\vert\psi_{fin}\rangle\vert^{2}+1\times\vert\langle11\vert\psi_{fin}\rangle\vert^{2}
 \end{equation}
 
-By varying the parameter $\gamma$, we can observe that the expected utility changes as we set up the initial state. Furthermore for $\gamma= \frac{\pi}{4}+k \frac{\pi}{2}, k \in {0, 1, 2, 3}$ the expected utility for each player is $2$ if both players Cooperate, thus removing the dilemma. When the entanglement coefficient is $\gamma= 0+k \frac{\pi}, k \in {0, 1, 2}$ we are left with the classical problem, where there isn't entanglement.
+
+
+The gate $\mathcal{J}$ is chosen to be commutative with the super-operators created by the tensor product of the classical strategies C and D: $ [ \mathcal{J} , C \otimes C ] = 0 $, $ [ \mathcal{J} , C \otimes D ] = 0 $, $ [ \mathcal{J} , D \otimes C ] = 0 $, and $ [ \mathcal{J} , D \otimes D ] = 0 $. 
+
+This condition implies that any pair of strategies in the sub-set $S_{0} = \{ \mathcal{U} ( \theta , 0) , \theta \in (0, \pi) \}$ is the equivalent of a classical mixed strategy; the joint probability associated with measuring a outcome $(\delta_{1}, \delta_{2}) \in \{ (C, C), (C, D), (D, C), (D, D) \} $ ( $ P( \delta_{1} , \delta_{2} ) = { \vert \langle \delta_{1} , \delta_{2} \vert \psi_{fin} \rangle \vert }^{2} $ ), becomes $ P( \delta_{1} , \delta_{2} ) =P( \delta_{1} ) P( \delta_{2})$, with $P(C) = cos^{2}(\frac{ \theta }{2})$, and $P(D) = 1 - P(C)$\cite{Eisert2008}.
+
+If the parameter $\phi$ in the operator $U_{j}(\theta ,\phi)$ differs from $0$, and the entanglement parameter $\gamma = 0$ we are able to explore quantum strategies that have no counterpart in the classical domain.
+
+
+
+
+\begin{comment}
 
 \begin{table}[ht]
 \begin{center}
@@ -318,6 +334,8 @@ b) Player 1: Cooperates, Player 2: Defects; c) Player 1: Defects, Player 2: Coop
 \label{tab:prisiones_m_4}
 \end{center}
  \end{table}
+
+\end{comment}
 
 \clearpage
 \subsection{Ultimatum Game}

@@ -157,7 +157,7 @@ Due to the nature of quantum mechanics we have to pay attention of how we set-up
 0 & 1\\
 1 & 0
 \end{array}\right]\right\} \vert00000\rangle \\
-=cos(\frac{\gamma}{2})\vert00000\rangle+isin(\frac{\gamma}{2})\vert11111\rangle,\gamma\in(0,\pi)
+=cos(\frac{\gamma}{2})\vert00000\rangle+isin(\frac{\gamma}{2})\vert11111\rangle,\gamma\in(0,\frac{\pi}{2})
 \end{split}
 \label{eq:estado_inicial_pg}
 \end{equation}
@@ -169,9 +169,12 @@ Due to the nature of quantum mechanics we have to pay attention of how we set-up
 \label{subsec:strategic_space}
 
 In Equation \ref{eq:quantum_game_six_tuple} ($\Gamma=(\mathcal{H}^{2^{a}},\: N,\:\vert\psi_{in}\rangle,\:\xi,\:\{\mathcal{U}_{j}\},\:\{E_{i}\})
-$), there is the notion of a subset of unitary operators that the players can use to manipulate their assigned qubits. 
+$), there is the notion of a subset of unitary operators that the players can use to manipulate their assigned qubits.
 
-Each player will be able to manipulate at least one qubit in the system. Those qubits are $\vert\varphi_{1}\rangle,\:\vert\varphi_{2}\rangle,$ and $\vert\varphi_{3}\rangle$. The Equation \ref{putadevida} assigns the qubit $\vert\varphi_{1}\rangle$ to player $1$, qubits $\vert\varphi_{2}\rangle$ and $\vert\varphi_{4}\rangle$ to player $2$, the remaing qubits are assigned to player $3$. Each player will be able to manipulate her assigned qubits $j$ with an unitary operator of the form shown in Equation \ref{eq:operadoresinfinitus}. \cite{Eisert2008} notices that it is sufficient to restrict the strategic space to the $2$-parameter set of matrices in Equation \ref{eq:operadoresinfinitus}, with $ \theta \in ( 0, \pi )$, and $\phi \in ( 0, \frac{\pi}{2})$.
+Each player will be able to manipulate at least one qubit in the system. Those qubits are $\vert\varphi_{1}\rangle,\:\vert\varphi_{2}\rangle,$ and $\vert\varphi_{3}\rangle$. The Equation \ref{putadevida} assigns the qubit $\vert\varphi_{1}\rangle$ to player $1$, qubits $\vert\varphi_{2}\rangle$ and $\vert\varphi_{4}\rangle$ to player $2$, the remaing qubits are assigned to player $3$. 
+
+
+Each player will be able to manipulate her assigned qubits $j$ with an unitary operator of the form shown in Equation \ref{eq:operadoresinfinitus}. In order to explore the potential of quantum strategies, \cite{Eisert2008} proposes that it is sufficient to restrict the strategic space to the $2$-parameter set of matrices in Equation \ref{eq:operadoresinfinitus}, with $ \theta \in ( 0, \pi )$, and $\phi \in ( 0, \frac{\pi}{2})$. 
 
 
 
@@ -184,10 +187,12 @@ cos(\frac{\phi}{2}) & e^{i\phi}sin(\frac{\phi}{2})\\
 \end{equation}
 
 
- The two operators will correspond to the classical actions of voting ``Yes'' or to Cooperate, and voting ``No'' (Defect) are particular cases of the subset $U_{j}$, $S_{j}$ described in \ref{eq:operators_piratas_quanticos}.  
+ The two operators will correspond to the classical actions of voting ``Yes'' or to Cooperate, and voting ``No'' (Defect) are particular cases of the subset $U_{j}$. These classical actions belong to a subset in $U_{j}$, $S_{j}$ described in \ref{eq:operators_piratas_quanticos}.  
 The classical cooperation operator will be represented by the Identity operator ($o_{j0}$, where $j$ identifies the qubit that the respective player will act upon). When assigned to a qubit this operator will leave it unchanged. 
 
-The defection operator ($D$), will be represented by one of Pauli's Operators - the Bit-flip operator. This operator was chosen because it performs the classical operation NOT on a qubit and it is a particular case $\mathcal{U}_{j}(\pi, 0)$.
+The defection operator ($D$), is represented by one of Pauli's Operators - the Bit-flip operator. This operator was chosen because it performs the classical operation NOT on a qubit. 
+
+An approximate alternative for the defect operator in the set $\mathcal{U}$ is $\mathcal{U}_{j}(\pi, 0)$; they are interchangable when $\gamma = 0$. 
 
 %These operators are also permutation matrices, so our players are in fact permuting the state of their qubit as in the roulette quantum model (Section \ref{subsec:quantum_roulette}).
 
@@ -199,7 +204,7 @@ C_{j} = o_{j0}=\left[\begin{array}{cc}
 \end{array}\right]\\
 D_{j} = o_{j1}=\left[\begin{array}{cc}
 0 & 1\\
--1 & 0
+1 & 0
 \end{array}\right]
 \end{cases} , j \in \{ 1, 2, 3, 4, 5 \}
 \label{eq:operators_piratas_quanticos}
@@ -232,7 +237,7 @@ In the Figure \ref{fig:pg_architecture3players} we have a representation of the 
 
 In order to calculate the expected payoff functions we need to de-entangle the system, before measuring. The act of measuring, in quantum computing, gives an expected value that can be understood as the probability of the system collapsing into that state. 
 
-We can de-entangle the our $\mathcal{H}^{32}$ system by applying $\mathcal{J}^{\dagger}$ (Equation \ref{eq:piratas_final_move2}), this will produce a final state that we will be able to measure. If we do not apply the inverse transformation $\mathcal{J}^{\dagger}$ we are introducing errors in the system (when the entanglement parameter $\gamma$ is different than $0$), because we are introducing a correlation between the qubits in the system. In the Figure \ref{fig:pg_architecture3players} we have represented the way we entangle and de-entangle the system.
+We can de-entangle the our $\mathcal{H}^{32}$ system by applying $\mathcal{J}^{\dagger}$ (Equation \ref{eq:piratas_final_move}), this will produce a final state that we will be able to measure. If we do not apply the inverse transformation $\mathcal{J}^{\dagger}$ we are introducing errors in the system (when the entanglement parameter $\gamma$ is different than $0$), because we are introducing a correlation between the qubits in the system. In the Figure \ref{fig:pg_architecture3players} we have represented the way we entangle and de-entangle the system.
 
 
 \begin{figure}[h]
@@ -272,21 +277,21 @@ This measurement can be understood as a probability of the system collapsing int
 
 
 These utility functions will represent the degree of satisfaction for each pirate after game by attributing a real number to a measurement performed to the system (as in Equation \ref{eq:quantum_game_definition_payoff_func}, Section \ref{sec:background_quantum_game_theory}). 
-The real numbers used convey the logical relations of utility posed by the original problem description. Those numbers will represent the utility associated with the number of coins that a pirate gets, a death penalty, and a small incentive to climb the hierarchy. As each pirate wants to maximize her utility, the Nash equilibrium will be thoroughly used to find the strategies that the pirates will adopt\cite{nash50}\cite{Nash51}.
+The real numbers used convey the logical relations of utility posed by the original problem description. Those numbers will represent the utility associated with the number of coins that a pirate gets $(\alpha_{ij})$, a death penalty $(-200)$, and a small incentive to climb the hierarchy $(0.5)$, and were derived from the classical analysis of the problem in Section \ref{subsubsec:analysis_PG3players}. 
+As each pirate wants to maximize her utility, the Nash equilibrium will be thoroughly used to find the strategies that the pirates will adopt\cite{nash50}\cite{Nash51}.
 
 
-
-
-We can observe in Figure \ref{fig:pg_architecturegametree:extensiveform} that in that we have three separate groups (denoted by the colour accents), of outcomes that share the same payoff. In our quantum scheme we can agregate the quantum states associates with a payoff in the following manner: 
+We can observe in Figure \ref{fig:pg_architecturegametree:extensiveform} that in that we have three separate groups (denoted by the colour accents), of outcomes that share the same payoff, in the original problem. 
+In our quantum scheme we can agregate the pure-basis quantum states ($\mathcal{B}$), associates with a payoff in the following manner: 
 \begin{itemize}
-\item States where the first proposal is accepted:
+\item States where the first proposal is accepted - ``Accepted 1' (or $A_{1}$), with a green colour accent in Figure \ref{fig:pg_architecturegametree:extensiveform}:
 \begin{itemize}
 \item $\vert C,C,C,x_{4},x{5}\rangle$ or $\vert0,0,0,x_{4},x{5}\rangle$, with $x_{4} \in\{0,1\}$ and $x{5} \in \{0,1\}$;
 \item $\vert D,C,C,x_{4},x{5}\rangle$ or $\vert1,0,0,x_{4},x{5}\rangle$, with $x_{4} \in\{0,1\}$ and $x{5} \in \{0,1\}$;
 \item $\vert C,D,C,x_{4},x{5}\rangle$ or $\vert0,1,0,x_{4},x{5}\rangle$, with $x_{4} \in\{0,1\}$ and $x{5} \in \{0,1\}$;
 \item $\vert C,C,D,x_{4},x{5}\rangle$ or $\vert0,0,1,x_{4},x{5}\rangle$, with $x_{4} \in\{0,1\}$ and $x{5} \in \{0,1\}$.
 \end{itemize}
-\item States where the first captain will be eliminated and the second player gets her proposal accepted:
+\item States where the first captain will be eliminated and the second player gets her proposal accepted  - ``Accepted 2'' (or $A_{2}$) with a blue colour accent in Figure \ref{fig:pg_architecturegametree:extensiveform}:
 \begin{itemize}
 \item $\vert D,D,D,C,x{5}\rangle$ or $\vert1,1,1,0,x{5}\rangle$, with $x{5} \in \{0,1\}$;
 \item $\vert D,D,D,D,C\rangle$ or $\vert1,1,1,1,0\rangle$;
@@ -297,7 +302,7 @@ We can observe in Figure \ref{fig:pg_architecturegametree:extensiveform} that in
 \item $\vert D,C,D,C,x{5}\rangle$ or $\vert1,0,1,0,x{5}\rangle$, with $x{5} \in \{0,1\}$;
 \item $\vert D,C,D,D,C\rangle$ or $\vert1,0,1,1,0\rangle$.
 \end{itemize}
-\item States where all proposals are rejected:
+\item States where all proposals are rejected  - ``Rejected 2' (or $R_{2}$)' with a red colour accent in Figure \ref{fig:pg_architecturegametree:extensiveform}:
 \begin{itemize}
 \item $\vert D,D,D,D,D\rangle$ or $\vert1,1,1,1,1\rangle$;
 \item $\vert D,D,C,D,D\rangle$ or $\vert1,1,0,1,1\rangle$;
@@ -306,9 +311,35 @@ We can observe in Figure \ref{fig:pg_architecturegametree:extensiveform} that in
 \end{itemize}
 \end{itemize}
 
-In order to calculate the probability of the final state collapsing onto a basis state $b \in \mathcal{B}$ we perform a projection of the state in the chosen basis and we measure the squared length of the projection, $\vert\langle b\vert\psi_{fin}\rangle\vert^{2}$\cite{Trueblood}.
+In order to calculate the probability of the final state collapsing onto a basis state $b \in \mathcal{B}$ we perform a projection of the state in the chosen basis and we measure the squared length of the projection, $P(b) = \vert\langle b\vert\psi_{fin}\rangle\vert^{2}$\cite{Trueblood}.
 
-Each player has an expected utility functionals. The expected utility for player $1$, shown in Equation \ref{eq:pirates_payoff32:1}, give a real number that represents the payoff associated with a final state. The same goes to player $2$ that has her expected utiity functional specified in Equation \ref{eq:pirates_payoff32:2}, and the player $3$ in Equation \ref{eq:pirates_payoff32:3}.
+
+\begin{equation}
+\begin{split}
+P(A_{1}) = \sum_{x_{3}}\sum_{x_{4}}\vert\langle0,0,0,x_{4},x{5}\vert\psi_{fin}\rangle\vert^{2} + \sum_{x_{3}}\sum_{x_{4}}\vert\langle1,0,0,x_{4},x{5}\vert\psi_{fin}\rangle\vert^{2} + \\ 
++ \sum_{x_{3}}\sum_{x_{4}}\vert\langle0,1,0,x_{4},x{5}\vert\psi_{fin}\rangle\vert^{2}
++ \sum_{x_{3}}\sum_{x_{4}}\vert\langle0,0,1,x_{4},x{5}\vert\psi_{fin}\rangle\vert^{2}
+\end{split}
+\end{equation}
+
+\begin{equation}
+\begin{split}
+P(A_{2}) = \sum_{x_{5}}\vert\langle1,1,1,0,x{5}\vert\psi_{fin}\rangle\vert^{2} + \vert\langle1,1,1,1,0\vert\psi_{fin}\rangle\vert^{2} + \\ + \sum_{x_{5}}\vert\langle1,1,0,0,x{5}\vert\psi_{fin}\rangle\vert^{2}+ \vert\langle1,1,0,1,0\vert\psi_{fin}\rangle\vert^{2} + \\ 
++ \sum_{x_{5}}\vert\langle1,0,1,0,x{5}\vert\psi_{fin}\rangle\vert^{2} + \vert\langle1,0,1,1,0\vert\psi_{fin}\rangle\vert^{2}
++ \\ + \sum_{x_{5}}\vert\langle0,1,1,0,x{5}\vert\psi_{fin}\rangle\vert^{2} + \vert\langle0,1,1,1,0\vert\psi_{fin}\rangle\vert^{2}
+\end{split}
+\end{equation}
+
+\begin{equation}
+\begin{split}
+P(R_{2}) = \vert\langle1,1,1,1,1\vert\psi_{fin}\rangle\vert^{2} + \vert\langle1,1,0,1,1\vert\psi_{fin}\rangle\vert^{2} + \\ 
++ \vert\langle1,0,1,1,1\vert\psi_{fin}\rangle\vert^{2}
++ \vert\langle0,1,1,1,1\vert\psi_{fin}\rangle\vert^{2}
+ \end{split}
+\end{equation}
+
+
+If the first proposal is accepted ($P(A_{1})=1$) the players can expect to receive the following playoff $(a_{11}, a_{12}, a_{13})$. If $P(A_{2})=1$, then the expected payoff is $(-200, a_{22}+0.5, a_{23}+0.5)$. If both proposals are rejected ($P(R_{2})= 1$), the players might expect to receive $(-200, -200+0.5, 100+0.5)$. The expected utility function for each player will be a weighted average of all possible outcomes. Each player has an expected utility functionals. The expected utility for player $1$, shown in Equation \ref{eq:pirates_payoff32:1}, give a real number that represents the payoff associated with a final state. The same goes to player $2$ that has her expected utiity functional specified in Equation \ref{eq:pirates_payoff32:2}, and the player $3$ in Equation \ref{eq:pirates_payoff32:3}.
 
  
 \begin{equation}
@@ -360,6 +391,14 @@ E_{3}(\vert\psi_{fin}\rangle)=\alpha_{13}\times(\sum_{x_{3}}\sum_{x_{4}}\vert\la
 \end{split}
 \label{eq:pirates_payoff32:3}
 \end{equation}
+
+
+
+The gate $\mathcal{J}$ is chosen to be commutative with the super-operators created by the tensor product of the classical actions $C$ (cooperate, indicated by the identity matrix and $\mathcal{U}(0,0)$)), and $D$ (defect, indicated by the Bit-flip operator matrix and $\mathcal{U}(\pi,0)$)). For example $[ \mathcal{J} , C \otimes D \otimes C \otimes C \otimes D ] = 0 $.
+
+
+This condition implies that choosing any operator from the sub-set $O = \{ \mathcal{U} ( \theta , 0) , \theta \in (0, \pi) \}$ with $\gamma = 0$ is the equivalent of a classical mixed action. A strategy $\tau_{i}$ is a classical pure strategy iff all operators in the strategy belong to the subset $S$ (defined in \ref{eq:operators_piratas_quanticos}). A strategy $\tau_{i}$ isa classical mixed startegy iff all operators in the strategy belong to $O$.
+If the parameter $\phi$ in the operator $U_{j}(\theta ,\phi)$ differs from $0$, and the entanglement parameter $\gamma = 0$ we are able to explore quantum strategies that have no counterpart in the classical domain\cite{Eisert2008}.
 
 
 
