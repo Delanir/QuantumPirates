@@ -27,7 +27,7 @@ This simplified mathematical model allows to compare different states and rank p
 
 The options a player $i$ has when choosing an action, when the outcome depends not only on their choice (but also on the actions taken by the other players), is referred as strategy $s_{i}$. The set of strategies available to a player is represented by the set $S_{i}$.
 
-When a strategy gives strictly a higher expected utility in comparrison to other strategies, we have a strategy that dominates, or a dominant strategy. The mathematical definition of dominance is represented in Equation \ref{gt:dominant_strategy}; where, for a player $i$, in spite of the strategies chosen by the other players (denoted by $s_{-i}$), there is a strategy $s^{*}$ which gives always an higher expected utility in comparrison with other strategies $s^{'}$ available to player $i$.
+When a strategy gives strictly a higher expected utility in comparison to other strategies, we have a strategy that dominates, or a dominant strategy. The mathematical definition of dominance is represented in Equation \ref{gt:dominant_strategy}; where, for a player $i$, in spite of the strategies chosen by the other players (denoted by $s_{-i}$), there is a strategy $s^{*}$ which gives always an higher expected utility in comparison with other strategies $s^{'}$ available to player $i$.
 
 \begin{equation}
 \forall s_{-i}\in S_{-i}[u_{i}(s^{*},s_{-i})>u_{i}(s^{'},s_{-i})]
@@ -38,7 +38,7 @@ The strategy that leads to the most favourable outcome for a player, taking into
 
 A pure strategy defines deterministically how the player will play the game. In the game represented in Table\ref{tab:2prisionersdillema_tab2} , in a pure strategy, the players either they choose ``Cooperate'' ($C$), or ``Defect'' ($D$). 
 
-If there is a probability distribution associated with probabability of playing with a determined pure strategy, we have a mixed strategy. 
+If there is a probability distribution associated with probability of playing with a determined pure strategy, we have a mixed strategy. 
 
 There are two standard representations of games:
 \begin{itemize}
@@ -78,11 +78,11 @@ A zero-sum game is a mathematical representation of a system where the gains are
 \subsection{Nash Equilibrium}
 \label{subsec:background:game_theory_nash_equilibrium}
 
-If we observe the representation of the classic game ``Prisoner's Dilemma'', we can observe that each player has two strategies; either they choose ``Cooperate'' ($C$), or ``Defect'' ($D$). The ``Defect'' strategy, for both players (the game is symmetrical), always yield a higher payoff in spite of the other player's strategy, this means that it is a dominant strategy and also constitutes a best response to the game. If both players chose their best response the final outcome $(D,D)$ becomes an equilibrium solution, more specifficaly a Nash Equilibrium. 
+If we observe the representation of the classic game ``Prisoner's Dilemma'', we can observe that each player has two strategies; either they choose ``Cooperate'' ($C$), or ``Defect'' ($D$). The ``Defect'' strategy, for both players (the game is symmetrical), always yield a higher payoff in spite of the other player's strategy, this means that it is a dominant strategy and also constitutes a best response to the game. If both players chose their best response the final outcome $(D,D)$ becomes an equilibrium solution, more specifically a Nash Equilibrium. 
 
 When all players cannot improve their utility by changing their strategy unilaterally, we have an equilibrium point. This equilibrium point is named after John Nash, who proved that it exists at least one mixed strategy Nash equilibrium in a finite game\cite{nash50}\cite{Nash51}. This concept is used to analyse game where several decision makers interact simultaneously and the final outcome depends on the players strategy\cite{Osborne2004}.
 
-In order to compute a mixed strategy Nash Equilibrium in a 2-player 2 actions game, we need to define the probability distribution $P(C)=q$, $P(D)=1-q$ that makes player 1 indiferent to the whether player 2 decides to Cooperate or to Defect, and the probability distribution $P(C)=p$, $P(D)=1-p$ that makes player 2 indifferent to whether player 1 decides to Cooperate or to Defect. In the game represented in Table \ref{tab:2pennyflip_tab2} the  mixed strategies $(\frac{1}{3} , \frac{2}{3})$ and $(\frac{2}{3} , \frac{1}{3})$ are Nash Equilibria.
+In order to compute a mixed strategy Nash Equilibrium in a 2-player 2 actions game, we need to define the probability distribution $P(C)=q$, $P(D)=1-q$ that makes player 1 indifferent to the whether player 2 decides to Cooperate or to Defect, and the probability distribution $P(C)=p$, $P(D)=1-p$ that makes player 2 indifferent to whether player 1 decides to Cooperate or to Defect. In the game represented in Table \ref{tab:2pennyflip_tab2} the  mixed strategies $(\frac{1}{3} , \frac{2}{3})$ and $(\frac{2}{3} , \frac{1}{3})$ are Nash Equilibria.
 
 \begin{center}
 \begin{table}[h]
@@ -102,6 +102,7 @@ Player 1: D & (0,0) & (1,2)\tabularnewline
 \end{table}
 \par\end{center}
 
+When there is at least a Nash Equilibrium when the players choose pure strategies we have a a strictly determined game\cite{Leyton-Brown2008:Essentials_Game_Theory}
 
 In an extensive form game we have a concept of sub-game perfect Nash equilibrium, when a strategy is a Nash equilibrium for all sub-games in the original game\cite{Leyton-Brown2008:Essentials_Game_Theory}.
 
@@ -112,7 +113,7 @@ From the point of view of an observer outside the game system some outcomes may 
 
 When every player cannot improve her payoff without lowering another player's expected utility we have a Pareto Optimal solution.
 
-For example if we have two players and 10 units of a finite resource to distribute among the players, the pareto optimal sollution is $(5,5)$. Any other attemp to redistribute -$(6,4)$, $(1,9)$, etc...- would always leave a player worse than the pareto optimal distribution of the resource.
+For example if we have two players and 10 units of a finite resource to distribute among the players, the Pareto optimal solution is $(5,5)$. Any other attempt to redistribute -$(6,4)$, $(1,9)$, etc...- would always leave a player worse than the Pareto optimal distribution of the resource.
 
 
 \clearpage
@@ -174,7 +175,7 @@ The simultaneous move is represented in \ref{eq:quantum_game_definition_move}.
 
 The tensor product of all the operators chosen by the players is referred as a super-operator, which act upon the game system.
 
-In the article "Quantum Games and Quantum Strategies"\cite{Eisert2008}, the authors describe a quantization scheme for the Prisioner's Dilemma game. The way the initial state, $\vert\psi_{in}\rangle$, is set-up in the game system provide a way to entangle the game system, thus allowing the study of this phenomenon. For a $2$-player game, this is accomplished using Equation \ref{eq:2_4:estado_inicial_prisioneiro}. $\mathcal{J}$ is a matrix exponential that is chosen because it can commute with a super-operator, made from the subset of unitary operators that contains the identity matrix and the Bit-flip Pauli matrix\cite{citeulike:10961388}. According to \cite{Eisert2008}, the parameter $\gamma$ becomes a way to measure the entanglement in the system.
+In the article "Quantum Games and Quantum Strategies"\cite{Eisert2008}, the authors describe a quantization scheme for the Prisoner's Dilemma game. The way the initial state, $\vert\psi_{in}\rangle$, is set-up in the game system provide a way to entangle the game system, thus allowing the study of this phenomenon. For a $2$-player game, this is accomplished using Equation \ref{eq:2_4:estado_inicial_prisioneiro}. $\mathcal{J}$ is a matrix exponential that is chosen because it can commute with a super-operator, made from the subset of unitary operators that contains the identity matrix and the Bit-flip Pauli matrix\cite{citeulike:10961388}. According to \cite{Eisert2008}, the parameter $\gamma$ becomes a way to measure the entanglement in the system.
 
 \begin{equation}
 \label{eq:2_4:matrix_exponencial_esoterica}

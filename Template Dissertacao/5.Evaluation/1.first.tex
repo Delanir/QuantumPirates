@@ -8,7 +8,7 @@ According to \cite{Du} when the entanglement is maximal, $\mathcal{U}(\pi, 0)$ i
 \subsection{$2$ Player Game}
 \label{subsec:2playergame}
 
-We simulated the Pirate Game for $2$-players according to the rules defined for our quantum model in Section . The simulation can be consulted for reference in Appendix \ref{ap:d}. The classical sub-game with $2$-players can be represented in Table \ref{tab:classico2jogadores_analise}. In the quantum game there are $4$ pure quantum strategies :
+We simulated the Pirate Game for $2$-players according to the rules defined for our quantum model in Section . The simulation can be consulted for reference in Appendix \ref{ap:d}. The classical sub-game with $2$-players can be represented in Table \ref{tab:classico2jogadores_analise}. It is a strictly determined game, that means that there is at least a Nash Equilibrium when the players choose pure strategies\cite{Leyton-Brown2008:Essentials_Game_Theory}. In this case the outcome of the game is $(100, 0)$, when the players, use the strategies $C_{1}$ and $D_{2}$.  In the quantum game there are $4$ pure quantum strategies :
 
 \begin{itemize}
 
@@ -21,6 +21,8 @@ We simulated the Pirate Game for $2$-players according to the rules defined for 
 \item $\mathcal{U}( 0, \frac{\pi}{2})$
 
 \end{itemize}
+
+The expected utility when players can choose only pure quantum strategies and the game is maximaly entangled is shown in Figures \ref{fig:pg_2players_99_0_1:1} and \ref{fig:pg_2players_99_0_1:2}. When each player has access to the $4$ quantum strategiesnthe game is still strictly determined with a Nash Equilibrium outcome $(100,0)$.
 
 \begin{table}[h]
 \begin{center}
@@ -38,7 +40,21 @@ Player 1: D & (100, 0) & (-200, 100.5)\tabularnewline
 \caption{Representation of the $2$ player sub-game in normal form.}
 \label{tab:classico2jogadores_analise}
 \end{center}
+\end{table}
 
+\begin{figure}[h!]
+\centering 
+\includegraphics[scale=0.60]{Figures/1.5qubit/p2_E1.png}
+\caption{Expected utility for player $1$, when both players have access to pure quantum strategies and the entanglement is maximum. }
+\label{fig:pg_2players_99_0_1:1}
+\end{figure}
+
+\begin{figure}[h!]
+\centering 
+\includegraphics[scale=0.60]{Figures/1.5qubit/P2_E2.png}
+\caption{Expected utility for player $2$, when both players have access to pure quantum strategies and the entanglement is maximum. }
+\label{fig:pg_2players_99_0_1:2}
+\end{figure}
 
 
 \subsection{$3$ Player Game}
@@ -48,7 +64,9 @@ Player 1: D & (100, 0) & (-200, 100.5)\tabularnewline
 \subsubsection{The captain proposes: $(99, 0, 1)$}
 \label{subsubsec:3playergame99}
 
-The move $(C_1,D_2,C_3,C_4,D_5)$ with a proposal of $(\alpha_{1}, \alpha_{2}, \alpha_{3}) =(99, 0, 1)$ represents Nash Equilibrium of the classic Pirate Game (for $3$ players). In the classical version, when the players chose at least $2$ operators $Cooperate$ on the initial proposal the game ends right away, and the first proposal, made by player $1$, is accepted ($Accepted 1$ or $A_{1}$).
+The move $(C_1,D_2,C_3,C_4,D_5)$ with a proposal of $(\alpha_{1}, \alpha_{2}, \alpha_{3}) =(99, 0, 1)$ represents Nash Equilibrium of the classic Pirate Game (for $3$ players). In the classical version, when the players chose at least $2$ operators $Cooperate$ on the initial proposal the game ends right away, and the first proposal, made by player $1$, is accepted ($Accepted 1$ or $A_{1}$). 
+
+This game is a strictly determined game because it has a pure-strategy Nash Equilibrium.
 
 After the players make their strategic moves and the disentangle operator $\mathcal{J}^{\dagger}$ is applied, and the payoff functionals are calculated given the final state. The final state will be calculated as shown in Equation \ref{eq:piratas_final_move_23}.
 
@@ -57,8 +75,8 @@ After the players make their strategic moves and the disentangle operator $\math
 \label{eq:piratas_final_move_23}
 \end{equation} 
 
-As expected from the problem definition when players use only classical strategies the entanglement coefitient will not affect the final expected utilities ($[ \mathcal{J} , C \otimes D \otimes C \otimes C \otimes D ] = 0 $).
-An example of this behaviour is shown in Figure \ref{fig:pg_3players_99_0_1}, where we measure the probability $A_{1}$ (first proposal is accepted), $A_{2}$, and $R_{2}$, with diffent entanglement levels ($\gamma= \{ 0 , \frac{ \pi}{4}, \frac{\pi}{2} \} $).
+As expected from the problem definition when players use only classical strategies the entanglement coefficient will not affect the final expected utilities ($[ \mathcal{J} , C \otimes D \otimes C \otimes C \otimes D ] = 0 $).
+An example of this behaviour is shown in Figure \ref{fig:pg_3players_99_0_1}, where we measure the probability $A_{1}$ (first proposal is accepted), $A_{2}$, and $R_{2}$, with different entanglement levels ($\gamma= \{ 0 , \frac{ \pi}{4}, \frac{\pi}{2} \} $).
 
 \begin{figure}[h]
 \centering 
@@ -67,7 +85,7 @@ An example of this behaviour is shown in Figure \ref{fig:pg_3players_99_0_1}, wh
 \label{fig:pg_3players_99_0_1}
 \end{figure}
 
-When each player chooses an operator from the set $O = \{ \mathcal{U} ( \theta , 0) , \theta \in (0, \pi) \}$ and $\gamma=0$ we have an equivalent to the classic mixed strategies. However for $\gamma >0$ the $\mathcal{U} ( \theta , 0)$ may present an interference behaviour that is innerentely quantum. This effect is shown in Figures \ref{fig:pg_3players_99_0_1:2} and \ref{fig:pg_3players_99_0_1:2}, allowing us to understand the difference between the Bit-flip operator $D$ and $\mathcal{U} ( \pi , 0)$.
+When each player chooses an operator from the set $O = \{ \mathcal{U} ( \theta , 0) , \theta \in (0, \pi) \}$ and $\gamma=0$ we have an equivalent to the classic mixed strategies. However for $\gamma >0$ the $\mathcal{U} ( \theta , 0)$ may present an interference behaviour that is inherently quantum. This effect is shown in Figures \ref{fig:pg_3players_99_0_1:2} and \ref{fig:pg_3players_99_0_1:2}, allowing us to understand the difference between the Bit-flip operator $D$ and $\mathcal{U} ( \pi , 0)$.
 
 
 
@@ -81,7 +99,7 @@ When each player chooses an operator from the set $O = \{ \mathcal{U} ( \theta ,
 \begin{figure}[h]
 \centering 
 \includegraphics[scale=0.80]{Figures/1.5qubit/Upi0Upi0CCUpi0.png}
-\caption{Unlike with the Bit-flip operator $D$, $\mathcal{U} (\pi, 0)$ is affected by the entanglement coeficient $\gamma$ in this case. }
+\caption{Unlike with the Bit-flip operator $D$, $\mathcal{U} (\pi, 0)$ is affected by the entanglement coefficient $\gamma$ in this case. }
 \label{fig:pg_3players_99_0_1:3}
 \end{figure}
 
@@ -167,7 +185,7 @@ The function that describes the expected utility for player $2$ tends to have op
 Suppose captain is greedy and proposes to get the 100 coins. In the classical Pirate Game this would pose a conflict with his self-preserving needs. 
 A pertinent question would be if this Quantum Model of the Pirate Game would allow the first captain to approve that allocation proposal. 
 
-If the captain is the only one with access to quantum strategies, and the other players do not know it and play the classical strategies $C$ (identity matrix) and $D$ (Bit-flip operator), there is a dominant quantum strategy that allows her to pass her proposal and get all the $100$ coins, for $\gamma = \frac{\pi}{2}$. Figure \ref{fig:pg_3players_99_0_1:4} provides an example that corroborates where we verify that player $1$ has a set of dominant strategies (for $\tau_{1} = \mathcal{U}_{1}(\pi,\phi), \phi \in (0, \frac{\pi}{2})$ or $\tau_{1} = \mathcal{U}_{1}(\theta,\frac{\pi}{2}), \theta \in (0, \pi)$). We verified experimentaly that the sub-games with $2$ players (when $(C_{4},C_{5}), (C_{4},D_{5}), (D_{4},C_{5}), (D_{4},D_{5})$), did not affect this dominat strategy. If fact if we analise the expected utility function for player $1$ ($E_{1}.$), and the Figure \ref{fig:pg_architecturegametree:extensiveform} representing the extensive form game, we verify that the the first captain is indiferent to the results of the sub-game with $2$-players, when both player play a classical strategy, because she is already dead. 
+If the captain is the only one with access to quantum strategies, and the other players do not know it and play the classical strategies $C$ (identity matrix) and $D$ (Bit-flip operator), there is a dominant quantum strategy that allows her to pass her proposal and get all the $100$ coins, for $\gamma = \frac{\pi}{2}$. Figure \ref{fig:pg_3players_99_0_1:4} provides an example that corroborates where we verify that player $1$ has a set of dominant strategies (for $\tau_{1} = \mathcal{U}_{1}(\pi,\phi), \phi \in (0, \frac{\pi}{2})$ or $\tau_{1} = \mathcal{U}_{1}(\theta,\frac{\pi}{2}), \theta \in (0, \pi)$). We verified experimentally that the sub-games with $2$ players (when $(C_{4},C_{5}), (C_{4},D_{5}), (D_{4},C_{5}), (D_{4},D_{5})$), did not affect this dominant strategy. If fact if we analyse the expected utility function for player $1$ ($E_{1}.$), and the Figure \ref{fig:pg_architecturegametree:extensiveform} representing the extensive form game, we verify that the the first captain is indifferent to the results of the sub-game with $2$-players, when both player play a classical strategy, because she is already dead. 
 
 \begin{figure}[h]
 \centering 
@@ -179,7 +197,7 @@ If the captain is the only one with access to quantum strategies, and the other 
 \begin{figure}[h]
 \centering 
 \includegraphics[scale=0.80]{Figures/1.5qubit/meanpirate.png}
-\caption{Expected utility for player $1$ when she addopts a strategic move of the form $U_{1}(\theta,\phi)$ and the other players play $D_{2},D_{3},C_{4},D_{5}$. }
+\caption{Expected utility for player $1$ when she adopts a strategic move of the form $U_{1}(\theta,\phi)$ and the other players play $D_{2},D_{3},C_{4},D_{5}$. }
 \label{fig:pg_3players_99_0_1:4}
 \end{figure}
 

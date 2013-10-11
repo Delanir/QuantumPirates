@@ -41,7 +41,7 @@ We begin by assigning an offset to each pirate (in order to identify her), as in
 \subsubsection{Game system: Setting up the Initial State}
 \label{subsec:pirates_initialstate}
 
-A game $\Gamma$ can be viewed as a system composed by qubits manipulated by players. We will use the definition of quantum game discussd in Section \ref{sec:background_quantum_game_theory} ($\Gamma=(\mathcal{H}^{2^{a}},\: N,\:\vert\psi_{in}\rangle,\:\xi,\:\{\mathcal{U}_{j}\},\:\{E_{i}\})
+A game $\Gamma$ can be viewed as a system composed by qubits manipulated by players. We will use the definition of quantum game discussed in Section \ref{sec:background_quantum_game_theory} ($\Gamma=(\mathcal{H}^{2^{a}},\: N,\:\vert\psi_{in}\rangle,\:\xi,\:\{\mathcal{U}_{j}\},\:\{E_{i}\})
 $), to model our game system. 
 
 
@@ -104,7 +104,7 @@ Player 2: DD &  &  &  &  &  &  &  & \tabularnewline
 The initial system ($\vert \psi_{0}(\gamma) \rangle$), will be set up by defining an entanglement coefficient $\gamma$, that affect the way the five qubits (belonging to the three pirate players), are related; this is shown in Equation \ref{eq:estado_inicial_pg}. 
 We will entangle our state by applying the gate $\mathcal{J}$ \cite{Letters2002}. The parameter $\gamma$ becomes a way to measure the entanglement in the system\cite{Eisert2008}. 
 
-The concept of entanglement is crucial to explain some phenomena in Quantum Mechanics (Section \ref{subsec:entanglement}).We analysed the role of the entanglement of the system since other examples researched pointed to it being the proeminent factor regarding behaviour changes from the classsical perspective\cite{Fra2011a}\cite{Fra2011}\cite{Letters2002}\cite{Khan2011}\cite{Ricketts2006}. 
+The concept of entanglement is crucial to explain some phenomena in Quantum Mechanics (Section \ref{subsec:entanglement}).We analysed the role of the entanglement of the system since other examples researched pointed to it being the prominent factor regarding behaviour changes from the classsical perspective\cite{Fra2011a}\cite{Fra2011}\cite{Letters2002}\cite{Khan2011}\cite{Ricketts2006}. 
 
 We can interpret the existence (or non-existence), of entanglement or superposition in the initial system as an unbreakable contract between the players\cite{Piotrowski}. The initial state starts by revealing a group of pirates that cooperate by default. We chose this initial set-up because it is prevalent in the literature\cite{Eisert2008}\cite{Fra2011a}\cite{Fra2011}\cite{Letters2002}, and we want to test if there is any equilibrium situation where the first captain can pass her proposal while taking all the 100 coins. 
 
@@ -171,7 +171,7 @@ Due to the nature of quantum mechanics we have to pay attention of how we set-up
 In Equation \ref{eq:quantum_game_six_tuple} ($\Gamma=(\mathcal{H}^{2^{a}},\: N,\:\vert\psi_{in}\rangle,\:\xi,\:\{\mathcal{U}_{j}\},\:\{E_{i}\})
 $), there is the notion of a subset of unitary operators that the players can use to manipulate their assigned qubits.
 
-Each player will be able to manipulate at least one qubit in the system. Those qubits are $\vert\varphi_{1}\rangle,\:\vert\varphi_{2}\rangle,$ and $\vert\varphi_{3}\rangle$. The Equation \ref{putadevida} assigns the qubit $\vert\varphi_{1}\rangle$ to player $1$, qubits $\vert\varphi_{2}\rangle$ and $\vert\varphi_{4}\rangle$ to player $2$, the remaing qubits are assigned to player $3$. 
+Each player will be able to manipulate at least one qubit in the system. Those qubits are $\vert\varphi_{1}\rangle,\:\vert\varphi_{2}\rangle,$ and $\vert\varphi_{3}\rangle$. The Equation \ref{putadevida} assigns the qubit $\vert\varphi_{1}\rangle$ to player $1$, qubits $\vert\varphi_{2}\rangle$ and $\vert\varphi_{4}\rangle$ to player $2$, the remaining qubits are assigned to player $3$. 
 
 
 Each player will be able to manipulate her assigned qubits $j$ with an unitary operator of the form shown in Equation \ref{eq:operadoresinfinitus}. In order to explore the potential of quantum strategies, \cite{Eisert2008} proposes that it is sufficient to restrict the strategic space to the $2$-parameter set of matrices in Equation \ref{eq:operadoresinfinitus}, with $ \theta \in ( 0, \pi )$, and $\phi \in ( 0, \frac{\pi}{2})$. 
@@ -192,7 +192,7 @@ The classical cooperation operator will be represented by the Identity operator 
 
 The defection operator ($D$), is represented by one of Pauli's Operators - the Bit-flip operator. This operator was chosen because it performs the classical operation NOT on a qubit. 
 
-An approximate alternative for the defect operator in the set $\mathcal{U}$ is $\mathcal{U}_{j}(\pi, 0)$; they are interchangable when $\gamma = 0$. 
+An approximate alternative for the defect operator in the set $\mathcal{U}$ is $\mathcal{U}_{j}(\pi, 0)$; they are interchangeable when $\gamma = 0$. 
 
 %These operators are also permutation matrices, so our players are in fact permuting the state of their qubit as in the roulette quantum model (Section \ref{subsec:quantum_roulette}).
 
@@ -255,7 +255,7 @@ In the original game the voting results are displayed between rounds, thus being
 
 This leads to the decision that to quantize the stages in the game we should be observing the actions taken by the players. The actions taken by the players will indicate whether the game stops (if the proposal is accepted), or if it ensues to a new stage (Figure \ref{fig:pg_architecture3players_architecture}). 
 
-In order to preserve the consider the phenomenon of entanglement in the subgames, while measuring the state after a stage (applying $J^{\dagger}$), methodology suggested by \cite{Fra2011} we would need to reapply an entanglement gate ($J_{2}^{\dagger}$), with a new entanglement parameter $\gamma_{2}$. This would introduce a new parameter introducing a new layer of complexity to the simulation; for each initial entanglement coeficient $\gamma$ we would have an infinity of entanglement coeficients for each sub-game. When the two entanglement coefitients are equal the probability distributions associated with each pure-base of the system the are equal to our approach of observing the actions taken by the players.
+In order to preserve the consider the phenomenon of entanglement in the sub-games, while measuring the state after a stage (applying $J^{\dagger}$), methodology suggested by \cite{Fra2011} we would need to reapply an entanglement gate ($J_{2}^{\dagger}$), with a new entanglement parameter $\gamma_{2}$. This would introduce a new parameter introducing a new layer of complexity to the simulation; for each initial entanglement coefficient $\gamma$ we would have an infinity of entanglement coefficients for each sub-game. When the two entanglement coefficients are equal the probability distributions associated with each pure-base of the system the are equal to our approach of observing the actions taken by the players.
 
 
 The next pirate in the hierarchy will then become the captain, and the previous captains will no longer be able to cast a vote (a symmetric Coin matrix will be used instead). 
@@ -282,7 +282,7 @@ As each pirate wants to maximize her utility, the Nash equilibrium will be thoro
 
 
 We can observe in Figure \ref{fig:pg_architecturegametree:extensiveform} that in that we have three separate groups (denoted by the colour accents), of outcomes that share the same payoff, in the original problem. 
-In our quantum scheme we can agregate the pure-basis quantum states ($\mathcal{B}$), associates with a payoff in the following manner: 
+In our quantum scheme we can aggregate the pure-basis quantum states ($\mathcal{B}$), associates with a payoff in the following manner: 
 \begin{itemize}
 \item States where the first proposal is accepted - ``Accepted 1' (or $A_{1}$), with a green colour accent in Figure \ref{fig:pg_architecturegametree:extensiveform}:
 \begin{itemize}
@@ -339,7 +339,7 @@ P(R_{2}) = \vert\langle1,1,1,1,1\vert\psi_{fin}\rangle\vert^{2} + \vert\langle1,
 \end{equation}
 
 
-If the first proposal is accepted ($P(A_{1})=1$) the players can expect to receive the following playoff $(a_{11}, a_{12}, a_{13})$. If $P(A_{2})=1$, then the expected payoff is $(-200, a_{22}+0.5, a_{23}+0.5)$. If both proposals are rejected ($P(R_{2})= 1$), the players might expect to receive $(-200, -200+0.5, 100+0.5)$. The expected utility function for each player will be a weighted average of all possible outcomes. Each player has an expected utility functionals. The expected utility for player $1$, shown in Equation \ref{eq:pirates_payoff32:1}, give a real number that represents the payoff associated with a final state. The same goes to player $2$ that has her expected utiity functional specified in Equation \ref{eq:pirates_payoff32:2}, and the player $3$ in Equation \ref{eq:pirates_payoff32:3}.
+If the first proposal is accepted ($P(A_{1})=1$) the players can expect to receive the following playoff $(a_{11}, a_{12}, a_{13})$. If $P(A_{2})=1$, then the expected payoff is $(-200, a_{22}+0.5, a_{23}+0.5)$. If both proposals are rejected ($P(R_{2})= 1$), the players might expect to receive $(-200, -200+0.5, 100+0.5)$. The expected utility function for each player will be a weighted average of all possible outcomes. Each player has an expected utility functionals. The expected utility for player $1$, shown in Equation \ref{eq:pirates_payoff32:1}, give a real number that represents the payoff associated with a final state. The same goes to player $2$ that has her expected utility functional specified in Equation \ref{eq:pirates_payoff32:2}, and the player $3$ in Equation \ref{eq:pirates_payoff32:3}.
 
  
 \begin{equation}
@@ -397,7 +397,7 @@ E_{3}(\vert\psi_{fin}\rangle)=\alpha_{13}\times(\sum_{x_{3}}\sum_{x_{4}}\vert\la
 The gate $\mathcal{J}$ is chosen to be commutative with the super-operators created by the tensor product of the classical actions $C$ (cooperate, indicated by the identity matrix and $\mathcal{U}(0,0)$)), and $D$ (defect, indicated by the Bit-flip operator matrix and $\mathcal{U}(\pi,0)$)). For example $[ \mathcal{J} , C \otimes D \otimes C \otimes C \otimes D ] = 0 $.
 
 
-This condition implies that choosing any operator from the sub-set $O = \{ \mathcal{U} ( \theta , 0) , \theta \in (0, \pi) \}$ with $\gamma = 0$ is the equivalent of a classical mixed action. A strategy $\tau_{i}$ is a classical pure strategy iff all operators in the strategy belong to the subset $S$ (defined in \ref{eq:operators_piratas_quanticos}). A strategy $\tau_{i}$ isa classical mixed startegy iff all operators in the strategy belong to $O$.
+This condition implies that choosing any operator from the sub-set $O = \{ \mathcal{U} ( \theta , 0) , \theta \in (0, \pi) \}$ with $\gamma = 0$ is the equivalent of a classical mixed action. A strategy $\tau_{i}$ is a classical pure strategy iff all operators in the strategy belong to the subset $S$ (defined in \ref{eq:operators_piratas_quanticos}). A strategy $\tau_{i}$ is a classical mixed strategy iff all operators in the strategy belong to $O$.
 If the parameter $\phi$ in the operator $U_{j}(\theta ,\phi)$ differs from $0$, and the entanglement parameter $\gamma = 0$ we are able to explore quantum strategies that have no counterpart in the classical domain\cite{Eisert2008}.
 
 

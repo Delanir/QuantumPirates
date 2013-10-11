@@ -49,11 +49,8 @@ Ro0= [0; 1; 0]*[0; 1; 0]'
 %As Alice chose state 2, Bob will select T1 to rotate the state
 Ro1 = T1 * Ro0 * T1'
 
-
 %step 3 -
 Ro1 = T2 * Ro1 * T2'
-
-
 
 %%Step3
 %Alice will play again 
@@ -73,8 +70,5 @@ Ro3 = T2'*Ro2*T2
 Ro4 = (2/6)*X0*Ro3*X0' + (1/12)*X1*Ro3*X1' +(1/12)*X2*Ro3*X2' +(1/6)*X3*Ro3*X3' +(1/6)*X4*Ro3*X4' +(1/6)*X5*Ro3*X5'
 
 Ro3 = T0'*Ro3*T0
-
-
 end
-
 \end{lstlisting}
