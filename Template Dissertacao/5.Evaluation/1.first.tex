@@ -10,7 +10,7 @@
 \subsubsection{The captain proposes: $(99, 0, 1)$}
 \label{subsubsec:3playergame99}
 
-The move $(C_1,D_2,C_3,C_4,D_5)$ with a proposal of $(\alpha_{1}, \alpha_{2}, \alpha_{3}) =(99, 0, 1)$ represents Nash Equilibrium of the classic Pirate Game (for $3$ players). In the classical version, when the players chose at least $2$ operators $Cooperate$ on the initial proposal the game ends right away, and the first proposal, made by player $1$, is accepted ($Accepted 1$).
+The move $(C_1,D_2,C_3,C_4,D_5)$ with a proposal of $(\alpha_{1}, \alpha_{2}, \alpha_{3}) =(99, 0, 1)$ represents Nash Equilibrium of the classic Pirate Game (for $3$ players). In the classical version, when the players chose at least $2$ operators $Cooperate$ on the initial proposal the game ends right away, and the first proposal, made by player $1$, is accepted ($Accepted 1$ or $A_{1}$).
 
 After the players make their strategic moves and the disentangle operator $\mathcal{J}^{\dagger}$ is applied, and the payoff functionals are calculated given the final state. The final state will be calculated as shown in Equation \ref{eq:piratas_final_move_23}.
 
@@ -29,11 +29,55 @@ An example of this behaviour is shown in Figure \ref{fig:pg_3players_99_0_1}, wh
 \label{fig:pg_3players_99_0_1}
 \end{figure}
 
-When the players choose to play with mixed classical strategies (each player chooses an operator from the set $O = \{ \mathcal{U} ( \theta , 0) , \theta \in (0, \pi) \}$), $\gamma$ will also not interfere with the probability of of measuring a determined outcome.
+When each player chooses an operator from the set $O = \{ \mathcal{U} ( \theta , 0) , \theta \in (0, \pi) \}$ and $\gamma=0$ we have an equivalent to the classic mixed strategies. However for $\gamma >0$ the $\mathcal{U} ( \theta , 0)$ may present an interference behaviour that is innerentely quantum. This effect is shown in Figures \ref{fig:pg_3players_99_0_1:2} and \ref{fig:pg_3players_99_0_1:2}, allowing us to understand the difference between the Bit-flip operator $D$ and $\mathcal{U} ( \pi , 0)$.
 
 
+
+\begin{figure}[h]
+\centering 
+\includegraphics[scale=0.80]{Figures/1.5qubit/DUpi0CCUpi0.png}
+\caption{Players use the operators . }
+\label{fig:pg_3players_99_0_1:2}
+\end{figure}
+
+\begin{figure}[h]
+\centering 
+\includegraphics[scale=0.80]{Figures/1.5qubit/Upi0Upi0CCUpi0.png}
+\caption{Unlike with the Bit-flip operator $D$, $\mathcal{U} (\pi, 0)$ is affected by the entanglement coeficient $\gamma$ in this case. }
+\label{fig:pg_3players_99_0_1:3}
+\end{figure}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\begin{comment}
 
 In a classical game the best response for player $1$ is to cooperate. In this quantum version depending of the parameter $\gamma$, the strategy that produces the most favourable outcome changes. However if the first proposal is rejected and player $1$ voted in favour (using the $C$ operator), we get to a final sub-game where the parameter $\gamma$ won't influence the expected utility; these results for this can be consulted on Appendix \ref{ap:d}, Section \ref{ap:d:CDD99}. Table \ref{repro:3} displays a particular outcome of the sub-game generated when the players chose the operators $CDD$ in the first stage ($CD$); it shows the expected utility when player $2$ accepts her proposal, and player $3$ rejects. 
+
 
 This happens due to the nature of the game, more specifically the way we calculate our expected utility for each player, which is described in Section \ref{subsec:pirates_utility}, Equation \ref{eq:pirates_payoff32}. The sum of the probability for the system being on states $\vert CCD\rangle$ or $\vert CDC\rangle$ is constant ($\frac{1}{2}$), this also happens with the sum of the probability of the system being on state $vert DCD\rangle$ or $\vert DDC\rangle$.
 
@@ -59,7 +103,7 @@ When the parameter $\gamma$ influences the expected utility for the players, we 
 The function that describes the expected utility for player $2$ tends to have opposite behaviour. This happens because the captain bribed player $3$ with one gold coin.
 
 
-
+\end{comment}
 
 
 
@@ -83,11 +127,60 @@ The function that describes the expected utility for player $2$ tends to have op
 \label{subsubsec:3playergame100}
 
 Suppose captain is greedy and proposes to get the 100 coins. In the classical Pirate Game this would pose a conflict with his self-preserving needs. 
-A pertinent question would be if this Quantum Model of the Pirate Game would allow the first captain to approve that allocation proposal. The initial proposal will be accepted if there is at least $2$ players play $\mathcal{U}_{i}=C$ in a round. 
+A pertinent question would be if this Quantum Model of the Pirate Game would allow the first captain to approve that allocation proposal. 
+
+If the captain is the only one with access to quantum strategies, and the other players do not know it and play the classical strategies $C$ (identity matrix) and $D$ (Bit-flip operator), there is a dominant quantum strategy that allows her to pass her proposal and get all the $100$ coins, for $\gamma = \frac{\pi}{2}$. Figure \ref{fig:pg_3players_99_0_1:4} provides an example that corroborates where we verify that player $1$ has a set of dominant strategies (for $\tau_{1} = \mathcal{U}_{1}(\pi,\phi), \phi \in (0, \frac{\pi}{2})$ or $\tau_{1} = \mathcal{U}_{1}(\theta,\frac{\pi}{2}), \theta \in (0, \pi)$). We verified experimentaly that the sub-games with $2$ players (when $(C_{4},C_{5}), (C_{4},D_{5}), (D_{4},C_{5}), (D_{4},D_{5})$), did not affect this dominat strategy. If fact if we analise the expected utility function for player $1$ ($E_{1}.$), and the Figure \ref{fig:pg_architecturegametree:extensiveform} representing the extensive form game, we verify that the the first captain is indiferent to the results of the sub-game with $2$-players, when both player play a classical strategy, because she is already dead. 
+
+\begin{figure}[h]
+\centering 
+\includegraphics[scale=0.80]{Figures/1.5qubit/DUpi0CCUpi0.png}
+\caption{Players use the operators . }
+\label{fig:pg_3players_99_0_1:2}
+\end{figure}
+
+\begin{figure}[h]
+\centering 
+\includegraphics[scale=0.80]{Figures/1.5qubit/meanpirate.png}
+\caption{Expected utility for player $1$ when she is the other players play $D_{2},D_{3},C_{4},D_{5}$. }
+\label{fig:pg_3players_99_0_1:4}
+\end{figure}
+
+If players $2$ and $3$ know that the captain has access to quantum strategies, with a maximaly entangled game, and they have the restricted sub-set of pure classical strategies $C_{j}$ and $D_{j}$, if they both play $C$, the dominant strategy for the captain becomes $\tau_{1} = \mathcal{U}_{1}(0,0)$. Their best response becomes playing a mixed strategy where half the time they will play $C$ and the other half $D$. The best response for player $1$ in this case is to play a mixed quantum strategy where half the time she plays $\mathcal{U}(0,0)$, half $\mathcal{U}(0,pi/2)$.
+
+
+
+\begin{figure}[h]
+\centering 
+\includegraphics[scale=0.80]{Figures/1.5qubit/meanpirategetscrewed.png}
+\caption{Players $2$ and $3$ use a mixed classical strategy to choose the operators $O_{2}$ and $O_{3}$, where half the time they will play $C$ and the other half $D$. }
+\label{fig:pg_3players_99_0_1:2}
+\end{figure}
+
+\begin{figure}[h]
+\centering 
+\includegraphics[scale=0.80]{Figures/1.5qubit/mixedclassical.png}
+\caption{Players $2$ and $3$ use the operators $C_{2}$ and $C_{3}$. }
+\label{fig:pg_3players_99_0_1:2}
+\end{figure}
+
+\begin{figure}[h]
+\centering 
+\includegraphics[scale=0.80]{Figures/1.5qubit/mixedmixedclassical.png}
+\caption{Players $2$ and $3$ use the operators $C_{2}$ and $C_{3}$. }
+\label{fig:pg_3players_99_0_1:2}
+\end{figure}
+
+
+
+
+\begin{comment}
+
 
 The player $1$, the captain, needs two votes to pass her proposal. In order to answer our question we must analyse the expected utilities for all players where the initial proposal is accepted. Moreover we need to analyse an instance where the proposal is refused, when the players select the actions $(C,D,D)$. In the previous analysis we observed that player $2$ has a strong motivation to Defect in the first round, because in the second round she can pass the proposal with her vote alone, this means if the player $1$ wants to pass is proposal she should choose the $C$ operator.
 
  Our final state will be calculated as shown in Equation \ref{eq:piratas_final_move2_99anal}.
+
+
 
 In Table \ref{tab:3playerDCC100} we notice that player $3$ will get a expected payoff of $0.5$ if she chooses to Defect.
 \begin{table}[h]
@@ -145,7 +238,7 @@ We can interpret this in the context of the problem with the captain getting the
 Otherwise there is one Nash Equilibrium when the players select $((C,D,D),(C,C))$. Even in a quantum version, the captain needs to bribe player $3$ in order to approve her proposal and get a maximum of $99$ gold coins.
 
 
-
+\end{comment}
 
 
 

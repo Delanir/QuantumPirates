@@ -2,9 +2,7 @@
 \section{Quantum Models}
 \label{sec:quantum_models}
 
-The rationale behind building a quantum version of a Game Theory and/or Statistics problem lays in bringing phenomena like quantum superposition, and entanglement into known frameworks. This creates [][][][][][][]AQUI
-
-The effort put in converting known classical problems also enables the familiarization with the potential differences these models bring.
+The rationale behind building a quantum version of a Game Theory and/or Statistics problem lays in bringing phenomena like quantum superposition, and entanglement into known frameworks. Converting known classical problems into quantum games is relevant to the familiarize with the potential differences these models bring.
 
 \subsection{Quantum Roulette}
 \label{subsec:quantum_roulette}
@@ -198,13 +196,12 @@ Player 1: D & (3,0) & (1,1)\tabularnewline
 \par\end{center}
 
 
-
 \subsubsection{Quantum Prisoner's Dilemma}
 \label{subsubsec:quantum_prisioners_dillema}
 
-The importance of the Prisoner's Dilemma for the study of Game Theory made it a prime target for investigation in Quantum Game Theory. The problem has been modelled several times \cite{Eisert2008}\cite{Fra2011a}. Therefore we will use it in order to exemplify and consolidate the definition described in Section \ref{sec:background_quantum_game_theory}\cite{Fra2011a}. 
+The importance of the Prisoner's Dilemma for the study of Game Theory made it a prime target for investigation in Quantum Game Theory. The problem has been modelled several times \cite{Eisert2008}\cite{Letters2002}. Therefore we will use it in order to exemplify and consolidate the definition described in Section \ref{sec:background_quantum_game_theory}\cite{Fra2011a}. 
 
-Each player $i$ in the quantum version of Prisoner's Dilemma will be able to manipulate one qubit ($\varphi_{1}$ and $\varphi_{2}$) in Equations \ref{eq:quantum_prisioner_m1} and \ref{eq:quantum_prisioner_m2}, with the unitary operators (shown in Equation \ref{eq:operators_prisioneiros_quanticos}). The  classical strategies: Cooperate (C), and Defect (D) are represented in the set $U_{j}$ (Equation \ref{eq:operators_prisioneiros_quanticosmiaurons}) . 
+Each player $i$ in the quantum version of Prisoner's Dilemma will be able to manipulate one qubit ($\varphi_{1}$ and $\varphi_{2}$) in Equations \ref{eq:quantum_prisioner_m1} and \ref{eq:quantum_prisioner_m2}, with the unitary operators (shown in Equation \ref{eq:operators_prisioneiros_quanticos}). The  classical strategies: Cooperate (C), and Defect (D). $C$ is represented in the sub-set $\mathcal{U}_{j}$ (Equation \ref{eq:operators_prisioneiros_quanticosmiaurons}) . $D$, also known as the Bit-flip operator ($\sigma_{x}$), is not represented in the restricted space proposed in \cite{Eisert2008}\cite{Fra2011a}. $D^{y}$ is an alternative to $D$ in the sub-set $\mathcal{U}$.
 
 \begin{equation}
 \varphi_{1}=a_{0}\vert0\rangle+a_{1}\vert1\rangle,\sum_{i=0}^{1}\vert a_{i}\vert^{2}=1
@@ -231,11 +228,15 @@ U_{j}(0, 0)=\left[\begin{array}{cc}
 1 & 0\\
 0 & 1
 \end{array}\right]\\
-D= U_{j}(\pi, 0)=\left[\begin{array}{cc}
+D=\left[\begin{array}{cc}
 0 & 1\\
 1 & 0
+\end{array}\right] \\
+D^{y}= U_{j}(\pi, 0)=\left[\begin{array}{cc}
+0 & 1\\
+-1 & 0
 \end{array}\right]
-\end{cases} , i \in \{ 1, 2 \}
+\end{cases} , j \in \{ 1, 2 \}
 \label{eq:operators_prisioneiros_quanticosmiaurons}
 \end{equation}
 
@@ -259,7 +260,7 @@ D-$\vert 1\rangle$ & $\vert 1,0\rangle$ & $\vert 1,1\rangle$\tabularnewline
 
 
 
-The fundamental difference from the classical version lies in the way the initial state is formulated in Equation \ref{eq:estado_inicial_prisioneiro}. We will entangle our state by applying the gate $\mathcal{J}$ \cite{Letters2002}\cite{Eisert2008}. 
+The fundamental difference from the classical version lies in the way the initial state is formulated in Equation and que strategies the players might use\ref{eq:estado_inicial_prisioneiro}. We will entangle our state by applying the gate $\mathcal{J}$ \cite{Letters2002}\cite{Eisert2008}. 
 
 The parameter $\gamma$ becomes a way to measure the entanglement in the system\cite{Eisert2008}.
 
@@ -312,9 +313,11 @@ E_{1}(\vert\psi_{fin}\rangle)=2\times\vert\langle00\vert\psi_{fin}\rangle\vert^{
 
 The gate $\mathcal{J}$ is chosen to be commutative with the super-operators created by the tensor product of the classical strategies C and D: $ [ \mathcal{J} , C \otimes C ] = 0 $, $ [ \mathcal{J} , C \otimes D ] = 0 $, $ [ \mathcal{J} , D \otimes C ] = 0 $, and $ [ \mathcal{J} , D \otimes D ] = 0 $. 
 
-This condition implies that any pair of strategies in the sub-set $S_{0} = \{ \mathcal{U} ( \theta , 0) , \theta \in (0, \pi) \}$ is the equivalent of a classical mixed strategy; the joint probability associated with measuring a outcome $(\delta_{1}, \delta_{2}) \in \{ (C, C), (C, D), (D, C), (D, D) \} $ ( $ P( \delta_{1} , \delta_{2} ) = { \vert \langle \delta_{1} , \delta_{2} \vert \psi_{fin} \rangle \vert }^{2} $ ), becomes $ P( \delta_{1} , \delta_{2} ) =P( \delta_{1} ) P( \delta_{2})$, with $P(C) = cos^{2}(\frac{ \theta }{2})$, and $P(D) = 1 - P(C)$\cite{Eisert2008}.
+This condition implies that any pair of strategies in the sub-set $S_{0} = \{ \mathcal{U} ( \theta , 0) , \theta \in (0, \pi) \}$ is the equivalent of a classical mixed strategy when $\gamma = 0$; the joint probability associated with measuring a outcome $(\delta_{1}, \delta_{2}) \in \{ (C, C), (C, D), (D, C), (D, D) \} $ ( $ P( \delta_{1} , \delta_{2} ) = { \vert \langle \delta_{1} , \delta_{2} \vert \psi_{fin} \rangle \vert }^{2} $ ), becomes $ P( \delta_{1} , \delta_{2} ) =P( \delta_{1} ) P( \delta_{2})$, with $P(C) = cos^{2}(\frac{ \theta }{2})$, and $P(D) = 1 - P(C)$\cite{Eisert2008}.
 
-If the parameter $\phi$ in the operator $U_{j}(\theta ,\phi)$ differs from $0$, and the entanglement parameter $\gamma = 0$ we are able to explore quantum strategies that have no counterpart in the classical domain.
+If the parameter $\phi$ in the operator $U_{j}(\theta ,\phi)$ and the entanglement coefitient differ from $0$ we are able to explore quantum strategies that have no counterpart in the classical domain.
+
+\cite{Eisert2008} finds that the pair of strategies $( \mathcal{U}( 0 , \frac{\pi}{2}), \mathcal{U}( 0 , \frac{\pi}{2}))$ for $\gamma = \frac{\pi}{2}$ yield  a payoff of $(2,2)$, which is a Nash equilibrium and it is Pareto Optimal when we have a restricted space described by $\mathcal{U}$\ref{eq:operators_prisioneiros_quanticos}. If we allow the operator $D$\ref{eq:operators_prisioneiros_quanticosmiaurons} however, according to \cite{Letters2002} there is no quantum pure strategy, when the entanglement is maximal $\mathcal{U}(\pi, 0)$ is the optimal counter-strategy for $C$ (represented by the identity marix), $\mathcal{U}(0, \frac{\pi}{2})$ is the optimal counter strategy for $\mathcal{U}(\pi, 0)$, $D$ becomes the optimal counter-strategy for $\mathcal{U}(0, \frac{\pi}{2})$, and $C$ becomes an optimal counter strategy for $D$.
 
 
 
