@@ -1,16 +1,36 @@
 \section{Analysis and Results}
 \label{sec:description_3}
 
-%\subsection{$2$ Player Game}
-%\label{subsec:2playergame}
-
-\subsection{$3$ Player Game}
-\label{subsec:3playergame}
-
-
 When defining our game space $\Gamma$ in Section \ref{subsec:pirates_initialstate} we defined a number of variable parameters, such as: the entanglement coefitient $\gamma$; the coin distributions $\alpha_{ij}$; the strategies $\mathcal{U}_{j}$ that the players might use (restricting the operator space $\mathsf{SU}(2)$). 
 
 According to \cite{Du} when the entanglement is maximal, $\mathcal{U}(\pi, 0)$ is the optimal counter-strategy for $C$ (represented by the identity marix), $\mathcal{U}(0, \frac{\pi}{2})$ is the optimal counter strategy for $\mathcal{U}(\pi, 0)$, $D$ becomes the optimal counter-strategy for $\mathcal{U}(0, \frac{\pi}{2})$, and $C$ becomes an optimal counter strategy for $D$.
+
+\subsection{$2$ Player Game}
+\label{subsec:2playergame}
+
+We simulated the Pirate Game for $2$-players according to the rules defined for our quantum model in Section . The simulation can be consulted for reference in Appendix \ref{ap:d}. The classical sub-game with $2$-players can be represented in Table \ref{tab:classico2jogadores_analise}.
+
+\begin{table}[h]
+\begin{center}
+\begin{centering}
+\begin{tabular}{ccc}
+\hline 
+  & Player 2: C & Player 2: D\tabularnewline
+\hline 
+Player 1: C & (100, 0) & (100, 0)\tabularnewline
+Player 1: D & (100, 0) & (-200, 100.5)\tabularnewline
+\hline 
+\end{tabular}
+
+\par\end{centering}
+\caption{Representation of the $2$ player sub-game in normal form.}
+\label{tab:classico2jogadores_analise}
+\end{center}
+
+
+
+\subsection{$3$ Player Game}
+\label{subsec:3playergame}
 
 
 \subsubsection{The captain proposes: $(99, 0, 1)$}
