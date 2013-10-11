@@ -22,7 +22,7 @@ u:X\rightarrow\mathbb{R}
 \label{gt:utilidadesreais}
 \end{equation}
 
-This simplified mathematical model allows to compare different states and rank preferred outcomes. If $u_{i}(x)$ is a utility function for player $i$, and $u_{i}(A)>u_{i}(B)$, that would mean that the player would strictly prefer $A$ over $B$. The concept of expected utility is fundamental to analyse games, as a rational player would try to maximize her expected utility\cite{Neumann1944}\cite{Osborne2004}.
+This simplified mathematical model allows to compare different states and rank preferred outcomes. If $u_{i}(x)$ is a utility function for player $i$, and $u_{i}(A)>u_{i}(B)$, that would mean that the player would strictly prefer $A$ over $B$. The concept of expected utility is fundamental to analyse games, as a rational player would try to maximize her expected utility\cite{Neumann1944}\cite{Osborne2004}\cite{Leyton-Brown2008:Essentials_Game_Theory}.
 
 
 The options a player $i$ has when choosing an action, when the outcome depends not only on their choice (but also on the actions taken by the other players), is referred as strategy $s_{i}$. The set of strategies available to a player is represented by the set $S_{i}$.
@@ -81,6 +81,29 @@ A zero-sum game is a mathematical representation of a system where the gains are
 If we observe the representation of the classic game ``Prisoner's Dilemma'', we can observe that each player has two strategies; either they choose ``Cooperate'' ($C$), or ``Defect'' ($D$). The ``Defect'' strategy, for both players (the game is symmetrical), always yield a higher payoff in spite of the other player's strategy, this means that it is a dominant strategy and also constitutes a best response to the game. If both players chose their best response the final outcome $(D,D)$ becomes an equilibrium solution, more specifficaly a Nash Equilibrium. 
 
 When all players cannot improve their utility by changing their strategy unilaterally, we have an equilibrium point. This equilibrium point is named after John Nash, who proved that it exists at least one mixed strategy Nash equilibrium in a finite game\cite{nash50}\cite{Nash51}. This concept is used to analyse game where several decision makers interact simultaneously and the final outcome depends on the players strategy\cite{Osborne2004}.
+
+In order to compute a mixed strategy Nash Equilibrium in a 2-player 2 actions game, we need to define the probability distribution $P(C)=q$, $P(D)=1-q$ that makes player 1 indiferent to the whether player 2 decides to Cooperate or to Defect, and the probability distribution $P(C)=p$, $P(D)=1-p$ that makes player 2 indifferent to whether player 1 decides to Cooperate or to Defect. In the game represented in Table \ref{tab:2pennyflip_tab2} the  mixed strategies $(\frac{1}{3} , \frac{2}{3})$ and $(\frac{2}{3} , \frac{1}{3})$ are Nash Equilibria.
+
+\begin{center}
+\begin{table}[h]
+\begin{centering}
+\begin{tabular}{ccc}
+\hline 
+ & Player 2: C & Player 2: D\tabularnewline
+\hline 
+Player 1: C & (2,1) & (0,0)\tabularnewline
+Player 1: D & (0,0) & (1,2)\tabularnewline
+\hline 
+\end{tabular}
+\par\end{centering}
+
+\caption{Example of a Normal Form game. The mixed strategies $(\frac{1}{3} , \frac{2}{3})$ and $(\frac{2}{3} , \frac{1}{3})$ are Nash Equilibria for this game. }
+\label{tab:2pennyflip_tab2}
+\end{table}
+\par\end{center}
+
+
+In an extensive form game we have a concept of sub-game perfect Nash equilibrium, when a strategy is a Nash equilibrium for all sub-games in the original game\cite{Leyton-Brown2008:Essentials_Game_Theory}.
 
 \subsection{Pareto Optimal}
 \label{subsec:background:game_theory_pareto_optimal}

@@ -1,11 +1,11 @@
-{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {4.1}Pirate Game}{\reset@font\mtcSfont lxxiii}{section.4.1}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {4.1.1}Problem Description}{\reset@font\mtcSSfont lxxiii}{subsection.4.1.1}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {4.1.2}Analysis}{\reset@font\mtcSSfont lxxiii}{subsection.4.1.2}}
-{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode \numberline {4.1.2.A}Analysis of the Pirate Game for $3$ Players}{\reset@font\mtcSSSfont lxxiv}{subsubsection.4.1.2.1}}
-{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode \numberline {4.1.2.B}Consideration on the generalization for $N$ players}{\reset@font\mtcSSSfont lxxvi}{subsubsection.4.1.2.2}}
-{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {4.2}Quantum Pirate Game}{\reset@font\mtcSfont lxxvii}{section.4.2}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {4.2.1}Quantum Model}{\reset@font\mtcSSfont lxxvii}{subsection.4.2.1}}
-{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode \numberline {4.2.1.A}Game system: Setting up the Initial State}{\reset@font\mtcSSSfont lxxviii}{subsubsection.4.2.1.1}}
-{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode \numberline {4.2.1.B}Strategic Space}{\reset@font\mtcSSSfont lxxix}{subsubsection.4.2.1.2}}
-{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode \numberline {4.2.1.C}Final State}{\reset@font\mtcSSSfont lxxx}{subsubsection.4.2.1.3}}
-{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode \numberline {4.2.1.D}Utility}{\reset@font\mtcSSSfont lxxxi}{subsubsection.4.2.1.4}}
+{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {4.1}Pirate Game}{\reset@font\mtcSfont lxix}{section.4.1}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {4.1.1}Problem Description}{\reset@font\mtcSSfont lxix}{subsection.4.1.1}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {4.1.2}Analysis}{\reset@font\mtcSSfont lxix}{subsection.4.1.2}}
+{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode \numberline {4.1.2.A}Analysis of the Pirate Game for $3$ Players}{\reset@font\mtcSSSfont lxx}{subsubsection.4.1.2.1}}
+{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode \numberline {4.1.2.B}Consideration on the generalization for $N$ players}{\reset@font\mtcSSSfont lxxii}{subsubsection.4.1.2.2}}
+{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {4.2}Quantum Pirate Game}{\reset@font\mtcSfont lxxiii}{section.4.2}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {4.2.1}Quantum Model}{\reset@font\mtcSSfont lxxiii}{subsection.4.2.1}}
+{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode \numberline {4.2.1.A}Game system: Setting up the Initial State}{\reset@font\mtcSSSfont lxxiv}{subsubsection.4.2.1.1}}
+{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode \numberline {4.2.1.B}Strategic Space}{\reset@font\mtcSSSfont lxxv}{subsubsection.4.2.1.2}}
+{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode \numberline {4.2.1.C}Final State}{\reset@font\mtcSSSfont lxxvi}{subsubsection.4.2.1.3}}
+{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode \numberline {4.2.1.D}Utility}{\reset@font\mtcSSSfont lxxvii}{subsubsection.4.2.1.4}}
