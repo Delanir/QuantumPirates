@@ -1,9 +1,9 @@
-\clearpage
+
 \section{Quantum Pirate Game}
 \label{sec:quantum_pirate}
 
-The original Pirate Game is posed from the point of view of the captain. How should she allocate the treasure to the crew in order to maximize her payoff.
-We can find the a equilibrium to the original Pirates Game and, while the solution may seem unexpected at first sight, it is fully described using backwards induction. 
+The original Pirate Game is posed from the point of view of the captain. How should she allocate the treasure to the crew in order to maximize her payoff?
+We can find the a pure strategy Nash equilibrium in the original Pirates Game and, while the solution may seem unexpected at first sight, it is fully described using backwards induction. 
 
 When modelling this problem from a quantum theory perspective we are faced with some questions, such as:
 
@@ -11,6 +11,8 @@ When modelling this problem from a quantum theory perspective we are faced with 
 \item Will the initial conditions provide different equilibria? 
 
 \item What are the similarities with the classical problem? 
+
+\item Will the quantum version of the problem be equally strictly determined?
 
 \item Is it possible for a captain, in a situation where we have more than two pirates left, to acquire all the coins?
 
@@ -42,10 +44,10 @@ We begin by assigning an offset to each pirate (in order to identify her), as in
 \label{subsec:pirates_initialstate}
 
 A game $\Gamma$ can be viewed as a system composed by qubits manipulated by players. We will use the definition of quantum game discussed in Section \ref{sec:background_quantum_game_theory} ($\Gamma=(\mathcal{H}^{2^{a}},\: N,\:\vert\psi_{in}\rangle,\:\xi,\:\{\mathcal{U}_{j}\},\:\{E_{i}\})
-$), to model our game system. 
+$), to model our game system. Akin to the Quantum Ultimatum game desbribed in \cite{Fra2011}, our objective is to apply that quantization scheme to the normal form representation of the game tree in Figure \ref{fig:pg_architecturegametree:extensiveform}.
 
 
-In this $3$ player game there will be $5$ qubits representing the actions or the players decision. 
+In this $3$ player game there will be $5$ qubits representing the actions or the players decision; three qubits will represent the first voting round, the other two will portray the actions of the second voting round.
 The number of qubits needed to represent the game grows exponentially with the number of players. For $N$ players we need $\sum_{i=2}^{N}{i}$ qubits. With 8 players, this game would already be impractical to simulate in a classical computer. In this regard a quantum computer may enhance our power to simulate this kinds of experiments \cite{Rieffel2011}.
 
 The mapping function $\xi$ that assigns each action/qubit $\varphi_{j}$ ( with $j=\{ 1, 2, 3, 4, 5\}$), to a player is represented on Equation \ref{playerxiximapping}. 
@@ -60,7 +62,7 @@ The mapping function $\xi$ that assigns each action/qubit $\varphi_{j}$ ( with $
 \end{equation}
 
 
-With $3$ players and $5$ actions our system with be represented in a $\mathcal{H}^{32}$ using a state $\psi$. This means that to represent our system we will need $2^{5}\times 1$ vectors, our system grows exponentially with the number of players/qubits. Each pure basis  of $\mathcal{H}^{32}$, shown in Equation \ref{putadevida}, will represent a possible outcome in the game. We assign a pure basis as $\vert 0\rangle = \vert C\rangle$ (``C'' from ``Cooperate''), and $\vert 1\rangle = \vert D\rangle$ (``D'' from ``Defect'').
+With $3$ players and $5$ actions our system with be represented in a $\mathcal{H}^{32}$ using a state $\psi$. This means that to represent our system we will need $2^{5}\times 1$ vectors, our system grows exponentially with the number of players/qubits. Each pure basis  of $\mathcal{H}^{32}$, shown in Equation \ref{putadevida}, will represent a possible outcome in the game. We assign a pure basis as $\vert 0\rangle = \vert C\rangle$ (``C'' from ``Cooperate''), and $\vert 1\rangle = \vert D\rangle$ (``D'' from ``Defect''). 
 
 
 \begin{equation}
@@ -171,10 +173,14 @@ Due to the nature of quantum mechanics we have to pay attention of how we set-up
 In Equation \ref{eq:quantum_game_six_tuple} ($\Gamma=(\mathcal{H}^{2^{a}},\: N,\:\vert\psi_{in}\rangle,\:\xi,\:\{\mathcal{U}_{j}\},\:\{E_{i}\})
 $), there is the notion of a subset of unitary operators that the players can use to manipulate their assigned qubits.
 
-Each player will be able to manipulate at least one qubit in the system. Those qubits are $\vert\varphi_{1}\rangle,\:\vert\varphi_{2}\rangle,$ and $\vert\varphi_{3}\rangle$. The Equation \ref{putadevida} assigns the qubit $\vert\varphi_{1}\rangle$ to player $1$, qubits $\vert\varphi_{2}\rangle$ and $\vert\varphi_{4}\rangle$ to player $2$, the remaining qubits are assigned to player $3$. 
+Each player will be able to manipulate at least one qubit in the system. Those qubits (of the form \ref{eq:opvarphiquantumstates}) are $\vert\varphi_{1}\rangle,\:\vert\varphi_{2}\rangle$, $\vert\varphi_{3}\rangle$, $\vert\varphi_{4}\rangle$, and $\vert\varphi_{5}\rangle$. The Equation \ref{putadevida} assigns the qubit $\vert\varphi_{1}\rangle$ to player $1$, qubits $\vert\varphi_{2}\rangle$ and $\vert\varphi_{4}\rangle$ to player $2$, the remaining qubits are assigned to player $3$. 
 
+\begin{equation}
+\varphi_{j} = a . \vert C \rangle + b . \vert D \rangle , j \in \{ 1, 2, 3, 4, 5 \}, \{ a,b \} \in \mathbb{C} : a^2 + b^2 =1
+\label{eq:opvarphiquantumstates}
+\end{equation}
 
-Each player will be able to manipulate her assigned qubits $j$ with an unitary operator of the form shown in Equation \ref{eq:operadoresinfinitus}. In order to explore the potential of quantum strategies, \cite{Eisert2008} proposes that it is sufficient to restrict the strategic space to the $2$-parameter set of matrices in Equation \ref{eq:operadoresinfinitus}, with $ \theta \in ( 0, \pi )$, and $\phi \in ( 0, \frac{\pi}{2})$. 
+Each player will be able to manipulate her assigned qubits $j$ with an unitary operator of the form shown in Equation \ref{eq:general_unitary_special_one} (shown in Section \ref{sec:background_quantum_game_theory}). However in  order to explore the potential of quantum strategies, \cite{Eisert2008} proposes that it is sufficient to restrict the strategic space span by to the $2$-parameter (polar coordinates), set of matrices in Equation \ref{eq:operadoresinfinitus}, with $ \theta \in ( 0, \pi )$, and $\phi \in ( 0, \frac{\pi}{2})$. We will try to use the strategic space $\mathcal{U}_{j}(\theta,\phi)$ to represent our player's actions.
 
 
 
@@ -187,12 +193,13 @@ cos(\frac{\phi}{2}) & e^{i\phi}sin(\frac{\phi}{2})\\
 \end{equation}
 
 
- The two operators will correspond to the classical actions of voting ``Yes'' or to Cooperate, and voting ``No'' (Defect) are particular cases of the subset $U_{j}$. These classical actions belong to a subset in $U_{j}$, $S_{j}$ described in \ref{eq:operators_piratas_quanticos}.  
-The classical cooperation operator will be represented by the Identity operator ($o_{j0}$, where $j$ identifies the qubit that the respective player will act upon). When assigned to a qubit this operator will leave it unchanged. 
+ However the two operators that correspond to the original classical actions of voting ``Yes'' or to Cooperate, and voting ``No'' (Defect) are not entirely characterized by the subset $\mathcal{U}_{j}(\theta, \phi)$. These classical actions belong to a subset $S_{j}$ described in Equation \ref{eq:operators_piratas_quanticos}.  
+The classical cooperation operator will be represented by the Identity operator ($o_{j0}$, where $j$ identifies the qubit that the respective player will act upon). When assigned to a qubit this operator will leave it unchanged. This operator is described by Equation \ref{eq:operadoresinfinitus} when $\mathcal{U}(0,0)$.
 
 The defection operator ($D$), is represented by one of Pauli's Operators - the Bit-flip operator. This operator was chosen because it performs the classical operation NOT on a qubit. 
+Within the restricted space $\mathcal{U}_{j}$, approximate alternative for the defect operator in the set $\mathcal{U}_{j}$ is $\mathcal{U}_{j}(\pi, 0)$; they are interchangeable when $\gamma = 0$. For $\gamma >0$ we will include the pure strategy $D$ represented by the Bit-flip operator into our restricted strategic scape $\mathcal{U}_{j}$.
 
-An approximate alternative for the defect operator in the set $\mathcal{U}$ is $\mathcal{U}_{j}(\pi, 0)$; they are interchangeable when $\gamma = 0$. 
+
 
 %These operators are also permutation matrices, so our players are in fact permuting the state of their qubit as in the roulette quantum model (Section \ref{subsec:quantum_roulette}).
 
@@ -215,7 +222,11 @@ unitary operator $U_{j}$ to every qubit $j$ that is manipulated
 by the player (\inputencoding{latin1}{$j$$\in\xi^{-1}(i)$}\inputencoding{latin9}). $\tau_{2}= \{D_{2},C_{4}\}$ represents the strategy where the player $2$ votes $D$ in the first stage and $C$ in the second stage.
 
 
-In Quantization schemas of the Prisoner's Dilemma\cite{Letters2002}\cite{Eisert2008}, and Quantum Ultimatum Game\cite{Fra2011}, the strategic space, described in Equation \ref{eq:operadoresinfinitus}, was analysed allowed a infinity of mixed quantum strategies. In the Quantum Roulette Game\cite{Salimi2009} and \cite{Meyer1999} we have a demonstration that in a classical two-person zero-sum strategic game, if one person adopts a quantum strategy, she has a better chance of winning the game. 
+In Quantization schemas of the Prisoner's Dilemma\cite{Letters2002}\cite{Eisert2008}, and Quantum Ultimatum Game\cite{Fra2011}, the strategic space, described in Equation \ref{eq:operadoresinfinitus}, was analysed allowed a infinity of mixed quantum strategies. In the Quantum Roulette Game\cite{Salimi2009} and \cite{Meyer1999} we have a demonstration that in a classical two-person zero-sum strategic game, if only one player is allowed to adopt a quantum strategy, she has a better chance of winning the game. 
+
+The notation for the pure basis as $\vert C\rangle$ refers to a quantum state and should not be confused as a Cooperate operator $C$ that is a matrix (the identity matrix). A original player quantum state (the qubits of the form $\varphi_{j}$) is defined by Equation \ref{eq:opvarphiquantumstates}.
+
+
 
 
 
@@ -226,7 +237,7 @@ We can play the Pirate Game by considering a succession of steps or voting round
 
 With three players, the first move will correspond to the player 1 (or the captain), if the proposal fails we will proceed to the second step in the game, where the remaining two players will vote on a new proposal made by player 2 (who will be the new captain). 
 
-This final state is calculated by constructing a super-operator, by performing the tensor product of each player chosen strategy, as shown in Equation \ref{eq:operators_piratas_quanticos}. The super-operator, containing each player's strategy, will then be applied to the initial state,as shown in Equation\ref{eq:piratas_final_move}.
+This final state is calculated by constructing a super-operator, by performing the tensor product of each player chosen strategy, from Equation \ref{eq:operadoresinfinitus} or \ref{eq:operators_piratas_quanticos}. The super-operator, containing each player's strategy, will then be applied to the initial state,as shown in Equation\ref{eq:piratas_final_move}.
 
 \begin{equation}
 \vert\psi_{fin}\rangle=\otimes_{i=1}^{3}\otimes_{j\in\xi^{-1}(i)}\mathcal{U}_{j}\vert\psi_{ini}(\gamma)\rangle
@@ -394,7 +405,7 @@ E_{3}(\vert\psi_{fin}\rangle)=\alpha_{13}\times(\sum_{x_{3}}\sum_{x_{4}}\vert\la
 
 
 
-The gate $\mathcal{J}$ is chosen to be commutative with the super-operators created by the tensor product of the classical actions $C$ (cooperate, indicated by the identity matrix and $\mathcal{U}(0,0)$)), and $D$ (defect, indicated by the Bit-flip operator matrix and $\mathcal{U}(\pi,0)$)). For example $[ \mathcal{J} , C \otimes D \otimes C \otimes C \otimes D ] = 0 $.
+The gate $\mathcal{J}$ is chosen to be commutative with the super-operators created by the tensor product of the classical actions $C$ (cooperate, indicated by the identity matrix and $\mathcal{U}(0,0)$)), and $D$ (defect, indicated by the Bit-flip operator matrix, and $\mathcal{U}(\pi,0)$ when $\gamma = 0$)). For example $[ \mathcal{J} , C \otimes D \otimes C \otimes C \otimes D ] = 0 $.
 
 
 This condition implies that choosing any operator from the sub-set $O = \{ \mathcal{U} ( \theta , 0) , \theta \in (0, \pi) \}$ with $\gamma = 0$ is the equivalent of a classical mixed action. A strategy $\tau_{i}$ is a classical pure strategy iff all operators in the strategy belong to the subset $S$ (defined in \ref{eq:operators_piratas_quanticos}). A strategy $\tau_{i}$ is a classical mixed strategy iff all operators in the strategy belong to $O$.
