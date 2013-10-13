@@ -79,7 +79,7 @@ After the players make their strategic moves and the disentangle operator $\math
 As expected from the problem definition when players use only classical strategies the entanglement coefficient will not affect the final expected utilities ($[ \mathcal{J} , C \otimes D \otimes C \otimes C \otimes D ] = 0 $).
 An example of this behaviour is shown in Figure \ref{fig:pg_3players_99_0_1}, where we measure the probability $A_{1}$ (first proposal is accepted), $A_{2}$, and $R_{2}$, with different entanglement levels ($\gamma= \{ 0 , \frac{ \pi}{4}, \frac{\pi}{2} \} $).
 
-\begin{figure}[h]
+\begin{figure}[h!]
 \centering 
 \includegraphics[scale=0.80]{Figures/1.5qubit/CDCCD.png}
 \caption{When player play classical strategies the entanglement will not affect the final result. }
@@ -90,14 +90,14 @@ When each player chooses an operator from the set $O = \{ \mathcal{U} ( \theta ,
 
 
 
-\begin{figure}[h]
+\begin{figure}[!h]
 \centering 
 \includegraphics[scale=0.80]{Figures/1.5qubit/DUpi0CCUpi0.png}
 \caption{Players use the operators . }
 \label{fig:pg_3players_99_0_1:2}
 \end{figure}
 
-\begin{figure}[h]
+\begin{figure}[h!]
 \centering 
 \includegraphics[scale=0.80]{Figures/1.5qubit/Upi0Upi0CCUpi0.png}
 \caption{Unlike with the Bit-flip operator $D$, $\mathcal{U} (\pi, 0)$ is affected by the entanglement coefficient $\gamma$ in this case. }
@@ -117,69 +117,7 @@ When each player chooses an operator from the set $O = \{ \mathcal{U} ( \theta ,
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-\begin{comment}
-
-In a classical game the best response for player $1$ is to cooperate. In this quantum version depending of the parameter $\gamma$, the strategy that produces the most favourable outcome changes. However if the first proposal is rejected and player $1$ voted in favour (using the $C$ operator), we get to a final sub-game where the parameter $\gamma$ won't influence the expected utility; these results for this can be consulted on Appendix \ref{ap:d}, Section \ref{ap:d:CDD99}. Table \ref{repro:3} displays a particular outcome of the sub-game generated when the players chose the operators $CDD$ in the first stage ($CD$); it shows the expected utility when player $2$ accepts her proposal, and player $3$ rejects. 
-
-
-This happens due to the nature of the game, more specifically the way we calculate our expected utility for each player, which is described in Section \ref{subsec:pirates_utility}, Equation \ref{eq:pirates_payoff32}. The sum of the probability for the system being on states $\vert CCD\rangle$ or $\vert CDC\rangle$ is constant ($\frac{1}{2}$), this also happens with the sum of the probability of the system being on state $vert DCD\rangle$ or $\vert DDC\rangle$.
-
-However the parameter $\gamma$ affects the probability of the system being measured in a determined state, as in Table \ref{repro:3}.
-
- \begin{table}[h]
-\begin{center}
-\begin{tabular}{cc}
-  c)\putindeepbox[7pt]{\includegraphics[scale=0.46]{3Rejected99/CDD_CD.PNG}}
-    & c1)\putindeepbox[7pt]{\includegraphics[scale=0.46]{3Rejected99/CDD_CD1.PNG}} \\
-\end{tabular}
-\caption{Expected utility for $3$ players, where the players will use the $(Cooperate , Defect, Defect)$ operators in the first round of the game; in the second round player 2 and player 3 will play $(CD)$.}
-\label{repro:3}
-\end{center}
- \end{table}
-
-If in the quantum game the player $1$ decides to defect $D$ and the proposal is rejected we get $4$ different probability distributions that are permuted given the players chosen operators. In Tables \ref{tab:3playerDCD_DC99}, 
-\ref{tab:3playerDDC_CD99}, and \ref{tab:3playerDDD_CC99} (in Apendix \ref{ap:d})
-
-In Table \ref{tab:3playerDCD_DC99}, the player $2$ has assumes the strategy $\tau_{2}=(C,D)$, this means that she will play $C$ on the first stage and $D$ on the second stage; In Table \ref{tab:3playerDDC_CD99} her strategy is $\tau_{2}=DC$. As the multiplication by a identity matrix is commutative, in the previous cases, we applied the same operation to player $2$ qubit. This result happens because the players are manipulating their qubits with permutation operators $C$ and $D$; described on Section \ref{subsec:strategic_space}, where we define the strategic space the players have access.
-
-When the parameter $\gamma$ influences the expected utility for the players, we verify the functions that describe the expected utility for player $1$ and $3$ tend have maxima and minima for the same values of $\gamma$. However if player $1$ decides to $Defect$ the two functions will not be synchronized.
-The function that describes the expected utility for player $2$ tends to have opposite behaviour. This happens because the captain bribed player $3$ with one gold coin.
-
-
-\end{comment}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+\clearpage
 \subsubsection{The captain proposes: $(100, 0, 0)$}
 \label{subsubsec:3playergame100}
 
@@ -188,14 +126,14 @@ A pertinent question would be if this Quantum Model of the Pirate Game would all
 
 If the captain is the only one with access to quantum strategies, and the other players do not know it and play the classical strategies $C$ (identity matrix) and $D$ (Bit-flip operator), there is a dominant quantum strategy that allows her to pass her proposal and get all the $100$ coins, for $\gamma = \frac{\pi}{2}$. Figure \ref{fig:pg_3players_99_0_1:4} provides an example that corroborates where we verify that player $1$ has a set of dominant strategies (for $\tau_{1} = \mathcal{U}_{1}(\pi,\phi), \phi \in (0, \frac{\pi}{2})$ or $\tau_{1} = \mathcal{U}_{1}(\theta,\frac{\pi}{2}), \theta \in (0, \pi)$). We verified experimentally that the sub-games with $2$ players (when $(C_{4},C_{5}), (C_{4},D_{5}), (D_{4},C_{5}), (D_{4},D_{5})$), did not affect this dominant strategy. If fact if we analyse the expected utility function for player $1$ ($E_{1}.$), and the Figure \ref{fig:pg_architecturegametree:extensiveform} representing the extensive form game, we verify that the the first captain is indifferent to the results of the sub-game with $2$-players, when both player play a classical strategy, because she is already dead. 
 
-\begin{figure}[h]
+\begin{figure}[h!]
 \centering 
 \includegraphics[scale=0.80]{Figures/1.5qubit/DUpi0CCUpi0.png}
 \caption{Player $1$ uses the classical operator D. The probabilities don't change with the entanglement.  }
 \label{fig:pg_3players_99_0_1:2}
 \end{figure}
 
-\begin{figure}[h]
+\begin{figure}[h!]
 \centering 
 \includegraphics[scale=0.80]{Figures/1.5qubit/meanpirate.png}
 \caption{Expected utility for player $1$ when she adopts a strategic move of the form $U_{1}(\theta,\phi)$ and the other players play $D_{2},D_{3},C_{4},D_{5}$. }
@@ -206,21 +144,21 @@ If players $2$ and $3$ know that the captain has access to quantum strategies, w
 
 
 
-\begin{figure}[h]
+\begin{figure}[h!]
 \centering 
 \includegraphics[scale=0.80]{Figures/1.5qubit/meanpirategetscrewed.png}
 \caption{Players $2$ and $3$ use a mixed classical strategy to choose the operators $O_{2}$ and $O_{3}$, where half the time they will play $C$ and the other half $D$. }
 \label{fig:pg_3players_99_0_1:2}
 \end{figure}
 
-\begin{figure}[h]
+\begin{figure}[h!]
 \centering 
 \includegraphics[scale=0.80]{Figures/1.5qubit/mixedclassical.png}
 \caption{Players $2$ and $3$ use the operators $C_{2}$ and $C_{3}$. }
 \label{fig:pg_3players_99_0_1:2}
 \end{figure}
 
-\begin{figure}[h]
+\begin{figure}[h!]
 \centering 
 \includegraphics[scale=0.80]{Figures/1.5qubit/mixedmixedclassical.png}
 \caption{Players $2$ and $3$ use the operators $C_{2}$ and $C_{3}$. }

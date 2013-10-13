@@ -1,0 +1,80 @@
+%\documentclass{llncs}
+\documentclass{llncs} %[runningheads] for title-header on every page
+
+
+
+\input{packages.tex}
+\begin{document}
+{\bf List of Abreviations:}
+\begin{acronym}
+ 
+
+\acro{CPT}[CPT]{Conditional Probability Table}
+\acro{DAG}[DAG]{Directed Acyclic Graph} 
+\acro{DBN}[DBN]{Dynamic Bayesian Networks}
+\acro{HMM}[HMM]{Hidden Markov Models}
+\acro{QBN}[QBN]{Quantum Bayesian Networks} 
+\end{acronym}
+
+
+\subsubsection{Hidden Markov Models}
+\ac{HMM} are a temporal statistical tool, known as Markov Model, which allows representing systems where we have a hidden layer and an output layer, that depends on the hidden layer\cite{eemcs5901}\cite{Norvig2003}. An example of a simple Markov Model could be a Markov Chain. However Markov Chains don’t have hidden layers because the state of the system is completely visible to the observer; in the roulette example (Figure \ref{fig:roulette}), we know at each moment which if we have a red house. 
+
+In \ac{HMM}, the hidden states are not directly visible, only the output is visible\cite{citeulike:405907}. So, in order to predict the current state of the hidden layer we take into account past outputs. 
+
+\subsubsection{Dynamic Bayesian Networks}
+\ac{DBN}, also known as Two-Timeslice Bayesian Networks, are an extension of the common Bayesian Network to deal with a temporal evolution\cite{eemcs5901}. \ac{DBN} have resemblances to \ac{HMM}. More accurately we can say that \ac{HMM} are special cases of \ac{DBN}, a \ac{DBN} single discrete state variable\cite{Norvig2003}. 
+
+The temporal dimension in \ac{DBN} is represented as time-steps. Each time step corresponds to a classical Bayesian Network, but the nodes in this Bayesian Network can have temporal links, represented as a directed edge to the next time-step, this means that these nodes will have influence on the variables of the nodes they connect with, in the following time-step.
+
+\begin{figure}[h]
+\centering 
+
+\includegraphics[scale=0.48]{Overview/Figures/TeaPreparationNetworkDBN.png}
+\caption{Time evolution of the ``Tea preparation network".}
+\label{fig:tea_networkdbn}
+\end{figure}
+
+In the Figure \ref{fig:tea_networkdbn} we have a possible transformation of the example of the ``Tea Preparation" to accommodate a time evolution. The variable Brewing Temperature at a given time-step will depend on the brewing temperature in the previous measurement (empiricaly we know that the temperature will not increase given the last time-step). 
+
+
+\section{Proposal}
+As the theory behind Quantum Mechanics evolved in order to explain phenomena that could not be explained merely by classical Physics, Quantum Cognition resorts to the same mathematical foundations in order to explain cognitive phenomena (Section \ref{subsec:QuantumCog}). 
+
+The fact that our beliefs may not be correctly explained or expressed by classical probabilistic frameworks when there's uncertainty involved may suggest that these frameworks could be incomplete. Furthermore there's empirical evidence that von Neumann probabilities may be used to represent Human beliefs with more accuracy than the classical probabilities\cite{Busemeyer2011}\cite{Busemeyer2009423}. Moreover the von Neumann probabilities enable simpler explanations for known paradoxes and falacies in Human judgements. Thus the investigation of the hypothesis of using quantum probabilities to replace classical bayesian probabilities in a popular framework, such as the Bayesian Networks, may hold interesting results, in term of accuracy. 
+
+This study will be centered on the analisys of the usage of von Neumann probabilities in Bayesian Networks. The Bayesian Networks were initialy proposed\cite{Pearl1985} as a tool that could model the way Humans construct their knowledge. Nowadays they've become ubiquitous and are used in areas such as medical diagnosis, weather forecast, speech recognition, etc... 
+
+We will investigate if the usage of Quantum Probabilities in Bayesian Networks has any advantage over the classical setting. When making this comparrison we need to take into account that the classical system is equivalent to the quantum system if we ``measure" the result at each step (Section \ref{subsec:relation}). 
+
+To compare the classical setting and the quantum setting, first we will replace the classical probabilities in a thourougly known Bayesian Network such as the ``burglary network"\cite{Pearl1988}, presented in Section \ref{subsec:int_BN}. To test and compare the quantum approach and the classical approach, empirical evaluation of the data will be made. After modeling a simpler Bayesian Network with quantum probabilities we plan to extend the idea to a more complex Bayesian Network. For this step we will use an existing dataset on Bayesian Networks\footnote{ Bayesian Network Repository: \url{http://www.cs.huji.ac.il/site/labs/compbio/Repository/}}. This will allow an empirical evaluation of the Quantum approach and a better reproducibility of our experiment as well. The main objective is to compare whether or not the Bayesian Networks using quantum probabilities achieve more accurate results when modeling human behaviour. 
+
+Although some there is already some work in which quantum probabilities are applied to Bayesian Networks (Section \ref{subsec:int_QBN}), this proposal tries to capture that idea and transpose it to the Quantum Cognition Domain. Also, if possible we will try to extend our research to \ac{HMM} and consequentially to \ac{DBN}. Considering the time evolution of the system is an interesting topic to explore in the domain of Quantum Cognition, as our beliefs change over time but at the same time our mind tries to create a continuum to help with our self-regulation\cite{RefWorks:61}.
+
+The development of the prototype will be implemented in MATLAB. This numerical environment was chosen as a prototyping tool due to its built-in tools that allow for matrix manipulation, which will be thoroughly used. Moreover there is already some academic work on Quantum Cognition developed in this framework\cite{Busemeyer2009423}\cite{Trueblood}\cite{Busemeyer2009}\cite{Busemeyer:2012:QMC:2385442}. There is also a support for Bayesian Networks in Matlab, by using the ``Bayes Net Toolbox"\footnote{Bayes Net Toolbox: \url{https://code.google.com/p/bnt/}} which implements algorithms for inference and learning. When comparing this toolbox with other existing frameworks also meant to work with Bayesian Networks we find that the ``Bayes Net Toolbox” doesn’t support a graphical user interface (GUI). On other hand the ``Bayes Net Toolbox” for MATLAB is Open Source and supports Dynamic Bayesian Networks and Hidden Markov Models. SamIam\footnote{ SamIam: \url{ http://reasoning.cs.ucla.edu/samiam/}} is a graphical tool that also allows inference in Bayesian Networks and has the advantage of having a GUI. 
+
+
+
+
+
+%\bibliographystyle{IEEEtran}
+\bibliographystyle{splncs}
+%\bibliographystyle{ieeetr}
+\bibliography{02.biblio}
+
+
+\begin{comment}
+% Table of Contents
+
+% make a proper TOC despite llncs
+
+\setcounter{tocdepth}{2}
+\makeatletter
+\renewcommand*\l@author[2]{}
+\renewcommand*\l@title[2]{}
+\makeatletter
+\tableofcontents
+%
+\end{comment}
+
+\end{document}

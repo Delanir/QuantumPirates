@@ -21,7 +21,7 @@ When modelling this problem from a quantum theory perspective we are faced with 
 The main difference from the original problem will rely on how the system is set up and the fact that we will allow quantum strategies. 
 We propose to study this problem for a $3$ player game and trying to extrapolate for $N$ players. 
 
-We will analyse the role of entanglement and superposition in the game system. 
+We will analyse the role of entanglement and quantum strategies in the game system. 
 
 Another aspect worth studying is the variation in the coin distribution on the payoff functions for the players. We are particularly interested in studying the classical equilibrium where the captain retains $99$ coins and gives a single coin to the player with the lowest rank. Moreover we want to study what happens when the captain tries to get all the coins.
 
@@ -180,7 +180,8 @@ Each player will be able to manipulate at least one qubit in the system. Those q
 \label{eq:opvarphiquantumstates}
 \end{equation}
 
-Each player will be able to manipulate her assigned qubits $j$ with an unitary operator of the form shown in Equation \ref{eq:general_unitary_special_one} (shown in Section \ref{sec:background_quantum_game_theory}). However in  order to explore the potential of quantum strategies, \cite{Eisert2008} proposes that it is sufficient to restrict the strategic space span by to the $2$-parameter (polar coordinates), set of matrices in Equation \ref{eq:operadoresinfinitus}, with $ \theta \in ( 0, \pi )$, and $\phi \in ( 0, \frac{\pi}{2})$. We will try to use the strategic space $\mathcal{U}_{j}(\theta,\phi)$ to represent our player's actions.
+Each player will be able to manipulate her assigned qubits $j$ with an unitary operator of the form shown in Equation \ref{eq:general_unitary_special_one} (shown in Section \ref{sec:background_quantum_game_theory} $\mathcal{U}_{j}(w,x,y,z)=w.I + ix.\sigma_{x} + iy.\sigma_{y} + iz.\sigma_{z}, $ with $ w,x,y,z \in \mathbb{R} \wedge  
+w^2 + x^2 + y^2 + z^2 =1 $). However in  order to explore the potential of quantum strategies, \cite{Eisert2008} proposes that it is sufficient to restrict the strategic space span by to the $2$-parameter (polar coordinates), set of matrices in Equation \ref{eq:operadoresinfinitus}, with $ \theta \in ( 0, \pi )$, and $\phi \in ( 0, \frac{\pi}{2})$. We will try to use the strategic space $\mathcal{U}_{j}(\theta,\phi)$ to represent our player's actions.
 
 
 
@@ -410,6 +411,8 @@ The gate $\mathcal{J}$ is chosen to be commutative with the super-operators crea
 
 This condition implies that choosing any operator from the sub-set $O = \{ \mathcal{U} ( \theta , 0) , \theta \in (0, \pi) \}$ with $\gamma = 0$ is the equivalent of a classical mixed action. A strategy $\tau_{i}$ is a classical pure strategy iff all operators in the strategy belong to the subset $S$ (defined in \ref{eq:operators_piratas_quanticos}). A strategy $\tau_{i}$ is a classical mixed strategy iff all operators in the strategy belong to $O$.
 If the parameter $\phi$ in the operator $U_{j}(\theta ,\phi)$ differs from $0$, and the entanglement parameter $\gamma = 0$ we are able to explore quantum strategies that have no counterpart in the classical domain\cite{Eisert2008}.
+
+
 
 
 

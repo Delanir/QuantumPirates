@@ -1,0 +1,90 @@
+\pagestyle{plain}
+\pagenumbering{arabic}
+\setcounter{page}{1}
+\usepackage{amsmath}
+
+
+%\usepackage{textcomp}
+\usepackage[pdftex]{graphicx}
+
+\usepackage{amssymb}
+
+\usepackage{url}
+
+
+%PACKAGE verbatim
+% -------------------
+% This package is useful for multiline comments
+\usepackage{verbatim} 
+
+% PACKAGE acronyum
+% -----------------
+% This package is most useful for acronyms. The package guarantees that all acronyms definitions are 
+% given at the first usage. IMPORTANT: do not use acronyms in titles/captions; otherwise the definition 
+% will appear on the table of contents.
+\usepackage[printonlyused]{acronym}
+\usepackage[titletoc,title,header]{appendix}
+\usepackage[noauto]{chappg}
+
+% PACKAGE latexsym:
+% -----------------
+% Defines additional latex symbols. May be required for thesis with many math symbols.
+\usepackage{latexsym}
+
+% PACKAGE algorithmic, algorithm
+% ------------------------------
+% These packages are required if you need to describe an algorithm.
+% \usepackage{algorithmic}
+% \usepackage[chapter]{algorithm}
+
+% PACKAGE natbib/cite
+% -------------------
+% The two packages are not compatible, and you should use one of the two. Notice however that the
+% IEEE BiBTeX stylesheet is imcompatible with the natbib package. If using the IEEE format, use the 
+% cite package instead
+%\usepackage[square,numbers,sort&compress]{natbib}
+\usepackage{cite}
+
+
+% PACKAGE graphix
+% -----------------------
+\usepackage{graphicx}
+
+
+% MINE MINE
+
+
+
+% load package with ``framed'' and ``numbered'' option.
+\usepackage[framed,numbered,autolinebreaks,useliterate]{mcode}
+
+% something NOT relevant to the usage of the package.
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{18pt}
+\title{\texttt{mcode.sty} Demo}
+\author{Florian Knorn, \texttt{florian@knorn.org}}
+% //////////////////////////////////////////////////
+
+% MINE MINE
+\newcounter{eqn}
+\renewcommand*{\theeqn}{\alph{eqn})}
+\newcommand{\num}{\refstepcounter{eqn}\text{\theeqn}\;}
+
+
+
+\makeatletter
+\newcommand{\putindeepbox}[2][0.7\baselineskip]{{%
+    \setbox0=\hbox{#2}%
+    \setbox0=\vbox{\noindent\hsize=\wd0\unhbox0}
+    \@tempdima=\dp0
+    \advance\@tempdima by \ht0
+    \advance\@tempdima by -#1\relax
+    \dp0=\@tempdima
+    \ht0=#1\relax
+    \box0
+}}
+\makeatother
+
+%daniela
+%\restylefloat{table}
+%daniela
