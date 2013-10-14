@@ -1,7 +1,12 @@
-%\documentclass{llncs}
-\documentclass{llncs} %[runningheads] for title-header on every page
 
 
+\makeatletter
+\let\@twosidetrue\@twosidefalse
+\let\@mparswitchtrue\@mparswitchfalse
+\makeatother
+
+\documentclass[10pt,twocolumn]{llncs}
+\usepackage[left=2.0cm,right=2.0cm,top=2.5cm,bottom=2.0cm]{geometry}
 
 \input{packages.tex}
 
@@ -111,7 +116,7 @@ composed by $a$ qubits: $\vert\varphi_{1}\rangle,\:\vert\varphi_{2}\rangle, ...,
 \item For each qubit $j$ $\mathcal{U}_{j}$ is a subset of unitary operators from $\mathsf{SU}(2)$ (the general for the 2 dimensional Special Unitary Group is presented in Equation \ref{eq:general_unitary_special_one}).
 These operators can be used by the player to manipulate her qubit(s);
 \item Finally, for each player $i$, $E_{i}$ is a utility functional that
-specifies her payoff. This is done by attributing a real number (representing a expected utility $ u_{i}(b)$, in \ref{eq:quantum_game_definition_payoff_func}), to the measurement for the projection of the final state (\ref{eq:quantum_game_definition_move}), on a basis from the $\mathcal{B}$\ref{eq:quantum_game_definition_payoff_func}.\end{itemize}
+specifies her payoff. This is done by attributing a real number (representing a expected utility $ u_{i}(b)$, in \ref{eq:quantum_game_definition_payoff_func}), to the measurement for the projection of the final state (\ref{eq:quantum_game_definition_move}), on a basis from the $\mathcal{B}$.\end{itemize}
 
 Some important operators from are:
 
@@ -279,29 +284,20 @@ We will entangle our state by applying the gate $\mathcal{J}$ \cite{Letters2002}
 We analysed the role of the entanglement of the system since other examples researched pointed to it being the prominent factor regarding behaviour changes from the classsical perspective\cite{Fra2011a}\cite{Fra2011}\cite{Letters2002}\cite{Khan2011}\cite{Ricketts2006}. 
 
 
-
+\begin{equation}
+D=\left[\begin{array}{cc}
+0 & 1\\
+1 & 0
+\end{array}\right]
+\label{eq:DDDDDDDrica}
+\end{equation} 
 
 
 
 \begin{equation}
-\mathcal{J}=exp\left\{ i\frac{\gamma}{2}\left[\begin{array}{cc}
-0 & 1\\
-1 & 0
-\end{array}\right]\otimes\left[\begin{array}{cc}
-0 & 1\\
-1 & 0
-\end{array}\right]\otimes\left[\begin{array}{cc}
-0 & 1\\
-1 & 0
-\end{array}\right]\otimes\left[\begin{array}{cc}
-0 & 1\\
-1 & 0
-\end{array}\right]
-\otimes\left[\begin{array}{cc}
-0 & 1\\
-1 & 0
-\end{array}\right]
-\right\}
+\mathcal{J}=exp\left\{ i\frac{\gamma}{2} D \otimes D \otimes D \otimes D 
+\otimes D
+\right\} 
 \label{eq:matrix_exponencial_esoterica}
 \end{equation} 
 
@@ -309,24 +305,10 @@ We analysed the role of the entanglement of the system since other examples rese
 \begin{equation}
 %\vert \psi_{0}(\gamma) \rangle= cos( \frac{\gamma}{2})\vert 00\rangle+ isin(\frac{\gamma}{2})\vert 11 \rangle, \gamma \in (0,\pi)
 \begin{split}
-\vert\psi_{ini}(\gamma)\rangle=exp\left\{ i\frac{\gamma}{2}\left[\begin{array}{cc}
-0 & 1\\
-1 & 0
-\end{array}\right]\otimes\left[\begin{array}{cc}
-0 & 1\\
-1 & 0
-\end{array}\right]\otimes\left[\begin{array}{cc}
-0 & 1\\
-1 & 0
-\end{array}\right]\otimes\left[\begin{array}{cc}
-0 & 1\\
-1 & 0
-\end{array}\right]\otimes\left[\begin{array}{cc}
-0 & 1\\
-1 & 0
-\end{array}\right]\right\} \vert00000\rangle \\
+\vert\psi_{ini}(\gamma)\rangle=exp\left\{ i\frac{\gamma}{2} D \otimes D \otimes D \otimes D 
+\otimes D\right\} \vert00000\rangle \\
 =cos(\frac{\gamma}{2})\vert00000\rangle+isin(\frac{\gamma}{2})\vert11111\rangle,\gamma\in(0,\frac{\pi}{2})
-\end{split}
+ \end{split}
 \label{eq:estado_inicial_pg}
 \end{equation}
 \end{center}
@@ -343,7 +325,9 @@ unitary operator $U_{j}$ to every qubit $j$ that is manipulated
 by the player ($j$$\in\xi^{-1}(i)$). $\tau_{2}= \{D_{2},C_{4}\}$ represents the strategy where the player $2$ votes $D$ in the first stage and $C$ in the second stage.
 
 \begin{equation}
-\varphi_{j} = a . \vert C \rangle + b . \vert D \rangle , j \in \{ 1, 2, 3, 4, 5 \}, \{ a,b \} \in \mathbb{C} : a^2 + b^2 =1
+\begin{split}
+\varphi_{j} = a . \vert C \rangle + b . \vert D \rangle , \\  j \in \{ 1, 2, 3, 4, 5 \}, \\ \{ a,b \} \in \mathbb{C} : a^2 + b^2 =1
+\end{split}
 \label{eq:opvarphiquantumstates}
 \end{equation}
 
@@ -353,10 +337,12 @@ w^2 + x^2 + y^2 + z^2 =1 $). However in  order to explore the potential of quant
 
 
 \begin{equation}
+\begin{split}
 \mathcal{U}_{j}(\theta,\phi) = \left[\begin{array}{cc}
 cos(\frac{\phi}{2}) & e^{i\phi}sin(\frac{\phi}{2})\\
 -e^{-i\phi}sin(\frac{\phi}{2}) & cos(\frac{\phi}{2})
-\end{array}\right] , j \in \{ 1, 2, 3, 4, 5 \}, \theta \in ( 0, \pi ) , \phi \in ( 0, \frac{\pi}{2})
+\end{array}\right] , \\  j \in \{ 1, 2, 3, 4, 5 \}, \theta \in ( 0, \pi ) , \phi \in ( 0, \frac{\pi}{2})
+\end{split}
 \label{eq:operadoresinfinitus}
 \end{equation}
 
@@ -445,8 +431,8 @@ In order to calculate the probability of the final state collapsing onto a basis
 
 \begin{equation}
 \begin{split}
-P(A_{1}) = \sum_{x_{3}}\sum_{x_{4}}\vert\langle0,0,0,x_{4},x{5}\vert\psi_{fin}\rangle\vert^{2} + \sum_{x_{3}}\sum_{x_{4}}\vert\langle1,0,0,x_{4},x{5}\vert\psi_{fin}\rangle\vert^{2} + \\ 
-+ \sum_{x_{3}}\sum_{x_{4}}\vert\langle0,1,0,x_{4},x{5}\vert\psi_{fin}\rangle\vert^{2}
+P(A_{1}) = \sum_{x_{3}}\sum_{x_{4}}\vert\langle0,0,0,x_{4},x{5}\vert\psi_{fin}\rangle\vert^{2} + \\  + \sum_{x_{3}}\sum_{x_{4}}\vert\langle1,0,0,x_{4},x{5}\vert\psi_{fin}\rangle\vert^{2} + \\ 
++ \sum_{x_{3}}\sum_{x_{4}}\vert\langle0,1,0,x_{4},x{5}\vert\psi_{fin}\rangle\vert^{2} + \\ 
 + \sum_{x_{3}}\sum_{x_{4}}\vert\langle0,0,1,x_{4},x{5}\vert\psi_{fin}\rangle\vert^{2}
 \end{split}
 \end{equation}

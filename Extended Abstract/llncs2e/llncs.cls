@@ -55,7 +55,7 @@
 \setlength{\textwidth}{12.2cm}
 \setlength{\textheight}{19.3cm}
 \renewcommand\@pnumwidth{2em}
-\renewcommand\@tocrmarg{3.5em}
+\renewcommand\@tocrmarg{3.0em}
 %
 \def\@dottedtocline#1#2#3#4#5{%
   \ifnum #1>\c@tocdepth \else
@@ -214,8 +214,8 @@
 \widowpenalty=10000
 \clubpenalty=10000
 
-\setlength\oddsidemargin   {63\p@}
-\setlength\evensidemargin  {63\p@}
+\setlength\oddsidemargin   {30\p@}
+\setlength\evensidemargin  {30\p@}
 \setlength\marginparwidth  {90\p@}
 
 \setlength\headsep   {16\p@}
