@@ -75,9 +75,7 @@ Player 1: D & (100, 0) & (-200, 100.5)\tabularnewline
 \subsubsection{The captain proposes: $(99, 0, 1)$}
 \label{subsubsec:3playergame99}
 
-The move $(C_1,D_2,C_3,C_4,D_5)$ with a proposal of $(\alpha_{1}, \alpha_{2}, \alpha_{3}) =(99, 0, 1)$ represents Nash Equilibrium of the classic Pirate Game (for $3$ players). In the classical version, when the players chose at least $2$ operators $Cooperate$ on the initial proposal the game ends right away, and the first proposal, made by player $1$, is accepted ($Accepted 1$ or $A_{1}$). 
-
-This game is a strictly determined game because it has a pure-strategy Nash Equilibrium.
+The move $(C_1,D_2,C_3,C_4,D_5)$ with a proposal of $(\alpha_{1}, \alpha_{2}, \alpha_{3}) =(99, 0, 1)$ represents Nash Equilibrium of the classic Pirate Game (for $3$ players). In the classical version, when the players chose at least $2$ operators $Cooperate$ on the initial proposal the game ends right away, and the first proposal, made by player $1$, is accepted ($Accepted 1$ or $A_{1}$). Once again the original version of this game game is a strictly determined game because it has a pure-strategy Nash Equilibrium.
 
 After the players make their strategic moves and the disentangle operator $\mathcal{J}^{\dagger}$ is applied, and the payoff functionals are calculated given the final state. The final state will be calculated as shown in Equation \ref{eq:piratas_final_move_23}.
 
@@ -115,22 +113,61 @@ When each player chooses an operator from the set $O = \{ \mathcal{U} ( \theta ,
 \end{figure}
 
 
-
+The Tables \ref{iamlivingontheedge} and \ref{livingontheedge} represent a $3$-player pirate game where given the classical equilibrium $(CDCCD)$ we test what are the outcomes if the players can use quantum strategies. By considering the quantum operators that constitute an alternative to the classical cooperation ( $\mathcal{U}( 0, \frac{\pi}{2})$ ), or defection ( $\mathcal{U}( \pi, 0)$ ), like in the $2$-player analysis when the entanglement is maximum we found that there is only a mixed strategy Nash Equilibrium because we detect a restricted cycled as suggested by \cite{DU}. The player $1$ (the first captain), should play half the time the classical cooperation matrix (the identity matrix)), the other half the operator $\mathcal{U}( 0, \frac{\pi}{2})$. 
 
 
 \begin{center}
-\begin{tabular}{c|cccc|cccc}
+\begin{table}
+\begin{centering}
+\begin{tabular}{ccc}
 \hline 
-\multicolumn{5}{c}{$\tau_{1}=\mathcal{C}_{1}$} & \multicolumn{4}{c}{}\tabularnewline
+ & Player 3: $\tau_{3}=\{C,D\}$ &  $\tau_{3}=\{C,\mathcal{U}(\pi,0)\}$\tabularnewline
 \hline 
-\multicolumn{1}{c}{} & Player 3: CC & Player 3: CD & Player 3: DC & Player 3: DD & Player 3: CC & Player &  & \tabularnewline
-\cline{2-9} 
-Player 2: CC & (1,1,0) & (0,2) &  &  &  &  &  & \tabularnewline
-Player 2: CD & (2,0) & (0,0) &  &  &  &  &  & \tabularnewline
-Player 2: DC &  &  &  &  &  &  &  & \tabularnewline
-Player 2: DD &  &  &  &  &  &  &  & \tabularnewline
+Player 2: $\tau_{2}=\{D,C\}$ & (99,0,1) & (-200,100.5,0.5)\tabularnewline
+$\tau_{2}=\{D,\mathcal{U}(0,\frac{\pi}{2})\}$ & (-200,100.5,0.5) & (99,0,1)\tabularnewline
+$\tau_{2}=\{\mathcal{U}(\pi,0),C\}$ & (-200,100.5,0.5) & (99,0,1)\tabularnewline
+$\tau_{2}=\{\mathcal{U}(\pi,0),\mathcal{U}(0,\frac{\pi}{2})\}$ & (99,0,1) & (-200,100.5,0.5)\tabularnewline
 \hline 
+\hline 
+ & $\tau_{3}=\{\mathcal{U}(0,\frac{\pi}{2}),D\}$ & $\tau_{3}=\{\mathcal{U}(0,\frac{\pi}{2}),\mathcal{U}(\pi,0)\}$\tabularnewline
+Player 2: $\tau_{2}=\{D,C\}$ & (99,0,1) & (-200,100.5,0.5)\tabularnewline
+$\tau_{2}=\{D,\mathcal{U}(0,\frac{\pi}{2})\}$ & (-200,-199.5,100.5) & (99,0,1)\tabularnewline
+$\tau_{2}=\{\mathcal{U}(\pi,0),C\}$ & (-200,100.5,0.5) & (99,0,1)\tabularnewline
+$\tau_{2}=\{\mathcal{U}(\pi,0),\mathcal{U}(0,\frac{\pi}{2})\}$ & (99,0,1) & (-200,-199.5,100.5)\tabularnewline
 \end{tabular}
+\par\end{centering}
+\caption{Player 1 plays C. $\tau_{i}$ represents the player $i$'s strategy, by assigning an operator to the qubits that she controls. $\gamma=\frac{\pi}{2}$. The first captain proposes the following distribution $(99,0,1)$; the second captain proposes $(100,0)$. }
+\label{iamlivingontheedge}
+\end{table}
+
+\par\end{center}
+
+
+\begin{center}
+\begin{table}[h!]
+\begin{centering}
+\begin{tabular}{ccc}
+\hline 
+ & Player 3: $\tau_{3}=\{C,D\}$ &  $\tau_{3}=\{C,\mathcal{U}(\pi,0)\}$\tabularnewline
+\hline 
+Player 2: $\tau_{2}=\{D,C\}$ & (99,0,1) & (-200,100.5,0.5)\tabularnewline
+$\tau_{2}=\{D,\mathcal{U}(0,\frac{\pi}{2})\}$ & (-200,-199.5,100.5) & (99,0,1)\tabularnewline
+$\tau_{2}=\{\mathcal{U}(\pi,0),C\}$ & (-200,100.5,0.5) & (99,0,1)\tabularnewline
+$\tau_{2}=\{\mathcal{U}(\pi,0),\mathcal{U}(0,\frac{\pi}{2})\}$ & (99,0,1) & (-200,-199.5,100.5)\tabularnewline
+\hline 
+\hline 
+ & $\tau_{3}=\{\mathcal{U}(0,\frac{\pi}{2}),D\}$ & $\tau_{3}=\{\mathcal{U}(0,\frac{\pi}{2}),\mathcal{U}(\pi,0)\}$\tabularnewline
+Player 2: $\tau_{2}=\{D,C\}$ & (-200,100.5,0.5) & (99,0,1)\tabularnewline
+$\tau_{2}=\{D,\mathcal{U}(0,\frac{\pi}{2})\}$ & (99,0,1) & (-200,-199.5,100.5)\tabularnewline
+$\tau_{2}=\{\mathcal{U}(\pi,0),C\}$ & (99,0,1) & (-200,100.5,0.5)\tabularnewline
+$\tau_{2}=\{\mathcal{U}(\pi,0),\mathcal{U}(0,\frac{\pi}{2})\}$ & (-200,-199.5,100.5) & (99,0,1)\tabularnewline
+\end{tabular}
+\par\end{centering}
+
+\caption{Player 1 plays $\mathcal{U}(0,\frac{\pi}{2})$.$\gamma=\frac{\pi}{2}$. The first captain proposes the following distribution $(99,0,1)$; the second captain proposes $(100,0)$. }
+\label{livingontheedge}
+\end{table}
+
 \par\end{center}
 
 
