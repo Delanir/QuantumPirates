@@ -158,7 +158,7 @@ Due to the nature of quantum mechanics we have to pay attention of how we set-up
 In Equation \ref{eq:quantum_game_six_tuple} ($\Gamma=(\mathcal{H}^{2^{a}},\: N,\:\vert\psi_{in}\rangle,\:\xi,\:\{\mathcal{U}_{j}\},\:\{E_{i}\})
 $), there is the notion of a subset of unitary operators that the players can use to manipulate their assigned qubits.
 
-Each player will be able to manipulate at least one qubit in the system. Those qubits (of the form \ref{eq:opvarphiquantumstates}) are $\vert\varphi_{1}\rangle,\:\vert\varphi_{2}\rangle$, $\vert\varphi_{3}\rangle$, $\vert\varphi_{4}\rangle$, and $\vert\varphi_{5}\rangle$. The Equation \ref{putadevida} assigns the qubit $\vert\varphi_{1}\rangle$ to player $1$, qubits $\vert\varphi_{2}\rangle$ and $\vert\varphi_{4}\rangle$ to player $2$, the remaining qubits are assigned to player $3$. 
+Each player will be able to manipulate at least one qubit in the system. Those qubits (of the form \ref{eq:opvarphiquantumstates}) are $\vert\varphi_{1}\rangle,\:\vert\varphi_{2}\rangle$, $\vert\varphi_{3}\rangle$, $\vert\varphi_{4}\rangle$, and $\vert\varphi_{5}\rangle$. The Equation \ref{playerxiximapping} assigns the qubit $\vert\varphi_{1}\rangle$ to player $1$, qubits $\vert\varphi_{2}\rangle$ and $\vert\varphi_{4}\rangle$ to player $2$, the remaining qubits are assigned to player $3$. 
 
 \begin{equation}
 \varphi_{j} = a . \vert C \rangle + b . \vert D \rangle , j \in \{ 1, 2, 3, 4, 5 \}, \{ a,b \} \in \mathbb{C} : a^2 + b^2 =1
@@ -230,7 +230,7 @@ This final state is calculated by constructing a super-operator, by performing t
 \label{eq:piratas_final_move}
 \end{equation}
 
-In the Figure \ref{fig:pg_architecture3players} we have a representation of the game.We start by building our initial state $k-1$, then the players  select their strategies, a super operator is constructed by performing a tensor product of the selected operators. 
+In the Figure \ref{fig:pg_architecture3players} we have a representation of the game. When the players  select their strategies, a super operator is constructed by performing a tensor product of the selected operators. 
 
 In order to calculate the expected payoff functions we need to de-entangle the system, before measuring. The act of measuring, in quantum computing, gives an expected value that can be understood as the probability of the system collapsing into that state. 
 

@@ -36,19 +36,6 @@ In this dissertation we focused on the role of quantum entanglement and the use 
 
 		\keywords Quantum Game Theory; Pirate Game; Quantum Mechanics; Quantum Computing; Game Theory; Probability Theory
 
-\begin{comment}		
-{\bf List of Abreviations:}
-\begin{acronym}
- 
-
-\acro{CPT}[CPT]{Conditional Probability Table}
-\acro{DAG}[DAG]{Directed Acyclic Graph} 
-\acro{DBN}[DBN]{Dynamic Bayesian Networks}
-\acro{HMM}[HMM]{Hidden Markov Models}
-\acro{QBN}[QBN]{Quantum Bayesian Networks} 
-\end{acronym}
-	
-\end{comment}
 \end{abstract}
 
 \section{Introduction}
@@ -89,12 +76,140 @@ The main objectives with this work are:
 %OUTLINE DO DOCUMENTO
 
 %%STUFF IT
-\section{Background and Related Work}
+\section{Background}
+
+
+
+\subsection{Quantum Game Theory}
+\label{sec:background_quantum_game_theory}
+
+
+
+In the article ``Quantum information approach to normal representation of extensive games''\cite{Fra2011a}, the authors propose a representation
+for both normal and finite extensive form games\cite{Fra2011}. This definition is based on the premise that any strategic game can be represented as an extensive form game where all the players have no knowledge about the actions taken by other players. 
+
+The representation assumes that there
+are only two available actions, which can be represented by a qubit.
+Those actions could be a yes/no decision or a cooperate/defeat as
+those found in many classical game theory problems. 
+
+A game in this
+form is represented by a six-tuple\ref{eq:quantum_game_six_tuple},
+where:
+
+\begin{equation}
+\Gamma=(\mathcal{H}^{2^{a}},\: N,\:\vert\psi_{in}\rangle,\:\xi,\:\{\mathcal{U}_{j}\},\:\{E_{i}\})\label{eq:quantum_game_six_tuple}
+\end{equation}
+
+\begin{itemize}
+\item $a$ is the number of actions (qubits), in the game; 
+\item $\mathcal{H}^{2^{a}}$ is a $2^{a}$-dimensional Hilbert space constructed
+as $\otimes_{j=1}^{a}\mathbb{C}^{2}$, with basis $\mathcal{B}$;
+\item $\vert\psi_{in}\rangle$ is the initial state of the compound-system
+composed by $a$ qubits: $\vert\varphi_{1}\rangle,\:\vert\varphi_{2}\rangle, ..., \vert\varphi_{j}\rangle, ..., \vert\varphi_{a}\rangle$;
+\item $\xi$ is a mapping function that assigns each action to a player;
+\item For each qubit $j$ $\mathcal{U}_{j}$ is a subset of unitary operators from $\mathsf{SU}(2)$ (the general for the 2 dimensional Special Unitary Group is presented in Equation \ref{eq:general_unitary_special_one}).
+These operators can be used by the player to manipulate her qubit(s);
+\item Finally, for each player $i$, $E_{i}$ is a utility functional that
+specifies her payoff. This is done by attributing a real number (representing a expected utility $ u_{i}(b)$, in \ref{eq:quantum_game_definition_payoff_func}), to the measurement for the projection of the final state (\ref{eq:quantum_game_definition_move}), on a basis from the $\mathcal{B}$\ref{eq:quantum_game_definition_payoff_func}.\end{itemize}
+
+Some important operators from are:
+
+\begin{itemize}
+\item The Identity Matrix \ref{eq:idims}.
+\begin{equation}
+\label{eq:idims}
+I=\left[\begin{array}{cc}
+1 & 0\\
+0 & 1
+\end{array}\right]
+\end{equation}
+
+\item The Pauli Operators. This operators are used to perform the NOT operation. 
+	\begin{itemize}
+		\item The Bit-Flip Operator\begin{equation}
+\label{eq:idims_1}
+\delta_{x} =\left[\begin{array}{cc}
+0 & 1\\
+1 & 0
+\end{array}\right]
+\end{equation}
+		\item The Phase-Flip Operator\begin{equation}
+\label{eq:idims_2}
+\sigma_{z} =\left[\begin{array}{cc}
+1 & 0\\
+0 & -1
+\end{array}\right]
+\end{equation}
+\item The Bit and Phase-Flip Operator\begin{equation}
+\label{eq:idims_3}
+\sigma_{y}=\left[\begin{array}{cc}
+0 & -i\\
+i & 0
+\end{array}\right]
+\end{equation}
+	\end{itemize}
+
+\end{itemize}
+
+The Pauli operators with the identity matrix I, form an orthogonal basis for the complex Hilbert space of all $2 \times 2$ matrices, also known as Special Unitary Group 2 - $\mathsf{SU}(2)$ \cite{Letters2002}.
+
+\begin{equation}
+\begin{split}
+\mathcal{U}_{j}(w,x,y,z)=w.I + ix.\sigma_{x} + iy.\sigma_{y} + iz.\sigma_{z}, \\  w,x,y,z \in \mathbb{R} \wedge  
+w^2 + x^2 + y^2 + z^2 =1 
+\end{split}
+\label{eq:general_unitary_special_one}
+\end{equation}
+
+\begin{equation}
+E_{i}=\sum_{b \in \mathcal{B}} u_{i}(b)\vert \langle b\vert \psi_{fin}\rangle\vert^{2}, u_{i}(b) \in \mathbb{R}
+\label{eq:quantum_game_definition_payoff_func}
+\end{equation}
+
+The strategy of a player $i$ is a map $\tau_{i}$ which assigns a
+unitary operator $U_{j}$ to every qubit $j$ that is manipulated
+by the player.
+
+\begin{equation}
+\vert\psi_{fin}\rangle=\otimes_{i=1}^{N}\otimes_{j\in\xi^{-1}(i)}\mathcal{U}_{j}\vert\psi_{in}\rangle
+\label{eq:quantum_game_definition_move}
+\end{equation}
+
+The tensor product of all the operators chosen by the players is referred as a super-operator, which act upon the game system.
+
+In the article "Quantum Games and Quantum Strategies"\cite{Eisert2008}, the authors describe a quantization scheme for the Prisoner's Dilemma game. The way the initial state, $\vert\psi_{in}\rangle$, is set-up in the game system provide a way to entangle the game system, thus allowing the study of this phenomenon. For a $2$-player game, this is accomplished using Equation \ref{eq:2_4:estado_inicial_prisioneiro}. $\mathcal{J}$ is a matrix exponential that is chosen because it can commute with a super-operator, made from the subset of unitary operators that contains the identity matrix and the Bit-flip Pauli matrix\cite{citeulike:10961388}. According to \cite{Eisert2008}, the parameter $\gamma$ becomes a way to measure the entanglement in the system, while making the quantum game behave as the classical when there is no entanglement.
+
+\begin{equation}
+\label{eq:2_4:matrix_exponencial_esoterica}
+\mathcal{J}=exp\left\{ i\frac{\gamma}{2}\left[\begin{array}{cc}
+0 & 1\\
+1 & 0
+\end{array}\right]\otimes\left[\begin{array}{cc}
+0 & 1\\
+1 & 0
+\end{array}\right]\right\}
+\end{equation} 
+
+\begin{equation}
+\label{eq:2_4:estado_inicial_prisioneiro}
+\begin{split}
+\vert\psi_{in}(\gamma)\rangle=exp\left\{ i\frac{\gamma}{2}\left[\begin{array}{cc}
+0 & 1\\
+1 & 0
+\end{array}\right]\otimes\left[\begin{array}{cc}
+0 & 1\\
+1 & 0
+\end{array}\right]\right\} \vert00\rangle \\
+=cos(\frac{\gamma}{2})\vert00\rangle+isin(\frac{\gamma}{2})\vert11\rangle,\gamma\in(0,\pi)
+\end{split}
+\end{equation}
+
 
 \section{Pirate Game}
 \label{subsec:description}
 
-The original Pirate Game is a multi-player version of the Ultimatum game that was first published as a mathematical problem in the Scientific American as a mathematical problem posed by Omohundro\cite{Stewart1999}. The main objective of the Pirate Game was to present a fully explainable problem with a non-obvious solution. The problem can be formulated as it follows:
+The original Pirate Game is a multi-player version of the Ultimatum game that was first published as a mathematical problem in the Scientific American as a mathematical problem posed by Omohundro\cite{Stewart1999}. The problem can be formulated as it follows:
 
 \begin{quotation}
 Suppose there are 5 rational pirates: A; B; C; D; E. The pirates have a  loot of 100 indivisible gold coins to divide among themselves.
@@ -110,20 +225,18 @@ We consider that each pirate privileges her survival, and then will want to maxi
 \subsection{Analysis of the Pirate Game for $3$ Players}
 \label{subsubsec:analysis_PG3players}
 
-In Figure \ref{fig:pg_architecturegametree:extensiveform} we have an extensive form representation of the classic Pirate Game for $3$ players. Each node in the game tree has the number of the player who will make the decision, either to Cooperate (vote yes to the proposal), or Defect. The dashed arrows represent states where the player does not have information of the current state (simultaneous move). 
+In Figure \ref{fig:pg_architecturegametree:extensiveform} we have an extensive form representation of the classic Pirate Game for $3$ players. Each node in the game tree has the number of the player who will make the decision, either to Cooperate (vote yes to the proposal), or Defect. 
 
 \begin{figure}[h]
 \centering 
-\includegraphics[scale=0.40]{Figures/1.5qubit/FigurasRevistas/Slide1.png}
+\includegraphics[scale=0.28]{Figures/1.5qubit/FigurasRevistas/Slide1.png}
 \caption{Extensive form representation of the classic Pirate Game for $3$ players. }
 \label{fig:pg_architecturegametree:extensiveform}
 \end{figure}
 
 The green accent, in Figure \ref{fig:pg_architecturegametree:extensiveform}, shown in the nodes represent a state where the first captain (player $1$), will see her proposal accepted, the utility associated . The blue accent denotes the outcomes where the second captain makes a proposal and has seen it accepted. The red accent color represents the outcomes where the player $3$ will be the remaining pirate.
 
-The number of coins will translate directly the utility associated with getting those coins. For example if a pirate receives 5 gold coins and the proposal is accepted he will get a utility of 5. The highest ranking pirate in the hierarchy is responsible to make a proposal to divide the 100 gold coins. This proposal means choosing the number of coins each player gets if the proposal is accepted. A captain $i$ chooses the amount of coins a player $j$ get; this amount will be represented by $\alpha_{ij}$.
-
-In the initial stage of the game the captain will define $\alpha_{11}, \alpha_{12}, \alpha_{13}$, and they will obey to the Equation \ref{eq:goodss}, that imposes the rule that the captain $i$ must allocate all the 100 coins, to the players that are still alive. $N$ the number of pirates in the game. 
+The number of coins will translate directly the utility associated receiving them. The highest ranking pirate in the hierarchy is responsible to make a proposal to divide the 100 gold coins. A captain $i$ chooses the amount of coins a player $j$ get; this amount will be represented by $\alpha_{ij}$. In the initial stage of the game the captain will define $\alpha_{11}, \alpha_{12}, \alpha_{13}$, according to Equation \ref{eq:goodss} ($N$ the number of pirates in the game). 
 
 \begin{equation}
 \label{eq:goodss}
@@ -132,23 +245,293 @@ In the initial stage of the game the captain will define $\alpha_{11}, \alpha_{1
 
 The values for $(\alpha_{11}, \alpha_{12}, \alpha_{13})=(99, 0, 1)$ will be the allocation that results in an equilibrium for the $3$ player game .
 
-The proposed goods allocation will be executed if there is a majority (or a tie), in the voting step. A step in the game consists on the highest ranking pirate defining a proposal and the subsequent vote, where all players choose simultaneously an operator. 
-
-If the proposal is rejected the captain will be thrown off board, to account for the fact that this situation is very undesirable for the captain he will receive a negative payoff of $-200$ (that can be seen in the blue and red outcome in Figure \ref{fig:pg_architecturegametree:extensiveform}). This value was derived from the fact that a pirate values her integrity more than any number of coins she might receive.
-
-
-\begin{quotation}
-``When the result is indifferent the pirates prefer to throw another pirate overboard and thus climbing in the hierarchy.''
-\end{quotation}
-
-This means that the pirates have a small incentive to climb the hierarchy. For example in the three player classical game, the third player, who has the lowest rank, will prefer to defect the initial proposal if the player 1 doesn't give her a coin, even knowing that in the second round the player 2 will be able to keep the 100 coins. We will account for this preference by assigning an expected value of half a coin ($0.5$), to the payoff of the players that will climb on the hierarchy if the voting fails. This tie breaker is shown in the blue and red outcomes in Figure \ref{fig:pg_architecturegametree:extensiveform}.
+If the proposal is rejected the captain will be thrown off board, and the captain he will receive a negative payoff of $-200$. The pirates have also an incentive to climb the hierarchy; accounted by adding an expected value of half a coin ($0.5$), to the payoff of the remaining players if the voting fails. This tie breaker and death penalty is shown in Figure \ref{fig:pg_architecturegametree:extensiveform}.
 
 \section{Quantum Model}
+\subsubsection{Game system: Setting up the Initial State}
+\label{subsec:pirates_initialstate}
 
-\section{Analysis}
+A game $\Gamma$ can be viewed as a system composed by qubits manipulated by players. We will use the definition of quantum game discussed in Section \ref{sec:background_quantum_game_theory}, to model our game system. Akin to the Quantum Ultimatum game desbribed in \cite{Fra2011}, our objective is to apply that quantization scheme to the normal form representation of the game tree in Figure \ref{fig:pg_architecturegametree:extensiveform}.
 
-\section{Simulation}
 
+In this $3$ player game there will be $5$ qubits representing the actions or the players decision; three qubits will represent the first voting round, the other two will portray the actions of the second voting round.
+The number of qubits needed to represent the game grows exponentially with the number of players. For $N$ players we need $\sum_{i=2}^{N}{i}$ qubits. With 8 players, this game would already be impractical to simulate in a classical computer. In this regard a quantum computer may enhance our power to simulate this kinds of experiments \cite{Rieffel2011}.
+
+The mapping function $\xi$ that assigns each action/qubit $\varphi_{j}$ ( with $j=\{ 1, 2, 3, 4, 5\}$), to a player is represented on Equation \ref{playerxiximapping}. 
+
+\begin{equation}
+\xi(j)=\begin{cases}
+1 & ,\; if\; j=1;\\
+2 & ,\; if\; j\in\{2,4\};\\
+3 & ,\; if\; j\in\{3,5\}.
+\end{cases}
+\label{playerxiximapping}
+\end{equation}
+
+With $3$ players and $5$ actions our system with be represented in a $\mathcal{H}^{32}$ using a state $\psi$. This means that to represent our system we will need $2^{5}\times 1$ vectors, our system grows exponentially with the number of players/qubits. Each pure basis  of $\mathcal{H}^{32}$ will represent a possible outcome in the game. We assign a pure basis as $\vert 0\rangle = \vert C\rangle$ (``C'' from ``Cooperate''), and $\vert 1\rangle = \vert D\rangle$ (``D'' from ``Defect''). 
+
+
+
+
+The initial system ($\vert \psi_{0}(\gamma) \rangle$), will be set up by defining an entanglement coefficient $\gamma$, that affect the way the five qubits (belonging to the three pirate players), are related; this is shown in Equation \ref{eq:estado_inicial_pg}. 
+We will entangle our state by applying the gate $\mathcal{J}$ \cite{Letters2002}. The parameter $\gamma$ becomes a way to measure the entanglement in the system\cite{Eisert2008}. 
+
+We analysed the role of the entanglement of the system since other examples researched pointed to it being the prominent factor regarding behaviour changes from the classsical perspective\cite{Fra2011a}\cite{Fra2011}\cite{Letters2002}\cite{Khan2011}\cite{Ricketts2006}. 
+
+
+
+
+
+
+\begin{equation}
+\mathcal{J}=exp\left\{ i\frac{\gamma}{2}\left[\begin{array}{cc}
+0 & 1\\
+1 & 0
+\end{array}\right]\otimes\left[\begin{array}{cc}
+0 & 1\\
+1 & 0
+\end{array}\right]\otimes\left[\begin{array}{cc}
+0 & 1\\
+1 & 0
+\end{array}\right]\otimes\left[\begin{array}{cc}
+0 & 1\\
+1 & 0
+\end{array}\right]
+\otimes\left[\begin{array}{cc}
+0 & 1\\
+1 & 0
+\end{array}\right]
+\right\}
+\label{eq:matrix_exponencial_esoterica}
+\end{equation} 
+
+\begin{center}
+\begin{equation}
+%\vert \psi_{0}(\gamma) \rangle= cos( \frac{\gamma}{2})\vert 00\rangle+ isin(\frac{\gamma}{2})\vert 11 \rangle, \gamma \in (0,\pi)
+\begin{split}
+\vert\psi_{ini}(\gamma)\rangle=exp\left\{ i\frac{\gamma}{2}\left[\begin{array}{cc}
+0 & 1\\
+1 & 0
+\end{array}\right]\otimes\left[\begin{array}{cc}
+0 & 1\\
+1 & 0
+\end{array}\right]\otimes\left[\begin{array}{cc}
+0 & 1\\
+1 & 0
+\end{array}\right]\otimes\left[\begin{array}{cc}
+0 & 1\\
+1 & 0
+\end{array}\right]\otimes\left[\begin{array}{cc}
+0 & 1\\
+1 & 0
+\end{array}\right]\right\} \vert00000\rangle \\
+=cos(\frac{\gamma}{2})\vert00000\rangle+isin(\frac{\gamma}{2})\vert11111\rangle,\gamma\in(0,\frac{\pi}{2})
+\end{split}
+\label{eq:estado_inicial_pg}
+\end{equation}
+\end{center}
+
+
+
+\subsubsection{Strategic Space}
+\label{subsec:strategic_space}
+
+The strategic space is a set of unitary operators that the players can use to manipulate their assigned qubits.
+
+Each player will have a strategy $\tau_{i}$  which assigns a
+unitary operator $U_{j}$ to every qubit $j$ that is manipulated
+by the player ($j$$\in\xi^{-1}(i)$). $\tau_{2}= \{D_{2},C_{4}\}$ represents the strategy where the player $2$ votes $D$ in the first stage and $C$ in the second stage.
+
+\begin{equation}
+\varphi_{j} = a . \vert C \rangle + b . \vert D \rangle , j \in \{ 1, 2, 3, 4, 5 \}, \{ a,b \} \in \mathbb{C} : a^2 + b^2 =1
+\label{eq:opvarphiquantumstates}
+\end{equation}
+
+Each player will be able to manipulate her assigned qubits $j$ with an unitary operator of the form shown in Equation \ref{eq:general_unitary_special_one} (shown in Section \ref{sec:background_quantum_game_theory} $\mathcal{U}_{j}(w,x,y,z)=w.I + ix.\sigma_{x} + iy.\sigma_{y} + iz.\sigma_{z}, $ with $ w,x,y,z \in \mathbb{R} \wedge  
+w^2 + x^2 + y^2 + z^2 =1 $). However in  order to explore the potential of quantum strategies, \cite{Eisert2008} proposes that it is sufficient to restrict the strategic space span by to the $2$-parameter (polar coordinates), set of matrices in Equation \ref{eq:operadoresinfinitus}, with $ \theta \in ( 0, \pi )$, and $\phi \in ( 0, \frac{\pi}{2})$. We will try to use the strategic space $\mathcal{U}_{j}(\theta,\phi)$ to represent our player's actions.
+
+
+
+\begin{equation}
+\mathcal{U}_{j}(\theta,\phi) = \left[\begin{array}{cc}
+cos(\frac{\phi}{2}) & e^{i\phi}sin(\frac{\phi}{2})\\
+-e^{-i\phi}sin(\frac{\phi}{2}) & cos(\frac{\phi}{2})
+\end{array}\right] , j \in \{ 1, 2, 3, 4, 5 \}, \theta \in ( 0, \pi ) , \phi \in ( 0, \frac{\pi}{2})
+\label{eq:operadoresinfinitus}
+\end{equation}
+
+
+ However the two operators that correspond to the original classical actions of voting ``Yes'' or to Cooperate, and voting ``No'' (Defect) are not entirely characterized by the subset $\mathcal{U}_{j}(\theta, \phi)$. These classical actions belong to a subset $S_{j}$ described in Equation \ref{eq:operators_piratas_quanticos}.  
+The classical cooperation operator will be represented by the Identity operator ($o_{j0}$, where $j$ identifies the qubit that the respective player will act upon). When assigned to a qubit this operator will leave it unchanged. This operator is described by Equation \ref{eq:operadoresinfinitus} when $\mathcal{U}(0,0)$.
+
+The defection operator ($D$), is represented by one of Pauli's Operators - the Bit-flip operator. This operator was chosen because it performs the classical operation NOT on a qubit. 
+Within the restricted space $\mathcal{U}_{j}$, approximate alternative for the defect operator in the set $\mathcal{U}_{j}$ is $\mathcal{U}_{j}(\pi, 0)$; they are interchangeable when $\gamma = 0$. For $\gamma >0$ we will include the pure strategy $D$ represented by the Bit-flip operator into our restricted strategic scape $\mathcal{U}_{j}$.
+
+
+
+\begin{equation}
+S_{j} = \begin{cases}
+C_{j} = o_{j0}=\left[\begin{array}{cc}
+1 & 0\\
+0 & 1
+\end{array}\right]\\
+D_{j} = o_{j1}=\left[\begin{array}{cc}
+0 & 1\\
+1 & 0
+\end{array}\right]
+\end{cases} , j \in \{ 1, 2, 3, 4, 5 \}
+\label{eq:operators_piratas_quanticos}
+\end{equation}
+
+
+
+
+
+
+The notation for the pure basis as $\vert C\rangle$ refers to a quantum state and should not be confused as a Cooperate operator $C$ that is a matrix (the identity matrix). A original player quantum state (the qubits of the form $\varphi_{j}$) is defined by Equation \ref{eq:opvarphiquantumstates}.
+
+
+
+
+
+\subsubsection{Final State}
+\label{subsec:pirates_finalstate}
+
+
+This final state is calculated by constructing a super-operator, by performing the tensor product of each player chosen strategy, from Equation \ref{eq:operadoresinfinitus} or \ref{eq:operators_piratas_quanticos}. The super-operator, containing each player's strategy, will then be applied to the initial state,as shown in Equation\ref{eq:piratas_final_move}.
+
+\begin{equation}
+\vert\psi_{fin}\rangle=\otimes_{i=1}^{3}\otimes_{j\in\xi^{-1}(i)}\mathcal{U}_{j}\vert\psi_{ini}(\gamma)\rangle
+\label{eq:piratas_final_move}
+\end{equation}
+
+
+In order to calculate the expected payoff functions we need to de-entangle the system, before measuring. The act of measuring, in quantum computing, gives an expected value that can be understood as the probability of the system collapsing into that state. In the Figure \ref{fig:pg_architecture3players} we have represented the way we entangle and de-entangle the system.
+
+\begin{figure}[h]
+\centering 
+\includegraphics[scale=0.14]{Figures/architecture/esquema/esquema.png}
+\caption{Scheme that represents the set-up of the $3$-player Pirate Game. Before we measure the final result we need to apply the transpose operator $\mathcal{J}^{\dagger}$. }
+\label{fig:pg_architecture3players}
+\end{figure}
+
+
+
+
+
+
+\subsubsection{Utility}
+\label{subsec:pirates_utility}
+
+To build the expected payoff functionals for the three player situation we must take into account the sub-games created when the proposal is rejected, in Figure \ref{fig:pg_architecturegametree:extensiveform}.
+
+
+These utility functions will represent the degree of satisfaction for each pirate after game by attributing a real number to a measurement performed to the system.
+
+
+We can observe in Figure \ref{fig:pg_architecturegametree:extensiveform} that in that we have three separate groups (denoted by the colour accents), of outcomes that share the same payoff, in the original problem. 
+In our quantum scheme we can aggregate the pure-basis quantum states ($\mathcal{B}$), associates with a payoff in the following manner: 
+\begin{itemize}
+\item States where the first proposal is accepted - ``Accepted 1' (or $A_{1}$), with a green colour accent in Figure \ref{fig:pg_architecturegametree:extensiveform}. If ($P(A_{1})=1$) the players can expect to receive the following payoff: $(a_{11}, a_{12}, a_{13})$.
+
+\item States where the first captain will be eliminated and the second player gets her proposal accepted  - ``Accepted 2'' (or $A_{2}$) with a blue colour accent in Figure \ref{fig:pg_architecturegametree:extensiveform}. If $P(A_{2})=1$, then the expected payoff is $(-200, a_{22}+0.5, a_{23}+0.5)$.
+
+\item States where all proposals are rejected  - ``Rejected 2' (or $R_{2}$)' with a red colour accent in Figure \ref{fig:pg_architecturegametree:extensiveform}. If both proposals are rejected ($P(R_{2})= 1$), the players might expect to receive $(-200, -200+0.5, 100+0.5)$.
+
+\end{itemize}
+
+In order to calculate the probability of the final state collapsing onto a basis state $b \in \mathcal{B}$ we perform a projection of the state in the chosen basis and we measure the squared length of the projection, $P(b) = \vert\langle b\vert\psi_{fin}\rangle\vert^{2}$\cite{Trueblood}. The expected utility function for each player will be a weighted average of all possible outcomes. The expected utility for player $1$, shown in Equation \ref{eq:pirates_payoff32:1}, give a real number that represents the payoff associated with a final state. The same goes to player $2$ that has her expected utility functional specified in Equation \ref{eq:pirates_payoff32:2}, and the player $3$ in Equation \ref{eq:pirates_payoff32:3}.
+
+
+\begin{equation}
+\begin{split}
+P(A_{1}) = \sum_{x_{3}}\sum_{x_{4}}\vert\langle0,0,0,x_{4},x{5}\vert\psi_{fin}\rangle\vert^{2} + \sum_{x_{3}}\sum_{x_{4}}\vert\langle1,0,0,x_{4},x{5}\vert\psi_{fin}\rangle\vert^{2} + \\ 
++ \sum_{x_{3}}\sum_{x_{4}}\vert\langle0,1,0,x_{4},x{5}\vert\psi_{fin}\rangle\vert^{2}
++ \sum_{x_{3}}\sum_{x_{4}}\vert\langle0,0,1,x_{4},x{5}\vert\psi_{fin}\rangle\vert^{2}
+\end{split}
+\end{equation}
+
+\begin{equation}
+\begin{split}
+P(A_{2}) = \sum_{x_{5}}\vert\langle1,1,1,0,x{5}\vert\psi_{fin}\rangle\vert^{2} + \vert\langle1,1,1,1,0\vert\psi_{fin}\rangle\vert^{2} + \\ + \sum_{x_{5}}\vert\langle1,1,0,0,x{5}\vert\psi_{fin}\rangle\vert^{2}+ \vert\langle1,1,0,1,0\vert\psi_{fin}\rangle\vert^{2} + \\ 
++ \sum_{x_{5}}\vert\langle1,0,1,0,x{5}\vert\psi_{fin}\rangle\vert^{2} + \vert\langle1,0,1,1,0\vert\psi_{fin}\rangle\vert^{2}
++ \\ + \sum_{x_{5}}\vert\langle0,1,1,0,x{5}\vert\psi_{fin}\rangle\vert^{2} + \vert\langle0,1,1,1,0\vert\psi_{fin}\rangle\vert^{2}
+\end{split}
+\end{equation}
+
+\begin{equation}
+\begin{split}
+P(R_{2}) = \vert\langle1,1,1,1,1\vert\psi_{fin}\rangle\vert^{2} + \vert\langle1,1,0,1,1\vert\psi_{fin}\rangle\vert^{2} + \\ 
++ \vert\langle1,0,1,1,1\vert\psi_{fin}\rangle\vert^{2}
++ \vert\langle0,1,1,1,1\vert\psi_{fin}\rangle\vert^{2}
+ \end{split}
+\end{equation}
+
+
+   
+
+ 
+\begin{equation}
+\begin{split}
+E_{1}(\vert\psi_{fin}\rangle)=\alpha_{11}\times P(A_{1}) - \\ 
+ - 200\times( P(A_{2})  +  P(R_{2}) ) 
+ ) 
+\end{split}
+\label{eq:pirates_payoff32:1}
+\end{equation}
+
+\begin{equation}
+\begin{split}
+E_{2}(\vert\psi_{fin}\rangle)=\alpha_{12}\times P(A_{1}) - \\
+ + (0.5 + \alpha_{22})\times P(A_{2})  + \\ 
++(0.5-200)\times P(R_{2})
+\end{split}
+\label{eq:pirates_payoff32:2}
+\end{equation}
+
+\begin{equation}
+\begin{split}
+E_{3}(\vert\psi_{fin}\rangle)=\alpha_{13}\times P(A_{1}) + \\
+ + (0.5 + \alpha_{23})\times P(A_{2})   + \\
+ + (100.5)\times P(R_{2}) 
+\end{split}
+\label{eq:pirates_payoff32:3}
+\end{equation}
+
+
+
+The gate $\mathcal{J}$ is chosen to be commutative with the super-operators created by the tensor product of the classical actions $C$ (cooperate, indicated by the identity matrix and $\mathcal{U}(0,0)$)), and $D$ (defect, indicated by the Bit-flip operator matrix, and $\mathcal{U}(\pi,0)$ when $\gamma = 0$)). For example $[ \mathcal{J} , C \otimes D \otimes C \otimes C \otimes D ] = 0 $.
+
+
+This condition implies that choosing any operator from the sub-set $O = \{ \mathcal{U} ( \theta , 0) , \theta \in (0, \pi) \}$ with $\gamma = 0$ is the equivalent of a classical mixed action. A strategy $\tau_{i}$ is a classical pure strategy iff all operators in the strategy belong to the subset $S$ (defined in \ref{eq:operators_piratas_quanticos}). A strategy $\tau_{i}$ is a classical mixed strategy iff all operators in the strategy belong to $O$.
+If the parameter $\phi$ in the operator $U_{j}(\theta ,\phi)$ differs from $0$, and the entanglement parameter $\gamma = 0$ we are able to explore quantum strategies that have no counterpart in the classical domain\cite{Eisert2008}.
+
+
+
+
+
+
+
+
+
+\section{Analysis and Results}
+We can interpret the existence (or non-existence), of entanglement or superposition in the initial system as an unbreakable contract between the players\cite{Piotrowski}. The initial state starts by revealing a group of pirates that cooperate by default. We chose this initial set-up because it is prevalent in the literature\cite{Eisert2008}\cite{Fra2011a}\cite{Fra2011}\cite{Letters2002}, and we want to test if there is any equilibrium situation where the first captain can pass her proposal while taking all the 100 coins.
+
+In Quantization schemas of the Prisoner's Dilemma\cite{Letters2002}\cite{Eisert2008}, and Quantum Ultimatum Game\cite{Fra2011}, the strategic space, described in Equation \ref{eq:operadoresinfinitus}, was analysed allowed a infinity of mixed quantum strategies. In the Quantum Roulette Game\cite{Salimi2009} and \cite{Meyer1999} we have a demonstration that in a classical two-person zero-sum strategic game, if only one player is allowed to adopt a quantum strategy, she has a better chance of winning the game. 
+
+According to \cite{Du} when the entanglement is maximal, $\mathcal{U}(\pi, 0)$ is the optimal counter-strategy for $C$ (represented by the identity matrix), $\mathcal{U}(0, \frac{\pi}{2})$ is the optimal counter strategy for $\mathcal{U}(\pi, 0)$, $D$ becomes the optimal counter-strategy for $\mathcal{U}(0, \frac{\pi}{2})$, and $C$ becomes an optimal counter strategy for $D$. 
+
+In works such as the Prisoner's Dilemma\cite{Letters2002}\cite{Eisert2008}, and Quantum Ultimatum Game\cite{Fra2011}, the strategic space was analysed allowing a infinity of mixed quantum strategies.
+
+The set-up of the initial system was crucial to introduce the phenomenon of entanglement. We concluded that without entanglement the game has a strictly determined solution and behaves as the original problem.
+
+For the $2$-player game we concluded that the expected utility when the players use a mixed strategy Nash equilibrium renders an expected utility of $(25, 25.125)$ wich is also a Pareto optimal solution because it is not possible to improve one player's expected utility without harm the other. The classical setting is more beneficial to the captain in this game, because she will receive the 100 coins. We also found that distributing 50 coins would give a lower expected utility to the captain. This result is interesting because it is a Pareto optimal solution in the classical version, though not a Nash Equilibrium, and it renders an higher payoff than the Nash Equilibrium and Pareto Optimal solution when the system is maximally entangled and the players have access to the $4$ pure quantum strategies discussed in \cite{Du} and \cite{Letters2002}. 
+
+The $3$-player game also has a mixed quantum strategy Nash Equilibrium, like the $2$-player game. 
+
+When trying to find if it is possible for the captain in the first stage of the game to acquire all gold coins we found that if the other players have a restricted set of strategies, they can only use the classical Cooperate or Defect operators, and if they don't know that the captain has access to quantum strategies, the captain will be able to get the $100$ gold coins. However if players $2$ and $3$ have a restricted set where they can only use the classical Cooperation operator, or the classical Defection operator, the player $1$ will no longer be able to acquire the 100 coins with certainty. Instead she may be able to acquire the $100$ coins with probability $\frac{1}{2}$ or end up thrown off board with equal probability.
+
+These results corroborate the literature.
 %%STUFF IT
 
 \section{Conclusion}
@@ -182,8 +565,11 @@ Some suggestions for possible extensions for this work would be:
 
 
 %\bibliographystyle{IEEEtran}
-\bibliographystyle{splncs}
+%\bibliographystyle{splncs}
 %\bibliographystyle{ieeetr}
+%\bibliography{02.biblio}
+
+\bibliographystyle{IEEEtran}
 \bibliography{02.biblio}
 
 
