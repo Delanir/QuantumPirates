@@ -4,7 +4,7 @@
 
 In order to test our model we developed a Matlab simulation for the $2$-player version of the game and for the $3$-player version, the simulations are available in the Appendix \ref{ap:d}. When defining our game space $\Gamma$ in Section \ref{subsec:pirates_initialstate} we defined a number of variable parameters, such as: the entanglement coefitient $\gamma$; the coin distributions $\alpha_{ij}$; the strategies $\mathcal{U}_{j}$ that the players might use (restricting the operator space $\mathsf{SU}(2)$).
 
-According to \cite{Du} when the entanglement is maximal, $\mathcal{U}(\pi, 0)$ is the optimal counter-strategy for $C$ (represented by the identity marix), $\mathcal{U}(0, \frac{\pi}{2})$ is the optimal counter strategy for $\mathcal{U}(\pi, 0)$, $D$ becomes the optimal counter-strategy for $\mathcal{U}(0, \frac{\pi}{2})$, and $C$ becomes an optimal counter strategy for $D$.
+According to \cite{Du} when the entanglement is maximal, $\mathcal{U}(\pi, 0)$ is the optimal counter-strategy for $C$ (represented by the identity marix), $\mathcal{U}(0, \frac{\pi}{2})$ is the optimal counter strategy for $\mathcal{U}(\pi, 0)$, $D$ becomes the optimal counter-strategy for $\mathcal{U}(0, \frac{\pi}{2})$, and $C$ becomes an optimal counter strategy for $D$. 
 
 \subsection{$2$ Player Game}
 \label{subsec:2playergame}
@@ -23,7 +23,9 @@ We simulated the Pirate Game for $2$-players according to the rules defined for 
 
 \end{itemize}
 
-The expected utility when players can choose only pure quantum strategies and the game is maximaly entangled is shown in Figures \ref{fig:pg_2players_99_0_1:1} and \ref{fig:pg_2players_99_0_1:2}. When each player has access to the $4$ quantum strategiesnthe game is still strictly determined with a Nash Equilibrium outcome $(100,0)$.
+The expected utility when players can choose only pure quantum strategies and the game is maximaly entangled is shown in Figures \ref{fig:pg_2players_99_0_1:1} and \ref{fig:pg_2players_99_0_1:2}. When each player has access to the $4$ quantum strategies and the entanglement is maximum ($\gamma=\frac{\pi}{2}$), the game is not strictly determined anymore. The mixed strategy will make the players choose with equal probability between the 4 pure quantum strategies described above giving the players an expected payoff of $(25, 25.125)$, this outcome constitutes a Pareto optimal outcome because it is impossible to improve one player's expected utility without lowering the other's. 
+
+As there were initialy 100 coins we decided to study what would happen if the captain decided to share the treasure fairly: $50$ coins for player $1$, $50$ for player $2$. A Nash equilibrium of the game would also consist in a mixed strategy where the players would choose indiferently which strategy to use, but in this case $\frac{3}{4}$ of the time player $1$ would get $50$ coins and $\frac{1}{4}$ he would die and receive a payoff of $-200$. This means that the meek captain would rather have a division ``supervised'' by a contract (entanglement), than to trust her crew and propose a fair division from the start.
 
 \begin{table}[h]
 \begin{center}
@@ -57,6 +59,14 @@ Player 1: D & (100, 0) & (-200, 100.5)\tabularnewline
 \label{fig:pg_2players_99_0_1:2}
 \end{figure}
 
+
+
+\begin{figure}[h!]
+\centering 
+\includegraphics[scale=0.60]{Figures/1.5qubit/poorcaptain.png}
+\caption{Expected utility for player $1$ (the captain), when the system is maximaly entangled and he proposes a fair division of the treasure $(50,50)$.}
+\label{fig:pg_2players_99_0_1:33}
+\end{figure}
 
 \subsection{$3$ Player Game}
 \label{subsec:3playergame}
@@ -107,6 +117,21 @@ When each player chooses an operator from the set $O = \{ \mathcal{U} ( \theta ,
 
 
 
+
+\begin{center}
+\begin{tabular}{c|cccc|cccc}
+\hline 
+\multicolumn{5}{c}{$\tau_{1}=\mathcal{C}_{1}$} & \multicolumn{4}{c}{}\tabularnewline
+\hline 
+\multicolumn{1}{c}{} & Player 3: CC & Player 3: CD & Player 3: DC & Player 3: DD & Player 3: CC & Player &  & \tabularnewline
+\cline{2-9} 
+Player 2: CC & (1,1,0) & (0,2) &  &  &  &  &  & \tabularnewline
+Player 2: CD & (2,0) & (0,0) &  &  &  &  &  & \tabularnewline
+Player 2: DC &  &  &  &  &  &  &  & \tabularnewline
+Player 2: DD &  &  &  &  &  &  &  & \tabularnewline
+\hline 
+\end{tabular}
+\par\end{center}
 
 
 
