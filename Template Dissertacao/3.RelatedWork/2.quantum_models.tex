@@ -324,7 +324,7 @@ If the parameter $\phi$ in the operator $U_{j}(\theta ,\phi)$ and the entangleme
 
 \begin{comment}
 
-\begin{table}[ht]
+\begin{table}[ht!]
 \begin{center}
 \begin{tabular}{cc}
   \num\putindeepbox[7pt]{\includegraphics[scale=0.46]{prisionersdillema/II.PNG}}
@@ -340,7 +340,7 @@ b) Player 1: Cooperates, Player 2: Defects; c) Player 1: Defects, Player 2: Coop
 
 \end{comment}
 
-\clearpage
+%\clearpage
 \subsection{Ultimatum Game}
 \label{subsec:ultimatumquantum}
 
@@ -365,11 +365,13 @@ If we consider that we have 100 coins, the number of coins received can be consi
 \label{subsec:ultimatum}
 
 In a ``Quantum information approach to the ultimatum game''\cite{Fra2011} we are presented with a quantization scheme for the ultimatum game that uses the definition of quantum game in Section \ref{sec:background_quantum_game_theory}. 
+ They compare that approach to other quantum game definitions, and proposes and compares also quantum  extensive form of the game. 
+
 
 If we present the game in Figure \ref{fig:ultimatum:gametree} in the normal form we get the matrix represented in Table \ref{tab:tabelaultimatumestoufofida}. The player $2$ has $4$ possible strategies. The strategy $A_{F}R_{U}$ means that the player $2$ will accept a fair division proposed by player $1$ but will reject a unfair division.
 
  The quantum game representation for this game is $
-\Gamma_{Ultimatum}=(\mathcal{H}^{2^{3}},\: 2,\:\vert\psi_{in}\rangle,\:\xi,\:\{\mathcal{U}_{j}\},\:\{E_{i}\})\label{eq:quantum_game_six_tuple}
+\Gamma_{Ultimatum}=(\mathcal{H}^{2^{3}},\: 2,\:\vert\psi_{in}\rangle,\:\xi,\:\{\mathcal{U}_{j}\},\:\{E_{i}\})
 $. The game system will consist in $3$ qubit, which correspond to the number of actions in the game. Player $1$ will be able to manipulate the qubit $1$, the player $2$ can manipulate the remaining qubits. 
 
 
@@ -391,114 +393,32 @@ Player 1: $U$ & $(\theta,100-\theta)$ & $(0,0)$& $(\theta,100-\theta)$ & $(0,0)$
 \end{table}
 \par\end{center}
 
+The extensive form approach in \cite{Fra2011} allows the differentiation between simultaneous moves and sequential moves. This is accomplished by measuring the game state in order to separate game stages. This "Sequential procedure" uses the L\"{u}ders Rule, a quantum analogous of conditional probability.
+
+
+The main points discussed in  \cite{Fra2011} Quantum Ultimatum approach are that the game definition presented in Section \ref{sec:background_quantum_game_theory}  makes the game more convenient to analyse than the extensive form approach.
 
 
 
 
 
 
+\clearpage
+\section{Overview}
+\label{sec:related_work_overview}
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-\subsection{Monty Hall Problem}
-\label{subsec:monty_hall}
-
-%%Proffed
-The Monty Hall problem became popularized in 1990 in a column, in the magazine Parade\cite{Savant1990}. The reason for its notoriety rests mainly in its counter-intuitive nature. Although the Monty Hall problem can be modelled as a Bayesian probability problem, human beings have difficulty in grasping the probabilities involved.
-
-\subsubsection{Problem Description}
-\label{subsubsec:monty_hall_problem description}
-
-The Monty Hall problem is loosely based on a television game show hosted by its namesake - Monty Hall. Furthermore it was first attributed to a statistician, named Selvin. The problem is posed as it follows:
-\begin{quotation}
-Suppose you're on a game show, and you're given the choice of three doors: Behind one door is a car; behind the others, goats. You pick a door, say No. 1, and the host, who knows what's behind the doors, opens another door, say No. 3, which has a goat. He then says to you, "Do you want to pick door No. 2?" Is it to your advantage to switch your choice?
-\end{quotation}
-
-Most people, when faced with this problem, will be indifferent about whether to switch or to stay with the initially picked door.
+There are more examples of games that have attracted interest in the Quantum domain. In this overview we are going to present a general picture of the work already done in this field.
  
-It is also verified that they will tend to stick with their first choice. According to Granberg and Brow\cite{Granberg1995}, only 13\% of 228 subjects decided to switch their initial choice. However, by using probability theory, one can arrive at the conclusion that, in fact, it is advantageous to switch given the previous formulation.
- 
-The action of the Host implies a belief update on the probabilities of the variables in the system. This poses a violation of rational decision making; subjects do not seem to follow the best strategy which would maximize their chances of winning the prize. 
+For example various Models have been proposed to describe a quantum version of the Monty Hall problem\cite{Gill}\cite{Flitney2008}.
+This popular problem\cite{Savant1990} is known for its counter-intuitiveness. The problem can be posed as a contest where the player must choose a door (from a set of $3$), and has $\frac{1}{3}$ of probability of getting a prize. After the player has chosen the door, one of the remaining $2$ doors which does not have a prize is opened. The contestant is asked whether is to her advantage to switch her initial choice.
 
-To understand this exercise, one can look at the decision tree in Figure \ref{fig:monty_hall_tree}. We assumed indifferently that the player chose the door No. 1. The situation is symmetric whichever door she chooses. 
+As the host reveals information, the initial set-up is modified. This is an interesting property. Despite being a counter-intuitive problem, a quantum approach to this problem allows an in-depth comparison between the classical measurement and the quantum measurement. The classic Monty Hall problem is modelled using conditional probability and Baye's Rule to learn that it is to the advantage of the contestant to switch doors. In the quantum version, measuring the outcome of the final state yields the result, instead of taking into account the intermediate actions \cite{Fra2011}. In \cite{Gill2002} we can observe the attempt to stick as closely to the classical formulation as possible, the host has a system that is correlated to the game system.
 
-%%Proffed 
+The principal information taken from this problems is that there is not a unique way to model a classical problem\cite{Gill2002}. Therefore, when modelling a classical problem, we need to select properties that could potentially benefit from a quantum approach.
 
-Assuming we call $C_{1}$ to the variable that describes whether or not the car in behind door No. 1. The variables $C_{2}$ and $C_{3}$ will respectively describe the probability associated with the car being (or not), behind doors 2 and 3 ($P(C_{2})=1$ or $P(C_{2})=0$, for example).
+From the point of view of Quantum Cognition (a domain that seeks to introduce Quantum Mechanics Concepts in the field of Cognitive Sciences), these games are approached from the perspective of trying to model the mental state of the players in a quantum manner. The Prisoner's Dilemma is an example of a problem that has been modelled in order to explain discrepancies from the theoretical results of the classical Game Theory approach and the way humans play the game\cite{Pothos2009}. 
 
-\begin{figure}[h]
-\centering 
-\includegraphics[scale=0.35]{Figures/monty_hall_decision_tree.png}
-\caption{Decision tree modelling the Monty Hall problem. }
-\label{fig:monty_hall_tree}
-\end{figure}
-
-After the player has had her choice, the host will perform an operation on the remaining two doors. The host of the show has complete information of the game, unlike the player.
-
-\begin{equation}
-\label{eq:monty_h1}
-P(C_{1})=P(C_{1}|\text{\textlnot}C_{2})+P(C_{1}|\text{\textlnot}C_{3})
-\end{equation}
-
-
-\begin{equation}
-\label{eq:monty_h2}
-P(C_{1})=(\frac{1}{3}\text{\texttimes}\frac{1}{2})+(\frac{1}{3}\text{\texttimes}\frac{1}{2})=1
-\end{equation}
-
-
-\begin{equation}
-\label{eq:monty_h3}
-P(\text{\textlnot}C_{1})=P(C_{2}|\text{\textlnot}C_{3})+P(C_{3}|\text{\textlnot}C_{2})=(\frac{1}{3}\text{\texttimes}1)+(\frac{1}{3}\text{\texttimes}1)=2/3
-\end{equation}
-
-The probability of switching and getting the car is twice \ref{eq:monty_h3} as likely of staying with the first choice and getting the prize\ref{eq:monty_h2}. 
-
-
-\subsubsection{Quantum Model}
-
-Various Models have been proposed to describe a quantum version of the Monty Hall problem\cite{Gill}\cite{Flitney2008}.
-
-As the host reveals information, the initial set-up is modified. This is an interesting property. Despite being a counter-intuitive problem, a quantum approach to this problem allows an in-depth comparison between the classical measurement and the quantum measurement. The classic Monty Hall problem is modelled using conditional probability and Bayes Rule. In the quantum version, measuring the outcome of the final state yields the result, instead of taking into account the intermediate actions \cite{Fra2011}.
-
-Moreover it is important to realize that there is not a unique way to model a classical problem\cite{Gill2002}. Therefore, when modelling a classical problem, we need to select properties that could potentially benefit from a quantum approach. In \cite{Gill2002} we can observe the attempt to stick as closely to the classical formulation as possible, the host has a system that is correlated to the game system.
-
-
-%\section{Overview}
-%\label{sec:related_work_overview}
-
-
-
-
+One last example worth mention is the quantum approach of the Stackelberg Duopoly problem\cite{Khan2011}\cite{Iqbal2008}. This is an Economics Game Theory model that seeks to represent the interactions of two companies, a market leader and a follower which play sequentially; the leader makes a decision and the follower responds. 
 
 

@@ -37,19 +37,25 @@
 
 The Quantum Theory of Games is a field that seeks to introduce the mathematical formalism of Quantum Mechanics in order to explore models of conflict that arise when rational beings make decisions. These models of conflict are pervasive in the structural make-up of our society. The combination of game theory and Quantum Probability, despite not having a practical application, can help in the development of new quantum algorithms. Furthermore the fact that Game Theory is transversal to many areas of knowledge can provide insights to future application of these models.
 
-In this dissertation we focused on the role of quantum entanglement and the use of quantum strategies in the game system. We found that when there is no entanglement the game behaved as the original problem even when the players adopted quantum strategies. When using a unrestricted strategic space and the game system is maximaly entangled we found that the game is strictly determined (like the original problem). We also found that when only a the captain has access to quantum strategies in the Pirate Game, she can obtain all the gold coins. These results corroborate similar findings in the field.
+In this dissertation we focused on the role of quantum entanglement and the use of quantum strategies in the game system. We found that when there is no entanglement the game behaved as the original problem even when the players adopted quantum strategies. When using a unrestricted strategic space and the game system is maximally entangled we found that the game is strictly determined (like the original problem). We also found that when only a the captain has access to quantum strategies in the Pirate Game, she can obtain all the gold coins. These results corroborate similar findings in the field.
 
 		\keywords Quantum Game Theory; Pirate Game; Quantum Mechanics; Quantum Computing; Game Theory; Probability Theory
 
 \end{abstract}
 
 \section{Introduction}
-
+\subsection{Motivation}
+\label{sec:int_motiv}
 % MOTIVACAO
+It is not always easy to understand and introduce new paradigms. Some things we find natural nowadays, were once the source of controversy. Taking for example the number zero $0$. As numbers were introduced to help count physical objects, the idea of representing ``nothingness'' was once considered strange. In the beginning there were numerous ways devised to deal with this mathematical inconvenience, a special case. However the need to use ``zero'' as a number in its own right lead to the popularization of its concept as a number and opened door to new breakthroughs in mathematics\cite{Kaplan2000}. 
 
+Quantum mechanics shared this same problem and its mathematical formalization grew out of the need to explain phenomena at the atomic scale\cite{Mehra1982}. Nowadays we  accepted quantum mechanics as a tool, to analyse and predict behaviour at a microscopic level. However at our scale some quantum mechanics phenomena seem almost ``ridicule'' and paradoxical.
 %MOTIVACAO
 \subsection{Problem Description}
 \label{sec:int_problem}
+
+A model provides a way to abstract the reality, which is often too complex to analyse in its breadth. The Game Theory is an area that tried to find ways to represent and analyse situations of conflict generated when intelligent rational beings make decisions. This discipline has major applications in Economics, Biology, Political Science, and Artificial Intelligence. 
+Combining both the mathematical foundations of Quantum Mechanics, and the Game Theory is an idea that is starting to attract attention. These two areas share the same founding father, von Neumman, and creating a Quantum Model for a game seems to be a relevant way to explore the theory behind Quantum Mechanics while having a controlled and creative way to apply it. It is also interesting to analyse how these quantum games differ from their well defined classical counterparts. Furthermore  simulating quantum algorithms on a classical computer is usually impractical because this systems grow exponentially with the number of qubits. In game theory we have relevant problems that can be modelled using few qubits, thus making it possible to simulate in a classical computer.
 
 The Pirate Game is a mathematical, Game Theory, problem; with this work want to explore it in the light of quantum game theory. This means developing a quantization scheme, which is a way to transform the original game in a quantum simulation. Our simulations will be implemented on Matlab.
 
@@ -67,22 +73,21 @@ This dissertation contributes to the area of Quantum Game Theory and Quantum Com
 
 \item The study of the simulation developed. Specifically to study the role of entanglement, and the quantum strategies.
 \end{itemize}
-The main objectives with this work are: 
+The main objectives with this work are to learn how to quantize a classical Game Theory problem. We also aim to investigate and compile a set of relevant works on Quantum Models. Moreover we seek to compare the Quantum and the Classical versions of a game. Namely to observe how quantum phenomena, such entanglement, and the usage of quantum strategic space may alter the Nash equilibria in a quantum game.
 
-\begin{itemize}
-\item To learn how to quantize a classical Game Theory problem;
 
-\item To investigate and compile a set of relevant works on Quantum Models;
+\subsection{Outline}
+\label{sec:int_outline}
 
-\item To compare the Quantum and the Classical versions of a game. Namely to observe how quantum phenomena, such entanglement, and the usage of quantum strategic space may alter the Nash equilibria in a quantum game.
-
-\end{itemize}
-
-%OUTLINE DO DOCUMENTO
+This document is organized in an introductory section where we expose our motivation, objectives, contributions.
+In Section \ref{sec:bck} we present some theoretical concepts that lay the foundations for this dissertation. It will not be extensive enough for an unfamiliar reader.
+In Section \ref{sec:pirate_description} we present the original Pirate Game that we propose to model in the domain of Quantum Game Theory.
+Following we present our conceptual quantum model in Section \ref{subsubsec:analysis_PG3players}. In Section \ref{sec:pirate_results} we summarize and discuss the results of the simulation of the model. Finally we conclude by reflecting on the work done and lay the foundations for future work that might expand our contributions.
+ 
 
 %%STUFF IT
 \section{Background}
-
+\label{sec:bck}
 
 
 \subsection{Quantum Game Theory}
@@ -118,7 +123,7 @@ These operators can be used by the player to manipulate her qubit(s);
 \item Finally, for each player $i$, $E_{i}$ is a utility functional that
 specifies her payoff. This is done by attributing a real number (representing a expected utility $ u_{i}(b)$, in \ref{eq:quantum_game_definition_payoff_func}), to the measurement for the projection of the final state (\ref{eq:quantum_game_definition_move}), on a basis from the $\mathcal{B}$.\end{itemize}
 
-Some important operators from are:
+Relevant operators are:
 
 \begin{itemize}
 \item The Identity Matrix \ref{eq:idims}.
@@ -212,7 +217,7 @@ In the article "Quantum Games and Quantum Strategies"\cite{Eisert2008}, the auth
 
 
 \section{Pirate Game}
-\label{subsec:description}
+\label{sec:pirate_description}
 
 The original Pirate Game is a multi-player version of the Ultimatum game that was first published as a mathematical problem in the Scientific American as a mathematical problem posed by Omohundro\cite{Stewart1999}. The problem can be formulated as it follows:
 
@@ -501,6 +506,7 @@ If the parameter $\phi$ in the operator $U_{j}(\theta ,\phi)$ differs from $0$, 
 
 
 \section{Analysis and Results}
+\label{sec:pirate_results}
 We can interpret the existence (or non-existence), of entanglement or superposition in the initial system as an unbreakable contract between the players\cite{Piotrowski}. The initial state starts by revealing a group of pirates that cooperate by default. We chose this initial set-up because it is prevalent in the literature\cite{Eisert2008}\cite{Fra2011a}\cite{Fra2011}\cite{Letters2002}, and we want to test if there is any equilibrium situation where the first captain can pass her proposal while taking all the 100 coins.
 
 In Quantization schemas of the Prisoner's Dilemma\cite{Letters2002}\cite{Eisert2008}, and Quantum Ultimatum Game\cite{Fra2011}, the strategic space, described in Equation \ref{eq:operadoresinfinitus}, was analysed allowed a infinity of mixed quantum strategies. In the Quantum Roulette Game\cite{Salimi2009} and \cite{Meyer1999} we have a demonstration that in a classical two-person zero-sum strategic game, if only one player is allowed to adopt a quantum strategy, she has a better chance of winning the game. 
@@ -522,6 +528,15 @@ These results corroborate the literature.
 
 \section{Conclusion}
 
+With this dissertation we developed an approach to a novel Quantum Game - the Pirate Game. While defining the quantum model of the game we found that the most unique features of the problem, that appear when the number of coins does not allow for the captain to bribe the necessary votes in order for him to be spared, would pose an hard problem to analyse because of the exponential growth the system experiences when we increase the number of qubits. Possibly with the advent of the first commercial quantum computers these we will have resources to simulate these kinds of systems in a more spacial optimized way - the physical model for a qubit can be the polarization of a photon. 
+
+Nevertheless we developed a model for the Quantum Pirate Game with $3$ players, and we also studied the system for $2$ players. Both games are strictly determined in the original problem, however when we allow the system to be entanglement we start noticing that  there are quantum operators that can cause interference. When the game is maximally entangled, we could not find a pure strategy Nash Equilibrium. These results are similar to the findings in models such as the Prisoner's Dilemma\cite{Eisert2008}\cite{Letters2002}, and Stackelberg Duopoly \cite{Khan2011}.
+
+We also found that, when the system is maximally entangled, if we restrict the strategic space for some players we break the cycle of optimal quantum counter-strategies suggested by \cite{Du}: when the entanglement is maximal, $\mathcal{U}(\pi, 0)$ is the optimal counter-strategy for $C$ (represented by the identity marix), $\mathcal{U}(0, \frac{\pi}{2})$ is the optimal counter strategy for $\mathcal{U}(\pi, 0)$, $D$ becomes the optimal counter-strategy for $\mathcal{U}(0, \frac{\pi}{2})$, and $C$ becomes an optimal counter strategy for $D$. This means that it is possible for a player to explore this weakness if other players are unaware. If we had a quantum gambling system, or a voting system such as in the Pirate Game, the strategic space and the entanglement are information that needs to be available for all players equally in order for them to choose their best-response.
+
+Another contribution from this thesis is the simulation code in Matlab provided in the appendices, these examples might be used in order to experiment the quantum models of the Prisoner's Dilemma, a Quantum Roullete, and finally the Quantum Pirate Game. We also developed a Matlab simulation of the Quantum agorithms Walk in a Line. These simulations were built while analysing related work on the area.
+
+The implications of Quantum Mechanics are still very dettached from the way we think. The Quantum theory is deeply rooted in the concept of probability. Robert Laughlin uses the concept of emergence to explain the way classical phenomena arises from quantum mechanics\cite{Laughlin2005}. It is almost poetic that in our apparently deterministic world arises with all its patterns surges from the chaos. 
 
 \subsection{Future Work}
 The principles of quantum computing provide an extremely rich source of ideas to extend other fields of knowledge.
