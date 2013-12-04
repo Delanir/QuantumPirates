@@ -15,11 +15,11 @@ We simulated the Pirate Game for $2$-players according to the rules defined for 
 
 \item $I$
 
-\item $D$
+\item $D$ (also a Pauli operator $\sigma_{x}$)
 
-\item $\mathcal{U}( \pi, 0)$ - the quantum equivalent of a defection operator.
+\item $\mathcal{U}( \pi, 0)$ - a quantum equivalent of a defection operator, (also $i \sigma_y$).
 
-\item $\mathcal{U}( 0, \frac{\pi}{2})$ - the quantum equivalent of a cooperation operator.
+\item $\mathcal{U}( 0, \frac{\pi}{2})$ - the quantum equivalent of a cooperation operator, (also $i \sigma_z$).
 
 \end{itemize}
 
@@ -102,7 +102,9 @@ An example of this behaviour is shown in Figure \ref{fig:pg_3players_99_0_1}, wh
 \label{fig:pg_3players_99_0_1}
 \end{figure}
 
-When each player chooses an operator from the set $O = \{ \mathcal{U} ( \theta , 0) , \theta \in (0, \pi) \}$ and $\gamma=0$ we have an equivalent to the classic mixed strategies. However for $\gamma >0$ the $\mathcal{U} ( \theta , 0)$ may present an interference behaviour that is inherently quantum. This effect is shown in Figures \ref{fig:pg_3players_99_0_1:2} and \ref{fig:pg_3players_99_0_1:2}, allowing us to understand the difference between the Bit-flip operator $D$ and $\mathcal{U} ( \pi , 0)$.
+When each player chooses an operator from the set $O = \{ \mathcal{U} ( \theta , 0) , \theta \in (0, \pi) \}$ and $\gamma=0$ we have a separable game. This is an aquivalent situation to the classical game, but contrarily to the classical game where we have only a Nash Equilibrium $(C,D,C,C,D)$, we have more Equilibria, all with an outcome of $(99, 0, 1)$. This is verifyable because in the separable game the players act only in their qubits $\varphi_{j}$, and $D\vert 0\langle =\vert 1 \langle$ and $\mathcal{U}( \pi, 0) \vert 0 \rangle = - \vert 1 \rangle $, when measuring the probability of the operators $D$ and $\mathcal{U}( \pi, 0)$ tranforming a pure state $\vert 0 \rangle$ into state $\vert 1 \rangle$ we square the probability amplitude associated with the final state. When $\gamma = 0$  $C$ is interchangeble with $\mathcal{U}(0, \frac{\pi}{2})$, and $D$ is interchangeble wih $\mathcal{U}( \pi, 0)$.
+
+However for $\gamma >0$ the $\mathcal{U} ( \theta , 0)$ may present an interference behaviour that is inherently quantum. This effect is shown in Figures \ref{fig:pg_3players_99_0_1:2} and \ref{fig:pg_3players_99_0_1:2}, allowing us to understand the difference between the Bit-flip operator $D$ and $\mathcal{U} ( \pi , 0)$.
 
 
 

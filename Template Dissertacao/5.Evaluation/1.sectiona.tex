@@ -4,19 +4,19 @@
 
 
 
-We tried to get our Quantum Model of the Pirate Game as close as possible in order to compare the the original game. However we did not incorporate the concept of measuring the results between rounds. In the original problem after each stage the results are accounted. 
+We tried to get our Quantum Model of the Pirate Game as close as possible in order to compare the the original game. However we did not incorporate the concept of measuring the results between rounds of voting. In the original problem after each stage the results are accounted. Our approach was deemed more adequate to analyse in \cite{Fra2011}.
 
-In works such as the Prisoner's Dilemma\cite{Letters2002}\cite{Eisert2008}, and Quantum Ultimatum Game\cite{Fra2011}, the strategic space was analysed allowing a infinity of mixed quantum strategies.
+In works such as the Prisoner's Dilemma\cite{Letters2002}\cite{Eisert2008}, and Quantum Ultimatum Game\cite{Fra2011}, the strategic space was analysed allowing a infinity of mixed quantum strategies. Our game space was much more vast than the works previously mencioned, we used $5$ qubits to model our system, their models had no more than $3$ qubits. This imposed that in order to analyse our system while conceptualy, our strategic space is also infinite, we restricted in order to analyse. In particular we payed special interest in the strategies: $C$, $D$, $\mathcal{U}(\pi, 0)$, and $\mathcal{U}(0, \frac{\pi}{2})$. The first two mensioned strategies are the equivalent of the classical strategies ``Cooperate'' and ``Defect'', the other two are quantum strategies. Toghether these $4$ strategies when paired with the coefitients $(w,x,y,z)$ are known to span a class that contains all unitary operators, the $\mathsf{SU}(2)$. According to \cite{Du} these $4$ operators when the entanglement is maximum provided a cycle where each operator was an optimal counter strategy to other. 
 
-The set-up of the initial system was crucial to introduce the phenomenon of entanglement. We concluded that without entanglement the game has a strictly determined solution and behaves as the original problem.
+The set-up of the initial system was crucial to introduce the phenomenon of entanglement. We concluded that without entanglement the game has a strictly determined solution and behaves as the original problem, however there are more pure strategy Nash Equilibria.
 
 For the $2$-player game we concluded that the expected utility when the players use a mixed strategy Nash equilibrium renders an expected utility of $(25, 25.125)$ wich is also a Pareto optimal solution because it is not possible to improve one player's expected utility without harm the other. The classical setting is more beneficial to the captain in this game, because she will receive the 100 coins. We also found that distributing 50 coins would give a lower expected utility to the captain. This result is interesting because it is a Pareto optimal solution in the classical version, though not a Nash Equilibrium, and it renders an higher payoff than the Nash Equilibrium and Pareto Optimal solution when the sytem is maximaly entangled and the players have access to the $4$ pure quantum strategies discussed in \cite{Du} and \cite{Letters2002}. 
 
-The $3$-player game also has a mixed quantum strategy Nash Equilibrium, like the $2$-player game. 
+The $3$-player game also has a mixed quantum strategy Nash Equilibrium, like the $2$-player game, when the entanglement is maximum, however its calculus fell beyond the scope of this dissertation. 
 
 When trying to find if it is possible for the captain in the first stage of the game to acquire all gold coins we found that if the other players have a restricted set of strategies, they can only use the classical Cooperate or Defect operators, and if they don't know that the captain has access to quantum strategies, the captain will be able to get the $100$ gold coins. However if players $2$ and $3$ have a restricted set where they can only use the classical Cooperation operator, or the classical Defection operator, the player $1$ will no longer be able to acquire the 100 coins with certainty. Instead she may be able to acquire the $100$ coins with probability $\frac{1}{2}$ or end up thrown off board with equal probability.
 
-These results corroborate the literature in the Chapter 3.
+These results corroborate the literature in the Chapter 3, while contributing with another case study.
 
 
  

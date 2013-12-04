@@ -89,6 +89,109 @@ Following we present our conceptual quantum model in Section \ref{subsubsec:anal
 \section{Background}
 \label{sec:bck}
 
+\subsection{Game Theory}
+\label{sec:background:game_theory}
+
+Game Theory did not exist as a field of own right before von Neumann published the article " On the Theory of Games of Strategy''. This field deals mainly with the study of interactions between rational decision-makers\cite{Neumann1944}. Game Theory knows numerous applications in areas such as Economics, Political Science, Biology, and Artificial Intelligence. 
+
+\subsubsection{Definition of a Game}
+\label{subsec:background:game_theory_definition}
+
+A game ($\Gamma$), is a model of conflict between players characterized by\cite{Osborne2004}\cite{OsbRub94}\cite{Fra2011}:
+\begin{itemize}
+\item A set of Players: $P=\{1, 2, .., N \}$.
+\item For each player there is set of Actions.
+\item There are preferences , for each player, over the set of Actions.
+\end{itemize}
+
+
+The preferences in the previous definitions are defined with resort to concept of utility, expected utility, or payoff derives from the theory that we can use real numbers (Equation \ref{gt:utilidadesreais}), to model and represent the wants and needs of the players. 
+
+\begin{equation}
+u:X\rightarrow\mathbb{R}
+\label{gt:utilidadesreais}
+\end{equation}
+
+This simplified mathematical model allows to compare different states and rank preferred outcomes. If $u_{i}(x)$ is a utility function for player $i$, and $u_{i}(A)>u_{i}(B)$, that would mean that the player would strictly prefer $A$ over $B$. The concept of expected utility is fundamental to analyse games, as a rational player would try to maximize her expected utility\cite{Neumann1944}\cite{Osborne2004}\cite{Leyton-Brown2008:Essentials_Game_Theory}.
+
+
+The options a player $i$ has when choosing an action, when the outcome depends not only on their choice (but also on the actions taken by the other players), is referred as strategy $s_{i}$. The set of strategies available to a player is represented by the set $S_{i}$.
+
+When a strategy gives strictly a higher expected utility in comparison to other strategies, we have a strategy that dominates, or a dominant strategy. The mathematical definition of dominance is represented in Equation \ref{gt:dominant_strategy}; where, for a player $i$, in spite of the strategies chosen by the other players (denoted by $s_{-i}$), there is a strategy $s^{*}$ which gives always an higher expected utility in comparison with other strategies $s^{'}$ available to player $i$.
+
+\begin{equation}
+\forall s_{-i}\in S_{-i}[u_{i}(s^{*},s_{-i})>u_{i}(s^{'},s_{-i})]
+\label{gt:dominant_strategy}
+\end{equation}
+
+The strategy that leads to the most favourable outcome for a player, taking into account other players strategies, is known as best response.
+
+A pure strategy defines deterministically how the player will play the game. In the game represented in Table\ref{tab:2prisionersdillema_tab2} , in a pure strategy, the players either they choose ``Cooperate'' ($C$), or ``Defect'' ($D$). 
+
+If there is a probability distribution associated with probability of playing with a determined pure strategy, we have a mixed strategy. 
+
+There are two standard representations of games: Normal Form - lists what payoffs the players get as a function of their actions as if they all make their moves simultaneously. This games are usually represented by a matrix, for example \ref{tab:2prisionersdillema_tab2}; Extensive Form - extensive form games can be represented by a tree and represent timed actions.
+
+
+\begin{center}
+\begin{table}[h]
+\begin{centering}
+\begin{tabular}{ccc}
+\hline 
+ & Player 2: C & Player 2: D\tabularnewline
+\hline 
+Player 1: C & (2,2) & (0,3)\tabularnewline
+Player 1: D & (3,0) & (1,1)\tabularnewline
+\hline 
+\end{tabular}
+\par\end{centering}
+
+\caption{Example of a Normal Form game. This is a possible representation of the Prisoner's Dilemma game.}
+\label{tab:2prisionersdillema_tab2}
+\end{table}
+\par\end{center}
+
+A finite game is a game that has a finite set of actions, a finite number or players, and it does not go on indefinitely.
+
+A zero-sum game is a mathematical representation of a system where the gains are completely evened out by the losses; this means that the sum of the utilities of all players will always be zero.
+
+When every player cannot improve her payoff without lowering another player's expected utility we have a Pareto Optimal solution.
+
+
+
+\subsubsection{Nash Equilibrium}
+\label{subsec:background:game_theory_nash_equilibrium}
+
+If we observe the representation of the classic game ``Prisoner's Dilemma'', we can observe that each player has two strategies; either they choose ``Cooperate'' ($C$), or ``Defect'' ($D$). The ``Defect'' strategy, for both players (the game is symmetrical), always yield a higher payoff in spite of the other player's strategy, this means that it is a dominant strategy and also constitutes a best response to the game. If both players chose their best response the final outcome $(D,D)$ becomes an equilibrium solution, more specifically a Nash Equilibrium. 
+here several decision makers interact simultaneously and the final outcome depends on the players strategy\cite{Osborne2004}.
+
+In order to compute a mixed strategy Nash Equilibrium in a 2-player 2 actions game, we need to define the probability distribution $P(C)=q$, $P(D)=1-q$ that makes player 1 indifferent to the whether player 2 decides to Cooperate or to Defect, and the probability distribution $P(C)=p$, $P(D)=1-p$ that makes player 2 indifferent to whether player 1 decides to Cooperate or to Defect. In the game represented in Table \ref{tab:2pennyflip_tab2} the  mixed strategies $(\frac{1}{3} , \frac{2}{3})$ and $(\frac{2}{3} , \frac{1}{3})$ are Nash Equilibria.
+
+\begin{center}
+\begin{table}[h]
+\begin{centering}
+\begin{tabular}{ccc}
+\hline 
+ & Player 2: C & Player 2: D\tabularnewline
+\hline 
+Player 1: C & (2,1) & (0,0)\tabularnewline
+Player 1: D & (0,0) & (1,2)\tabularnewline
+\hline 
+\end{tabular}
+\par\end{centering}
+
+\caption{Example of a Normal Form game. The mixed strategies $(\frac{1}{3} , \frac{2}{3})$ and $(\frac{2}{3} , \frac{1}{3})$ are Nash Equilibria for this game. }
+\label{tab:2pennyflip_tab2}
+\end{table}
+\par\end{center}
+
+When there is at least a Nash Equilibrium when the players choose pure strategies we have a a strictly determined game\cite{Leyton-Brown2008:Essentials_Game_Theory}. In an extensive form game we have a concept of sub-game perfect Nash equilibrium, when a strategy is a Nash equilibrium for all sub-games in the original game\cite{Leyton-Brown2008:Essentials_Game_Theory}.
+
+
+
+
+
+
 
 \subsection{Quantum Game Theory}
 \label{sec:background_quantum_game_theory}
@@ -507,24 +610,19 @@ If the parameter $\phi$ in the operator $U_{j}(\theta ,\phi)$ differs from $0$, 
 
 \section{Analysis and Results}
 \label{sec:pirate_results}
-We can interpret the existence (or non-existence), of entanglement or superposition in the initial system as an unbreakable contract between the players\cite{Piotrowski}. The initial state starts by revealing a group of pirates that cooperate by default. We chose this initial set-up because it is prevalent in the literature\cite{Eisert2008}\cite{Fra2011a}\cite{Fra2011}\cite{Letters2002}, and we want to test if there is any equilibrium situation where the first captain can pass her proposal while taking all the 100 coins.
+We tried to get our Quantum Model of the Pirate Game as close as possible in order to compare the the original game. However we did not incorporate the concept of measuring the results between rounds of voting. In the original problem after each stage the results are accounted. Our approach was deemed more adequate to analyse in \cite{Fra2011}.
 
-In Quantization schemas of the Prisoner's Dilemma\cite{Letters2002}\cite{Eisert2008}, and Quantum Ultimatum Game\cite{Fra2011}, the strategic space, described in Equation \ref{eq:operadoresinfinitus}, was analysed allowed a infinity of mixed quantum strategies. In the Quantum Roulette Game\cite{Salimi2009} and \cite{Meyer1999} we have a demonstration that in a classical two-person zero-sum strategic game, if only one player is allowed to adopt a quantum strategy, she has a better chance of winning the game. 
+In works such as the Prisoner's Dilemma\cite{Letters2002}\cite{Eisert2008}, and Quantum Ultimatum Game\cite{Fra2011}, the strategic space was analysed allowing a infinity of mixed quantum strategies. Our game space was much more vast than the works previously mencioned, we used $5$ qubits to model our system, their models had no more than $3$ qubits. This imposed that in order to analyse our system while conceptualy, our strategic space is also infinite, we restricted in order to analyse. In particular we payed special interest in the strategies: $C$, $D$, $\mathcal{U}(\pi, 0)$, and $\mathcal{U}(0, \frac{\pi}{2})$. The first two mensioned strategies are the equivalent of the classical strategies ``Cooperate'' and ``Defect'', the other two are quantum strategies. Toghether these $4$ strategies when paired with the coefitients $(w,x,y,z)$ are known to span a class that contains all unitary operators, the $\mathsf{SU}(2)$. According to \cite{Du} these $4$ operators when the entanglement is maximum provided a cycle where each operator was an optimal counter strategy to other. 
 
-According to \cite{Du} when the entanglement is maximal, $\mathcal{U}(\pi, 0)$ is the optimal counter-strategy for $C$ (represented by the identity matrix), $\mathcal{U}(0, \frac{\pi}{2})$ is the optimal counter strategy for $\mathcal{U}(\pi, 0)$, $D$ becomes the optimal counter-strategy for $\mathcal{U}(0, \frac{\pi}{2})$, and $C$ becomes an optimal counter strategy for $D$. 
+The set-up of the initial system was crucial to introduce the phenomenon of entanglement. We concluded that without entanglement the game has a strictly determined solution and behaves as the original problem, however there are more pure strategy Nash Equilibria.
 
-In works such as the Prisoner's Dilemma\cite{Letters2002}\cite{Eisert2008}, and Quantum Ultimatum Game\cite{Fra2011}, the strategic space was analysed allowing a infinity of mixed quantum strategies.
+For the $2$-player game we concluded that the expected utility when the players use a mixed strategy Nash equilibrium renders an expected utility of $(25, 25.125)$ wich is also a Pareto optimal solution because it is not possible to improve one player's expected utility without harm the other. The classical setting is more beneficial to the captain in this game, because she will receive the 100 coins. We also found that distributing 50 coins would give a lower expected utility to the captain. This result is interesting because it is a Pareto optimal solution in the classical version, though not a Nash Equilibrium, and it renders an higher payoff than the Nash Equilibrium and Pareto Optimal solution when the sytem is maximaly entangled and the players have access to the $4$ pure quantum strategies discussed in \cite{Du} and \cite{Letters2002}. 
 
-The set-up of the initial system was crucial to introduce the phenomenon of entanglement. We concluded that without entanglement the game has a strictly determined solution and behaves as the original problem.
-
-For the $2$-player game we concluded that the expected utility when the players use a mixed strategy Nash equilibrium renders an expected utility of $(25, 25.125)$ wich is also a Pareto optimal solution because it is not possible to improve one player's expected utility without harm the other. The classical setting is more beneficial to the captain in this game, because she will receive the 100 coins. We also found that distributing 50 coins would give a lower expected utility to the captain. This result is interesting because it is a Pareto optimal solution in the classical version, though not a Nash Equilibrium, and it renders an higher payoff than the Nash Equilibrium and Pareto Optimal solution when the system is maximally entangled and the players have access to the $4$ pure quantum strategies discussed in \cite{Du} and \cite{Letters2002}. 
-
-The $3$-player game also has a mixed quantum strategy Nash Equilibrium, like the $2$-player game. 
+The $3$-player game also has a mixed quantum strategy Nash Equilibrium, like the $2$-player game, when the entanglement is maximum, however its calculus fell beyond the scope of this dissertation. 
 
 When trying to find if it is possible for the captain in the first stage of the game to acquire all gold coins we found that if the other players have a restricted set of strategies, they can only use the classical Cooperate or Defect operators, and if they don't know that the captain has access to quantum strategies, the captain will be able to get the $100$ gold coins. However if players $2$ and $3$ have a restricted set where they can only use the classical Cooperation operator, or the classical Defection operator, the player $1$ will no longer be able to acquire the 100 coins with certainty. Instead she may be able to acquire the $100$ coins with probability $\frac{1}{2}$ or end up thrown off board with equal probability.
 
-These results corroborate the literature.
-%%STUFF IT
+These results corroborate the literature in the Chapter 3, while contributing with another case study.
 
 \section{Conclusion}
 
@@ -544,9 +642,8 @@ Some suggestions for possible extensions for this work would be:
 
 \begin{enumerate}
 
-\item \textbf{To make conditional measurements by applying the L\"{u}der's Rule} The objective would be to separate each stage of the game with a measurement operation. After a stage where the players made their strategic moves, the resulting quantum state would be de-entangled, projected in order to separate  the sub-game where the vigent proposal was accepted and the complementary state where the proposal was not accepted. The game would be then re-entangled with a new entanglement coefficient. 
 
-\item \textbf{Optimize this Quantum Pirate Game Model.} To model this game as a Quantum Bayesian Network. The Bayesian Networks (also referred to as Belief Networks, Probabilistic networks or causal networks) consist of an Directed Acyclic Graph to represent a set of conditional dependencies between random variables, that provide a compact description that allows to calculate a joint probability distribution, having in mind those dependencies into account. \cite{Tucci2012} proposes a model for Quantum Bayesian Networks, so designing a Quantum Bayesian Network approximation for the Quantum Pirate Game, having the description of this model as a starting point, could be a relevant research topic.
+\item \textbf{Optimize this Quantum Pirate Game Model.} To model this game as a Quantum Bayesian Network. 
 
 \item \textbf{To implement and test this quantum model with human subjects.} The field of Quantum Cognition tries to explain the Human reasoning process by using principles from quantum game theory, namely quantum probabilities. To expose subjects to a quantum model and having them try to take advantage of the rules of the system might provide valuable insights to the way we reason. 
 
@@ -554,7 +651,7 @@ Some suggestions for possible extensions for this work would be:
 
 \item \textbf{A graphical user interface (GUI) for the Pirate Game.} This would provide a more approachable way to tweak parameters.
 
-\item \textbf{To create and structure a platform to promote scientific dissemination of quantum computing.} While investigating and developing this solution, there was often the thought that it would be important for undergraduate Computer Science students to come with contact with this paradigm. This field is still shrouded with mystery to many people, and this makes it a priority topic for scientific divulgation. In this work we tried to present examples that someone with a basic understanding of Algebra may be able to follow.
+\item \textbf{To create and structure a platform to promote scientific dissemination of quantum computing.} While investigating and developing this solution, there was often the thought that it would be important for undergraduate Computer Science students to come with contact with this paradigm. This field is still shrouded with mystery to many people, and this makes it a priority topic for scientific divulgation. 
 \end{enumerate}
 
  
