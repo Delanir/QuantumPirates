@@ -3,12 +3,7 @@
 
 \label{subsec:int_int_bayesian_probability}
 
-The probability theory has its roots in the $16^{th}$ century with attempts to analyse games of chance by Cardano. It is not hard to understand why games of chance are in the foundations of the probability theory. Throughout History the concept of probability has fascinated the Human being. Luck, fate were words that reflect things we feel we have no control upon and are associated with those games, and almost paradoxically we evolved in a way that we do not feel comfortable around them. 
-
-\begin{comment}
-Uncertainty raises us fear and doubt, so the games of chance provide a controlled environment in which we can make our experiments with uncertainty. Also by studying these games we seek to minimize the uncertainty associated with them.
-\end{comment}
-
+The Probability theory has its roots in the $16^{th}$ century with attempts to analyse games of chance by Cardano. It is not hard to understand why games of chance are in the foundations of the probability theory, as throughout History the concept of probability has fascinated the Human being. Luck, fate were words that reflect things we feel we have no control upon and are associated with those games, and almost paradoxically we evolved in a way that we do not feel comfortable around them. 
 
 \subsection{Kolmogorov axioms}
 
@@ -24,8 +19,8 @@ This number represents the likelihood of that event happening, the greater the p
  \begin{equation}
 0\leq P(A)\leq1
 \end{equation}
-\item The probability of a sequence of pairwise disjoint events is the sum these events. A corollary of this axiom is:
-\item Any countable sequence of mutually exclusive events satisfies:
+\item The probability of a sequence of pairwise disjoint events is the sum of the probabilitis of each of those events. A corollary of this axiom is:
+%\item Any countable sequence of mutually exclusive events satisfies:
 \begin{equation}
 P(A_{1}\vee A_{2} \vee ... \vee A_{n})=P(A_{1})+P(A_{2}) + ... + P(A_{n})
 \end{equation}
@@ -48,9 +43,9 @@ The Bayesian approach to the interpretation of probability is to consider the pr
 %prooffed
 \subsection{Conditional Probability}
 \label{subsubsec:conditionalprobability}
-When some evidence is presented we have what we can conditional probability (or posterior probability). Conditional probability  is represented as $P(A|B)$, that could be read as: the probability of A after evidence B is presented. 
+When some evidence is presented we have what we call conditional probability (or posterior probability). Conditional probability  is represented as $P(A|B)$, that could be read as: the probability of A after evidence B is presented. 
 
-The product rule is used to calculate posterior probability\ref{eq:bayesian_prababiity_product_rule}.
+The product rule is used to calculate posterior probability:
 \begin{equation}
 \label{eq:bayesian_prababiity_product_rule}
 P(A|B)=\frac{P(A\wedge B)}{P(B)}

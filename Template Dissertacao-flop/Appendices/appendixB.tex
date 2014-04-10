@@ -1,0 +1,122 @@
+\fancychapter{Quantum Prisioner's Dillema}
+\label{ap:b}
+
+
+\begin{lstlisting}
+% Quantum Prisioner's Dillema
+function out = quantumprisionersdillema(g,T,R,P,S,U1,U2)
+%quantumprisionersdillema(g)
+%   
+%                Simulates the payoff of 2-player prisioner's dillema game
+%                 
+%        IN:
+%                g   : entanglement coefitient, by defaut g=0 (no
+%                entanglement)
+%                T   : temptation, by defaut T=3
+%                R   : reward, by defaut R=2
+%                P   : punishment, by defaut P=1
+%                S   : suckers, by defaut S=0
+%                U1   : Player 1 strategy
+%                U2   : Player 2 strategy
+%
+% To have a prisoner's dilemma game according to the cannonical form, 
+% it must respect:
+% T > R > P > S
+%            P      Player 2
+%            l       C       D
+%            a  C: (R, R)  (S, T)
+%            y  D: (T, S)  (P, P)
+%            e
+%            r
+%            1
+%
+%        OUT:    
+%                out: 5x2 matrix, column 1 has the expected utility for
+%                     player 1, column 2 has the expected utility for
+%                     player 2. A possible outcome corresponds to each
+%                     line like [CC;CD;DC;DD;U1U2]
+%                     
+% All parameters are optional
+%------------------------%
+
+%-- entanglement coeficient (checks if exists)
+%-- Check variables and set to defaults
+if exist('g','var')~=1, g=0; end
+
+%-- Utility
+%-- Check variables and set to defaults
+if exist('T','var')~=1, T=3; end
+if exist('R','var')~=1, R=2; end
+if exist('P','var')~=1, P=1; end
+if exist('S','var')~=1, S=0; end
+
+%-- Strategies
+if exist('U1','var')~=1, U1=[0 1i;1i 0]; end
+if exist('U2','var')~=1, U2=[0 1i;1i 0]; end
+
+%-- Actions
+%   cooperate= [1 0;0 1]
+C= eye(2);
+%   defect= [0 1;1 0]
+D= ones(2)-eye(2);
+
+%-- Building the initial state
+ini= cos(g)*kron([1 0]',[1 0]') + 1i*sin(g)*kron([0 1]',[0 1]');
+%-- Deentangles to produce a final state
+Jt = ctranspose( expm(1i*(g)*kron(D,D)));
+out= zeros(5,2);   
+%-- Simulation a outcome where player1 (C)ooperates 
+%   and player 2 (C)ooperates
+   finCC= Jt*kron(C,C)*ini;
+   out(1,1)=payofffunc_player1(finCC, T, R, P, S);
+   out(1,2)=payofffunc_player2(finCC, T, R, P, S);
+%-- Simulation a outcome where player1 (C)ooperates 
+%   and player 2 (D)efects
+   finCD= Jt*kron(C,D)*ini;
+   out(2,1)=payofffunc_player1(finCD, T, R, P, S);
+   out(2,2)=payofffunc_player2(finCD, T, R, P, S);
+%-- Simulation a outcome where player1 (D)efects
+%   and player 2 (C)ooperates
+   finDC= Jt*kron(D,C)*ini;
+   out(3,1)=payofffunc_player1(finDC, T, R, P, S);
+   out(3,2)=payofffunc_player2(finDC, T, R, P, S);
+%-- Simulation a outcome where player1 (D)efects
+%   and player 2 (D)efects
+   finDD= Jt*kron(D,D)*ini;
+   out(4,1)=payofffunc_player1(finDD, T, R, P, S);
+   out(4,2)=payofffunc_player2(finDD, T, R, P, S);
+%-- Simulation a outcome where player1 plays U1
+%   and player 2 U2
+   finUU= Jt*kron(U1,U2)*ini;
+   out(5,1)=payofffunc_player1(finUU, T, R, P, S);
+   out(5,2)=payofffunc_player2(finUU, T, R, P, S);
+end
+
+function u = payofffunc_player1(fin, T, R, P, S)
+%payofffunc_player1(fin)
+%   
+%                Calculates the payoff for player 1
+%              IN
+%                   fin: final state
+%                   T, R, P, S: payoff numbers
+%              OUT
+%                   u: expected utility for player 1
+%(norm(conj([0 1 1 1 0 1 1 1]').*fin2CC))^2
+    u= R*(norm(conj([1 0 0 0]').*fin))^2 + T*(norm(conj([0 0 1 0]').*fin))^2+ P*(norm(conj([0 0 0 1]').*fin))^2;
+end
+
+function u = payofffunc_player2(fin, T, R, P, S)
+%payofffunc_player1(fin)
+%   
+%                Calculates the payoff for player 2
+%              IN
+%                   fin: final state
+%                   T, R, P, S: payoff numbers
+%              OUT
+%                   u: expected utility for player 2
+    u= R*(norm(conj([1 0 0 0]').*fin))^2 + T*(norm(conj([0 1 0 0]').*fin))^2+ P*(norm(conj([0 0 0 1]').*fin))^2;
+end
+
+
+
+\end{lstlisting}

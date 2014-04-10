@@ -1,0 +1,116 @@
+
+
+
+\section{Pirate Game}
+\label{sec:pirate}
+
+
+
+\subsection{Problem Description}
+\label{subsec:description}
+
+The original Pirate Game is a multi-player version of the Ultimatum game that was first published as a mathematical problem in the Scientific American as a mathematical problem posed by Omohundro\cite{Stewart1999}. The main objective of the Pirate Game was to present a fully explainable problem with a non-obvious solution. The problem can be formulated as it follows:
+
+\begin{quotation}
+Suppose there are 5 rational pirates: A; B; C; D; E. The pirates have a  loot of 100 indivisible gold coins to divide among themselves.
+
+
+As the pirates have a strict hierarchy, in which pirate A is the captain and E has the lowest rank, the highest ranking pirate alive will propose a division. Then each pirate will cast a vote on whether or not to accept the proposal. 
+
+If a majority or a tie is reached the goods will be allocated according to the proposal. Otherwise the proposer will be thrown overboard and the next pirate in the hierarchy assumes the place of the captain. 
+
+We consider that each pirate privileges her survival, and then will want to maximize the number of coins received. When the result is indifferent the pirates prefer to throw another pirate overboard and thus climbing in the hierarchy. 
+\end{quotation}
+
+\subsection{Analysis}
+\label{subsec:analysis_PG}
+
+We can arrive at the sub-game perfect Nash equilibrium in this problem by using backward induction. At the end of the problem, supposing there are two pirates left, the equilibrium is very straight forward. This sub-game is represented in Table \ref{tab:classico2jogadores}, and its Nash Equilibrium is $(C,D)$.
+
+\begin{table}[h]
+\begin{center}
+\begin{centering}
+\begin{tabular}{ccc}
+\hline 
+  & Player 2: C & Player 2: D\tabularnewline
+\hline 
+Player 1: C & (100, 0) & (100, 0)\tabularnewline
+Player 1: D & (100, 0) & (-200, 100.5)\tabularnewline
+\hline 
+\end{tabular}
+
+\par\end{centering}
+\caption{Representation of the $2$ player sub-game in normal form.}
+\label{tab:classico2jogadores}
+\end{center}
+
+\end{table}
+
+As the highest ranking pirate can pass the proposal in spite of the other's decision, her self-interest dictates that she will get the 100 gold coins. Knowing this, pirate E knows that any bribe other higher ranking pirate offers her will leave her better than if the game arrives to the last proposal. 
+
+
+
+
+
+\begin{table}
+\begin{center}
+\begin{tabular}{cc}
+  a)\putindeepbox[7pt]{\includegraphics[scale=0.20]{Pirates1/Slide1.PNG}}
+    & b) \putindeepbox[7pt]{\includegraphics[scale=0.20]{Pirates1/Slide2.PNG}} \\
+  c) \putindeepbox[7pt]{\includegraphics[scale=0.20]{Pirates1/Slide3.PNG}}
+    & d)\putindeepbox[7pt]{\includegraphics[scale=0.20]{Pirates1/Slide4.PNG}} \\
+\end{tabular}
+\caption{The equilibrium for the Pirate Game can be found through backward induction. From a), where there's only two pirates left, to d), that corresponds to the initial problem, we define the best response.}
+\label{tab:piratas_m}
+\end{center}
+ \end{table}
+
+When applying this reasoning to the three pirate move, as pirate C knows she needs one more vote to pass her proposal and avoiding death, she will offer the minimum amount of coins that will make pirate E better off than if it comes to the last stage with two pirates. This means that pirate C will offer 1 gold coin to pirate E, and keep the remaining 99 coins. 
+
+With 4 pirates, B would rather bribe pirate D with 1 gold coin, because E would rather like climb on the hierarchy and getting the same payoff. Finally, with 5 pirates the captain (A), will keep 98 gold coins and rely on pirate C and E to vote in favour of the proposal, by giving 1 gold coin each. This means that this game is a strictly determined game.
+
+\subsubsection{Analysis of the Pirate Game for $3$ Players}
+\label{subsubsec:analysis_PG3players}
+
+In Figure \ref{fig:pg_architecturegametree:extensiveform} we have an extensive form representation of the classic Pirate Game for $3$ players. Each node in the game tree has the number of the player who will make the decision, either to Cooperate (vote yes to the proposal), or Defect. The dashed arrows represent states where the player does not have information of the current state (simultaneous move). 
+
+\begin{figure}[h]
+\centering 
+\includegraphics[scale=0.60]{Figures/1.5qubit/FigurasRevistas/Slide1.png}
+\caption{Extensive form representation of the classic Pirate Game for $3$ players. }
+\label{fig:pg_architecturegametree:extensiveform}
+\end{figure}
+
+The green accent, in Figure \ref{fig:pg_architecturegametree:extensiveform}, shown in the nodes represent a state where the first captain (player $1$), will see her proposal accepted, the utility associated . The blue accent denotes the outcomes where the second captain makes a proposal and has seen it accepted. The red accent color represents the outcomes where the player $3$ will be the remaining pirate.
+
+The number of coins will translate directly the utility associated with getting those coins. For example if a pirate receives 5 gold coins and the proposal is accepted he will get a utility of 5. The highest ranking pirate in the hierarchy is responsible to make a proposal to divide the 100 gold coins. This proposal means choosing the number of coins each player gets if the proposal is accepted. A captain $i$ chooses the amount of coins a player $j$ get; this amount will be represented by $\alpha_{ij}$.
+
+In the initial stage of the game the captain will define $\alpha_{11}, \alpha_{12}, \alpha_{13}$, and they will obey to the Equation \ref{eq:goodss}, that imposes the rule that the captain $i$ must allocate all the 100 coins, to the players that are still alive. $N$ the number of pirates in the game. 
+
+\begin{equation}
+\label{eq:goodss}
+\forall i \in \{1 , 2, ..., N-1\} : \sum_{j=i}^{N}\alpha_{ij}=100, \forall i,j :\alpha_{ij}\in\mathbb{N}_{0}
+\end{equation}
+
+The values for $(\alpha_{11}, \alpha_{12}, \alpha_{13})=(99, 0, 1)$ will be the allocation that results in an equilibrium for the $3$ player game .
+
+The proposed goods allocation will be executed if there is a majority (or a tie), in the voting step. A step in the game consists on the highest ranking pirate defining a proposal and the subsequent vote, where all players choose simultaneously an operator. 
+
+If the proposal is rejected the captain will be thrown off board, to account for the fact that this situation is very undesirable for the captain he will receive a negative payoff of $-200$ (that can be seen in the blue and red outcome in Figure \ref{fig:pg_architecturegametree:extensiveform}). This value was derived from the fact that a pirate values her integrity more than any number of coins she might receive.
+
+
+\begin{quotation}
+``When the result is indifferent the pirates prefer to throw another pirate overboard and thus climbing in the hierarchy.''
+\end{quotation}
+
+This means that the pirates have a small incentive to climb the hierarchy. For example in the three player classical game, the third player, who has the lowest rank, will prefer to defect the initial proposal if the player 1 doesn't give her a coin, even knowing that in the second round the player 2 will be able to keep the 100 coins. We will account for this preference by assigning an expected value of half a coin ($0.5$), to the payoff of the players that will climb on the hierarchy if the voting fails. This tie breaker is shown in the blue and red outcomes in Figure \ref{fig:pg_architecturegametree:extensiveform}.
+
+\subsubsection{Consideration on the generalization for $N$ players}
+\label{subsubsec:analysis_PG}
+
+We can generalize this problem for $N$ pirates. If we assign a number to each pirate, where the captain is number 1 and the lower the number the higher the rank. If the number of coins is superior to the number of pirates, the equilibrium will have the captain (highest ranking pirate), giving a gold coin to each odd pirate, in case the number of players alive is odd, while keeping the rest to herself. When we have a even number of players the captain will assign a gold piece to each pirate with a even number, and the the remaining coins to herself. 
+
+If the number of pirates is greater than two times the amount of coins $N>2C$, a new situation arises. If we have 100 coins and 201 pirates, the captain will not get any coin. By the same reasoning with 202 pirates the captain will still be able to survive by bribing the majority of the pirates and keeping no coins for herself. With 203 pirates the first captain will die. However with 204 pirates, the first captain will be able to survive even though he won't be able to bribe the majority, because her second in command knows that when she makes a proposal, she'll be thrown off board. In the game with 205 pirates, however the captain is not able to secure the vote from the second in command on the 204 pirate game, because the second captain is safe and she is able to make a have her proposal accepted and have the third pirate safe. 
+
+We can generalize this problem for $N>2C$ as \cite{Stewart1999}, as the games with a number of pirates equal to $2C$ plus a power of two will have an equilibrium in the first round, in the others every captain until a sub-game with a number of pirates equal to $2C$ plus a power of two will be thrown off board.
+

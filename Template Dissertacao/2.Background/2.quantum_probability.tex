@@ -6,7 +6,7 @@
 %In the introdutory section regarding Quantum Computation we could note that probabilities are an intrinsic part of quantum theory.
 
  
-In the beginning on the $20^{th}$ century the nature of light was once again in the spotlight. The question whether light would be a particle (corpuscular theory), or a wave (undulatory theory), was posed throughout History. Newton, notoriously, considered light to be a particle and presented arguments such as the fact that light travels in a straight like, not bending when presented with obstacles, unlike waves, and gave an interpretation of the diffraction mechanism by resorting to a special medium (aether), where the light corpuscles could create a localized wave\cite{DiasdeDeus:1387968}. 
+In the beginning on the $20^{th}$ century the nature of light was on the spotlight of scientific investigation. The question whether light would be a particle (corpuscular theory), or a wave (undulatory theory), had been posed throughout History. Newton, notoriously, considered light to be a particle and presented arguments such as the fact that light travels in a straight like, not bending when presented with obstacles, unlike waves, and gave an interpretation of the diffraction mechanism by resorting to a special medium (aether), where the light corpuscles could create a localized wave\cite{DiasdeDeus:1387968}. 
 
 %figura difracção
 
@@ -54,9 +54,23 @@ De Broglie(1924), suggested that all the matter had a wave-particle duality. Thi
 As previously explained, Quantum Theory is a branch of physics that has evolved from the need to explain certain phenomena that could not be explained with the current classical theory.
 In the beginning of the 20\textsuperscript{th} century Dirac and von Neumann  helped to create the mathematical formalisms for this theory \cite{sep-qt-nvd}\cite{Summers2006}. 
 
-Von Neumann's contributions were focused in the mathematical rigour, as is framework is strongly based in Hilbert's theory of operators. Dirac's concerns were more of a practical nature. Their combined contributions were invaluable to establish this area. 
+Von Neumann's contributions revolved around the mathematical rigour that enabled to explain and manipulate the quantum phenomena. His framework is strongly based in Hilbert's theory of operators. Dirac's concerns were more of a practical nature, as his notation provided a compact way to represent quantum states. Their combined contributions were invaluable to establish this area. 
 
-From Dirac it is important to point the Dirac's notation (also known as Bra-ket notation or  $\langle Bra\vert c\vert ket\rangle$ ) (introduced in 1939 \cite{sep-qt-nvd}), that is widely used in literature based on quantum theory. This notation uses angle brackets and vertical bars to represent quantum states (or abstract vectors) as it can be seen in the formulas \eqref{rangle_dirac} and \eqref{langle_dirac}. 
+A Hilbert Space is an extension of a vector space which requires the definition of inner product. A quantum system is represented by a $n$-dimensional complex Hilbert Space; a complex vector space in which the inner product is defined. 
+
+\begin{figure}[h]
+\centering 
+
+\includegraphics[scale=0.35]{Figures/bloch_sphere.png}
+\caption{Representation of a two-dimensional Hilbert Space($\mathcal{H}^{2}$)}
+\label{fig:circle}
+\end{figure}
+
+
+A $2$-dimensional Hilbert Space (corresponding to a qubit for example), can be represented by a Bloch Sphere. In the Figure \ref{fig:circle} we have a representation of quantum state $\vert v \rangle$ in a two-dimensional Hilbert Space. 
+
+
+From Dirac it is important to point the Dirac's notation (also known as Bra-ket notation or  $\langle Bra\vert c\vert ket\rangle$ ) (introduced in 1939 \cite{sep-qt-nvd}), that is widely used in literature based on quantum theory. This notation uses angle brackets and vertical bars to represent quantum states (or abstract vectors) as it can be seen bellow: 
 
 \begin{equation}
 \label{rangle_dirac}
@@ -78,7 +92,8 @@ z_{1}^{*} & z_{2}^{*} & ... & z_{n}^{*}\end{array}\right]
 
 
 %of two quantum states ($\langle \phi \vert \psi \rangle$)
-This notation provides for an elegant representation of the inner product \eqref{eq_inner} and verifies the has linearity as it follows in equation \eqref{eq_linearity}. While the Bra-ket notation can be useful in terms of condensing information, using vectors and matrices to represent the states turns out to be a more approachable way to understand and manipulate data.
+This notation provides for an elegant representation of the inner product \eqref{eq_inner}, and as the linearity that arises from the inner product, in equation \eqref{eq_linearity}.
+While the Bra-ket notation can be useful in terms of condensing information, using vectors and matrices to represent the states turns out to be a more approachable way to understand and manipulate data.
  
 
 \begin{equation}
@@ -95,27 +110,12 @@ where $\bar{z_{i}}$ is the complex conjugate of $z_{i}$.
 \end{equation}
 
 
+
+
 \subsection{Born rule}
 \label{subsubsec:bornrule}
 
 The Born rule was formulated by Born in 1926. This law allows to predict the probability that a measurement on a quantum system will yield a certain result. This law provides a link between the mathematical foundation of Quantum Mechanics and the experimental evidence\cite{VanRijsbergen2004}\cite{Landsman2009}. 
-
-A quantum system is represented by a $n$-dimensional Hilbert Space, a complex vector space in which the inner product is defined. 
-
-
-
-
-\begin{figure}[h]
-\centering 
-
-\includegraphics[scale=0.35]{Figures/bloch_sphere.png}
-\caption{Representation of a two-dimensional Hilbert Space($\mathcal{H}^{2}$)}
-\label{fig:circle}
-\end{figure}
-
-
-A $2$-dimensional Hilbert Space (corresponding to a qubit for example), can be represented by a Bloch Sphere. In the Figure \ref{fig:circle} we have a representation of quantum state $\vert v \rangle$ in a two-dimensional Hilbert Space. 
-
 
 
 The Born rule states that if there is a system is in a state $\vert v \rangle$  (in a given $n$-dimensional Hilbert Space $\mathcal{H}$ ), and an Hermitian operator $A$ is applied then the probability of measuring a specific eigenvalue $\lambda_{i}$ associated with the $i$-th eigenvector of $A$ ($\psi_{i}$), will be given by\cite{VanRijsbergen2004}: 
@@ -180,23 +180,7 @@ tr( \rho ) = 1
 
 %proofed
 
-\subsubsection{L\"{u}ders Rule}
-\label{subsubsec:ludersrule}
-L\"{u}ders Rule defines the state of a quantum system after a partial measurement. We can establish a parallel between this selective measurement and conditional probability\ref{subsubsec:conditionalprobability}\cite{Busch2009}.
 
-To measure the state of a system we first use a projection operator on the quantum state. This is also the first stage of applying L\"{u}ders Rule\ref{eq:luders1}.
-
-\begin{equation}
-\label{eq:luders1}
-A=Proj_{A}\vert s\rangle
-\end{equation}
-
-After the measurement the resulting state is normalized\ref{eq:luders2}.
-
-\begin{equation}
-\label{eq:luders2}
-\vert s_{A}\rangle=\frac{A}{\vert A\vert}
-\end{equation}
 
 %proofed
 \subsection{Example of the double-slit experiment with electrons}
@@ -293,7 +277,7 @@ In the third situation, after being vertically polarized the photon will pass th
 \vert v \rangle =  cos(\theta)\left[\begin{array}{c}
 1\\
 0
-\end{array}\right]+ i.sen(\theta)\left[\begin{array}{c}
+\end{array}\right]+ i.sin(\theta)\left[\begin{array}{c}
 0\\
 1
 \end{array}\right]
@@ -301,7 +285,7 @@ In the third situation, after being vertically polarized the photon will pass th
 
 
 
-$\theta$ being the angle of the polaroid. The photon filtered by the vertical polaroid will pass this second polaroid with a probability of $(cos(\theta))^{2}$, becoming polarized according to the filter, as we can observe depending on the value of $\theta$ we will now have a horizontal component in the vector that describes the state of the photon. This will make the photon pass the horizontal polaroid  with a probability of $i.sen(\theta)^{2}$. 
+$\theta$ being the angle of the polaroid. The photon filtered by the vertical polaroid will pass this second polaroid with a probability of $(cos(\theta))^{2}$, becoming polarized according to the filter, as we can observe depending on the value of $\theta$ we will now have a horizontal component in the vector that describes the state of the photon. This will make the photon pass the horizontal polaroid  with a probability of $sin(\theta)^{2}$. 
 %\nearrow
 
 

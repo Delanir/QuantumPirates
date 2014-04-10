@@ -1,0 +1,74 @@
+\fancychapter{Quantum Roullete}
+\label{ap:c}
+
+
+\begin{lstlisting}
+function []= quantum_roullete3()
+%%
+% Simulation based on
+% S. Salimi and M. M. Soltanzadeh, "Investigation of quantum roulette arXiv : 0807 . 3142v3 [ quant-ph ] 30 Apr 2009," 2009.
+
+%%
+
+N=3
+%% make states
+I = eye(N);
+D = (1/N)*ones(N);
+
+
+%% permutation matrices change between states
+ X0 = circshift(I, 0);
+%X0 = I;
+ X1 = circshift(I, 1);
+%X1 = [0 1 0; 1 0 0; 0 0 1];
+ X2 = circshift(I, 2);
+%X2 = [0 0 1; 0 1 0; 1 0 0];
+ X3 = circshift(I, 3);
+%X3 = [1 0 0; 0 0 1; 0 1 0];
+X4 = circshift(I, 4);
+%X4 = [0 0 1 ; 1 0 0; 0 1 0];
+ X5 = circshift(I, 5);
+%X5 = [0 1 0; 0 0 1; 1 0 0];
+
+
+%%Fourier Matrix
+F= (1/sqrt(N))*fft(I)
+
+T0 = circshift(F,[0 0]);
+T1 = circshift(F,[0 1]);
+T2 = circshift(F,[0 2]);
+%%
+
+%%Step1
+
+%Assuming Alice places the roullete in state 2 were both player can see
+Ro0= [0; 1; 0]*[0; 1; 0]'
+
+%%Step2
+
+%As Alice chose state 2, Bob will select T1 to rotate the state
+Ro1 = T1 * Ro0 * T1'
+
+%step 3 -
+Ro1 = T2 * Ro1 * T2'
+
+%%Step3
+%Alice will play again 
+%
+
+Ro2 = (2/6)*X0*Ro1*X0' + (1/12)*X1*Ro1*X1' +(1/12)*X2*Ro1*X2' +(1/6)*X3*Ro1*X3' +(1/6)*X4*Ro1*X4' +(1/6)*X5*Ro1*X5'
+
+%%Step4
+%Bob can choose which state he wants
+
+Ro3 = T0'*Ro2*T0
+
+Ro3 = T1'*Ro2*T1
+
+Ro3 = T2'*Ro2*T2
+
+Ro4 = (2/6)*X0*Ro3*X0' + (1/12)*X1*Ro3*X1' +(1/12)*X2*Ro3*X2' +(1/6)*X3*Ro3*X3' +(1/6)*X4*Ro3*X4' +(1/6)*X5*Ro3*X5'
+
+Ro3 = T0'*Ro3*T0
+end
+\end{lstlisting}

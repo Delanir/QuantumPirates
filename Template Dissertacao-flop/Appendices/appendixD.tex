@@ -1,0 +1,305 @@
+\fancychapter{Results: Pirate Game}
+\label{ap:d}
+
+\section{$2$ Player Game}
+
+\subsection{Simulation}
+\begin{lstlisting}
+% Quantum Pirate Game
+function out = quantum2piratesanalise()
+    C= eye(2);
+%   defect= [0 1;1 0]
+D= ones(2)-eye(2);
+
+Dy= D;
+Dy(2,1)=-1;
+Dz= [1i 0;0 -1i];
+
+g=pi/2;
+
+u1=zeros(4,4);
+u2=zeros(4,4);
+
+for s1=1:1:4
+    
+    
+    switch s1
+    case 1
+        U1=C;
+    case 2
+        U1=D;
+    case 3
+        U1=Dy;
+    otherwise
+        U1=Dz;
+end
+for s2=1:1:4
+    
+   switch s1
+    case 1
+        U2=C;
+    case 2
+        U2=D;
+    case 3
+        U2=Dy;
+    otherwise
+        U2=Dz;
+           
+   end
+
+   out=quantum2pirates(g,U1,U2);
+    u1(s1,s2)=out(1);
+    u2(s1,s2)=out(2);
+   
+end
+
+end
+
+figure
+
+
+h=bar3(u1);
+
+% set(h(1),'facecolor','green');
+% set(h(2),'facecolor','blue');
+% set(h(3),'facecolor','red');
+%mesh(prob);
+%
+
+set(gca,'yTickLabel',{'C', 'D',  'U(\pi ,0)', 'U(0, \pi /2)'})
+% set(gca,'xTick',0:length(t)/4:length(t))
+set(gca,'xTickLabel',{'C', 'D',  'U(\pi ,0)', 'U(0, \pi /2)'})
+ylabel('U_2');
+xlabel('U_1');
+zlabel('E_1');
+
+title('\gamma = \pi /2 Expected utility for player 1 (E_1)')
+
+figure
+
+
+h=bar3(u2);
+
+% set(h(1),'facecolor','green');
+% set(h(2),'facecolor','blue');
+% set(h(3),'facecolor','red');
+%mesh(prob);
+%
+
+set(gca,'yTickLabel',{'C', 'D',  'U(\pi ,0)', 'U(0, \pi /2)'})
+% set(gca,'xTick',0:length(t)/4:length(t))
+set(gca,'xTickLabel',{'C', 'D',  'U(\pi ,0)', 'U(0, \pi /2)'})
+ylabel('U_2');
+xlabel('U_1');
+zlabel('E_2');
+
+title('\gamma = \pi /2 Expected utility for player 2 (E_2)')
+
+end
+
+function out = quantum2pirates(g,U1,U2)
+%quantumprisionersdillema(g)
+%   
+%                Simulates the payoff of 2-player prisioner's dillema game
+%                 
+%        IN:
+%                g   : entanglement coefitient, by defaut g=0 (no
+%                entanglement)
+%               
+%                U1   : Player 1 strategy
+%                U2   : Player 2 strategy
+%
+% All parameters are optional
+%------------------------%
+
+%-- entanglement coeficient (checks if exists)
+%-- Check variables and set to defaults
+if exist('g','var')~=1, g=0; end
+
+%-- Utility
+%-- Check variables and set to defaults
+a22=100;
+a23=0;
+death=-200;
+incentive=0.5;
+
+
+%-- Strategies
+if exist('U1','var')~=1, U1=[0 1i;1i 0]; end
+if exist('U2','var')~=1, U2=[0 1i;1i 0]; end
+
+%-- Actions
+%   cooperate= [1 0;0 1]
+C= eye(2);
+%   defect= [0 1;1 0]
+D= ones(2)-eye(2);
+
+%-- Building the initial state
+ini= cos(g/2)*kron([1 0]',[1 0]') + 1i*sin(g/2)*kron([0 1]',[0 1]');
+%-- Deentangles to produce a final state
+Jt = ctranspose( expm(1i*(g/2)*kron(D,D)));
+
+   fin= Jt*kron(U1,U2)*ini;
+   u1=payofffunc_player1(fin, a22, a23, death, incentive);
+   u2=payofffunc_player2(fin, a22, a23, death, incentive);
+    out= [u1 u2];
+end
+
+function u = payofffunc_player1(fin, a22, a23, death, incentive)
+%payofffunc_player1(fin)
+%   
+%                Calculates the payoff for player 1
+%              IN
+%                   fin: final state
+%                   a22, a23, death, incentive: payoff coefficients
+%              OUT
+%                   u: expected utility for player 1
+%(norm(conj([0 1 1 1 0 1 1 1]').*fin2CC))^2
+    u= a22*(measure2([1 0 0 0]',fin)+measure2([0 1 0 0]',fin)+measure2([0 0 1 0]',fin) )-200*measure2([0 0 0 1]',fin) ;
+end
+
+function u = payofffunc_player2(fin, a22, a23, death, incentive)
+%payofffunc_player1(fin)
+%   
+%                Calculates the payoff for player 2
+%              IN
+%                   fin: final state
+%                   a22, a23, death, incentive: payoff coefficients
+%              OUT
+%                   u: expected utility for player 2
+    u= a23*(measure2([1 0 0 0]',fin)+measure2([0 1 0 0]',fin)+measure2([0 0 1 0]',fin) )+(a22+a23+incentive)*measure2([0 0 0 1]',fin) ;
+end
+
+function m = measure2(b,fin)
+m=abs( sum(b.*conj(fin)))^2;
+end
+
+
+
+\end{lstlisting}
+
+\section{$3$ Player Game}
+
+\subsection{Simulation}
+\begin{lstlisting}
+
+
+function out = simulationQuantumPirateGame3Players(a_11,a_12,a_13,a_22,a_23, gamma, U1,U2,U3,U4,U5)
+%
+%        IN:
+%-- alocation proposal a_ij -i number of the player that proposes a_ij coins
+%   to player j
+%-- gamma entanglemen coefitient
+%-- U1, U2, U3, U4, U5 player's strategies; default CDCCD
+%
+%       OUT:
+%-- expected utility for players 1 ,2 ,3:  [u1 u2 u3]
+
+%-- Check variables and set to defaults
+if exist('a_11','var')~=1, a_11=99; end
+if exist('a_12','var')~=1, a_12=0; end
+if exist('a_13','var')~=1, a_13=1; end
+if exist('a_22','var')~=1, a_22=100; end
+if exist('a_23','var')~=1, a_23=0; end
+if exist('gamma','var')~=1, gamma=0; end
+
+%-- Classic Pure Strategy Operators
+%   cooperate= [1 0;0 1]
+C= eye(2);
+%   defect= [0 1;1 0]
+D= ones(2)-eye(2);
+D(2,1)=1;
+
+if exist('U1','var')~=1, U1=C; end
+if exist('U2','var')~=1, U2=D; end
+if exist('U3','var')~=1, U3=C; end
+if exist('U4','var')~=1, U4=C; end
+if exist('U5','var')~=1, U5=D; end
+
+%-- Matrix containing all pure-states for hilbert space 32
+H32B=eye(32);
+
+step=0.1;
+t=0:step:pi;
+
+i=gamma;
+
+%-- varying the entanglement parameter
+
+%-- Building the initial state, for the entanglement parameter i
+ini= cos(i/2)*kron([1 0]', kron([1 0]',[1 0]'))+1i*sin(i/2)*kron([0 1]', kron([0 1]',[0 1]'));
+%-- Entanglement Gate J
+J= expm(1i*(i/2)*kron(D,kron(D,kron(D,kron(D,D)))));
+%-- Alternative way to build the initial state
+ini= J*H32B(:,1);
+%-- Deentangles to produce a final state
+Jd = ctranspose( J);
+
+H= fft(eye(2))/sqrt(2);
+fin = kron(U1,kron(U2,kron(U3,kron(U4,U5))))*ini;
+fin= Jd*fin;
+out = expectedUtility(fin, a_11,a_12,a_13,a_22,a_23);
+
+end
+
+
+function out = expectedUtility(fin, a_11,a_12,a_13,a_22,a_23)
+%payofffunc_player1(fin)
+%
+%                Calculates the payoff for player 1
+%              IN
+%                   fin: final state
+%
+
+%-- Check variables and set to defaults
+if exist('a_11','var')~=1, a_11=99; end
+if exist('a_12','var')~=1, a_12=0; end
+if exist('a_13','var')~=1, a_13=1; end
+if exist('a_22','var')~=1, a_22=100; end
+if exist('a_23','var')~=1, a_23=0; end
+
+%-- Matrix containing all pure-states for hilbert space 32
+H32B=eye(32);
+
+prob_proposal_1_accepted=0;
+for accepted=[1 2 3 4 5 6 7 8 9 10 11 12 17 18 19 20]
+    prob_proposal_1_accepted= prob_proposal_1_accepted + measure(H32B(:,accepted),fin);
+end
+prob_proposal_1_accepted;
+
+prob_proposal_1_rejected=0;
+for rejected=[13 14 15 16 21 22 23 24 25 26 27 28 29 30 31 32]
+    prob_proposal_1_rejected= prob_proposal_1_rejected + measure(H32B(:,rejected),fin);
+end
+prob_proposal_1_rejected;
+
+prob_proposal_2_accepted=0;
+for accepted=[13 14 15 21 22 23 25 26 27 29 30 31]
+    prob_proposal_1_accepted= prob_proposal_1_accepted + measure(H32B(:,accepted),fin);
+end
+prob_proposal_2_accepted;
+
+prob_proposal_2_rejected=0;
+for rejected=[16 24 28 32]
+    prob_proposal_1_rejected= prob_proposal_1_rejected + measure(H32B(:,rejected),fin);
+end
+prob_proposal_2_rejected;
+
+u1 = a_11*prob_proposal_1_accepted -200* prob_proposal_1_rejected;
+
+u2 = a_12*prob_proposal_1_accepted +(0.5 + a_22)*prob_proposal_2_accepted -199.5*prob_proposal_2_rejected;
+
+u3 = a_13*prob_proposal_1_accepted +(0.5 + a_23)*prob_proposal_2_accepted + 100.5*prob_proposal_2_rejected;
+out =[ u1 u2 u3];
+end
+
+function m = measure(b,fin)
+m= (norm(conj(b).*fin))^2;
+end
+
+
+function u= U_thetha_phi(theta,phi)
+u= [exp(1i*phi)cos(theta/2) *sin(theta/2);sin(theta/2) -exp(-i*phi)*cos(theta/2)];
+end
+\end{lstlisting}
+
