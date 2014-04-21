@@ -7,7 +7,6 @@
 {\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {2.2}Von Neumann Probability}{\reset@font\mtcSfont xxxi}{section.2.2}}
 {\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {2.2.1}Mathematical Foundations of Quantum Probability}{\reset@font\mtcSSfont xxxii}{subsection.2.2.1}}
 {\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {2.2.2}Born rule}{\reset@font\mtcSSfont xxxiii}{subsection.2.2.2}}
-{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode \numberline {2.2.2.A}L\"{u}ders Rule}{\reset@font\mtcSSSfont xxxv}{subsubsection.2.2.2.1}}
 {\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {2.2.3}Example of the double-slit experiment with electrons}{\reset@font\mtcSSfont xxxv}{subsection.2.2.3}}
 {\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {2.2.4}Example of the Polarization of Light}{\reset@font\mtcSSfont xxxvii}{subsection.2.2.4}}
 {\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {2.3}Quantum Computing}{\reset@font\mtcSfont xxxix}{section.2.3}}
@@ -18,6 +17,8 @@
 {\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {2.4}Game Theory}{\reset@font\mtcSfont xliv}{section.2.4}}
 {\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {2.4.1}Definition of a Game}{\reset@font\mtcSSfont xliv}{subsection.2.4.1}}
 {\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {2.4.2}Nash Equilibrium}{\reset@font\mtcSSfont xlv}{subsection.2.4.2}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {2.4.3}Pareto Optimal}{\reset@font\mtcSSfont xlvi}{subsection.2.4.3}}
-{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {2.5}Quantum Game Theory}{\reset@font\mtcSfont xlviii}{section.2.5}}
-{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {2.6}Overview}{\reset@font\mtcSfont l}{section.2.6}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {2.4.3}Prisoner's Dilemma}{\reset@font\mtcSSfont xlvi}{subsection.2.4.3}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {2.4.4}Pareto Optimal}{\reset@font\mtcSSfont xlvii}{subsection.2.4.4}}
+{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {2.5}Quantum Game Theory}{\reset@font\mtcSfont xlix}{section.2.5}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {2.5.1}Quantum Prisoner's Dilemma}{\reset@font\mtcSSfont l}{subsection.2.5.1}}
+{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {2.6}Overview}{\reset@font\mtcSfont liii}{section.2.6}}

@@ -12,7 +12,7 @@ We can define the Discrete Quantum Walk on a Line as a series of Left/Right deci
 %spelling 4; punctuation 3 weak
 
 We followed an approach suggested by \cite{Ambainis} towards simulating n-steps of a Quantum Walk on a Line. The Matlab algorithm can be consulted on Appendix \ref{ap:a}.
-In a discrete quantum walk in a line we want to preserve the fact that the probability of turning left is equal to the probability of turning right.  To represent a state in this algorithm we will need the number of the node and a direction (identified as L,R) \ref{eq:3_qwl_state}.
+In a discrete quantum walk in a line we want to preserve the fact that the probability of turning left is equal to the probability of turning right.  To represent a state in this algorithm we will need the number of the node and a direction (identified as L,R) \eqref{eq:3_qwl_state}.
 
 %spelling 4; punctuation 3 weak
 
@@ -23,7 +23,7 @@ In a discrete quantum walk in a line we want to preserve the fact that the proba
 
 With two equally possible direction choices in each step, we can use a coin metaphor\cite{Ambainis}\cite{Ambainis2008} to approach the decision. We toss a coin and go either Left or Right depending on the result. 
 
-In a quantum version we need to define a Coin Operator (Coin Matrix), which is responsible to imprint a direction to the current state. This operator is a unitary matrix in a 2-dimension Hilbert space. Some examples of Coin Operators are the Hadamard matrix\ref{eq:hadamard} and a symmetric unitary matrix \ref{eq:qwl_symmetric}.
+In a quantum version we need to define a Coin Operator (Coin Matrix), which is responsible to imprint a direction to the current state. This operator is a unitary matrix in a 2-dimension Hilbert space. Some examples of Coin Operators are the Hadamard matrix\eqref{eq:hadamard} and a symmetric unitary matrix \eqref{eq:qwl_symmetric}.
 
 \begin{equation}
 \label{eq:hadamard}
@@ -41,7 +41,7 @@ H=\frac{1}{\sqrt{2}}\left[\begin{array}{cc}
 \end{array}\right]
 \end{equation}
 
-Taking the Hadamard matrix as an example\ref{eq:hadamard}, the coin matrix will operate on the state in the following way \ref{eq:qwl_1}\ref{eq:qwl_2}\cite{Ambainis}.
+Taking the Hadamard matrix as an example\eqref{eq:hadamard}, the coin matrix will operate on the state in the following way \eqref{eq:qwl_1}\eqref{eq:qwl_2}\cite{Ambainis}.
 
 \begin{equation}
 \label{eq:qwl_1}
@@ -53,7 +53,7 @@ C\vert n, L\rangle = \frac{1}{\sqrt{2}} \vert n, L\rangle + \frac{1}{\sqrt{2}} \
 C\vert n, R\rangle = \frac{1}{\sqrt{2}} \vert n, L\rangle - \frac{1}{\sqrt{2}} \vert n, R\rangle
 \end{equation} 
 
-The Coin Matrix obtains its name by being the quantum equivalent of flipping a classic coin. After tossing a coin comes an operator that will move the node in the direction assigned. The operator responsible for this modification is commonly referred as Shift Operator \ref{eq:qwl_3}\ref{eq:qwl_4}. 
+The Coin Matrix obtains its name by being the quantum equivalent of flipping a classic coin. After tossing a coin comes an operator that will move the node in the direction assigned. The operator responsible for this modification is commonly referred as Shift Operator \eqref{eq:qwl_3}\eqref{eq:qwl_4}. 
 
 \begin{equation}
 \label{eq:qwl_3}
@@ -81,14 +81,14 @@ These matrices (Coin Matrix and Shift Operator) are used conceptually in various
 \begin{figure}[h]
 \centering 
 \includegraphics[scale=0.50]{Figures/quantum_walk_line_symetric.png}
-\caption{30 Step of the Simulation \ref{ap:a} using Matrix \ref{eq:hadamard} as a Coin Operator.}
+\caption{30 Step of the Simulation \ref{ap:a} using Matrix \eqref{eq:hadamard} as a Coin Operator.}
 \label{fig:qwl_symetric}
 \end{figure}
 
 \begin{figure}[h]
 \centering 
 \includegraphics[scale=0.50]{Figures/quantum_walk_line_hadamard.png}
-\caption{30 Step of the Simulation \ref{ap:a} using a Hadamard Matrix \ref{eq:hadamard} as a Coin Operator.}
+\caption{30 Step of the Simulation \ref{ap:a} using a Hadamard Matrix \eqref{eq:hadamard} as a Coin Operator.}
 \label{fig:qwl_hadamard}
 \end{figure}
 

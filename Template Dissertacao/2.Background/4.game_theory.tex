@@ -183,9 +183,9 @@ Player 1: D & (3,0) & (1,1)\tabularnewline
 
 From the point of view of an observer outside the game system some outcomes may seem better than others. For example on the game represented in Table \ref{tab:2prisionersdillema_tab2} (Prisioners' Dilemma), the outcome $(C,C)$ seems better than the outcome $(D,D)$ because it provides a strictly higher utility to the players. However we know that the outcome $(D,D)$ is the Nash Equilibrium of the game. If both players use their best response their outcome might not be the best outcome for both players.
 
-When every player cannot improve her payoff without lowering another player's expected utility we have a Pareto Optimal solution.
+When it is impossible to improve the payoff of a player without lowering another player's expected utility we have a Pareto Optimal solution.
 
-For example if we have two players and 10 units of a finite resource to distribute among the players, the Pareto optimal solution is $(5,5)$. Any other attempt to redistribute -$(6,4)$, $(1,9)$, etc...- would always leave a player worse than the Pareto optimal distribution of the resource.
+For example if we have two players and $10$ units of a finite resource to distribute among the players, a Pareto optimal solution is $(5,5)$. Any other attempt to redistribute where the sum of the resource isn't $10$ -$(1,4)$, $(2,3)$, etc...- could still be improved.
 
 
 \clearpage
@@ -197,7 +197,7 @@ For example if we have two players and 10 units of a finite resource to distribu
 In the article ``Quantum information approach to normal representation of extensive games''\cite{Fra2011a}, the authors propose a representation
 for both normal and finite extensive form games\cite{Fra2011}. This definition is based on the premise that any strategic game can be represented as an extensive form game where all the players have no knowledge about the actions taken by other players. 
 
-The representation assumes that for each action that a player can make in the game there are only two possible measurable outcomes. For example while voting on a referend in which the question is "Should the state declare war on country X?" despite the method using for voting the final answer is reavealed as a ""yes"" or ""no"".
+The representation assumes that for each action that a player can make in the game there are only two possible measurable outcomes. For example while voting on a referendum in which the question is "Should the state declare war on country X?" despite the method using for voting the final answer is revealed as a ""yes"" or ""no"".
 In Quantum Game Theory we model an action as a qubit which is manipulated by the player. 
 
 
@@ -343,7 +343,7 @@ D-$\vert 1\rangle$ & $\vert 1,0\rangle$ & $\vert 1,1\rangle$\tabularnewline
 
 
 
-The fundamental difference from the classical version lies in the way the initial state is formulated in Equation and que strategies the players might use\eqref{eq:estado_inicial_prisioneiro}. We will entangle our state by applying the gate $\mathcal{J}$ \cite{Letters2002}\cite{Eisert2008}. 
+The fundamental difference from the classical version lies in the way the initial state is formulated in Equation and the strategies the players might use\eqref{eq:estado_inicial_prisioneiro}. We will entangle our state by applying the gate $\mathcal{J}$ \cite{Letters2002}\cite{Eisert2008}. 
 
 The parameter $\gamma$ becomes a way to measure the entanglement in the system\cite{Eisert2008}.
 
@@ -398,7 +398,7 @@ The gate $\mathcal{J}$ is chosen to be commutative with the super-operators crea
 
 This condition implies that any pair of strategies in the sub-set $S_{0} = \{ \mathcal{U} ( \theta , 0) , \theta \in (0, \pi) \}$ is the equivalent of a classical mixed strategy when $\gamma = 0$; the joint probability associated with measuring a outcome $(\delta_{1}, \delta_{2}) \in \{ (C, C), (C, D), (D, C), (D, D) \} $ ( $ P( \delta_{1} , \delta_{2} ) = { \vert \langle \delta_{1} , \delta_{2} \vert \psi_{fin} \rangle \vert }^{2} $ ), becomes $ P( \delta_{1} , \delta_{2} ) =P( \delta_{1} ) P( \delta_{2})$, with $P(C) = cos^{2}(\frac{ \theta }{2})$, and $P(D) = 1 - P(C)$\cite{Eisert2008}.
 
-If the parameter $\phi$ in the operator $U_{j}(\theta ,\phi)$ and the entanglement coefitient differ from $0$ we are able to explore quantum strategies that have no counterpart in the classical domain.
+If the parameter $\phi$ in the operator $U_{j}(\theta ,\phi)$ and the entanglement coefficient differ from $0$ we are able to explore quantum strategies that have no counterpart in the classical domain.
 
 \cite{Eisert2008} finds that the pair of strategies $( \mathcal{U}( 0 , \frac{\pi}{2}), \mathcal{U}( 0 , \frac{\pi}{2}))$ for $\gamma = \frac{\pi}{2}$ yield  a payoff of $(2,2)$, which is a Nash equilibrium and it is Pareto Optimal when we have a restricted space described by $\mathcal{U}$\eqref{eq:operators_prisioneiros_quanticos}. If we allow the operator $D$\eqref{eq:operators_prisioneiros_quanticosmiaurons}, however, according to \cite{Letters2002} there is no quantum pure strategy Nash Equilibrium, when the entanglement is maximal, $\mathcal{U}(\pi, 0)$ is the optimal counter-strategy for $C$ (represented by the identity matrix), $\mathcal{U}(0, \frac{\pi}{2})$ is the optimal counter strategy for $\mathcal{U}(\pi, 0)$, $D$ becomes the optimal counter-strategy for $\mathcal{U}(0, \frac{\pi}{2})$, and $C$ becomes an optimal counter strategy for $D$\cite{Du}.
 
