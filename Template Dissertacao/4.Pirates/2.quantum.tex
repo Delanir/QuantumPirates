@@ -50,7 +50,7 @@ $), to model our game system. Akin to the Quantum Ultimatum game desbribed in \c
 In this $3$ player game there will be $5$ qubits representing the actions or the players decision; three qubits will represent the first voting round, the other two will portray the actions of the second voting round.
 The number of qubits needed to represent the game grows exponentially with the number of players. For $N$ players we need $\sum_{i=2}^{N}{i}$ qubits. With 8 players, this game would already be impractical to simulate in a classical computer. In this regard a quantum computer may enhance our power to simulate this kinds of experiments \cite{Rieffel2011}.
 
-The mapping function $\xi$ that assigns each action/qubit $\varphi_{j}$ ( with $j=\{ 1, 2, 3, 4, 5\}$), to a player is represented on Equation \ref{playerxiximapping}. 
+The mapping function $\xi$ that assigns each action/qubit labled $\varphi_{j}$ ( with $j=\{ 1, 2, 3, 4, 5\}$), to a player is represented on Equation \ref{playerxiximapping}. 
 
 \begin{equation}
 \xi(j)=\begin{cases}
@@ -103,7 +103,7 @@ Due to the nature of quantum mechanics we have to pay attention of how we set-up
 
 
 \begin{equation}
-\mathcal{J}=exp\left\{ i\frac{\gamma}{2}\left[\begin{array}{cc}
+\mathcal{J}=exp\left\{\mathbf{i}\frac{\gamma}{2}\left[\begin{array}{cc}
 0 & 1\\
 1 & 0
 \end{array}\right]\otimes\left[\begin{array}{cc}
@@ -126,9 +126,9 @@ Due to the nature of quantum mechanics we have to pay attention of how we set-up
 
 \begin{center}
 \begin{equation}
-%\vert \psi_{0}(\gamma) \rangle= cos( \frac{\gamma}{2})\vert 00\rangle+ isin(\frac{\gamma}{2})\vert 11 \rangle, \gamma \in (0,\pi)
+%\vert \psi_{0}(\gamma) \rangle= cos( \frac{\gamma}{2})\vert 00\rangle+ \mathbf{i}sin(\frac{\gamma}{2})\vert 11 \rangle, \gamma \in (0,\pi)
 \begin{split}
-\vert\psi_{ini}(\gamma)\rangle=exp\left\{ i\frac{\gamma}{2}\left[\begin{array}{cc}
+\vert\psi_{ini}(\gamma)\rangle=exp\left\{ \mathbf{i}\frac{\gamma}{2}\left[\begin{array}{cc}
 0 & 1\\
 1 & 0
 \end{array}\right]\otimes\left[\begin{array}{cc}
@@ -144,7 +144,7 @@ Due to the nature of quantum mechanics we have to pay attention of how we set-up
 0 & 1\\
 1 & 0
 \end{array}\right]\right\} \vert00000\rangle \\
-=cos(\frac{\gamma}{2})\vert00000\rangle+isin(\frac{\gamma}{2})\vert11111\rangle,\gamma\in(0,\frac{\pi}{2})
+=cos(\frac{\gamma}{2})\vert00000\rangle+\mathbf{i}sin(\frac{\gamma}{2})\vert11111\rangle,\gamma\in(0,\frac{\pi}{2})
 \end{split}
 \label{eq:estado_inicial_pg}
 \end{equation}
@@ -165,15 +165,15 @@ Each player will be able to manipulate at least one qubit in the system. Those q
 \label{eq:opvarphiquantumstates}
 \end{equation}
 
-Each player will be able to manipulate her assigned qubits $j$ with an unitary operator of the form shown in Equation \ref{eq:general_unitary_special_one} (shown in Section \ref{sec:background_quantum_game_theory} $\mathcal{U}_{j}(w,x,y,z)=w.I + ix.\sigma_{x} + iy.\sigma_{y} + iz.\sigma_{z}, $ with $ w,x,y,z \in \mathbb{R} \wedge  
+Each player will be able to manipulate her assigned qubits $j$ with an unitary operator of the form shown in Equation \ref{eq:general_unitary_special_one} (shown in Section \ref{sec:background_quantum_game_theory} $\mathcal{U}_{j}(w,x,y,z)=w.I + \mathbf{i}x.\sigma_{x} + \mathbf{i}y.\sigma_{y} + \mathbf{i}z.\sigma_{z}, $ with $ w,x,y,z \in \mathbb{R} \wedge  
 w^2 + x^2 + y^2 + z^2 =1 $). However in  order to explore the potential of quantum strategies, \cite{Eisert2008} proposes that it is sufficient to restrict the strategic space span by to the $2$-parameter (polar coordinates), set of matrices in Equation \ref{eq:operadoresinfinitus}, with $ \theta \in ( 0, \pi )$, and $\phi \in ( 0, \frac{\pi}{2})$. We will try to use the strategic space $\mathcal{U}_{j}(\theta,\phi)$ to represent our player's actions.
 
 
 
 \begin{equation}
 \mathcal{U}_{j}(\theta,\phi) = \left[\begin{array}{cc}
-cos(\frac{\phi}{2}) & e^{i\phi}sin(\frac{\phi}{2})\\
--e^{-i\phi}sin(\frac{\phi}{2}) & cos(\frac{\phi}{2})
+cos(\frac{\phi}{2}) & e^{\mathbf{i}\phi}sin(\frac{\phi}{2})\\
+-e^{-\mathbf{i}\phi}sin(\frac{\phi}{2}) & cos(\frac{\phi}{2})
 \end{array}\right] , j \in \{ 1, 2, 3, 4, 5 \}, \theta \in ( 0, \pi ) , \phi \in ( 0, \frac{\pi}{2})
 \label{eq:operadoresinfinitus}
 \end{equation}

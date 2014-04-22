@@ -221,7 +221,7 @@ composed by $a$ qubits: $\vert\varphi_{1}\rangle,\:\vert\varphi_{2}\rangle, ...,
 These operators can be used by the player to manipulate her qubit(s);
 \begin{equation}
 \begin{split}
-\mathcal{U}_{j}(w,x,y,z)=w.I + ix.\sigma_{x} + iy.\sigma_{y} + iz.\sigma_{z}, \\  w,x,y,z \in \mathbb{R} \wedge  
+\mathcal{U}_{j}(w,x,y,z)=w.I + \mathbf{i}x.\sigma_{x} + \mathbf{i}y.\sigma_{y} + \mathbf{i}z.\sigma_{z}, \\  w,x,y,z \in \mathbb{R} \wedge  
 w^2 + x^2 + y^2 + z^2 =1 
 \end{split}
 \label{eq:general_unitary_special_one}
@@ -287,20 +287,20 @@ The importance of the Prisoner's Dilemma for the study of Game Theory made it a 
 Each player $i$ in the quantum version of Prisoner's Dilemma will be able to manipulate one qubit ($\varphi_{1}$ and $\varphi_{2}$) in Equations \eqref{eq:quantum_prisioner_m1} and \eqref{eq:quantum_prisioner_m2}, with the unitary operators (shown in Equation \eqref{eq:operators_prisioneiros_quanticos}). The  classical strategies: Cooperate (C), and Defect (D). $C$ is represented in the sub-set $\mathcal{U}_{j}$ (Equation \eqref{eq:operators_prisioneiros_quanticosmiaurons}) . $D$, also known as the Bit-flip operator ($\sigma_{x}$), is not represented in the restricted space proposed in \cite{Eisert2008}\cite{Fra2011a}. $D^{y}$ is an alternative to $D$ in the sub-set $\mathcal{U}$.
 
 \begin{equation}
-\varphi_{1}=a_{0}\vert0\rangle+a_{1}\vert1\rangle,\sum_{i=0}^{1}\vert a_{i}\vert^{2}=1
+\vert \varphi_{1} \rangle=a_{0}\vert0\rangle+a_{1}\vert1\rangle,\sum_{i=0}^{1}\vert a_{i}\vert^{2}=1
 \label{eq:quantum_prisioner_m1}
 \end{equation}
 
 
 \begin{equation}
-\varphi_{2}=b_{0}\vert0\rangle+b_{1}\vert1\rangle,\sum_{j=0}^{1}\vert b_{j}\vert^{2}=1
+\vert \varphi_{2} \rangle=b_{0}\vert0\rangle+b_{1}\vert1\rangle,\sum_{j=0}^{1}\vert b_{j}\vert^{2}=1
 \label{eq:quantum_prisioner_m2}
 \end{equation}
 
 \begin{equation}
 \mathcal{U}_{j} ( \theta,\phi) = \left[\begin{array}{cc}
-cos(\frac{\phi}{2}) & e^{i\phi}sin(\frac{\phi}{2})\\
--e^{-i\phi}sin(\frac{\phi}{2}) & cos(\frac{\phi}{2})
+cos(\frac{\phi}{2}) & e^{\mathbf{i}\phi}sin(\frac{\phi}{2})\\
+-e^{-\mathbf{i}\phi}sin(\frac{\phi}{2}) & cos(\frac{\phi}{2})
 \end{array}\right] , j \in \{ 1, 2\}, \theta \in ( 0, \pi ) , \phi \in ( 0, \frac{\pi}{2})
 \label{eq:operators_prisioneiros_quanticos}
 \end{equation}
@@ -349,7 +349,7 @@ The parameter $\gamma$ becomes a way to measure the entanglement in the system\c
 
 \begin{equation}
 \label{eq:matrix_exponencial_esoterica}
-\mathcal{J}=exp\left\{ i\frac{\gamma}{2}\left[\begin{array}{cc}
+\mathcal{J}=exp\left\{\mathbf{i}\frac{\gamma}{2}\left[\begin{array}{cc}
 0 & 1\\
 1 & 0
 \end{array}\right]\otimes\left[\begin{array}{cc}
@@ -360,16 +360,16 @@ The parameter $\gamma$ becomes a way to measure the entanglement in the system\c
 
 \begin{equation}
 \label{eq:estado_inicial_prisioneiro}
-%\vert \psi_{in}(\gamma) \rangle= cos( \frac{\gamma}{2})\vert 00\rangle+ isin(\frac{\gamma}{2})\vert 11 \rangle, \gamma \in (0,\pi)
+%\vert \psi_{in}(\gamma) \rangle= cos( \frac{\gamma}{2})\vert 00\rangle+ \mathbf{i}sin(\frac{\gamma}{2})\vert 11 \rangle, \gamma \in (0,\pi)
 \begin{split}
-\vert\psi_{in}(\gamma)\rangle=exp\left\{ i\frac{\gamma}{2}\left[\begin{array}{cc}
+\vert\psi_{in}(\gamma)\rangle=exp\left\{ \mathbf{i}\frac{\gamma}{2}\left[\begin{array}{cc}
 0 & 1\\
 1 & 0
 \end{array}\right]\otimes\left[\begin{array}{cc}
 0 & 1\\
 1 & 0
 \end{array}\right]\right\} \vert00\rangle \\
-=cos(\frac{\gamma}{2})\vert00\rangle+isin(\frac{\gamma}{2})\vert11\rangle,\gamma\in(0,\pi)
+=cos(\frac{\gamma}{2})\vert00\rangle+\mathbf{i}sin(\frac{\gamma}{2})\vert11\rangle,\gamma\in(0,\pi)
 \end{split}
 \end{equation}
 

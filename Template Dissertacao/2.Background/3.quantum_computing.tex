@@ -86,7 +86,7 @@ I=\left[\begin{array}{cc}
 	\begin{itemize}
 		\item The Bit-Flip Operator\begin{equation}
 \label{eq:idims_1}
-\delta_{x} =\left[\begin{array}{cc}
+\sigma_{x} =\left[\begin{array}{cc}
 0 & 1\\
 1 & 0
 \end{array}\right]
@@ -101,8 +101,8 @@ I=\left[\begin{array}{cc}
 \item The Bit and Phase-Flip Operator\begin{equation}
 \label{eq:idims_3}
 \sigma_{y}=\left[\begin{array}{cc}
-0 & -i\\
-i & 0
+0 & -\mathbf{i}\\
+\mathbf{i} & 0
 \end{array}\right]
 \end{equation}
 	\end{itemize}
@@ -187,7 +187,7 @@ then their tensor product would be
 
 The Bra-ket notation provides a way to prevent the escalation of the basis notation. When specified the vector space the basis can be specified in base 10 for simplicity sake. According to this the basis of the last example would be $AB = \left\{ \vert 0 \rangle, \vert 1 \rangle, \vert 2 \rangle,  \vert 3 \rangle \right\}$ and a system with $3$ qubit could be represented in a Hilbert space, $\mathcal{H}^{8}$, with basis $\mathcal{B}= \left\{ \vert 0 \rangle, \vert 1 \rangle, \vert 2 \rangle,  \vert 3 \rangle,  \vert 4 \rangle,  \vert 5 \rangle,  \vert 6 \rangle,  \vert 7 \rangle \right\}$, however it is important to have the Hilbert dimension (the cardinal of $\mathcal{B}$), in mind.
 
-When working with a compound system wich holds $n$ particles represented by the quantum state $\vert \psi \rangle$ we often want to be able to separate its components $\psi_{0}, \psi_{1},.. \psi_{n-1}$. This way we use the following notations as equivalent $\vert \psi \rangle = \vert \psi_{0}, \psi_{1}, ... \psi_{n-1} \rangle = \vert \psi_{0}\rangle \vert \psi_{1}\rangle ... \vert \psi_{n-1} \rangle =  \vert \psi_{0}\rangle \otimes \vert \psi_{1}\rangle \otimes ... \otimes \vert \psi_{n-1}$\cite{Rieffel2011}
+When working with a compound system wich holds $n$ qubits (two-state quantum system), represented by the quantum state $\vert \psi \rangle$ we often want to be able to separate its components $\psi_{0}, \psi_{1},.. \psi_{n-1}$. This way we use the following notations as equivalent $\vert \psi \rangle = \vert \psi_{0}, \psi_{1}, ... \psi_{n-1} \rangle = \vert \psi_{0}\rangle \vert \psi_{1}\rangle ... \vert \psi_{n-1} \rangle =  \vert \psi_{0}\rangle \otimes \vert \psi_{1}\rangle \otimes ... \otimes \vert \psi_{n-1}\rangle$\cite{Rieffel2011}
 
 
 

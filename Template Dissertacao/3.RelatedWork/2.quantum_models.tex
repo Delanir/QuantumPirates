@@ -7,13 +7,13 @@ The rationale behind building a quantum version of a Game Theory and/or Statisti
 \subsection{Quantum Roulette}
 \label{subsec:quantum_roulette}
 
-In the arbitrary $N$-State quantum roulette,\cite{Salimi2009} presented a $N$-State roulette model using permutation matrices. 
+In the arbitrary $n$-State quantum roulette,\cite{Salimi2009} presented a $n$-State roulette model using permutation matrices. 
 
 This model is interesting because in captures the usage of permutation matrices to manipulate and change the state of the system.
 
 To verify this model with two players we developed a Matlab simulation \ref{ap:c}, that followed the steps taken in \cite{Salimi2009}.
 
-The game in represented in a $N$-Dimensional Hilbert Space. There is a basis in the space that represents each of the equally probable entries as shown in \eqref{eq:roulette_1}. In a sense this is a generalization of a quantum coin flip that is also used in Section \ref{sec:quantum_walk_line}.
+The game in represented in a $n$-Dimensional Hilbert Space. There is a basis in the space that represents each of the equally probable entries as shown in \eqref{eq:roulette_1}. In a sense this is a generalization of a quantum coin flip that is also used in Section \ref{sec:quantum_walk_line}.
 \begin{equation}
 \label{eq:roulette_1}
 \vert1\rangle=\left[\begin{array}{c}
@@ -28,7 +28,7 @@ The game in represented in a $N$-Dimensional Hilbert Space. There is a basis in 
 0\\
 \vdots\\
 0
-\end{array}\right],\:\ldots,\:\vert N\rangle=\left[\begin{array}{c}
+\end{array}\right],\:\ldots,\:\vert n\rangle=\left[\begin{array}{c}
 0\\
 0\\
 0\\
@@ -37,20 +37,20 @@ The game in represented in a $N$-Dimensional Hilbert Space. There is a basis in 
 \end{array}\right]
 \end{equation}
 
-Each state transition is obtained using a permutation matrix denoted by $P^{i}$. There are $N!$ permutation matrices, so in the particular case of having a $3$-State roulette, there are $6$ possible transition choices. The classical strategy considered will rely on choosing an arbitrary probability distribution, that verifies\eqref{eq:roulette_2}, and that maps the usage of the permutation matrices. This step will not affect the density matrix ($\rho$) of the roulette\eqref{eq:roulette_3}.
+Each state transition is obtained using a permutation matrix denoted by $P^{i}$. There are $n!$ permutation matrices, so in the particular case of having a $3$-State roulette, there are $6$ possible transition choices. The classical strategy considered will rely on choosing an arbitrary probability distribution, that verifies\eqref{eq:roulette_2}, and that maps the usage of the permutation matrices. This step will not affect the density matrix ($\rho$) of the roulette\eqref{eq:roulette_3}.
 
 \begin{equation}
 \label{eq:roulette_3}
-\rho=\frac{1}{N!}\sum_{i=0}^{N!-1}P^{i}
+\rho=\frac{1}{n!}\sum_{i=0}^{n!-1}P^{i}
 \end{equation}
 
 \begin{equation}
 \label{eq:roulette_2}
-\sum_{i=0}^{N!-1}p_{i}=1
+\sum_{i=0}^{n!-1}p_{i}=1
 \end{equation}
 
 The density matrix is diagonalizable by a Discrete Fourier Transform because it is a kind of circulant matrix\cite{Davis1994}, as we can see in \eqref{eq:roulette_4}. In \eqref{eq:roulette_4} $\lambda_{k}$ are eigenvalues of $\rho$. $\lambda_{1}=1$
-while $\lambda_{2}=\lambda_{3}=\lambda_{k}=\lambda_{N-1}=0$. Each column
+while $\lambda_{2}=\lambda_{3}=\lambda_{k}=\lambda_{n-1}=0$. Each column
 $i$ of the Fourier matrix will represent a eigenvector $\vert\lambda_{i}\rangle$.
 If we construct the diagonalizing matrix by rotating the columns of
 the Fourier Matrix we can obtain the projection states as in \eqref{eq:roulette_5}.
@@ -80,7 +80,7 @@ F^{\dagger}\rho F=\left[\begin{array}{c}
 0\\
 0\\
 \vdots\\
-\lambda_{N-1}
+\lambda_{n-1}
 \end{array}\right]
 \end{equation}
 
@@ -121,7 +121,7 @@ will not alter the density matrix\eqref{eq:roulette_6}.
 
 \begin{equation}
 \label{eq:roulette_6}
-\rho=\sum_{i=0}^{N!-1}p_{i}P^{i}\rho P^{i\dagger},\;\sum_{i=0}^{N!-1}p_{i}=1
+\rho=\sum_{i=0}^{n!-1}p_{i}P^{i}\rho P^{i\dagger},\;\sum_{i=0}^{n!-1}p_{i}=1
 \end{equation}
 
 This means that if the second player knows the initial state and the first player plays with a classical strategy, thus never modifying the system density matrix, the second player will be able to manipulate the game under optimal conditions. This result is confirms the demonstration done in \cite{Meyer1999}; on Quantum Strategies, where in a classical $2$ player zero-sum game, if one player adopts a quantum strategy, she increases her chances of winning the game.
