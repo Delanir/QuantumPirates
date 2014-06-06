@@ -141,7 +141,7 @@ The ultimatum game is an example of an extensive form game where two players int
 
 A finite amount of money (or other finite resource), is given to the players, and player $1$ must propose how the money will be divided between the two players. If the second player agrees with the proposal, the resource will be split accordingly. When the player $2$ rejects the proposal, neither player will receive the money.
 
-If we consider that we have 100 coins, the number of coins received can be considered the expected utility associated with the proposal. The first player can either present a fair division (F), where the coins are split evenly, or an unfair division (U) game tree that represents the Ultimatum Game is shown in Figure \ref{fig:ultimatum:gametree}.
+If we consider that we have 100 coins, the number of coins received can be considered the expected utility associated with the proposal. The first player can either present a fair division (F), where the coins are split evenly, or an unfair division (U) (defined by a parameter $\theta >50$), game tree that represents the Ultimatum Game is shown in Figure \ref{fig:ultimatum:gametree}. To each definition of $\theta$ corresponds a game.
 
 \begin{figure}[h]
 \centering 
@@ -154,14 +154,12 @@ If we consider that we have 100 coins, the number of coins received can be consi
 \label{subsec:ultimatum}
 
 In a ``Quantum information approach to the ultimatum game''\cite{Fra2011} we are presented with a quantization scheme for the ultimatum game that uses the definition of quantum game in Section \ref{sec:background_quantum_game_theory}. 
- They compare that approach to other quantum game definitions, and proposes and compares also quantum  extensive form of the game. 
 
-
-If we present the game in Figure \ref{fig:ultimatum:gametree} in the normal form we get the matrix represented in Table \ref{tab:tabelaultimatumestoufofida}. The player $2$ has $4$ possible strategies. The strategy $A_{F}R_{U}$ means that the player $2$ will accept a fair division proposed by player $1$ but will reject a unfair division.
+If we present the game in Figure \ref{fig:ultimatum:gametree} in the normal form we get the matrix represented in Table \ref{tab:tabelaultimatumestoufofida}. The player $2$ has $4$ possible strategies. The strategy $A_{F}R_{U}$ means that the player $2$ will accept a fair division proposed by player $1$ but will reject a unfair division, when ($\theta > 50$).
 
  The quantum game representation for this game is $
 \Gamma_{Ultimatum}=(\mathcal{H}^{2^{3}},\: 2,\:\vert\psi_{in}\rangle,\:\xi,\:\{\mathcal{U}_{j}\},\:\{E_{i}\})
-$. The game system will consist in $3$ qubit, which correspond to the number of actions in the game. Player $1$ will be able to manipulate the qubit $1$, the player $2$ can manipulate the remaining qubits. 
+$. The game system will consist of $3$ qubit, which correspond to the number of actions in the game. Player $1$ will be able to manipulate the qubit $1$, the player $2$ can manipulate the remaining qubits. 
 
 
 \begin{center}

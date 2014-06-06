@@ -48,83 +48,6 @@ In the example stated in the representation \ref{qubit} the probability of the s
  
 $\omega_{0}$ and $\omega_{1}$ (\ref{qubit}) are complex numbers, the so-called probability amplitudes. When squared, the probability amplitude represents a probability. 
 
-\subsection{Operators}
-\label{subsec:QCoperators}
-
-In order to perform transformations in the qubit systems, we can define linear operators in the Hilbert space. One of the most important classes of operators being the self-adjoint operators,  $A = A^{*}$, that have the property stated in Equation \ref{eq_adjoint}. The Hermitian operator is one that satisfies the property of being equal to its conjugate transposed, $A = A^{*T} =A^\dagger$ .  In a finite-dimensional Hilbert space defined by a set of orthonormal basis every self-adjoint operator is Hermitian. 
-
-\begin{equation}
-\label{eq_adjoint}
-\langle A^{*}z\vert x\rangle=\langle z\vert Ax\rangle
-\end{equation}
-
-Unitary and Hermitian operators are used in the majority of quantum algorithms because they can be reversible, and because they insure that no rule of quantum mechanics is violated while applying the transformations. For that matter we arrive at an interesting difference between classical computing and quantum computing: it is impossible to copy or clone unknown quantum states\cite{Rieffel2011}. This is known as: The No-Cloning Principle.
-
-We can prove the ``The No-Cloning Principle'' by \textit{reductio ad impossibilem}. Suppose we have an operator $U$ which is unitary and clones quantum states, and two unknown quantum states $\vert a \rangle$ and $\vert  b \rangle$. The transformation $U$ means that if we apply it to $\vert a \rangle$ we have $U(\vert a \rangle\vert 0 \rangle)=\vert a \rangle\vert a \rangle$. The result when applying to $\vert b \rangle$ is  $U(\vert b \rangle\vert 0 \rangle)=\vert b \rangle\vert b \rangle$. 
-
-If we consider a state  $\vert c \rangle = \frac{1}{\sqrt{2}}( \vert a \rangle + \vert b \rangle)$, by the principle of linearity $U(\vert c \rangle\vert 0 \rangle)=\frac{1}{\sqrt{2}}( U(\vert a \rangle\vert 0 \rangle) +U(\vert b \rangle\vert 0 \rangle))$, giving the final result $U(\vert c \rangle\vert 0 \rangle)=\frac{1}{\sqrt{2}}( \vert a \rangle\vert a \rangle + \vert b \rangle\vert b \rangle)$. However if $U$ is a cloning operator then $U(\vert c \rangle\vert 0 \rangle)=\vert c \rangle\vert c \rangle$. 
-
-$\vert c \rangle\vert c \rangle = \frac{1}{\sqrt{2}}( \vert a \rangle\vert a \rangle + \vert a \rangle\vert b \rangle+ \vert b \rangle\vert a \rangle+ \vert b \rangle\vert b \rangle)$ is different from $\frac{1}{\sqrt{2}}( \vert a \rangle\vert a \rangle + \vert b \rangle\vert b \rangle)$, thus we can affirm there is no unitary operator $U$ that can clone unknown quantum states\cite{Rieffel2011}.
-
-When presented with $q$ qubits, a $q$-dimensional square matrix is called a Quantum Gate.
-
-
-
-Some important Quantum Gates that operate on a single qubit are:
-
-\begin{itemize}
-\item The Identity Matrix \eqref{eq:idims}.
-\begin{equation}
-\label{eq:idims}
-I=\left[\begin{array}{cc}
-1 & 0\\
-0 & 1
-\end{array}\right]
-\end{equation}
-
-\item The Pauli Operators. This operators are used to perform the NOT operation. 
-	\begin{itemize}
-		\item The Bit-Flip Operator\begin{equation}
-\label{eq:idims_1}
-\sigma_{x} =\left[\begin{array}{cc}
-0 & 1\\
-1 & 0
-\end{array}\right]
-\end{equation}
-		\item The Phase-Flip Operator\begin{equation}
-\label{eq:idims_2}
-\sigma_{z} =\left[\begin{array}{cc}
-1 & 0\\
-0 & -1
-\end{array}\right]
-\end{equation}
-\item The Bit and Phase-Flip Operator\begin{equation}
-\label{eq:idims_3}
-\sigma_{y}=\left[\begin{array}{cc}
-0 & -\mathbf{i}\\
-\mathbf{i} & 0
-\end{array}\right]
-\end{equation}
-	\end{itemize}
-\item The Hadamard Gate, belongs to a general class of Fourier Transforms. This $2\times 2$ particular case is also a Discrete Fourier Transform matrix.
-\begin{equation}
-\label{eq:idimssd_3}
-H=\frac{1}{\sqrt{2}}\left[\begin{array}{cc}
-1 & 1\\
-1 & -1
-\end{array}\right]
-\end{equation}
-\end{itemize}
-
-The Pauli operators with the identity matrix I, form an orthogonal basis for the complex Hilbert space of all $2 \times 2$ matrices, also known as Special Unitary Group 2 - $\mathsf{SU}(2)$ \cite{Letters2002}.
-
-
-\begin{comment}
-Observables are deemed as the physical properties that can be measured. One way to think of them is to consider the 20 question game, where a two player game where one person thinks of an object and then the second person has a set of 20 "Yes" or "No" to discover the object, one observable could be "Is it red?". With each question the space comprising the possible answers will not increase, this means that asking two times in a row if the object is red in the game will always yield the same answer.
- 
-Hermitian operators are suitable for being used as observables, as their eigenvalues are real numbers.
-The eigenvectors associated with the eigenvalues of the observable will correspond to the state in which the system will be after applying the Hermitian operator. Thus applying an observable to the system can be viewed as doing a projection of the system in the basis formed by the eigenvectors.  
-\end{comment}
 
 \subsection{Compound Systems}
 \label{subsec:compound_systems}
@@ -191,17 +114,147 @@ When working with a compound system wich holds $n$ qubits (two-state quantum sys
 
 
 
+\subsection{Operators}
+\label{subsec:QCoperators}
+
+In order to perform transformations in the qubit systems, we can define operators in the Hilbert space that preserve the inner product. Unitary operators are used in the majority of quantum algorithms because they are reversible, thus insuring that no rule of quantum mechanics (like the time evolution of the system), is violated while applying the transformations. This helps preserve symmetries and basis changes. Unitary matrices ($UU^{*} = U^{*}U = I $), represent a unitary operator on a finite-dimensional Hilbert Space. 
+
+As Unitary operators are a subset of linear operators, they preserve the inner product, this leads us to an interesting difference between classical computing and quantum computing: it is impossible to copy or clone unknown quantum states\cite{Rieffel2011}. This is known as: The No-Cloning Principle.
+
+We can prove the ``The No-Cloning Principle'' by \textit{reductio ad impossibilem}. Suppose we have an operator $U$ which is unitary and clones quantum states, and two unknown quantum states $\vert a \rangle$ and $\vert  b \rangle$. The transformation $U$ means that if we apply it to $\vert a \rangle$ we have $U(\vert a \rangle\vert 0 \rangle)=\vert a \rangle\vert a \rangle$. The result when applying to $\vert b \rangle$ is  $U(\vert b \rangle\vert 0 \rangle)=\vert b \rangle\vert b \rangle$. 
+
+If we consider a state  $\vert c \rangle = \frac{1}{\sqrt{2}}( \vert a \rangle + \vert b \rangle)$, by the principle of linearity $U(\vert c \rangle\vert 0 \rangle)=\frac{1}{\sqrt{2}}( U(\vert a \rangle\vert 0 \rangle) +U(\vert b \rangle\vert 0 \rangle))$, giving the final result $U(\vert c \rangle\vert 0 \rangle)=\frac{1}{\sqrt{2}}( \vert a \rangle\vert a \rangle + \vert b \rangle\vert b \rangle)$. However if $U$ is a cloning operator then $U(\vert c \rangle\vert 0 \rangle)=\vert c \rangle\vert c \rangle$. 
+
+$\vert c \rangle\vert c \rangle = \frac{1}{\sqrt{2}}( \vert a \rangle\vert a \rangle + \vert a \rangle\vert b \rangle+ \vert b \rangle\vert a \rangle+ \vert b \rangle\vert b \rangle)$ is different from $\frac{1}{\sqrt{2}}( \vert a \rangle\vert a \rangle + \vert b \rangle\vert b \rangle)$, thus we can affirm there is no unitary operator $U$ that can clone unknown quantum states\cite{Rieffel2011}.
+
+
+Other important class of operators are the self-adjoint operators, that have the property stated in Equation \ref{eq_adjoint}. The Hermitian operator is one that satisfies the property of being equal to its conjugate transposed, $A = A^{*T} =A^\dagger$ .  In a finite-dimensional Hilbert space defined by a set of orthonormal basis every self-adjoint operator is Hermitian\cite{VanRijsbergen2004}. 
+
+\begin{equation}
+\label{eq_adjoint}
+\langle A^{\dagger}z\vert x\rangle=\langle z\vert Ax\rangle
+\end{equation}
+
+As discussed before Hertitian Operators can be decomposed as a linear combination of projectors ($Proj_{i}$), and their eigenvalues are real, which makes them useful to represent physical properties that can be measured. For example in a particle system composed by an electron they could represent the spin of an electron "clockwise" or "counter-clockwise". An Hermitian operator ($H$), is also relevant because it can be used to generate a unitary operator $U$, as in 
+
+\begin{equation}
+\label{eq:hermitiantounitary}
+U = exp ( \mathbf{i}H)
+\end{equation}
+
+
+When presented with $q$ qubits, a $q$-dimensional square matrix is called a Quantum Gate.
+
+
+
+Some important Quantum Gates that operate on a single qubit are:
+
+\begin{itemize}
+\item The Identity Matrix \eqref{eq:idims}.
+\begin{equation}
+\label{eq:idims}
+I=\left[\begin{array}{cc}
+1 & 0\\
+0 & 1
+\end{array}\right]
+\end{equation}
+
+\item The Pauli Operators. This operators are used to perform the NOT operation. 
+	\begin{itemize}
+		\item The Bit-Flip Operator\begin{equation}
+\label{eq:idims_1}
+\sigma_{x} =\left[\begin{array}{cc}
+0 & 1\\
+1 & 0
+\end{array}\right]
+\end{equation}
+		\item The Phase-Flip Operator\begin{equation}
+\label{eq:idims_2}
+\sigma_{z} =\left[\begin{array}{cc}
+1 & 0\\
+0 & -1
+\end{array}\right]
+\end{equation}
+\item The Bit and Phase-Flip Operator\begin{equation}
+\label{eq:idims_3}
+\sigma_{y}=\left[\begin{array}{cc}
+0 & -\mathbf{i}\\
+\mathbf{i} & 0
+\end{array}\right]
+\end{equation}
+	\end{itemize}
+\item The Hadamard Gate, belongs to a general class of Fourier Transforms. This $2\times 2$ particular case is also a Discrete Fourier Transform matrix.
+\begin{equation}
+\label{eq:idimssd_3}
+H=\frac{1}{\sqrt{2}}\left[\begin{array}{cc}
+1 & 1\\
+1 & -1
+\end{array}\right]
+\end{equation}
+\end{itemize}
+
+The Pauli operators with the identity matrix I, form an orthogonal basis for the complex Hilbert space of all $2 \times 2$ matrices, also known as Special Unitary Group 2 - $\mathsf{SU}(2)$ \cite{Letters2002}.
+
+
+\begin{comment}
+Observables are deemed as the physical properties that can be measured. One way to think of them is to consider the 20 question game, where a two player game where one person thinks of an object and then the second person has a set of 20 "Yes" or "No" to discover the object, one observable could be "Is it red?". With each question the space comprising the possible answers will not increase, this means that asking two times in a row if the object is red in the game will always yield the same answer.
+ 
+Hermitian operators are suitable for being used as observables, as their eigenvalues are real numbers.
+The eigenvectors associated with the eigenvalues of the observable will correspond to the state in which the system will be after applying the Hermitian operator. Thus applying an observable to the system can be viewed as doing a projection of the system in the basis formed by the eigenvectors.  
+\end{comment}
+
+
+
 \subsection{Entanglement}
 \label{subsec:entanglement}
 
-In multiple qubit systems, qubits can interfere with each other, thus making impossible to determine the state of part of the system without ``disturbing" the whole. In other words, there are states in a multi-qubit system that cannot be described as a probabilistic mixture of the tensor product of single-qubit systems; when this happens this state is not separable (with respect to the tensor product decomposition), this phenomenon is called quantum entanglement\cite{Rieffel2011}. If a mixed quantum state $\psi$ in a quantum system constructed by $V_{1}, V_{2}, ..., V_{n}$ is separable it can be written as:
+In multiple qubit systems, qubits can interfere with each other, thus making impossible to determine the state of part of the system without ``disturbing" the whole. In other words, there are states in a multi-qubit system that cannot be described as a probabilistic mixture of the tensor product of single-qubit systems; when this happens this state is not separable (with respect to the tensor product decomposition), this phenomenon is called quantum entanglement\cite{Rieffel2011}. 
+
+If a mixed quantum state $\psi$ is separable, with $\psi$ being a quantum system constructed by $n$ sub-states defined each defined in its vector space (an Hilbert space) with dimension $m$, and basis $V_{0}, V_{1}, ..., V_{n}$, then it can be written as:
 
 
 \begin{equation}
-\rho= \sum^m_{j=1}{p_{j}\vert\varphi_{j}^{1}\rangle\langle\varphi_{j}^{1}\vert \otimes ... \otimes \vert\varphi_{j}^{n}\rangle\langle\varphi_{j}^{n}\vert}, \sum_{i}{p_{i}}=1, \vert \varphi_{j}^{i} \rangle \in V_{i}
+\rho= \sum^{m-1}_{j=0}{p_{j}\vert\varphi_{j}\rangle_{0}\langle\varphi_{j}\vert_{0} \otimes ... \otimes \vert\varphi_{j}\rangle_{n}\langle\varphi_{j}\vert_{n}}, \sum_{i}{p_{i}}=1, \vert \varphi_{j} \rangle_{i} \in V_{i}
 \end{equation}
 
+According to the latter formula an example of a density matrix for a separable 2-qubit system could be 
+
+\begin{equation}
+\rho=0.5\left[\begin{array}{cc}
+1 & 0\\
+0 & 0
+\end{array}\right]_{\{0\}}\otimes\left[\begin{array}{cc}
+1 & 0\\
+0 & 0
+\end{array}\right]_{\{1\}}+0.5\left[\begin{array}{cc}
+0 & 0\\
+0 & 1
+\end{array}\right]_{\{0\}}\otimes\left[\begin{array}{cc}
+0 & 0\\
+0 & 1
+\end{array}\right]_{\{1\}}=\left[\begin{array}{cccc}
+0.5 & 0 & 0 & 0\\
+0 & 0 & 0 & 0\\
+0 & 0 & 0 & 0\\
+0 & 0 & 0 & 0.5
+\end{array}\right]
+\end{equation}
+
+On the other hand a maximally entangled 2-qubit system would be caracterized by a density matrix that would correspond to a uniform probability distribution like\cite{Rieffel2011}
+
+\begin{equation}
+\rho = \left[\begin{array}{cccc}
+0.25 & 0 & 0 & 0\\
+0 & 0.25 & 0 & 0\\
+0 & 0 & 0.25 & 0\\
+0 & 0 & 0 & 0.25
+\end{array}\right]
+\end{equation}
+
+%So with two quibits a separable density matrix could be
 Quantum entanglement is one of the main differences from the classical theory\cite{Rieffel2011}. In an entangled system each member has a quantum state that is described with relation to the other members, thus cannot being described independently. This property is not local as transformations that act separately in different parts of an entangled system cannot break the entanglement. However, if we measure a part of the entangled system, the system collapses, and if we measure the otherpart in any point of time from that moment we will find a correlation with the outcome of the first measurement.
+
+
 
 For example, supposing we consider the following quantum states, known as Bell states:
 \begin{equation}

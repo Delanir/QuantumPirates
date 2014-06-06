@@ -89,7 +89,7 @@ With $3$ players and $5$ actions our system with be represented in a $\mathcal{H
 
 
 The initial system ($\vert \psi_{0}(\gamma) \rangle$), will be set up by defining an entanglement coefficient $\gamma$, that affect the way the five qubits (belonging to the three pirate players), are related; this is shown in Equation \ref{eq:estado_inicial_pg}. 
-We will entangle our state by applying the gate $\mathcal{J}$ \cite{Letters2002}. The parameter $\gamma$ becomes a way to measure the entanglement in the system\cite{Eisert2008}. 
+We will entangle our state by applying the gate $\mathcal{J}$ \cite{Letters2002}. The parameter $\gamma$ becomes a way of measuring the entanglement in the system\cite{Eisert2008}. 
 
 The concept of entanglement is crucial to explain some phenomena in Quantum Mechanics (Section \ref{subsec:entanglement}).We analysed the role of the entanglement of the system since other examples researched pointed to it being the prominent factor regarding behaviour changes from the classsical perspective\cite{Fra2011a}\cite{Fra2011}\cite{Letters2002}\cite{Khan2011}\cite{Ricketts2006}. 
 
@@ -172,8 +172,8 @@ w^2 + x^2 + y^2 + z^2 =1 $). However in  order to explore the potential of quant
 
 \begin{equation}
 \mathcal{U}_{j}(\theta,\phi) = \left[\begin{array}{cc}
-cos(\frac{\phi}{2}) & e^{\mathbf{i}\phi}sin(\frac{\phi}{2})\\
--e^{-\mathbf{i}\phi}sin(\frac{\phi}{2}) & cos(\frac{\phi}{2})
+cos(\frac{\theta}{2}) & e^{\mathbf{i}\phi}sin(\frac{\theta}{2})\\
+-e^{-\mathbf{i}\phi}sin(\frac{\theta}{2}) & cos(\frac{\theta}{2})
 \end{array}\right] , j \in \{ 1, 2, 3, 4, 5 \}, \theta \in ( 0, \pi ) , \phi \in ( 0, \frac{\pi}{2})
 \label{eq:operadoresinfinitus}
 \end{equation}
@@ -270,7 +270,7 @@ To build the expected payoff functionals for the three player situation we must 
 As defined on Equation \ref{eq:quantum_game_definition_payoff_func} ($ E_{i}=\sum_{b \in \mathcal{B}} u_{i}(b)\vert \langle b\vert \psi_{fin}\rangle\vert^{2}, u_{i}(b) \in \mathbb{R} $),for each player we must specify a utility functional that attributes a real number to the measurement of the projection of a basis in the quantum state that we get after the game. 
 
 
-This measurement can be understood as a probability of the system collapsing into that state (that derives from the Born Rule, Section \ref{subsubsec:bornrule}).
+This measurement can be understood as a probability of the system collapsing into that state (that derives from the Born Rule detailed in Section \ref{subsubsec:bornrule}).
 
 
 These utility functions will represent the degree of satisfaction for each pirate after game by attributing a real number to a measurement performed to the system (as in Equation \ref{eq:quantum_game_definition_payoff_func}, Section \ref{sec:background_quantum_game_theory}). 
@@ -372,7 +372,7 @@ The gate $\mathcal{J}$ is chosen to be commutative with the super-operators crea
 
 
 This condition implies that choosing any operator from the sub-set $O = \{ \mathcal{U} ( \theta , 0) , \theta \in (0, \pi) \}$ with $\gamma = 0$ is the equivalent of a classical mixed action. A strategy $\tau_{i}$ is a classical pure strategy iff all operators in the strategy belong to the subset $S$ (defined in \ref{eq:operators_piratas_quanticos}). A strategy $\tau_{i}$ is a classical mixed strategy iff all operators in the strategy belong to $O$.
-If the parameter $\phi$ in the operator $U_{j}(\theta ,\phi)$ differs from $0$, and the entanglement parameter $\gamma = 0$ we are able to explore quantum strategies that have no counterpart in the classical domain\cite{Eisert2008}.
+If the parameter $\phi$ in the operator $U_{j}(\theta ,\phi)$ differs from $0$, and the entanglement parameter $\gamma > 0$ we are able to explore quantum strategies that have no counterpart in the classical domain\cite{Eisert2008}.
 
 
 

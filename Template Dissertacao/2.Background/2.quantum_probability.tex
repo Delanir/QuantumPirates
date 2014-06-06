@@ -10,7 +10,7 @@ In the beginning on the $20^{th}$ century the nature of light was on the spotlig
 
 %figura difracção
 
-The idea of light as a particle stood up until the $18^{th}$century as many scientists (Robert Hooke, Christian Huygens and Leonhard Euler to name a few) tried to explain contradictions found in corpuscular theory. This brought back the idea that light behaves like a wave. 
+The idea of light as a particle stood up until the $18^{th}$century as many scientists (Robert Hooke, Christian Huygens and Leonard Euler to name a few) tried to explain contradictions found in corpuscular theory. This brought back the idea that light behaves like a wave. 
 
 One of the most famous experiments that corroborates the undulatory theory is the Young's experiments ($19^{th}$ century), or the double-slit interferometer.
 
@@ -47,7 +47,7 @@ h = 6.62606957(29) \times 10^{-34} J.s
 In 1905, Einstein used the concept of quanta (photons) to explain the photoelectric effect. 
 De Broglie(1924), suggested that all matter has a wave behaviour. This prediction was confirmed by studying the interference patterns caused by electron diffraction. 
 
-In Quantum Mechanics, a particle is deemed as a system that is described by a wave-function (quantum system). Yhe wave function is usualy represented by the greek letter $\psi$. The main purpose of Quantum Mechanics is to give predictions for the outcomes derived from measurements on quantum systems\cite{Nikoli2008}.
+In Quantum Mechanics, a particle is deemed as a system that is described by a wave-function (quantum system). The wave function is usually represented by the Greek letter $\psi$. The main purpose of Quantum Mechanics is to give predictions for the outcomes derived from measurements on quantum systems\cite{Nikoli2008}.
 
 
 \subsection{Mathematical Foundations of Quantum Probability} 
@@ -56,7 +56,7 @@ In Quantum Mechanics, a particle is deemed as a system that is described by a wa
 As previously explained, Quantum Theory is a branch of physics that has evolved from the need to explain certain phenomena that could not be explained with the current classical theory.
 In the beginning of the 20\textsuperscript{th} century Dirac and von Neumann  helped to create the mathematical formalisms for this theory \cite{sep-qt-nvd}\cite{Summers2006}. 
 
-Von Neumann's contributions revolved around the mathematical rigour that enabled to explain and manipulate the quantum phenomena. His framework is strongly based in Hilbert's theory of operators. Dirac's concerns were more of a practical nature, as his notation provided a compact way to represent quantum states. Their combined contributions were invaluable to establish this area. 
+Von Neumann's contributions revolved around the mathematical rigour that enabled to explain and manipulate the quantum phenomena. His framework is strongly based on Hilbert's theory of operators. Dirac's concerns were more of a practical nature, as his notation provided a compact way to represent quantum states. Their combined contributions were invaluable to establish this area. 
 
 A Hilbert Space is an extension of a vector space which requires the definition of inner product. A quantum system is represented by a $n$-dimensional complex Hilbert Space - $\mathcal{H}^{n}$-; a complex vector space in which the inner product is defined. 
 
@@ -114,18 +114,18 @@ where $\bar{z_{i}}$ is the complex conjugate of $z_{i}$.
 
 
 
-\subsection{Born rule}
+\subsection{Measurement}
 \label{subsubsec:bornrule}
 
 The Born rule was formulated by Born in 1926. This law allows to predict the probability that a measurement on a quantum system will yield a certain result. This law provides a link between the mathematical foundation of Quantum Mechanics and the experimental evidence\cite{VanRijsbergen2004}\cite{Landsman2009}. 
 
 
-The Born rule states that if there is a system is in a state $\vert v \rangle$  (in a given $n$-dimensional Hilbert Space $\mathcal{H}$ ), and an Hermitian operator $A$ is applied then the probability of measuring a specific eigenvalue $\lambda_{i}$ associated with the $i$-th eigenvector of $A$ ($\psi_{i}$), will be given by\cite{VanRijsbergen2004}: 
+The Born rule states that if there is a system which is in a state $\vert \psi \rangle$  (in a given $n$-dimensional Hilbert Space $\mathcal{H}$ ), the probability of measuring a specific eigenvalue $\lambda_{i}$ associated with the $i$-th eigenvector of a set of orthonormal basis $\mathcal{B}$, $\psi_{i}$, will be given by\cite{VanRijsbergen2004}: 
 
 
 \begin{equation}
 \label{eq_born_rule}
-P_{v}(\lambda_{i}) = \langle v\vert Proj_{i}\vert v\rangle
+P_{\psi}(\lambda_{i}) = \langle \psi\vert Proj_{i}\vert\psi\rangle
 \end{equation}
 
 where $Proj_{i}$ is a projection matrix corresponding to $\psi_{i}$ :
@@ -135,12 +135,14 @@ where $Proj_{i}$ is a projection matrix corresponding to $\psi_{i}$ :
 Proj_{i} = \vert\psi_{i}\rangle \langle \psi_{i}\vert
 \end{equation}
 
-Given the properties of A, the set of eigenvectors $\{ \psi_{1}, \psi_{2}, ..., \psi_{i},..., \psi_{n}\}$ forms a orthogonal basis of the $n$-dimensional Hilbert Space considered. Thus the state $\vert v \rangle$
-can be written as a linear combination of the eigenvectors of A:
+A projection matrix (or a projection operator) corresponding to a single eigenvector of $\mathcal{B}$, can be understood as a "yes" or "no" question because it has  two eigenvalues (0 or 1).
+
+As the set of eigenvectors $\mathcal{B}=\{ \psi_{0}, \psi_{1}, ..., \psi_{i},..., \psi_{n-1}\}$ forms a orthogonal basis of the $n$-dimensional Hilbert Space considered, the state $\vert \psi \rangle$
+can be written as a linear combination of those eigenvectors:
 
  \begin{equation}
 \label{eq_born_rule_lala}
-\vert v \rangle = \alpha_{1}\psi_{1}+ \alpha_{2}\psi_{2}+ ...+\alpha_{i}\psi_{i}+...+\alpha_{n}\psi_{n}
+\vert \psi \rangle = \alpha_{0}\psi_{0}+ \alpha_{1}\psi_{1}+ ...+\alpha_{i}\psi_{i}+...+\alpha_{n-1}\psi_{n-1}
 \end{equation}
 
 The coefficients $\alpha_{i}$ are complex numbers called probability amplitudes, and their squared sum is equal to 1: 
@@ -148,20 +150,26 @@ The coefficients $\alpha_{i}$ are complex numbers called probability amplitudes,
 \sum_{i=0}^{n} \vert \alpha_{i}\vert^{2} = 1
 \end{equation}
 
-this brings us to: 
+which satisfies the classic law of total probability (referred previously in the Kolmogorov axioms), which states that the sum of probabilities of all possible outcomes in a space is always 1. This brings us to: 
 
 \begin{equation}
 \label{eq_born_rule_2}
-P_{v}(\lambda_{i}) =\langle v\vert\psi_{i}\rangle\langle\psi_{i}\vert v\rangle=\vert\langle v\vert\psi_{i}\rangle \vert^{2} = \vert \alpha_{i}^{*}\alpha_{i}\vert^{2}
+P_{\psi}(\lambda_{i}) =\langle \psi \vert\psi_{i}\rangle\langle\psi_{i}\vert \psi \rangle=\vert\langle \psi \vert\psi_{i}\rangle \vert^{2} = \vert \alpha_{i}^{*}\alpha_{i}\vert
 \end{equation}
 
 So the determination of the probability of an event ($P(A)$ ),
-is made by projecting the quantum state on the eigenvectors corresponding to the operator $A$ of the
-Hilbert Space and measuring the squared length of the projection.\cite{Trueblood}
+is made by projecting the quantum state labled $\psi$ on the eigenvectors of $\mathcal{B}$ corresponding to the operator $A$ (represented by a matrix), and measuring the squared length of the projection.\cite{Trueblood}
 \begin{equation}
-P(A)=\left(Proj_{A}\vert z\rangle\right)^{2}
+P(A)=\left(A\vert \psi\rangle\right)^{2}
 \end{equation}
-Applying an operator can be seen as applying a rotation matrix on the system ($\vert v \rangle$) and measuring the projection of $\vert v \rangle$ onto the imaginary axis and the real axis (Figure \ref{fig:circle}), or considering that we have a determined state vector and rotating the orthogonal basis of the Hilbert Space according to an operator and then to do a projection on the new chosen orthogonal basis.
+
+The squared length of the projection gives a prediction or an expected value for the system, if we would peak and measure the state of the system at that moment. When we measure the system its wave function $\psi$ collapses onto a well defined state. If we think of an analogy, in fair coin we know that the probability of getting Heads or Tails is respectively $P(H)=0.5$ and $P(T)=0.5$, however when we toss it we either get Heads or Tails. The probability conveys the meaning that if we repeat the experiment \textit{ad infinitum} we would get Heads half the time. 
+
+If $A$ can be described by an Hermitian operator ($A = A^{\dagger}$), it can be decomposed as a linear combination of projectors $Proj_{i}$, thus being a set of "yes" "no" questions.
+
+\begin{comment}
+Applying an hermitian operator ($A = A^{\dagger}$), can be seen as applying a rotation matrix on the system ($\vert \psi \rangle$) and measuring the projection of $\vert \psi \rangle$ (Figure \ref{fig:circle}), or considering that we have a determined state vector and rotating the orthogonal basis of the Hilbert Space according to an operator and then to do a projection on the new chosen orthogonal basis.
+\end{comment}
 
 According to Leiffer\cite{Leifer2008} ``quantum theory can be thought of as a non-commutative, operator-valued, generalization of classical probability theory". 
 
@@ -172,8 +180,10 @@ The density operator ($\rho$) is a Hermitian operator that has the particularity
 
 \begin{equation}
 \label{eq_trace1}
-\rho = \sum_{i=0}^{n} \alpha_{i} \vert\psi_{i}\rangle\langle\psi_{i}\vert
+\rho = \sum_{i=0}^{n-1} p_{i} \vert\psi_{i}\rangle\langle\psi_{i}\vert
 \end{equation} 
+
+where $p_{i}$ represents a probability associated with the eigenstate $\psi_{i}$, so the trace of the matrix $\rho$ (the sum of the elements on the main diagonal the matrix) is 
 
 \begin{equation}
 \label{eq_trace1}
@@ -185,9 +195,9 @@ tr( \rho ) = 1
 
 
 %proofed
-\subsection{Example of the double-slit experiment with electrons}
+\subsection{Example: Double-slit experiment with electrons}
 \label{subsubsec:double_slit}
- Like the Young's Experiment with light created an interference pattern similar to a wave, firing electrons one at the time produces a similar pattern. The unobserved fired electron behaved like a wave and after passing the slits the wavelets interfered with one another to create a interference pattern. However if a measuring device was active while the electron was fired the interference pattern wasn't registered. 
+ Like the Young's Experiment where light created an interference pattern similar to a wave, firing electrons one at the time produces a similar pattern. The unobserved fired electron behaved like a wave and after passing the slits the wavelets interfered with one another to create a interference pattern. However if a measuring device was active while the electron was fired the interference pattern wasn't registered. 
 
 \begin{figure}[h]
 \centering 
@@ -207,9 +217,9 @@ tr( \rho ) = 1
 The fact that the electron was measured while passing through a slit produced a particle behaviour, explained by the classical theory (Figure \ref{fig:double_slit_ob}). 
 
 
-In this experiment a single electron is shoot at a time. So in the start of the experiment (S), we know the initial position of the electron.
+In this experiment a single electron is shoot at a time. So in the start of the experiment (S), we know the initial position of the electron. The labels F and S help us identify the state of the electron before passing through the slit and afterwards, however it is more accurate to describe the state of the electron as a wave function $\psi$, and $\vert A \rangle$ and $\vert B \rangle$ a pair of orthonormal eigenvectors, which can be used to ask whether or not the electron has passed through the slit A or B, this leads us to the direct application of the Born rule \eqref{eq_born_rule}.
 
-A final measurement (F) is made when the electron hits the wall behind the slits, where we know the final position of the electron.
+A final measurement is made when the electron hits the wall behind the slits, where we know the final position (F) of the electron.
 \footnote{Mohrhoff, U.: Two Slits. \url{http://thisquantumworld.com/wp/the-mystique-of-quantum-mechanics/two-slit-experiment/##fn1back}}
 
 If this experiment is observed, there is an intermediate measure that tells us whether the electron went through the slit A or B. The corresponding probability amplitudes related to this measurement are $\omega_{A}$ and $\omega_{B}$, and:
@@ -228,6 +238,8 @@ P(F\vert S) =
 \vert \langle F \vert B\rangle \langle B \vert S\rangle \vert^{2}
 \end{equation}
 
+
+
 But if we only measure the position of the electron at the end of the experiment that probability will be:
 \begin{equation}
 P(F\vert S) = 
@@ -237,9 +249,13 @@ P(F\vert S) =
 \end{equation}
 The latter equation will be dependent on a interference coefficient that will be responsible the interference pattern observed in the unobserved experiment.
 
+This experiment reveals the non-commutative nature and the importance of the measurement in quantum probability\cite{Leifer2008}\cite{Busemeyer}. In classic probability the moment when we measure where is the electron was would not affect the experiment, when using von Neumman probabilities we could obtain the same result as long as $\vert \langle F \vert A\rangle \langle A \vert S\rangle \vert^{2}
++
+\vert \langle F \vert B\rangle \langle B \vert S\rangle \vert^{2} \approx \vert \langle F \vert A\rangle \langle A \vert S\rangle 
++
+ \langle F \vert B\rangle \langle B \vert S\rangle \vert^{2}$, which can happen if $2\langle F \vert A\rangle \langle A \vert S\rangle \langle F \vert B\rangle \langle B \vert S\rangle = 0$. 
 
-
-\subsection{Example of the Polarization of Light}
+\subsection{Example: Polarization of Light}
 The photons in a beam of light don't vibrate all the same direction in most of the natural sources of light. To filter the light polaroids are used. A polaroid only allows the passage of light in a well-defined direction and thus reducing the intensity of the light. In the Figure \ref{fig:polaroids} we can observe that the introduction of the oblique polaroid in the third situation led to a passage of light. Although there is a classical explanation to this phenomenon if we consider waves when we are considering a beam of light, if our light source emits one photon at the time a quantum mechanical explanation is needed\cite{Rieffel2011}.
 
 \begin{figure}[h]

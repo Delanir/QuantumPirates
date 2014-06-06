@@ -33,7 +33,7 @@
 	\maketitle
 
 	\begin{abstract}
-		In which we develop a quantum model for the voting system in the mathematical puzzle created by Omohundro and Stewart - ``A puzzle for pirates '', also known as Pirate Game. This game is a multi-player version of the game ``Ultimatum '', where the players (Pirates), must distribute fixed number of gold coins acording to some rules. The classic game has a pure strategy Nash Equilibrium, however the game is maximally entangled, we could not find a pure strategy Nash Equilibrium. These results corroborate other quantum game theory models. 
+		In which we develop a quantum model for the voting system in the mathematical puzzle created by Omohundro and Stewart - ``A puzzle for pirates '', also known as Pirate Game. This game is a multi-player version of the game ``Ultimatum '', where the players (Pirates), must distribute fixed number of gold coins according to some rules. The classic game has a pure strategy Nash Equilibrium, however the game is maximally entangled, we could not find a pure strategy Nash Equilibrium. These results corroborate other quantum game theory models. 
 
 
 		\keywords Quantum Game Theory; Pirate Game; Quantum Mechanics; Quantum Computing; Game Theory; Probability Theory
@@ -47,9 +47,9 @@ The rationale behind building a quantum version of a Game Theory and/or Statisti
 From the point of view of Quantum Cognition (a domain that seeks to introduce Quantum Mechanics Concepts in the field of Cognitive Sciences), these games are approached from the perspective of trying to model the mental state of the players in a quantum manner. The Prisoner's Dilemma is an example of a problem that has been modelled in order to explain discrepancies from the theoretical results of the classical Game Theory approach and the way humans play the game\cite{Pothos2009}. 
 
 In this document we propose a quantization scheme, which is a way to transform the original game into a quantum simulation.
-We also study the outcomes for the Quantum Pirate Game with $3$ players, and we also studied the system for $2$ players while paying special attencion to the role of entanglement, and the quantum strategies. Both games are strictly determined in the original problem, however when we allow the system to be entangled we start noticing that there are quantum operators that can cause interference. When the game is maximally entangled, we could not find a pure strategy Nash Equilibrium. These results are similar to the findings in models such as the Prisoner's Dilemma\cite{Eisert2008}\cite{Letters2002}, and Stackelberg Duopoly\cite{Khan2011}. 
+We also study the outcomes for the Quantum Pirate Game with $3$ players, and we also studied the system for $2$ players while paying special attention to the role of entanglement, and the quantum strategies. Both games are strictly determined in the original problem, however when we allow the system to be entangled we start noticing that there are quantum operators that can cause interference. When the game is maximally entangled, we could not find a pure strategy Nash Equilibrium. These results are similar to the findings in models such as the Prisoner's Dilemma\cite{Eisert2008}\cite{Letters2002}, and Stackelberg Duopoly\cite{Khan2011}. 
 
-This documents is structured to provide an overview of the classical Pirate game, with a brief analysis for a $3$ player game. Then we present the quantum model proposed for the pirate game. In the section 4 we perform an analysis of the quantum game for 2 and 3 players. Finaly we sum up or main results in the Conclusion section. 
+This documents is structured to provide an overview of the classical Pirate game, with a brief analysis for a $3$ player game. Then we present the quantum model proposed for the pirate game. In the section 4 we perform an analysis of the quantum game for 2 and 3 players. Finally we sum up or main results in the Conclusion section. 
 
 
 \section{Pirate Game}
@@ -60,7 +60,7 @@ The original Pirate Game is a multi-player version of the Ultimatum game that wa
 \begin{quotation}
 Suppose there are 5 rational pirates: A; B; C; D; E. The pirates have a  loot of 100 gold coins to divide among themselves.
 
-As the pirates have a strict hierarchy, in which pirate A is the captain and E has the lowest rank, the highest ranking pirate alive will propose an allocation of the coins. The coins are indivisible, so, for example a proposal, where the captain receives $95$, pirate C receives $2.5$, pirate E receives $2.5$, and the remaining pirates receice $0$ coins is not permited according to the rules.  Then each pirate will cast a vote on whether or not to accept the proposal. 
+As the pirates have a strict hierarchy, in which pirate A is the captain and E has the lowest rank, the highest ranking pirate alive will propose an allocation of the coins. The coins are indivisible, so, for example a proposal, where the captain receives $95$, pirate C receives $2.5$, pirate E receives $2.5$, and the remaining pirates receive $0$ coins is not permitted according to the rules.  Then each pirate will cast a vote on whether or not to accept the proposal. 
 
 If a majority or a tie is reached the goods will be allocated according to the proposal. Otherwise the proposer will be thrown overboard and the next pirate in the hierarchy assumes the place of the captain. 
 
@@ -81,8 +81,8 @@ In Figure \ref{fig:pg_architecturegametree:extensiveform} we have an extensive f
 
 The green accent, in Figure \ref{fig:pg_architecturegametree:extensiveform}, shown in the nodes represent a state where the first captain (player $1$), will see her proposal accepted, the utility associated. The dashed lines are a common representation for imperfect information  at the nodes united. The blue accent denotes the outcomes where the second captain makes a proposal and has seen it accepted. The red accent color represents the outcomes where the player $3$ will be the remaining pirate.
 
-The number of coins will translate directly the utility associated with receiving them. The highest ranking pirate in the hierarchy (the captain), is responsible to make a proposal to divide the 100 gold coins. A captain $i$ chooses the amount of coins a player $j$ get; this amount will be represented by $\alpha_{ij}$. 
-To account for all possible proposals would be overwhelming from the point of the game tree. However from the formulation of the problem, the pirates know the share proposal before voting. This means we will concentrate our analysis on the voting aspect. For each specification of the values $\alpha_{ij}$ we will have a diferent game. 
+The number of coins will translate directly the utility associated with receiving them. The highest ranking pirate in the hierarchy (the captain), is responsible to make a proposal to divide the 100 gold coins. A captain $i$ chooses the amount of coins a player $j$ gets; this amount will be represented by $\alpha_{ij}$. 
+To account for all possible proposals would be overwhelming from the point of the game tree. However from the formulation of the problem, the pirates know the share proposal before voting. This means we will concentrate our analysis on the voting aspect. For each specification of the values $\alpha_{ij}$ we will have a different game. 
 In the initial stage of the game the first captain will define $\alpha_{11}, \alpha_{12}, \alpha_{13}$, according to Equation \ref{eq:goodss} ($N$ the number of pirates in the game), meaning that each aspiring captain will have to allocate all the 100 coins. 
 \begin{equation}
 \label{eq:goodss}
@@ -133,7 +133,7 @@ as $\otimes_{j=1}^{a}\mathbb{C}^{2}$, with basis $\mathcal{B}$. With $3$ players
 composed by $a$ qubits: $\vert\varphi_{1}\rangle,\:\vert\varphi_{2}\rangle, ..., \vert\varphi_{j}\rangle, ..., \vert\varphi_{a}\rangle$.
 
 Our initial system ($\vert \psi_{0}(\gamma) \rangle$), will be set up by defining an entanglement coefficient $\gamma$, that affect the way the five qubits (belonging to the three pirate players), are related; this is shown in Equation \eqref{eq:estado_inicial_pg}. 
-We will entangle our state by applying the gate $\mathcal{J}$ \cite{Letters2002}. This gate was chosen to accomodate the classical version where players play only classical strategies because in the classical setting there is no entanglement. This is accomplished by chosing $\mathcal{J}$ such that it commutes with any combination of pure strategies (for example $ [ \mathcal{J} , D \otimes C \otimes D \otimes D \otimes C ] = 0 $)
+We will entangle our state by applying the gate $\mathcal{J}$ \cite{Letters2002}. This gate was chosen to accomodate the classical version where players play only classical strategies because in the classical setting there is no entanglement. This is accomplished by choosing $\mathcal{J}$ such that it commutes with any combination of pure strategies (for example $ [ \mathcal{J} , D \otimes C \otimes D \otimes D \otimes C ] = 0 $)
 
 The parameter $\gamma$ becomes a way to measure the entanglement in the system\cite{Eisert2008}. 
 
@@ -191,7 +191,7 @@ D=\left[\begin{array}{cc}
 \subsubsection{Strategic Space}
 \label{subsec:strategic_space}
 
-For each qubit $j$ $\mathcal{U}_{j}$ is a subset of unitary operators that the player can use to manipulate her qubits. An unitary operator can be represented by an unitary matrix, whose inverse matrix is equal to its conjugate tranpose ( $\mathcal{U}^{\dagger}=\mathcal{U}^{-1}$). This assures that the operation is reversible.
+For each qubit $j$ $\mathcal{U}_{j}$ is a subset of unitary operators that the player can use to manipulate her qubits. An unitary operator can be represented by an unitary matrix, whose inverse matrix is equal to its conjugate transpose ( $\mathcal{U}^{\dagger}=\mathcal{U}^{-1}$). This assures that the operation is reversible.
 
 The quantum strategic space is a set of unitary operators that the players can use to manipulate their assigned qubits. An unrestricted strategic space can be constructed using the Pauli matrices and the identity matrix to span the set of $2$ dimensional unitary matrices:
 
@@ -381,7 +381,7 @@ If the parameter $\phi$ in the operator $U_{j}(\theta ,\phi)$ differs from $0$, 
 \label{sec:description_3}
 
 
-According to \cite{Du} when the entanglement is maximal, $\mathcal{U}(\pi, 0)$ is the optimal counter-strategy for $C$ (represented by the identity marix), $\mathcal{U}(0, \frac{\pi}{2})$ is the optimal counter strategy for $\mathcal{U}(\pi, 0)$, $D$ becomes the optimal counter-strategy for $\mathcal{U}(0, \frac{\pi}{2})$, and $C$ becomes an optimal counter strategy for $D$. 
+According to \cite{Du} when the entanglement is maximal, $\mathcal{U}(\pi, 0)$ is the optimal counter-strategy for $C$ (represented by the identity matrix), $\mathcal{U}(0, \frac{\pi}{2})$ is the optimal counter strategy for $\mathcal{U}(\pi, 0)$, $D$ becomes the optimal counter-strategy for $\mathcal{U}(0, \frac{\pi}{2})$, and $C$ becomes an optimal counter strategy for $D$. 
 
 \subsection{$2$ Player Game}
 \label{subsec:2playergame}
@@ -427,7 +427,7 @@ The expected utility when players can choose only pure quantum strategies and th
 
 
 
-As there were initialy 100 coins we decided to study what would happen if the captain decided to share the treasure fairly: $50$ coins for player $1$, $50$ for player $2$. A Nash equilibrium of the game would also consist in a mixed strategy where the players would choose indiferently which strategy to use, but in this case $\frac{3}{4}$ of the time player $1$ would get $50$ coins and $\frac{1}{4}$ he would die and receive a payoff of $-200$. This means that the meek captain would rather have a division ``supervised'' by a contract (entanglement), than to trust her crew and propose a fair division from the start.
+As there were initially 100 coins we decided to study what would happen if the captain decided to share the treasure fairly: $50$ coins for player $1$, $50$ for player $2$. A Nash equilibrium of the game would also consist in a mixed strategy where the players would choose indifferently which strategy to use, but in this case $\frac{3}{4}$ of the time player $1$ would get $50$ coins and $\frac{1}{4}$ he would die and receive a payoff of $-200$. This means that the meek captain would rather have a division ``supervised'' by a contract (entanglement), than to trust her crew and propose a fair division from the start.
 
 
 
@@ -504,7 +504,7 @@ An example of this behaviour is shown in Figure \ref{fig:pg_3players_99_0_1}, wh
 \label{fig:pg_3players_99_0_1}
 \end{figure}
 
-When each player chooses an operator from the set $O = \{ \mathcal{U} ( \theta , 0) , \theta \in (0, \pi) \}$ and $\gamma=0$ we have a separable game. This is an aquivalent situation to the classical game, but contrarily to the classical game where we have only a Nash Equilibrium $(C,D,C,C,D)$, we have more Equilibria, all with an outcome of $(99, 0, 1)$. This is verifyable because in the separable game the players act only in their qubits $\varphi_{j}$, and $D\vert 0\rangle =\vert 1 \rangle$ and $\mathcal{U}( \pi, 0) \vert 0 \rangle = - \vert 1 \rangle $, when measuring the probability of the operators $D$ and $\mathcal{U}( \pi, 0)$ tranforming a pure state $\vert 0 \rangle$ into state $\vert 1 \rangle$ we square the probability amplitude associated with the final state. When $\gamma = 0$  $C$ is interchangeble with $\mathcal{U}(0, \frac{\pi}{2})$, and $D$ is interchangeble wih $\mathcal{U}( \pi, 0)$.
+When each player chooses an operator from the set $O = \{ \mathcal{U} ( \theta , 0) , \theta \in (0, \pi) \}$ and $\gamma=0$ we have a separable game. This is an equivalent situation to the classical game, but contrarily to the classical game where we have only a Nash Equilibrium $(C,D,C,C,D)$, we have more Equilibria, all with an outcome of $(99, 0, 1)$. This is verifiable because in the separable game the players act only in their qubits $\varphi_{j}$, and $D\vert 0\rangle =\vert 1 \rangle$ and $\mathcal{U}( \pi, 0) \vert 0 \rangle = - \vert 1 \rangle $, when measuring the probability of the operators $D$ and $\mathcal{U}( \pi, 0)$ transforming a pure state $\vert 0 \rangle$ into state $\vert 1 \rangle$ we square the probability amplitude associated with the final state. When $\gamma = 0$  $C$ is interchangeable with $\mathcal{U}(0, \frac{\pi}{2})$, and $D$ is interchangeable with $\mathcal{U}( \pi, 0)$.
 
 However for $\gamma >0$ the $\mathcal{U} ( \theta , 0)$ may present an interference behaviour that is inherently quantum. This effect is shown in Figures \ref{fig:pg_3players_99_0_1:2} and \ref{fig:pg_3players_99_0_1:2}, allowing us to understand the difference between the Bit-flip operator $D$ and $\mathcal{U} ( \pi , 0)$.
 
@@ -549,7 +549,7 @@ If the captain is the only one with access to quantum strategies, and the other 
 \label{fig:pg_3players_99_0_1:4}
 \end{figure}
 
-If players $2$ and $3$ know that the captain has access to quantum strategies, with a maximaly entangled game, and they have the restricted sub-set of pure classical strategies $C_{j}$ and $D_{j}$, if they both play $C$, the dominant strategy for the captain becomes $\tau_{1} = \mathcal{U}_{1}(0,0)$. Their best response becomes playing a mixed strategy where half the time they will play $C$ and the other half $D$. The best response for player $1$ in this case is to play a mixed quantum strategy where half the time she plays $\mathcal{U}(0,0)$, half $\mathcal{U}(0,pi/2)$.
+If players $2$ and $3$ know that the captain has access to quantum strategies, with a maximally entangled game, and they have the restricted sub-set of pure classical strategies $C_{j}$ and $D_{j}$, if they both play $C$, the dominant strategy for the captain becomes $\tau_{1} = \mathcal{U}_{1}(0,0)$. Their best response becomes playing a mixed strategy where half the time they will play $C$ and the other half $D$. The best response for player $1$ in this case is to play a mixed quantum strategy where half the time she plays $\mathcal{U}(0,0)$, half $\mathcal{U}(0,pi/2)$.
 
 
 
@@ -575,17 +575,17 @@ If players $2$ and $3$ know that the captain has access to quantum strategies, w
 \end{figure}
 
 
-When the system is maximally entangled, if we restrict the strategic space for some players we break the cycle of optimal quantum counter-strategies suggested by \cite{Du}: when the entanglement is maximal, $\mathcal{U}(\pi, 0)$ is the optimal counter-strategy for $C$ (represented by the identity marix), $\mathcal{U}(0, \frac{\pi}{2})$ is the optimal counter strategy for $\mathcal{U}(\pi, 0)$, $D$ becomes the optimal counter-strategy for $\mathcal{U}(0, \frac{\pi}{2})$, and $C$ becomes an optimal counter strategy for $D$. This means that it is possible for a player to explore this weakness if other players are unaware. If we had a quantum gambling system, or a voting system such as in the Pirate Game, the strategic space and the entanglement are information that needs to be available for all players equally in order for them to choose their best-response.
+When the system is maximally entangled, if we restrict the strategic space for some players we break the cycle of optimal quantum counter-strategies suggested by \cite{Du}: when the entanglement is maximal, $\mathcal{U}(\pi, 0)$ is the optimal counter-strategy for $C$ (represented by the identity matrix), $\mathcal{U}(0, \frac{\pi}{2})$ is the optimal counter strategy for $\mathcal{U}(\pi, 0)$, $D$ becomes the optimal counter-strategy for $\mathcal{U}(0, \frac{\pi}{2})$, and $C$ becomes an optimal counter strategy for $D$. This means that it is possible for a player to explore this weakness if other players are unaware. If we had a quantum gambling system, or a voting system such as in the Pirate Game, the strategic space and the entanglement are information that needs to be available for all players equally in order for them to choose their best-response.
 
 
 
 \section{Conclusion}
 
 
-In works such as the Prisoner's Dilemma\cite{Letters2002}\cite{Eisert2008}, and Quantum Ultimatum Game\cite{Fra2011}, the strategic space was analysed allowing a infinity of mixed quantum strategies. Our game space was much more vast than the works previously mencioned, we used $5$ qubits to model our system, their models had no more than $3$ qubits. This imposed that in order to analyse our system while conceptualy, our strategic space is also infinite, we restricted in order to analyse. In particular we payed special interest in the strategies: $C$, $D$, $\mathcal{U}(\pi, 0)$, and $\mathcal{U}(0, \frac{\pi}{2})$. The first two mensioned strategies are the equivalent of the classical strategies ``Cooperate'' and ``Defect'', the other two are quantum strategies. Toghether these $4$ strategies when paired with the coefitients $(w,x,y,z)$ are known to span a class that contains all unitary operators. According to \cite{Du} these $4$ operators when the entanglement is maximum provided a cycle where each operator was an optimal counter strategy to other. 
+In works such as the Prisoner's Dilemma\cite{Letters2002}\cite{Eisert2008}, and Quantum Ultimatum Game\cite{Fra2011}, the strategic space was analysed allowing a infinity of mixed quantum strategies. Our game space was much more vast than the works previously mentioned, we used $5$ qubits to model our system, their models had no more than $3$ qubits. This imposed that in order to analyse our system while conceptual, our strategic space is also infinite, we restricted in order to analyse. In particular we payed special interest in the strategies: $C$, $D$, $\mathcal{U}(\pi, 0)$, and $\mathcal{U}(0, \frac{\pi}{2})$. The first two mentioned strategies are the equivalent of the classical strategies ``Cooperate'' and ``Defect'', the other two are quantum strategies. Together these $4$ strategies when paired with the coefficients $(w,x,y,z)$ are known to span a class that contains all unitary operators. According to \cite{Du} these $4$ operators when the entanglement is maximum provided a cycle where each operator was an optimal counter strategy to other. 
 
 The set-up of the initial system was crucial to introduce the phenomenon of entanglement. We concluded that without entanglement the game has a strictly determined solution and behaves as the original problem, however there are more pure strategy Nash Equilibria.
-For the $2$-player game we concluded that the expected utility when the players use a mixed strategy Nash equilibrium renders an expected utility of $(25, 25.125)$. The classical setting is more beneficial to the captain in this game, because she will receive the 100 coins. When the system is maximaly entangled and the players have access to the $4$ pure quantum strategies discussed in \cite{Du} and \cite{Letters2002}. We verify the same conclusions for the $3$-player game; like the $2$-player game, when the entanglement is maximum in an unrestricted space we found no pure-strategy Nash equilibrium.
+For the $2$-player game we concluded that the expected utility when the players use a mixed strategy Nash equilibrium renders an expected utility of $(25, 25.125)$. The classical setting is more beneficial to the captain in this game, because she will receive the 100 coins. When the system is maximally entangled and the players have access to the $4$ pure quantum strategies discussed in \cite{Du} and \cite{Letters2002}. We verify the same conclusions for the $3$-player game; like the $2$-player game, when the entanglement is maximum in an unrestricted space we found no pure-strategy Nash equilibrium.
 
 When trying to find if it is possible for the captain in the first stage of the game to acquire all gold coins we found that if the other players have a restricted set of strategies, they can only use the classical Cooperate or Defect operators, and if they don't know that the captain has access to quantum strategies, the captain will be able to get the $100$ gold coins. However if players $2$ and $3$ have a restricted set where they can only use the classical Cooperation operator, or the classical Defection operator, the player $1$ will no longer be able to acquire the 100 coins with certainty. Instead she may be able to acquire the $100$ coins with probability $\frac{1}{2}$ or end up thrown off board with equal probability.
 

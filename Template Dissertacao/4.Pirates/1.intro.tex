@@ -72,7 +72,7 @@ With 4 pirates, B would rather bribe pirate D with 1 gold coin, because E would 
 \subsubsection{Analysis of the Pirate Game for $3$ Players}
 \label{subsubsec:analysis_PG3players}
 
-In Figure \ref{fig:pg_architecturegametree:extensiveform} we have an extensive form representation of the classic Pirate Game for $3$ players. Each node in the game tree has the number of the player who will make the decision, either to Cooperate (vote yes to the proposal), or Defect. The dashed arrows represent states where the player does not have information of the current state (simultaneous move). 
+In Figure \ref{fig:pg_architecturegametree:extensiveform} we have an extensive form representation of the classic Pirate Game for $3$ players without taking into account particular values for the proposals. Each node in the game tree has the number of the player who will make the decision, either to Cooperate (vote yes to the proposal), or Defect. The dashed arrows represent states where the player does not have information of the current state (simultaneous move). 
 
 \begin{figure}[h]
 \centering 
@@ -92,7 +92,7 @@ In the initial stage of the game the captain will define $\alpha_{11}, \alpha_{1
 \forall i \in \{1 , 2, ..., N-1\} : \sum_{j=i}^{N}\alpha_{ij}=100, \forall i,j :\alpha_{ij}\in\mathbb{N}_{0}
 \end{equation}
 
-The values for $(\alpha_{11}, \alpha_{12}, \alpha_{13})=(99, 0, 1)$ will be the allocation that results in an equilibrium for the $3$ player game .
+The values for $(\alpha_{11}, \alpha_{12}, \alpha_{13})=(99, 0, 1)$ will be the allocation that results in an equilibrium for the $3$ player game . To account for all possible proposals would be overwhelming from the point of the game tree. However from the formulation of the problem, the pirates know the share proposal before voting. This means we will concentrate our analysis on the voting aspect. For each specification of the values $\alpha_{ij}$ we will have a different game. 
 
 The proposed goods allocation will be executed if there is a majority (or a tie), in the voting step. A step in the game consists on the highest ranking pirate defining a proposal and the subsequent vote, where all players choose simultaneously an operator. 
 

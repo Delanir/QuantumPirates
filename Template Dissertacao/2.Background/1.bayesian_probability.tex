@@ -252,6 +252,7 @@ In this simplification of the Roulette we have $3$ states:
 
 We indifferently assign an index to each state, in order to construct the mixed state vector as in \ref{eq:prob_mixed_vector}. Having the mixed state vectors defined the next step is to use them to create the stochastic matrix that has specified every transition \ref{eq:prob_markov_matrix}.
 
+\begin{comment}
 \begin{equation}
 \label{eq:prob_markov_matrix}
 R=\left[\begin{array}{ccc}
@@ -264,8 +265,20 @@ p_{0B} & p_{0R} & p_{00}
 0.48 & 0.48 & 0.04
 \end{array}\right]
 \end{equation}
+\end{comment}
 
-
+\begin{equation}
+\label{eq:prob_markov_matrix}
+R=\left[\begin{array}{ccc}
+p_{BB} & p_{RB} & p_{0B}\\
+p_{BR} & p_{RR} & p_{0R}\\
+p_{B0} &p_{R0}  & p_{00}
+\end{array}\right] = \left[\begin{array}{ccc}
+0.48 & 0.48 & 0.48\\
+0.48 & 0.48 &0.48\\
+0.04 &  0.04 & 0.04
+\end{array}\right]
+\end{equation}
 
 
 
